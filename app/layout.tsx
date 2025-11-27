@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = {
-  // 🔗 Change this to your real production URL when deployed
-  metadataBase: new URL("https://rajiv-portfolio-delta.vercel.app"),
+  // ✅ Now using your real production URL
+  metadataBase: new URL("https://www.rajivbhandari.com"),
 
   title: {
     default: "Rajiv Bhandari | ICT Support & Full Stack Developer",
@@ -17,20 +17,21 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Rajiv Bhandari, an ICT Support Specialist and Full Stack Developer based in Adelaide, Australia.",
 
+  // ✅ Canonical as full absolute URL (good for SEO)
   alternates: {
-    canonical: "/",
+    canonical: "https://www.rajivbhandari.com",
   },
 
   openGraph: {
     title: "Rajiv Bhandari | ICT Support & Full Stack Developer",
     description:
       "ICT Support Level 1/2 and full stack web development. Real client projects – Glide Education & Visa Services, Prime Roof Care and more.",
-    url: "/",
+    url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari – Portfolio",
     type: "profile",
     images: [
       {
-        // 👉 Put a 1200x630 image at public/og-image.png
+        // 🔹 Put a 1200x630 image at public/og-image.png
         url: "/og-image.png",
         width: 1200,
         height: 630,
@@ -70,6 +71,13 @@ export const metadata: Metadata = {
       url: "https://www.linkedin.com/in/rajiv-bhandari25/",
     },
   ],
+
+  // 🔹 Optional but nice: favicon & app icons
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
