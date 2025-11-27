@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceAndProjects from "@/components/ExperienceAndProjects";
 import TechStack from "@/components/TechStack";
 import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <TechStack />
       <ExperienceAndProjects />
       <ContactSection />
+      <Footer />
     </main>
   );
 }

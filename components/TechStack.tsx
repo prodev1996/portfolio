@@ -2,136 +2,131 @@
 
 import { motion } from "framer-motion";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      delay: 0.05 * i,
-      ease: "easeOut",
-    },
-  }),
-};
-
-type SkillGroup = {
-  label: string;
-  items: string[];
-};
-
-const webDev: SkillGroup = {
-  label: "Web development",
-  items: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind CSS",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "MySQL",
-    "REST APIs",
-  ],
-};
-
-const infraSupport: SkillGroup = {
-  label: "Infrastructure & support",
-  items: [
-    "Windows 10 / 11",
-    "Windows Server (basics)",
-    "Active Directory",
-    "Azure AD",
-    "Microsoft 365 (Exchange, Teams, SharePoint, OneDrive)",
-    "DNS / DHCP",
-    "VPN & remote access",
-    "Networking (LAN, Wi-Fi, VLANs)",
-    "Endpoint setup & hardening",
-    "Remote support tools",
-  ],
-};
-
-const toolsProcess: SkillGroup = {
-  label: "Tools & ways of working",
-  items: [
-    "Git & GitHub",
-    "VS Code",
-    "Postman",
-    "Ticketing & monitoring tools",
-    "Jira / Confluence / Notion (basics)",
-    "Technical documentation & user guides",
-    "End-user training & workshops",
-    "Incident & problem management",
-  ],
-};
-
-function SkillPill({ label }: { label: string }) {
-  return (
-    <motion.span
-      whileHover={{ y: -2, scale: 1.03 }}
-      transition={{ type: "spring", stiffness: 260, damping: 18 }}
-      className="inline-flex items-center rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-xs text-slate-100 shadow-sm"
-    >
-      {label}
-    </motion.span>
-  );
-}
+const skills = [
+  {
+    title: "Infrastructure & Support",
+    items: [
+      "Windows 10/11",
+      "Active Directory",
+      "Microsoft 365",
+      "Azure AD",
+      "Exchange / Outlook",
+      "Intune & Endpoint Manager",
+      "VPN & Remote Access",
+    ],
+  },
+  {
+    title: "Networking & Systems",
+    items: [
+      "Network Design",
+      "Switching & Routing",
+      "VLAN / WLAN",
+      "Firewalls",
+      "DNS / DHCP",
+      "VPN (Site & Client)",
+    ],
+  },
+  {
+    title: "Development",
+    items: [
+      "JavaScript / TypeScript",
+      "React & Next.js",
+      "Node.js",
+      "Python",
+      "Django",
+      "REST APIs",
+      "MySQL / MongoDB",
+    ],
+  },
+  {
+    title: "Tools & Practices",
+    items: [
+      "Ticketing Systems",
+      "Monitoring & Alerts",
+      "CI/CD basics",
+      "Git & GitHub",
+      "Documentation",
+      "End-user Training",
+    ],
+  },
+];
 
 export default function TechStack() {
-  const groups: SkillGroup[] = [webDev, infraSupport, toolsProcess];
-
   return (
-    <section id="skills" className="border-t border-slate-800/60 bg-slate-950">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 lg:gap-10 lg:py-20">
-        {/* Section header */}
+    <section
+      id="skills"
+      className="relative scroll-mt-28 border-t border-slate-800/60 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-950/95 py-16 sm:py-24"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
+      </div>
+
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
+              Core Skills
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
+              The toolkit I bring to your team
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm text-slate-400 sm:text-[15px]">
+              I combine **hands-on IT support** experience with **modern full-stack
+              development**, so I can own both infrastructure and product-side work –
+              from fixing a VPN issue to shipping a new feature.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-emerald-400/40 bg-slate-950/60 px-4 py-3 text-xs text-slate-200 shadow-[0_18px_40px_rgba(16,185,129,0.35)] sm:max-w-xs">
+            <p className="font-medium text-emerald-300">
+              What this means for you
+            </p>
+            <p className="mt-1 text-[11px] text-slate-300">
+              Less back-and-forth between “devs” and “IT” – I can talk both
+              languages and help close the gap.
+            </p>
+          </div>
+        </div>
+
+        {/* Skill grid */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.4 }}
-          className="max-w-3xl"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
-            Skills
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Tech stack I work with
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-300">
-            I am comfortable moving between{" "}
-            <span className="text-emerald-300">
-              hands-on ICT support, systems work and modern web development
-            </span>
-            . This is a snapshot of the technologies and practices I use most
-            often to deliver reliable, user-friendly solutions.
-          </p>
-        </motion.div>
-
-        {/* Skill groups */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {groups.map((group, index) => (
+          {skills.map((group, groupIndex) => (
             <motion.div
-              key={group.label}
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.35 }}
-              className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 shadow-[0_0_40px_rgba(15,23,42,0.85)]"
+              key={group.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.45,
+                delay: 0.08 * groupIndex,
+                ease: "easeOut",
+              }}
+              className="relative overflow-hidden rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-950/95 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.95)]"
             >
-              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                {group.label}
-              </h3>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <SkillPill key={item} label={item} />
-                ))}
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_55%)]" />
+              <div className="relative">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                  {group.title}
+                </h3>
+                <ul className="mt-3 space-y-1.5 text-[13px] text-slate-300">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400/90 shadow-[0_0_0_4px_rgba(16,185,129,0.25)]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,269 +1,141 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  X,
-  ExternalLink,
-  Github,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { X, ExternalLink, Github } from "lucide-react";
 
-export type ProjectScreenshot = {
-  src: string;
-  alt: string;
-};
-
-export type Project = {
+type Project = {
   id: string;
-  name: string;
-  subtitle?: string;
+  title: string;
   role: string;
-  timeline?: string;
-  summary: string;
-  techStack: string[];
-  highlights: string[];
-  liveUrl: string;
-  githubUrl?: string;
-  screenshots?: ProjectScreenshot[]; // 👈 NEW
+  companyTag?: string;
+  description: string;
+  tech: string[];
+  impact: string;
+  liveUrl?: string;
+  codeUrl?: string;
 };
 
-interface ProjectModalProps {
-  open: boolean;
+type ProjectModalProps = {
+  isOpen: boolean;
   project: Project | null;
   onClose: () => void;
-}
+};
 
 export default function ProjectModal({
-  open,
+  isOpen,
   project,
   onClose,
 }: ProjectModalProps) {
-  const [currentScreenshot, setCurrentScreenshot] = useState(0);
-
-  // Reset screenshot index when project changes or modal opens
-  useEffect(() => {
-    if (open) {
-      setCurrentScreenshot(0);
-    }
-  }, [open, project?.id]);
-
-  // Close on ESC
-  useEffect(() => {
-    if (!open) return;
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
-    }
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [open, onClose]);
-
-  const hasScreenshots = !!project?.screenshots && project.screenshots.length > 0;
-
-  function showPrev() {
-    if (!project?.screenshots) return;
-    setCurrentScreenshot((prev) =>
-      prev === 0 ? project.screenshots!.length - 1 : prev - 1
-    );
-  }
-
-  function showNext() {
-    if (!project?.screenshots) return;
-    setCurrentScreenshot((prev) =>
-      prev === project.screenshots!.length - 1 ? 0 : prev + 1
-    );
-  }
-
   return (
     <AnimatePresence>
-      {open && project && (
+      {isOpen && project && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}
         >
-          {/* Panel */}
           <motion.div
-            className="relative mx-3 max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-3xl border border-slate-800 bg-slate-950/95 shadow-soft"
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 24, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 26 }}
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={project.title}
+            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.96 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="relative max-h-[85vh] w-full max-w-2xl overflow-hidden rounded-3xl border border-slate-800/90 bg-gradient-to-b from-slate-900/95 via-slate-950 to-slate-950 shadow-[0_28px_80px_rgba(15,23,42,1)]"
           >
-            {/* Close button */}
+            {/* close button – put on top of everything */}
             <button
+              type="button"
               onClick={onClose}
-              className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 hover:border-slate-500 hover:text-slate-50"
+              className="absolute right-4 top-3 z-20 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/90 text-slate-300 shadow-[0_12px_30px_rgba(15,23,42,0.9)] transition-colors hover:border-emerald-400/70 hover:text-emerald-200"
               aria-label="Close project details"
             >
-              <X size={16} />
+              <X className="h-4 w-4" />
             </button>
 
-            <div className="grid gap-5 p-5 md:grid-cols-[1.6fr,1.2fr] md:p-6">
-              {/* LEFT: Screenshots + Overview */}
-              <div className="flex flex-col gap-4 overflow-y-auto pr-1 md:max-h-[65vh]">
-                {/* Screenshot carousel */}
-                {hasScreenshots && (
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
-                    <div className="relative h-52 w-full md:h-60">
-                      <motion.img
-                        key={project.screenshots![currentScreenshot].src}
-                        src={project.screenshots![currentScreenshot].src}
-                        alt={project.screenshots![currentScreenshot].alt}
-                        className="h-full w-full object-cover"
-                        initial={{ opacity: 0.2, scale: 1.02 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </div>
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.28),_transparent_55%)] opacity-80" />
 
-                    {/* Left/right buttons */}
-                    {project.screenshots!.length > 1 && (
-                      <>
-                        <button
-                          type="button"
-                          onClick={showPrev}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-1.5 text-slate-200 hover:border-slate-500"
-                          aria-label="Previous screenshot"
-                        >
-                          <ChevronLeft size={16} />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={showNext}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-1.5 text-slate-200 hover:border-slate-500"
-                          aria-label="Next screenshot"
-                        >
-                          <ChevronRight size={16} />
-                        </button>
-                      </>
-                    )}
-
-                    {/* Dots */}
-                    {project.screenshots!.length > 1 && (
-                      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
-                        {project.screenshots!.map((_, idx) => (
-                          <button
-                            key={idx}
-                            type="button"
-                            onClick={() => setCurrentScreenshot(idx)}
-                            className={`h-1.5 rounded-full transition-all ${
-                              idx === currentScreenshot
-                                ? "w-4 bg-primary"
-                                : "w-2 bg-slate-600"
-                            }`}
-                            aria-label={`Go to screenshot ${idx + 1}`}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Overview text */}
-                <div className="space-y-3 text-sm text-slate-200">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                      Project
-                    </p>
-                    <h2 className="text-lg font-semibold text-slate-50">
-                      {project.name}
+            <div className="relative flex max-h-[85vh] flex-col overflow-y-auto px-5 pb-5 pt-6 sm:px-7">
+              {/* Header */}
+              <div className="flex flex-wrap items-start justify-between gap-3 pb-3 sm:pb-4">
+                <div className="pr-10">
+                  <div className="inline-flex flex-wrap items-center gap-2">
+                    <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl">
+                      {project.title}
                     </h2>
-                    {project.subtitle && (
-                      <p className="text-xs text-slate-400">
-                        {project.subtitle}
-                      </p>
+                    {project.companyTag && (
+                      <span className="rounded-full border border-emerald-400/50 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-emerald-200">
+                        {project.companyTag}
+                      </span>
                     )}
                   </div>
-
-                  <div className="text-xs text-slate-300">
-                    <p className="font-semibold text-slate-200">
-                      Role: <span className="font-normal">{project.role}</span>
-                    </p>
-                    {project.timeline && (
-                      <p className="mt-0.5 text-slate-400">
-                        Timeline: {project.timeline}
-                      </p>
-                    )}
-                  </div>
-
-                  <p className="text-xs leading-relaxed text-slate-300">
-                    {project.summary}
+                  <p className="mt-1 text-[13px] text-slate-300">
+                    {project.role}
                   </p>
+                </div>
 
-                  <div>
-                    <p className="mb-1 text-xs font-semibold text-slate-200">
-                      Key Contributions
-                    </p>
-                    <ul className="space-y-1.5 text-xs text-slate-300">
-                      {project.highlights.map((h) => (
-                        <li key={h} className="flex gap-2">
-                          <span className="mt-[6px] h-1 w-1 rounded-full bg-primary" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/60 bg-emerald-500/90 px-3 py-1.5 text-[12px] font-medium text-slate-950 shadow-[0_18px_40px_rgba(16,185,129,0.75)] transition-transform hover:-translate-y-0.5"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      <span>View live</span>
+                    </a>
+                  )}
+                  {project.codeUrl && (
+                    <a
+                      href={project.codeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-900/90 px-3 py-1.5 text-[12px] font-medium text-slate-100 transition-colors hover:border-emerald-400/70 hover:text-emerald-200"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      <span>Source</span>
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* RIGHT: Tech & links */}
-              <div className="flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs">
+              {/* Content */}
+              <div className="space-y-4 border-t border-slate-800/70 pt-4 text-[13px] text-slate-300">
                 <div>
-                  <p className="mb-2 text-xs font-semibold text-slate-200">
+                  <p>{project.description}</p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-800/80 bg-slate-900/70 px-3.5 py-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                    Why this project matters
+                  </p>
+                  <p className="mt-1.5 text-[13px] text-slate-200">
+                    {project.impact}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     Tech stack
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((t) => (
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {project.tech.map((tech) => (
                       <span
-                        key={t}
-                        className="rounded-full border border-slate-700 bg-slate-950/70 px-2.5 py-1 text-[11px] text-slate-200"
+                        key={tech}
+                        className="rounded-full border border-slate-700/80 bg-slate-900/80 px-2.5 py-0.5 text-[11px] text-slate-200"
                       >
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-1 space-y-2">
-                  <p className="text-xs font-semibold text-slate-200">Links</p>
-                  <div className="flex flex-wrap gap-2">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1.5 text-[11px] font-medium text-white hover:bg-primary/90"
-                    >
-                      <ExternalLink size={13} />
-                      <span>View live site</span>
-                    </a>
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-100 hover:border-slate-500"
-                      >
-                        <Github size={13} />
-                        <span>View source</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <p className="mt-auto text-[11px] text-slate-400">
-                  Tip: Use this project to highlight both your{" "}
-                  <span className="text-slate-200">
-                    ICT support skills (DNS, hosting, deployments)
-                  </span>{" "}
-                  and your{" "}
-                  <span className="text-slate-200">
-                    modern web development experience.
-                  </span>
+                <p className="text-[11px] text-slate-500">
+                  Happy to walk through the architecture, trade-offs and what I would
+                  improve next in an interview.
                 </p>
               </div>
             </div>
