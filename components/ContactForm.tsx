@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
+const CONTACT_EMAIL = "bhandarirajiv25@gmail.com";
+const EMAILJS_PUBLIC_KEY = "OLTsoARhv6m_4OIgP";
+const EMAILJS_SERVICE_ID = "service_4mxxm3l";
+const EMAILJS_TEMPLATE_ID = "template_j7r3aiv";
+
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
@@ -15,7 +20,9 @@ export default function ContactForm() {
   });
 
   useEffect(() => {
-    emailjs.init("OLTsoARhv6m_4OIgP");
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY,
+    });
   }, []);
 
   function handleChange(
@@ -30,17 +37,27 @@ export default function ContactForm() {
     setFeedback("");
 
     try {
-      await emailjs.send("service_4mxxm3l", "template_j7r3aiv", {
-        name: formData.name,
-        email: formData.email,
-        time: new Date().toLocaleString(),
-        message: formData.message,
-      });
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          time: new Date().toLocaleString(),
+          message: formData.message,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      );
 
       setFeedback("Your message has been sent successfully.");
       setFormData({ name: "", email: "", message: "" });
-    } catch {
-      setFeedback("Something went wrong while sending your message.");
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      setFeedback(
+        `The form could not send right now. Please email me directly at ${CONTACT_EMAIL}.`
+      );
     } finally {
       setLoading(false);
     }
@@ -61,6 +78,16 @@ export default function ContactForm() {
       <h3 className="mt-2 text-[1.4rem] font-semibold text-[#1d2d25]">Send a message</h3>
       <p className="mt-2 text-sm leading-6 text-[#5e6f65]">
         The easiest way to reach me for roles, projects, or introductions.
+      </p>
+      <p className="mt-2 text-xs leading-6 text-[#738179]">
+        If the form ever fails, you can always email me directly at{" "}
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="font-medium text-[#1f9d72] underline-offset-4 hover:underline"
+        >
+          {CONTACT_EMAIL}
+        </a>
+        .
       </p>
 
       <div className="mt-4 space-y-3.5">
