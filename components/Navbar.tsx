@@ -44,6 +44,22 @@ export default function Navbar() {
       const headerHeight =
         document.querySelector("header")?.getBoundingClientRect().height ?? 104;
       const marker = headerHeight + 20;
+      const currentHash = window.location.hash;
+      const hashMatch = homeLinks.find((link) => link.href === currentHash);
+
+      if (hashMatch) {
+        const target = document.querySelector(hashMatch.href);
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          const hashSectionInView =
+            rect.top <= window.innerHeight * 0.42 && rect.bottom > marker;
+
+          if (hashSectionInView) {
+            setActive(hashMatch.name);
+            return;
+          }
+        }
+      }
 
       let currentSection = homeLinks[0]?.name ?? "Home";
       let closestSection = currentSection;
