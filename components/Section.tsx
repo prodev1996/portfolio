@@ -23,7 +23,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-40 py-16 sm:py-20 ${className}`}
+      className={`scroll-mt-52 py-16 sm:py-20 ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 22 }}

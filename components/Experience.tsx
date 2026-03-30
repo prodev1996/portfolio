@@ -68,7 +68,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="section-shell mt-20 scroll-mt-40 px-6 py-16 sm:px-8 lg:px-10"
+      className="section-shell mt-20 scroll-mt-52 px-6 py-16 sm:px-8 lg:px-10"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">

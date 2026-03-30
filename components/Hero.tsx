@@ -51,7 +51,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative scroll-mt-40 overflow-hidden px-6 pb-14 pt-10 sm:px-8 sm:pt-12 lg:px-10"
+      className="relative scroll-mt-52 overflow-hidden px-6 pb-14 pt-10 sm:px-8 sm:pt-12 lg:px-10"
     >
       <div className="pointer-events-none absolute inset-0 hero-smoke" />
       <motion.div

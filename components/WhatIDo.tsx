@@ -35,7 +35,7 @@ export default function WhatIDo() {
   return (
     <section
       id="what-i-do"
-      className="section-shell mt-16 scroll-mt-40 px-6 py-16 sm:px-8 lg:px-10"
+      className="section-shell mt-16 scroll-mt-52 px-6 py-16 sm:px-8 lg:px-10"
     >
       <div className="mx-auto max-w-6xl">
         <motion.div

@@ -27,7 +27,7 @@ export default function DataJourney() {
   return (
     <section
       id="data-journey"
-      className="section-shell mt-20 scroll-mt-40 px-6 py-16 sm:px-8 lg:px-10"
+      className="section-shell mt-20 scroll-mt-52 px-6 py-16 sm:px-8 lg:px-10"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
