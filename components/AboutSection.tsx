@@ -1,98 +1,112 @@
-// components/AboutSection.tsx
 "use client";
 
+import Section from "@/components/Section";
 import { motion } from "framer-motion";
-import Section from "./Section";
+import {
+  FaHeadset,
+  FaClipboardCheck,
+  FaUsers,
+  FaDatabase,
+} from "react-icons/fa";
+
+const valueCards = [
+  {
+    icon: <FaHeadset />,
+    title: "User Support",
+    text: "Comfortable supporting users, handling issues patiently, and communicating clearly with both technical and non-technical people.",
+  },
+  {
+    icon: <FaClipboardCheck />,
+    title: "Reliable Delivery",
+    text: "I value consistency, documentation, follow-through, and getting practical work done properly in real business environments.",
+  },
+  {
+    icon: <FaUsers />,
+    title: "Team Fit",
+    text: "I work well across operations, support, and project work, which helps me fit into mixed technical and business teams.",
+  },
+  {
+    icon: <FaDatabase />,
+    title: "Data Awareness",
+    text: "I also bring structured thinking around records, reporting, admin workflows, and improving how information is managed.",
+  },
+];
 
 export default function AboutSection() {
   return (
-    <Section id="about" eyebrow="About" title="A bit about me">
-      <div className="space-y-10">
-        {/* Intro */}
+    <Section
+      id="about"
+      eyebrow="About Me"
+      title="Support-first, practical, and ready for real business environments"
+      subtitle="My background combines technical support, digital tools, business operations, documentation, and client-facing website work. That gives me a practical foundation for Australian IT support and support analyst roles."
+      className="bg-slate-950/70"
+    >
+      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
-          className="space-y-4 text-sm leading-relaxed text-slate-200 max-w-3xl"
+          transition={{ duration: 0.45 }}
+          className="rounded-3xl border border-slate-800/80 bg-slate-950/95 p-6 sm:p-8"
         >
-          <p className="text-emerald-300 text-xs font-semibold tracking-[0.25em] uppercase">
-            Tech-driven. Curious. Always improving.
+          <p className="text-sm leading-8 text-slate-300 sm:text-[15px]">
+            I’m an Adelaide-based ICT professional with experience in user
+            support, Microsoft 365, troubleshooting, documentation, website
+            administration, and day-to-day digital operations. My work has
+            included helping users, supporting systems, managing updates,
+            maintaining records, and delivering practical solutions that are
+            useful in real business settings.
           </p>
 
-          <p>
-            I work across both ICT operations and modern web development, combining
-            hands-on technical support experience with practical full-stack development
-            skills. My background includes Windows systems, Microsoft 365, Active
-            Directory, Azure services, networking fundamentals, and development using
-            <span className="font-semibold"> React, Next.js, Node.js, MongoDB, and MySQL</span>.
+          <p className="mt-5 text-sm leading-8 text-slate-300 sm:text-[15px]">
+            What makes my profile strong is that I’m not only technical. I also
+            understand reliability, communication, structured work, and how
+            technology supports daily operations. That makes me a good fit for
+            roles where employers need someone dependable, adaptable, and able
+            to solve issues calmly.
           </p>
 
-          <p>
-            I have contributed to real-world projects such as{" "}
-            <span className="text-emerald-400 font-semibold">
-              Glide Education & Visa Services
-            </span>{" "}
-            and{" "}
-            <span className="text-emerald-400 font-semibold">Prime Roof Care</span>. My work has
-            included user interface development, backend integrations, DNS and hosting
-            configuration, performance optimisation, deployment, and ongoing support.
+          <p className="mt-5 text-sm leading-8 text-slate-300 sm:text-[15px]">
+            I’m especially interested in roles such as IT Support, ICT Support,
+            Service Desk, Support Analyst, Application Support, and positions
+            that combine support with reporting, systems administration, or
+            process improvement.
           </p>
 
-          <p>
-            I enjoy solving problems across a wide range of technical areas, whether
-            they involve end-user support, system administration, automation,
-            troubleshooting, or building clean and user-focused web interfaces. I work 
-            calmly in busy environments, communicate clearly, and take ownership of 
-            delivering consistent and reliable results.
-          </p>
-
-          <p>
-            I am currently open to opportunities in{" "}
-            <span className="font-semibold">
-              ICT support, full-stack development, frontend engineering, cloud and Microsoft
-              365 environments, and hybrid technical roles
-            </span>{" "}
-            where I can contribute meaningfully while continuing to learn and grow.
-          </p>
-        </motion.div>
-
-        {/* Two value cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35, delay: 0.05 }}
-          className="grid gap-6 md:grid-cols-2"
-        >
-          {/* Strengths */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 text-xs text-slate-200 shadow-[0_18px_60px_rgba(0,0,0,0.5)]">
-            <h3 className="mb-3 text-[0.7rem] font-semibold tracking-[0.22em] text-slate-400 uppercase">
-              Strengths I bring
-            </h3>
-            <ul className="space-y-2 list-disc list-inside">
-              <li>Strong analytical and troubleshooting abilities across systems, applications, and networks.</li>
-              <li>Experience building clean, modern web applications using React and Next.js.</li>
-              <li>Clear and patient communication with both technical and non-technical users.</li>
-              <li>Consistent focus on documentation, process improvement, and reliability.</li>
-              <li>Ability to work comfortably across support, development, and cloud environments.</li>
-            </ul>
-          </div>
-
-          {/* Growth areas */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 text-xs text-slate-200 shadow-[0_18px_60px_rgba(0,0,0,0.5)]">
-            <h3 className="mb-3 text-[0.7rem] font-semibold tracking-[0.22em] text-slate-400 uppercase">
-              What I am currently developing
-            </h3>
-            <ul className="space-y-2 list-disc list-inside">
-              <li>Modern workplace technologies such as Intune and Azure Active Directory.</li>
-              <li>Advanced UI and performance optimisation in React and Next.js.</li>
-              <li>Automation and scripting with PowerShell, Node.js, and APIs.</li>
-              <li>Improved deployment, CI/CD, and production monitoring practices.</li>
-              <li>Becoming a well-rounded contributor within dynamic technical teams.</li>
-            </ul>
+          <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-4">
+            <p className="text-sm leading-7 text-slate-300">
+              My goal is simple: join a strong team, support users well, keep
+              systems running smoothly, and continue growing into higher-value
+              support and data-focused roles over time.
+            </p>
           </div>
         </motion.div>
+
+        <div className="grid gap-4">
+          {valueCards.map((card, index) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="rounded-3xl border border-slate-800/80 bg-slate-950/95 p-6"
+            >
+              <div className="flex items-center gap-3">
+                <div className="rounded-2xl border border-emerald-400/25 bg-emerald-400/10 p-3 text-emerald-300">
+                  {card.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-slate-50">
+                  {card.title}
+                </h3>
+              </div>
+
+              <p className="mt-4 text-sm leading-7 text-slate-400">
+                {card.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );

@@ -1,4 +1,4 @@
-// app/layout.tsx
+﻿// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -6,73 +6,62 @@ import Navbar from "@/components/Navbar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = {
-  // ✅ Now using your real production URL
   metadataBase: new URL("https://www.rajivbhandari.com"),
-
   title: {
-    default: "Rajiv Bhandari | ICT Support & Full Stack Developer",
+    default: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
     template: "%s | Rajiv Bhandari",
   },
-
   description:
-    "Portfolio of Rajiv Bhandari, an ICT Support Specialist and Full Stack Developer based in Adelaide, Australia.",
-
-  // ✅ Canonical as full absolute URL (good for SEO)
+    "Portfolio of Rajiv Bhandari, an Adelaide-based technical professional with strengths in application support, full stack web development, and an active transition into data analytics.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
-
   openGraph: {
-    title: "Rajiv Bhandari | ICT Support & Full Stack Developer",
+    title: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
     description:
-      "ICT Support Level 1/2 and full stack web development. Real client projects – Glide Education & Visa Services, Prime Roof Care and more.",
+      "Application support, user-focused technical problem solving, full stack web delivery, and a growing transition into data analyst work.",
     url: "https://www.rajivbhandari.com",
-    siteName: "Rajiv Bhandari – Portfolio",
+    siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
     images: [
       {
-        // 🔹 Put a 1200x630 image at public/og-image.png
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Screenshot of Rajiv Bhandari's portfolio website",
+        alt: "Rajiv Bhandari portfolio website",
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | ICT Support & Full Stack Developer",
+    title: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
     description:
-      "ICT Support Specialist & Full Stack Developer in Adelaide. Microsoft 365, Windows/AD, networking, React, Next.js & Django.",
+      "Adelaide-based technical professional with strengths across application support, web development, and a data analyst transition path.",
     images: ["/og-image.png"],
   },
-
   keywords: [
     "Rajiv Bhandari",
+    "Application Support",
     "ICT Support",
     "IT Support",
-    "Helpdesk",
     "Service Desk",
-    "Systems Administrator",
+    "Support Analyst",
     "Full Stack Developer",
     "React",
     "Next.js",
     "Django",
+    "SQL",
+    "Power BI",
+    "Excel",
+    "Data Analyst",
     "Adelaide",
-    "Microsoft 365",
-    "Windows 10",
-    "Active Directory",
   ],
-
   authors: [
     {
       name: "Rajiv Bhandari",
       url: "https://www.linkedin.com/in/rajiv-bhandari25/",
     },
   ],
-
-  // 🔹 Optional but nice: favicon & app icons
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -82,21 +71,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#020617] text-slate-50 antialiased">
-        {/* Top navigation */}
+      <body className="min-h-screen bg-[#f7f2e9] text-[#203128] antialiased">
         <Navbar />
-
-        {/* Main page content */}
-        <main className="mx-auto flex max-w-6xl flex-col gap-16 px-4 pb-16 pt-24 lg:pt-28">
+        <main className="flex min-h-screen flex-col pb-16 pt-24 lg:pt-28">
           {children}
         </main>
-
-        {/* Floating scroll-to-top button */}
         <ScrollToTopButton />
       </body>
     </html>

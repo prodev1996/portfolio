@@ -1,20 +1,23 @@
-// app/page.tsx
-import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
-import ExperienceAndProjects from "@/components/ExperienceAndProjects";
+﻿import Hero from "@/components/Hero";
+import WhatIDo from "@/components/WhatIDo";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import TechStack from "@/components/TechStack";
+import DataJourney from "@/components/DataJourney";
+import Experience from "@/components/Experience";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="pt-8 lg:pt-10">
+    <>
       <Hero />
-      <AboutSection />
+      <WhatIDo />
+      <FeaturedProjects />
       <TechStack />
-      <ExperienceAndProjects />
+      <DataJourney />
+      <Experience />
       <ContactSection />
       <Footer />
-    </main>
+    </>
   );
 }

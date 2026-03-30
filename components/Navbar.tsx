@@ -1,336 +1,189 @@
-"use client";
+﻿"use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState, MouseEvent } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
-type NavItem = { label: string; href: string };
-
-const navItems: NavItem[] = [
-  { label: "Home", href: "#top" },
-  { label: "Experience", href: "#experience" },
-  { label: "Who I am", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+const homeLinks = [
+  { name: "Home", href: "#home" },
+  { name: "Strengths", href: "#what-i-do" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#tech-stack" },
+  { name: "Data Path", href: "#data-journey" },
+  { name: "Experience", href: "#experience" },
+  { name: "Contact", href: "#contact" },
 ];
-
-function getSectionIdFromHref(href: string) {
-  if (href.startsWith("/#")) return href.slice(2);
-  if (href.startsWith("#")) return href.slice(1);
-  return href;
-}
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const isOnResumePage = pathname === "/resume";
+  const isResumePage = pathname === "/resume";
 
-  const sectionIds = useMemo(
-    () => navItems.map((i) => getSectionIdFromHref(i.href)),
-    [],
-  );
+  const [active, setActive] = useState("Home");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const [activeSection, setActiveSection] = useState<string>("top");
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  // Theme
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-  const [mounted, setMounted] = useState(false);
-
-  const headerRef = useRef<HTMLElement | null>(null);
-
-  // ---------- Theme setup ----------
   useEffect(() => {
-    setMounted(true);
-    if (typeof window === "undefined") return;
+    if (isResumePage) return;
 
-    const root = window.document.documentElement;
-    const stored = window.localStorage.getItem("theme");
+    const sections = homeLinks
+      .map((link) => document.querySelector(link.href))
+      .filter(Boolean) as Element[];
 
-    if (stored === "light" || stored === "dark") {
-      root.classList.toggle("dark", stored === "dark");
-      setTheme(stored);
-      return;
-    }
+    const updateNavigationState = () => {
+      setScrolled(window.scrollY > 12);
 
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    root.classList.toggle("dark", prefersDark);
-    setTheme(prefersDark ? "dark" : "light");
-  }, []);
+      const marker = window.innerHeight * 0.24;
+      let currentSection = homeLinks[0]?.name ?? "Home";
 
-  const toggleTheme = () => {
-    if (!mounted || typeof window === "undefined") return;
-    const nextTheme: "light" | "dark" = theme === "dark" ? "light" : "dark";
-    const root = window.document.documentElement;
-    root.classList.toggle("dark", nextTheme === "dark");
-    window.localStorage.setItem("theme", nextTheme);
-    setTheme(nextTheme);
-  };
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top - marker <= 0) {
+          const match = homeLinks.find(
+            (link) => link.href === `#${section.id}`
+          );
+          if (match) currentSection = match.name;
+        }
+      });
 
-  // ---------- Lock scroll on mobile menu ----------
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+      setActive(currentSection);
+    };
+
+    updateNavigationState();
+    window.addEventListener("scroll", updateNavigationState);
+    window.addEventListener("resize", updateNavigationState);
+
     return () => {
-      document.body.style.overflow = "";
+      window.removeEventListener("scroll", updateNavigationState);
+      window.removeEventListener("resize", updateNavigationState);
     };
-  }, [isMobileOpen]);
-
-  // ---------- Close mobile on route change ----------
-  useEffect(() => {
-    setIsMobileOpen(false);
-  }, [pathname]);
-
-  // ---------- ESC closes ----------
-  useEffect(() => {
-    if (!isMobileOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsMobileOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isMobileOpen]);
-
-  // ---------- Observe sections on home page ----------
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (pathname !== "/") return;
-
-    const headerHeight = headerRef.current?.getBoundingClientRect().height ?? 80;
-
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-
-    if (!elements.length) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
-        if (!visible?.target?.id) return;
-        setActiveSection(visible.target.id);
-      },
-      {
-        root: null,
-        rootMargin: `-${Math.round(headerHeight + 10)}px 0px -60% 0px`,
-        threshold: [0.12, 0.2, 0.35, 0.5, 0.7],
-      },
-    );
-
-    elements.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [pathname, sectionIds]);
-
-  // ---------- Smooth scroll ----------
-  const navigateToSection = (sectionId: string) => {
-    if (typeof window === "undefined") return;
-
-    setActiveSection(sectionId);
-
-    if (pathname !== "/") {
-      router.push(`/#${sectionId}`);
-      setIsMobileOpen(false);
-      return;
-    }
-
-    const target = document.getElementById(sectionId);
-    const headerHeight = headerRef.current?.getBoundingClientRect().height ?? 80;
-
-    if (target) {
-      const rect = target.getBoundingClientRect();
-      const top = window.scrollY + rect.top - headerHeight;
-      window.scrollTo({ top, behavior: "smooth" });
-      window.history.pushState(null, "", `#${sectionId}`);
-    } else if (sectionId === "top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", "#top");
-    }
-
-    setIsMobileOpen(false);
-  };
-
-  const handleNavClick =
-    (href: string) =>
-    (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-      event.preventDefault();
-      navigateToSection(getSectionIdFromHref(href));
-    };
+  }, [isResumePage]);
 
   return (
-    <header
-      ref={(el) => {
-        headerRef.current = el;
-      }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-slate-800/60 bg-slate-950/70 backdrop-blur-xl"
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
-        {/* Left: terminal-ish brand */}
-        <button
-          type="button"
-          onClick={() => navigateToSection("top")}
-          className="group inline-flex items-center gap-3"
-          aria-label="Go to top"
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6 ${
+          scrolled
+            ? "border-[#d7dfd8] bg-[#fffaf2]/92 shadow-[0_18px_40px_rgba(118,103,79,0.12)]"
+            : "border-white/60 bg-white/68"
+        }`}
+      >
+        <Link
+          href="/"
+          className="text-base font-semibold tracking-[0.08em] text-[#223128] sm:text-lg"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-emerald-400/35 bg-gradient-to-tr from-emerald-500/25 via-emerald-400/15 to-cyan-400/20 shadow-[0_18px_40px_rgba(16,185,129,0.35)]">
-            <span className="pointer-events-none absolute inset-px rounded-[18px] bg-slate-950/40 backdrop-blur-[2px]" />
-            <span className="relative z-10 text-xs font-semibold tracking-[0.18em] text-emerald-50">
-              RB
-            </span>
-          </div>
+          Rajiv Bhandari
+        </Link>
 
-          <div className="hidden text-left sm:block">
-            <div className="text-xs font-semibold tracking-[0.18em] text-slate-200 group-hover:text-emerald-300">
-              ~/dev-rajiv⚡️
-            </div>
-            <div className="mt-0.5 text-[11px] text-slate-400">
-              Switch theme • Resume • Sections
-            </div>
-          </div>
-        </button>
-
-        {/* Desktop */}
-        <div className="hidden items-center gap-3 md:flex">
-          <div className="relative flex items-center gap-1 rounded-full border border-slate-700/60 bg-slate-900/55 px-2 py-1">
-            {navItems.map((item) => {
-              const id = getSectionIdFromHref(item.href);
-              const isActive = !isOnResumePage && activeSection === id;
-
+        {!isResumePage ? (
+          <nav className="hidden items-center gap-1 lg:flex">
+            {homeLinks.map((link) => {
+              const isActive = active === link.name;
               return (
-                <button
-                  key={item.label}
-                  onClick={handleNavClick(item.href)}
-                  className={`relative rounded-full px-3 py-2 text-xs font-medium transition-colors ${
-                    isActive ? "text-emerald-200" : "text-slate-200 hover:text-emerald-200"
-                  }`}
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  whileHover={{ y: -2 }}
+                  className="relative rounded-full px-4 py-2 text-sm"
                 >
-                  {isActive && (
+                  {isActive ? (
                     <motion.span
-                      layoutId="navpill"
-                      className="absolute inset-0 rounded-full border border-emerald-400/45 bg-emerald-500/10"
-                      transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                      layoutId="nav-active-pill"
+                      className="absolute inset-0 rounded-full bg-[#1f9d72]"
+                      transition={{ type: "spring", stiffness: 320, damping: 28 }}
                     />
-                  )}
-                  <span className="relative z-10">{item.label}</span>
-                </button>
+                  ) : null}
+                  <span
+                    className={`relative z-10 transition ${
+                      isActive
+                        ? "text-white"
+                        : "text-[#53645b] hover:text-[#1d2f26]"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </motion.a>
               );
             })}
-          </div>
 
-          <Link
-            href="/resume"
-            className={`inline-flex items-center rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
-              isOnResumePage
-                ? "border-emerald-400/70 bg-emerald-500 text-slate-950"
-                : "border-slate-700/70 bg-slate-900/55 text-slate-100 hover:border-emerald-400/70 hover:text-emerald-200"
-            }`}
-          >
-            Resume
-          </Link>
-
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/55 text-slate-200 transition-colors hover:border-emerald-400/70 hover:text-emerald-200"
-            aria-label="Toggle theme"
-          >
-            {!mounted ? null : theme === "dark" ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile */}
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/55 text-slate-200"
-            aria-label="Toggle theme"
-          >
-            {!mounted ? null : theme === "dark" ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setIsMobileOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/55 text-slate-100"
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMobileOpen}
-          >
-            {isMobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile panel */}
-      <AnimatePresence>
-        {isMobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22 }}
-            className="border-t border-slate-800/70 bg-slate-950/95 backdrop-blur-xl md:hidden"
-          >
-            <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
-              <div className="space-y-2">
-                {navItems.map((item) => {
-                  const id = getSectionIdFromHref(item.href);
-                  const isActive = !isOnResumePage && activeSection === id;
-
-                  return (
-                    <button
-                      key={item.label}
-                      onClick={handleNavClick(item.href)}
-                      className={`flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors ${
-                        isActive
-                          ? "border-emerald-400/70 bg-emerald-500/10 text-emerald-100"
-                          : "border-slate-800/70 bg-slate-900/40 text-slate-100 hover:border-slate-700 hover:bg-slate-900/60"
-                      }`}
-                    >
-                      <span>{item.label}</span>
-                      {isActive && <span className="h-2 w-2 rounded-full bg-emerald-400" />}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                <Link
-                  href="/resume"
-                  className={`inline-flex items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold transition-colors ${
-                    isOnResumePage
-                      ? "border-emerald-400/70 bg-emerald-500 text-slate-950"
-                      : "border-slate-800/70 bg-slate-900/40 text-slate-100 hover:border-emerald-400/70 hover:text-emerald-200"
-                  }`}
-                  onClick={() => setIsMobileOpen(false)}
-                >
-                  Resume
-                </Link>
-
-                <button
-                  type="button"
-                  onClick={() => navigateToSection("contact")}
-                  className="inline-flex items-center justify-center rounded-2xl bg-emerald-500 px-4 py-3 text-sm font-semibold text-slate-950"
-                >
-                  Let’s talk
-                </button>
-              </div>
-            </div>
-          </motion.div>
+            <motion.div whileHover={{ y: -2 }}>
+              <Link href="/resume" className="btn-outline ml-2">
+                Resume
+              </Link>
+            </motion.div>
+          </nav>
+        ) : (
+          <nav className="hidden items-center gap-3 lg:flex">
+            <motion.div whileHover={{ y: -2 }}>
+              <Link href="/" className="btn-outline">
+                Back Home
+              </Link>
+            </motion.div>
+          </nav>
         )}
-      </AnimatePresence>
+
+        <button
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="inline-flex items-center justify-center rounded-full border border-[#d7dfd8] bg-white/80 p-2 text-[#284134] transition hover:border-[#1f9d72] hover:text-[#1f9d72] lg:hidden"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
+        </button>
+      </motion.div>
+
+      {menuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mx-auto mt-3 max-w-6xl rounded-[28px] border border-[#dde6de] bg-[#fffaf2]/95 p-3 shadow-[0_24px_50px_rgba(118,103,79,0.12)] backdrop-blur-xl lg:hidden"
+        >
+          {!isResumePage ? (
+            <nav className="flex flex-col gap-2">
+              {homeLinks.map((link) => {
+                const isActive = active === link.name;
+                return (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    whileTap={{ scale: 0.99 }}
+                    className={`rounded-2xl px-4 py-3 text-sm transition ${
+                      isActive
+                        ? "bg-[#1f9d72] text-white"
+                        : "text-[#53645b] hover:bg-[#eef5ef] hover:text-[#1d2f26]"
+                    }`}
+                  >
+                    {link.name}
+                  </motion.a>
+                );
+              })}
+
+              <Link
+                href="/resume"
+                onClick={() => setMenuOpen(false)}
+                className="btn-outline mt-2 text-center"
+              >
+                Resume
+              </Link>
+            </nav>
+          ) : (
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="btn-outline text-center"
+              >
+                Back Home
+              </Link>
+            </nav>
+          )}
+        </motion.div>
+      )}
     </header>
   );
 }

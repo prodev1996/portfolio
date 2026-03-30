@@ -1,70 +1,117 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { DownloadCloud, Mail, MapPin, Linkedin } from "lucide-react";
+﻿import Link from "next/link";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaGlobe,
+} from "react-icons/fa";
 
 export default function ResumeHeader() {
   return (
-    <motion.header
-      className="border-b border-slate-800 pb-6 md:pb-8"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-50 md:text-4xl">
+    <section className="card rounded-[32px]">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
+            Resume Overview
+          </p>
+
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
             Rajiv Bhandari
           </h1>
-          <p className="mt-1 text-sm font-medium text-primary">
-            ICT Support Specialist & Full Stack Developer
+
+          <p className="mt-3 text-lg text-[#405247]">
+            IT Application Support Analyst • Microsoft 365 • Business Systems
           </p>
-          <p className="mt-3 max-w-2xl text-sm text-slate-300">
-            ICT Support Specialist experienced in Windows systems, Microsoft
-            365, Active Directory, networking, and end-user support. Strong
-            background in web development with React and Node.js, plus hands-on
-            experience deploying real client projects. Passionate about solving
-            problems, improving reliability, and helping people use technology
-            confidently.
+
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
+            IT Application Support professional with experience supporting
+            Microsoft 365 and enterprise business applications across Windows
+            environments. Skilled in SharePoint administration, user access
+            management, troubleshooting application issues, workflow support,
+            and collaborating with users to improve operational processes.
+            Holds a Master of Information Technology and brings a strong
+            continuous-improvement mindset to reliable business system support.
           </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/" className="btn-outline">
+              Back to Home
+            </Link>
+
+            <Link href="/#projects" className="btn-outline">
+              View Projects
+            </Link>
+
+            <Link href="/#contact" className="btn-primary">
+              Contact Me
+            </Link>
+          </div>
         </div>
 
-        <div className="space-y-2 text-xs text-slate-300">
-          <div className="flex items-center gap-2">
-            <MapPin size={14} className="text-slate-400" />
-            <span>Adelaide, South Australia • Open to full-time & contract</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mail size={14} className="text-slate-400" />
-            <a
-              href="mailto:bhandarirajiv25@gmail.com"
-              className="text-primary hover:underline"
-            >
-              bhandarirajiv25@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Linkedin size={14} className="text-slate-400" />
-            <a
-              href="https://www.linkedin.com/in/rajiv-bhandari25/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary hover:underline"
-            >
-              linkedin.com/in/rajiv-bhandari25
-            </a>
+        <div className="soft-panel rounded-[28px] p-5 text-sm text-[#405247]">
+          <div className="space-y-3">
+            <p className="flex items-center gap-3">
+              <FaEnvelope className="text-[#1f9d72]" />
+              <span>bhandarirajiv25@gmail.com</span>
+            </p>
+
+            <p className="flex items-center gap-3">
+              <FaPhoneAlt className="text-[#1f9d72]" />
+              <span>+61 413 230 855</span>
+            </p>
+
+            <p className="flex items-center gap-3">
+              <FaMapMarkerAlt className="text-[#1f9d72]" />
+              <span>Adelaide, South Australia</span>
+            </p>
+
+            <p className="flex items-center gap-3">
+              <FaLinkedin className="text-[#1f9d72]" />
+              <a
+                href="https://www.linkedin.com/in/rajiv-bhandari25/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#1d2d25]"
+              >
+                linkedin.com/in/rajiv-bhandari25
+              </a>
+            </p>
+
+            <p className="flex items-center gap-3">
+              <FaGlobe className="text-[#1f9d72]" />
+              <a
+                href="https://www.rajivbhandari.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#1d2d25]"
+              >
+                rajivbhandari.com
+              </a>
+            </p>
+
+            <p className="flex items-center gap-3">
+              <FaGithub className="text-[#1f9d72]" />
+              <a
+                href="https://github.com/prodev1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#1d2d25]"
+              >
+                github.com/prodev1996
+              </a>
+            </p>
           </div>
 
-          <div className="pt-2">
-            <a
-              href="/Rajiv_Bhandari_Resume.pdf" // put your PDF in /public with this name
-              className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-100 hover:border-primary hover:text-primary"
-            >
-              <DownloadCloud size={14} />
-              <span>Download PDF resume</span>
-            </a>
-          </div>
+          <a
+            href="/Rajiv_Bhandari_Resume.pdf"
+            className="btn-primary mt-5"
+          >
+            Download Resume PDF
+          </a>
         </div>
       </div>
-    </motion.header>
+    </section>
   );
 }

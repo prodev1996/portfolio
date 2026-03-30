@@ -1,269 +1,298 @@
-"use client";
+﻿"use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useEffect, useMemo, useState, MouseEvent } from "react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BarChart3,
+  BriefcaseBusiness,
+  ChartNoAxesColumn,
+  Code2,
+  Download,
+  Mail,
+  ShieldCheck,
+} from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const ROLE_TITLES = [
-  "ICT Support Specialist",
-  "Full Stack Developer",
-  "Systems & Web Engineer",
+const roleBadges = [
+  "Microsoft 365",
+  "SharePoint",
+  "React / Next.js",
+  "SQL",
+  "Power BI (learning)",
 ];
 
-function scrollToSection(sectionId: string) {
-  if (typeof window === "undefined") return;
+const strengths = [
+  {
+    title: "Support",
+    desc: "Microsoft 365, business systems, and troubleshooting",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Development",
+    desc: "React, Next.js, and client-facing delivery",
+    icon: Code2,
+  },
+  {
+    title: "Data Path",
+    desc: "SQL, Excel, and Power BI with projects coming next",
+    icon: BarChart3,
+  },
+];
 
-  const el = document.getElementById(sectionId);
-  const header = document.querySelector("header");
-  const headerHeight = header?.getBoundingClientRect().height ?? 80;
-
-  if (!el) {
-    if (sectionId === "top") window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-
-  const rect = el.getBoundingClientRect();
-  const top = window.scrollY + rect.top - headerHeight;
-  window.scrollTo({ top, behavior: "smooth" });
-  window.history.pushState(null, "", `#${sectionId}`);
-}
-
-function TerminalLine({ text }: { text: string }) {
-  const [out, setOut] = useState("");
-
-  useEffect(() => {
-    let i = 0;
-    const t = setInterval(() => {
-      i += 1;
-      setOut(text.slice(0, i));
-      if (i >= text.length) clearInterval(t);
-    }, 22);
-    return () => clearInterval(t);
-  }, [text]);
-
-  return (
-    <div className="inline-flex items-center gap-2 rounded-2xl border border-slate-800/70 bg-slate-950/50 px-4 py-2 font-mono text-xs text-slate-200 backdrop-blur">
-      <span className="text-emerald-300">~/</span>
-      <span className="text-slate-300">{out}</span>
-      <span className="ml-1 inline-block h-3 w-2 animate-pulse rounded-sm bg-emerald-400/80" />
-    </div>
-  );
-}
+const quickWins = [
+  "Application support and business systems experience",
+  "Web development work already live and visible",
+  "A credible transition path into data analytics",
+];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [typedText, setTypedText] = useState("");
-
-  // --- role typewriter ---
-  useEffect(() => {
-    const current = ROLE_TITLES[roleIndex];
-
-    if (typedText === current) {
-      const hold = setTimeout(() => {
-        setRoleIndex((prev) => (prev + 1) % ROLE_TITLES.length);
-        setTypedText("");
-      }, 1200);
-      return () => clearTimeout(hold);
-    }
-
-    const timeout = setTimeout(() => {
-      setTypedText(current.slice(0, typedText.length + 1));
-    }, 55);
-
-    return () => clearTimeout(timeout);
-  }, [typedText, roleIndex]);
-
-  // --- mouse parallax ---
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 35, damping: 18, mass: 0.5 });
-  const smoothY = useSpring(mouseY, { stiffness: 35, damping: 18, mass: 0.5 });
-  const tx = useTransform(smoothX, (v) => v * 0.02);
-  const ty = useTransform(smoothY, (v) => v * 0.02);
-
-  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left - rect.width / 2);
-    mouseY.set(e.clientY - rect.top - rect.height / 2);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  const proof = useMemo(
-    () => [
-      { k: "Based in", v: "Adelaide, AU" },
-      { k: "Support", v: "M365 • AD • Windows • Networking" },
-      { k: "Dev", v: "React • Next • Django • Node" },
-    ],
-    [],
-  );
-
   return (
     <section
-      id="top"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="relative min-h-[100svh] overflow-hidden border-b border-slate-800/60 bg-[#020617]"
+      id="home"
+      className="relative scroll-mt-40 overflow-hidden px-6 pb-14 pt-10 sm:px-8 sm:pt-12 lg:px-10"
     >
-      {/* Animated glow background */}
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          className="absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-emerald-500/18 blur-3xl"
-          animate={{ y: [0, 28, 0], x: [0, 18, 0], opacity: [0.35, 0.6, 0.35] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -right-44 top-24 h-[520px] w-[520px] rounded-full bg-cyan-500/14 blur-3xl"
-          animate={{ y: [0, -22, 0], x: [0, -18, 0], opacity: [0.25, 0.55, 0.25] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
-      {/* Smoke parallax (optional) */}
+      <div className="pointer-events-none absolute inset-0 hero-smoke" />
       <motion.div
-        className="pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-screen"
-        style={{ x: tx, y: ty }}
-        aria-hidden="true"
-      >
-        <Image src="/smoke.png" alt="" fill className="object-cover object-center" priority />
-      </motion.div>
+        className="pointer-events-none absolute left-1/2 top-8 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-white/60 blur-3xl"
+        animate={{ scale: [1, 1.05, 1], opacity: [0.55, 0.72, 0.55] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      {/* vignette */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.14)_0,_rgba(2,6,23,0.98)_58%)]" />
-
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pb-16 pt-24 sm:px-6 lg:grid-cols-2 lg:pb-24 lg:pt-28">
-        {/* LEFT */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-        >
-          <TerminalLine text="dev-rajiv⚡️" />
-
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl">
-            Hi, I am <span className="text-emerald-200">Rajiv Bhandari</span>
-          </h1>
-
-          <p className="mt-2 text-lg text-slate-300">
-            Welcome to my happy place 🙂
-          </p>
-
-          {/* Typewriter role */}
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-slate-900/55 px-4 py-2 text-xs text-slate-200 ring-1 ring-slate-700/70">
-            <span className="text-slate-400">Currently:</span>
-            <span className="font-semibold text-emerald-200">{typedText}</span>
-            <span className="text-emerald-400">|</span>
-            <span className="text-slate-300">Adelaide</span>
-          </div>
-
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-[15px]">
-            I support users and environments across Windows, Microsoft 365, Active Directory,
-            troubleshooting, and networking — and I also build modern web apps using React, Next.js,
-            Django and Node.js.
-          </p>
-
-          {/* proof pills */}
-          <div className="mt-6 flex flex-wrap gap-2">
-            {proof.map((p) => (
-              <span
-                key={p.k}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/40 px-3 py-1 text-[11px] text-slate-200"
-              >
-                <span className="text-slate-400">{p.k}:</span>
-                <span className="text-slate-100">{p.v}</span>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.12fr_0.88fr]">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="soft-panel mb-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-[#365246]"
+            >
+              <BriefcaseBusiness className="h-3.5 w-3.5 text-[#1f9d72]" />
+              <span>
+                Open to application support, service desk, junior developer, and entry-level data analyst opportunities
               </span>
-            ))}
-          </div>
+            </motion.div>
 
-          {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_40px_rgba(16,185,129,0.55)] transition-transform hover:-translate-y-0.5 hover:bg-emerald-400"
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.04 }}
+              className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#1f9d72]"
             >
-              Let&apos;s get started!!!
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+              IT Application Support • Full Stack Development • Data Analyst Transition
+            </motion.p>
 
-            <button
-              type="button"
-              onClick={() => scrollToSection("contact")}
-              className="inline-flex items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/45 px-6 py-3 text-sm font-semibold text-slate-100 transition-transform hover:-translate-y-0.5 hover:border-emerald-400/70 hover:text-emerald-200"
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="max-w-3xl text-[2.45rem] font-semibold leading-[1.08] tracking-tight text-[#1d2d25] sm:text-[3rem] lg:text-[3.35rem]"
             >
-              Contact
-            </button>
-          </div>
-        </motion.div>
+              IT Application Support professional with full-stack development experience.
+            </motion.h1>
 
-        {/* RIGHT */}
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
-          className="relative"
-        >
-          <motion.div
-            className="pointer-events-none absolute -inset-8 rounded-[40px] bg-emerald-500/10 blur-3xl"
-            animate={{ opacity: [0.25, 0.45, 0.25] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
+            <motion.p
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.14 }}
+              className="mt-5 max-w-2xl text-[15px] leading-8 text-[#52645a] sm:text-[17px]"
+            >
+              Based in Adelaide, I bring hands-on experience across Microsoft
+              365, business systems support, troubleshooting, and web delivery.
+              This portfolio shows the development work I can do today, while
+              also making clear that I am building toward data analyst roles
+              with SQL, Excel, and Power BI.
+            </motion.p>
 
-          <motion.div
-            className="relative overflow-hidden rounded-[28px] border border-slate-800/70 bg-slate-900/45 shadow-[0_30px_80px_rgba(0,0,0,0.6)] backdrop-blur"
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          >
-            <div className="h-1 w-full bg-gradient-to-r from-emerald-400/70 via-cyan-400/50 to-indigo-400/50" />
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.18 }}
+              className="mt-7 flex flex-wrap gap-4"
+            >
+              <motion.a href="#projects" className="btn-primary" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
+                View Projects
+                <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.18 }}>
+                  <ArrowRight className="h-4 w-4" />
+                </motion.span>
+              </motion.a>
 
-            <div className="relative h-[380px] w-full bg-slate-950">
-              <Image
-                src="/profile-hero.png"
-                alt="Rajiv Bhandari"
-                fill
-                className="object-cover object-center"
-                priority
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
-            </div>
+              <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
+                <Link href="/resume" className="btn-outline">
+                  <Download className="h-4 w-4" />
+                  Resume
+                </Link>
+              </motion.div>
 
-            <div className="p-6">
-              <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                Quick intro
-              </div>
-              <div className="mt-2 text-lg font-semibold text-slate-50">
-                ICT Support • Systems • Web Apps
-              </div>
-              <div className="mt-2 text-sm text-slate-300">
-                I love clean UI, reliable systems, and solving real user problems.
-              </div>
+              <motion.a href="#contact" className="btn-outline" whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
+                <Mail className="h-4 w-4" />
+                Contact
+              </motion.a>
+            </motion.div>
 
-              <button
-                type="button"
-                onClick={() => scrollToSection("experience")}
-                className="mt-5 inline-flex w-full items-center justify-center rounded-2xl border border-slate-800/70 bg-slate-900/40 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:border-emerald-400/70 hover:text-emerald-200"
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              {roleBadges.map((badge, index) => (
+                <motion.span
+                  key={badge}
+                  className="badge"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.28 + index * 0.05 }}
+                  whileHover={{ y: -2, scale: 1.03 }}
+                >
+                  {badge}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.3 }}
+              className="mt-8 flex items-center gap-5 text-xl text-[#5c6d63]"
+            >
+              <motion.a
+                href="https://github.com/prodev1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#1d2d25]"
+                aria-label="GitHub"
+                whileHover={{ y: -3, scale: 1.12 }}
               >
-                View experience <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
+                <FaGithub />
+              </motion.a>
 
-      {/* Scroll indicator (Miraj vibe) */}
-      <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2">
+              <motion.a
+                href="https://www.linkedin.com/in/rajiv-bhandari25/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#1f9d72]"
+                aria-label="LinkedIn"
+                whileHover={{ y: -3, scale: 1.12 }}
+              >
+                <FaLinkedin />
+              </motion.a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            className="flex justify-center lg:justify-end"
+          >
+            <motion.div
+              className="section-glow glass-card spotlight-ring relative w-full max-w-[360px] overflow-hidden rounded-[30px] p-3.5"
+              animate={{ y: [0, -8, 0], rotate: [0, -0.35, 0.35, 0] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="relative overflow-hidden rounded-[24px] border border-[#e4e6df] bg-[#f3ebe0]">
+                <motion.div className="relative aspect-[4/2.5]" whileHover={{ scale: 1.015 }}>
+                  <Image
+                    src="/profile-hero.png"
+                    alt="Rajiv Bhandari"
+                    fill
+                    priority
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fffaf2] via-[#fffaf2]/55 to-transparent" />
+                </motion.div>
+              </div>
+
+              <div className="grid gap-3 px-2 pb-1 pt-3.5">
+                <div>
+                  <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
+                  <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
+                  <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
+                    Application support, proven web delivery, and a clear analyst path underway.
+                  </p>
+                </div>
+
+                <div className="grid gap-2.5">
+                  {strengths.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.32 + index * 0.08 }}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      className="rounded-2xl border border-[#e4e7de] bg-white/74 px-3.5 py-2.5"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="mt-0.5 rounded-full bg-[#e8f6ef] p-1.5 text-[#1f9d72]">
+                          <item.icon className="h-3.5 w-3.5" />
+                        </div>
+                        <div>
+                          <p className="text-[11px] uppercase tracking-[0.22em] text-[#7a8a80]">
+                            {item.title}
+                          </p>
+                          <p className="mt-0.5 text-[14px] leading-6 text-[#31463a]">{item.desc}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
         <motion.div
-          className="flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/40 px-4 py-2 text-[11px] text-slate-300 backdrop-blur"
-          animate={{ y: [0, 6, 0], opacity: [0.65, 1, 0.65] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.34 }}
+          className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]"
         >
-          sXroll ▼
+          <div className="card">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
+              Immediate Fit
+            </p>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {quickWins.map((item, index) => (
+                <motion.div
+                  key={item}
+                  className="rounded-2xl bg-[#fffdf9] px-4 py-4"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.06 }}
+                  whileHover={{ y: -4 }}
+                >
+                  <p className="text-sm leading-6 text-[#33463b]">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div
+            className="soft-panel rounded-[28px] p-6"
+            whileHover={{ y: -4 }}
+          >
+            <div className="flex items-center gap-3">
+              <ChartNoAxesColumn className="h-5 w-5 text-[#d7854f] pulse-soft rounded-full" />
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6b776f]">
+                Data Goal
+              </p>
+            </div>
+            <p className="mt-4 text-base font-semibold text-[#1d2d25]">
+              First analytics portfolio projects are coming soon.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-[#5c6d63]">
+              For now, this site leads with real web development work and the
+              technical depth behind it, while clearly showing the analyst path I
+              am actively building toward.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
+
+
