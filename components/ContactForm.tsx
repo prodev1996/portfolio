@@ -70,16 +70,16 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45 }}
-      className="section-glow glass-card spotlight-ring rounded-[30px] p-6"
+      className="section-glow glass-card spotlight-ring rounded-[30px] p-5 sm:p-6"
     >
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
         Direct Message
       </p>
-      <h3 className="mt-2 text-[1.4rem] font-semibold text-[#1d2d25]">Send a message</h3>
-      <p className="mt-2 text-sm leading-6 text-[#5e6f65]">
-        The easiest way to reach me for roles, projects, or introductions.
+      <h3 className="mt-2 text-[1.25rem] font-semibold text-[#1d2d25]">Send a message</h3>
+      <p className="mt-1.5 text-sm leading-6 text-[#5e6f65]">
+        Reach out for roles, projects, or introductions.
       </p>
-      <p className="mt-2 text-xs leading-6 text-[#738179]">
+      <p className="mt-1.5 text-xs leading-5 text-[#738179]">
         If the form ever fails, you can always email me directly at{" "}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
@@ -90,7 +90,7 @@ export default function ContactForm() {
         .
       </p>
 
-      <div className="mt-4 space-y-3.5">
+      <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm text-[#44584d]">Name</label>
           <input
@@ -116,14 +116,14 @@ export default function ContactForm() {
           />
         </div>
 
-        <div>
+        <div className="sm:col-span-2">
           <label className="mb-1.5 block text-sm text-[#44584d]">Message</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
-            rows={4}
+            rows={3}
             className="w-full rounded-2xl border border-[#dfe5de] bg-[rgba(255,255,255,0.82)] px-4 py-3 text-sm text-[#1d2d25] outline-none transition focus:border-[#1f9d72] focus:bg-white"
             placeholder="Tell me about the role, project, or opportunity"
           />

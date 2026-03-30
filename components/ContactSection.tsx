@@ -21,7 +21,7 @@ export default function ContactSection() {
       subtitle="If there is a role where dependable support, practical development, and a clear growth mindset matter, I would be glad to connect."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))] !pb-12 !pt-8 sm:!pb-16 sm:!pt-10"
     >
-      <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+      <div className="grid gap-5 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
         <div className="grid gap-4">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -36,24 +36,16 @@ export default function ContactSection() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
               Best Fit
             </p>
-            <h3 className="mt-3 text-[1.7rem] font-semibold leading-tight text-[#1d2d25]">
+            <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[#1d2d25]">
               Ready to contribute in support, development, and transition-ready data work
             </h3>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-[#5e6f65]">
-              I am looking for teams where I can bring dependable support,
-              clear communication, and practical technical work from day one,
-              while continuing to grow into more data-focused responsibilities.
+            <p className="mt-3 max-w-xl text-sm leading-6 text-[#5e6f65]">
+              I bring dependable support, clear communication, and practical
+              technical delivery now, while continuing to grow into more
+              data-focused work.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {targets.map((item) => (
-                <span key={item} className="badge">
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a
                 href="mailto:bhandarirajiv25@gmail.com"
                 className="btn-primary"
@@ -70,6 +62,14 @@ export default function ContactSection() {
                 <FaLinkedin />
                 LinkedIn Profile
               </a>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {targets.map((item) => (
+                <span key={item} className="badge">
+                  {item}
+                </span>
+              ))}
             </div>
           </motion.div>
 
