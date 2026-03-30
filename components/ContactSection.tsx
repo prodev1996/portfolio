@@ -17,9 +17,9 @@ export default function ContactSection() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="A thoughtful portfolio should end with an easy way to start the conversation"
+      title="Let's start the conversation"
       subtitle="If there is a role where dependable support, practical development, and a clear growth mindset matter, I would be glad to connect."
-      className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))]"
+      className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))] !py-12 sm:!py-16"
     >
       <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
         <div className="grid gap-4">

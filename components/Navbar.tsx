@@ -28,35 +28,55 @@ export default function Navbar() {
     if (isResumePage) return;
 
     const sections = homeLinks
-      .map((link) => document.querySelector(link.href))
-      .filter(Boolean) as Element[];
+      .map((link) => {
+        const element = document.querySelector(link.href);
+        if (!element) return null;
+        return {
+          name: link.name,
+          element,
+        };
+      })
+      .filter(Boolean) as { name: string; element: Element }[];
 
     const updateNavigationState = () => {
       setScrolled(window.scrollY > 12);
 
-      const marker = window.innerHeight * 0.24;
-      let currentSection = homeLinks[0]?.name ?? "Home";
+      const headerHeight =
+        document.querySelector("header")?.getBoundingClientRect().height ?? 104;
+      const marker = headerHeight + 20;
 
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top - marker <= 0) {
-          const match = homeLinks.find(
-            (link) => link.href === `#${section.id}`
-          );
-          if (match) currentSection = match.name;
+      let currentSection = homeLinks[0]?.name ?? "Home";
+      let closestSection = currentSection;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      let markerMatched = false;
+
+      sections.forEach(({ name, element }) => {
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top <= marker && rect.bottom > marker) {
+          currentSection = name;
+          markerMatched = true;
+        }
+
+        const distance = Math.abs(rect.top - marker);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSection = name;
         }
       });
 
-      setActive(currentSection);
+      setActive(markerMatched ? currentSection : closestSection);
     };
 
     updateNavigationState();
     window.addEventListener("scroll", updateNavigationState);
     window.addEventListener("resize", updateNavigationState);
+    window.addEventListener("hashchange", updateNavigationState);
 
     return () => {
       window.removeEventListener("scroll", updateNavigationState);
       window.removeEventListener("resize", updateNavigationState);
+      window.removeEventListener("hashchange", updateNavigationState);
     };
   }, [isResumePage]);
 
@@ -87,6 +107,7 @@ export default function Navbar() {
                 <motion.a
                   key={link.name}
                   href={link.href}
+                  onClick={() => setActive(link.name)}
                   whileHover={{ y: -2 }}
                   className="relative rounded-full px-4 py-2 text-sm"
                 >
@@ -150,7 +171,10 @@ export default function Navbar() {
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setActive(link.name);
+                      setMenuOpen(false);
+                    }}
                     whileTap={{ scale: 0.99 }}
                     className={`rounded-2xl px-4 py-3 text-sm transition ${
                       isActive
