@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe } from "lucide-react";
+import { ArrowUpRight, Globe, ShieldCheck, Wrench } from "lucide-react";
 
 const projects = [
   {
@@ -14,6 +14,17 @@ const projects = [
     liveUrl: "https://www.glideedu.com.au/",
     liveLabel: "glideedu.com.au",
     stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
+    role: "End-to-end website build and deployment",
+    trustSignals: [
+      "Live production site",
+      "Client-facing service business",
+      "Hosting and deployment managed",
+    ],
+    proofPoints: [
+      "Planned the structure around trust, service clarity, and enquiry flow.",
+      "Built the front-end experience with reusable sections and responsive layouts.",
+      "Handled deployment setup, domain connection, and production updates.",
+    ],
     skillsShown: [
       "Modern responsive UI design",
       "Content hierarchy for service-heavy businesses",
@@ -32,6 +43,17 @@ const projects = [
     liveUrl: "https://www.primeroofcare.com.au/",
     liveLabel: "primeroofcare.com.au",
     stack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design"],
+    role: "Website build, launch support, and ongoing updates",
+    trustSignals: [
+      "Live production site",
+      "Local service brand",
+      "Content and hosting updates handled",
+    ],
+    proofPoints: [
+      "Structured the site so visitors understand services quickly on mobile and desktop.",
+      "Designed the pages around enquiries, trust, and practical business needs.",
+      "Supported post-launch updates to keep the website current and usable.",
+    ],
     skillsShown: [
       "Business-focused web page structure",
       "Responsive implementation across screen sizes",
@@ -153,6 +175,57 @@ export default function FeaturedProjects() {
                         {item}
                       </motion.span>
                     ))}
+                  </div>
+
+                  <div className="mt-6 rounded-[24px] border border-[#e3e8e1] bg-white/72 px-5 py-5">
+                    <div className="flex items-center gap-2 text-[#d7854f]">
+                      <Wrench className="h-4 w-4" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
+                        What I handled
+                      </p>
+                    </div>
+                    <p className="mt-3 text-sm font-semibold text-[#24362d]">
+                      {project.role}
+                    </p>
+                    <ul className="mt-3 space-y-3">
+                      {project.proofPoints.map((item, itemIndex) => (
+                        <motion.li
+                          key={item}
+                          className="flex gap-3 text-sm leading-7 text-[#33463b]"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: itemIndex * 0.05 }}
+                        >
+                          <span className="mt-2 h-2 w-2 rounded-full bg-[#d7854f]" />
+                          <span>{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6">
+                    <div className="flex items-center gap-2 text-[#1f9d72]">
+                      <ShieldCheck className="h-4 w-4" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
+                        Proof this was real delivery
+                      </p>
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.trustSignals.map((item, itemIndex) => (
+                        <motion.span
+                          key={item}
+                          className="badge"
+                          initial={{ opacity: 0, y: 8 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: itemIndex * 0.04 }}
+                          whileHover={{ y: -2, scale: 1.03 }}
+                        >
+                          {item}
+                        </motion.span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="mt-6">

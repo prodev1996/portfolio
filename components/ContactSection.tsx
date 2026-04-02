@@ -4,12 +4,20 @@ import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+import { CheckCircle2 } from "lucide-react";
 
 const targets = [
   "Application Support",
   "ICT Support / Service Desk",
   "Support Analyst",
   "Web Delivery / Small Business Sites",
+];
+
+const supportAreas = [
+  "Microsoft 365 support, user access, and day-to-day issue handling",
+  "SharePoint, Outlook, Teams, and business system support",
+  "Website updates, launch support, and client-facing improvements",
+  "Hybrid roles that mix user support, documentation, and practical delivery",
 ];
 
 export default function ContactSection() {
@@ -70,6 +78,20 @@ export default function ContactSection() {
                   {item}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-6 rounded-[24px] border border-[#dfe7de] bg-white/66 px-5 py-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
+                I can help with
+              </p>
+              <ul className="mt-4 space-y-3">
+                {supportAreas.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-7 text-[#33463b]">
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#1f9d72]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
 

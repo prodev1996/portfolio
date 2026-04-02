@@ -57,8 +57,8 @@ const heroFacts = [
     icon: MapPin,
   },
   {
-    value: "Microsoft 365 support",
-    label: "Access, workflow, and day-to-day issue handling",
+    value: "Support workflows handled",
+    label: "Access, troubleshooting, and business system support",
     icon: ShieldCheck,
   },
   {
