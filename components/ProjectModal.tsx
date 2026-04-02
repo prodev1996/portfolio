@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 
 type Project = {
   title: string;
@@ -11,7 +11,6 @@ type Project = {
   tech: string[];
   highlights: string[];
   liveUrl?: string;
-  githubUrl?: string;
 };
 
 type Props = {
@@ -107,17 +106,6 @@ export default function ProjectModal({ project, onClose }: Props) {
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
                 >
                   Live Site <FaExternalLinkAlt className="text-xs" />
-                </a>
-              ) : null}
-
-              {project.githubUrl ? (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-white"
-                >
-                  GitHub <FaGithub className="text-xs" />
                 </a>
               ) : null}
             </div>

@@ -1,7 +1,6 @@
 ﻿import Link from "next/link";
 import {
   FaEnvelope,
-  FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -88,18 +87,6 @@ export default function ResumeHeader() {
                 className="transition hover:text-[#1d2d25]"
               >
                 rajivbhandari.com
-              </a>
-            </p>
-
-            <p className="flex items-center gap-3">
-              <FaGithub className="text-[#1f9d72]" />
-              <a
-                href="https://github.com/prodev1996"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-[#1d2d25]"
-              >
-                github.com/prodev1996
               </a>
             </p>
           </div>

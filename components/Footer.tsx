@@ -1,4 +1,4 @@
-﻿import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+﻿import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -41,14 +41,6 @@ export default function Footer() {
             className="inline-flex items-center gap-2 rounded-full border border-[#dde5dd] bg-white px-4 py-2 text-sm text-[#294236] transition hover:border-[#1f9d72] hover:text-[#1f9d72]"
           >
             <FaLinkedin /> LinkedIn
-          </a>
-          <a
-            href="https://github.com/prodev1996"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#dde5dd] bg-white px-4 py-2 text-sm text-[#294236] transition hover:border-[#1d2d25] hover:text-[#1d2d25]"
-          >
-            <FaGithub /> GitHub
           </a>
           <a
             href="#home"

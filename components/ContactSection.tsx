@@ -3,7 +3,7 @@
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { CheckCircle2 } from "lucide-react";
 
 const targets = [
@@ -123,20 +123,6 @@ export default function ContactSection() {
                   <p className="mt-1">Adelaide, Australia</p>
                 </div>
               </div>
-
-              <motion.a
-                href="https://github.com/prodev1996"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -2 }}
-                className="flex items-center gap-3 rounded-2xl border border-[#e4e7de] bg-white/70 px-4 py-3 text-sm text-[#30453a] transition hover:border-[#1d2d25]/20"
-              >
-                <FaGithub className="text-[#1d2d25]" />
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-[#819087]">GitHub</p>
-                  <p className="mt-1">github.com/prodev1996</p>
-                </div>
-              </motion.a>
 
               <motion.a
                 href="https://www.linkedin.com/in/rajiv-bhandari25/"

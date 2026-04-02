@@ -5,7 +5,7 @@
       meta: "Torrens University Australia, Adelaide • 2023 - 2024",
       bullets: [
         "Built a web-based tool to hide secret text inside images using steganography concepts.",
-        "Used HTML, CSS, JavaScript, and Git/GitHub during development.",
+        "Used HTML, CSS, JavaScript, and Git-based version control during development.",
         "Developed encoding and decoding functions, tested with sample images, and documented results.",
       ],
     },

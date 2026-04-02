@@ -15,7 +15,7 @@ import {
   Mail,
   ShieldCheck,
 } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const roleBadges = [
   "Microsoft 365",
@@ -211,17 +211,6 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.38 }}
               className="mt-8 flex items-center gap-5 text-xl text-[#5c6d63]"
             >
-              <motion.a
-                href="https://github.com/prodev1996"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-[#1d2d25]"
-                aria-label="GitHub"
-                whileHover={{ y: -3, scale: 1.12 }}
-              >
-                <FaGithub />
-              </motion.a>
-
               <motion.a
                 href="https://www.linkedin.com/in/rajiv-bhandari25/"
                 target="_blank"
