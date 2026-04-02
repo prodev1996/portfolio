@@ -76,13 +76,14 @@ export default function Experience() {
             Experience
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A track record that connects support, development, and data with real business value
+            A track record that connects support, web delivery, and real business value
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
             This background is strongest when it is read as one story, not
-            separate jobs. I have supported users, built web products, and worked
-            with structured data, which makes me well suited to roles that need
-            technical range, dependability, and clear communication.
+            separate jobs. I have supported users, built web products, and
+            worked in structured operational environments, which makes me well
+            suited to roles that need technical range, dependability, and clear
+            communication.
           </p>
         </div>
 
@@ -94,8 +95,9 @@ export default function Experience() {
             <p className="mt-3 text-sm leading-7 text-[#4e6056]">
               I can contribute in roles where technical support, digital delivery,
               and continuous improvement overlap. That includes application
-              support, service desk, support analyst work, junior developer roles,
-              and data-focused opportunities where a practical technical mindset is valuable.
+              support, service desk, support analyst work, junior web delivery
+              roles, and hybrid environments where a practical technical mindset
+              is valuable.
             </p>
           </div>
 
@@ -107,9 +109,10 @@ export default function Experience() {
               {[
                 "Application Support",
                 "Microsoft 365",
+                "Web Delivery",
                 "Web Development",
                 "Troubleshooting",
-                "Structured Data",
+                "Documentation",
                 "User Communication",
               ].map((item) => (
                 <span key={item} className="badge">

@@ -1,5 +1,5 @@
 ﻿import ResumeHeader from "@/components/ResumeHeader";
-import ResumeSkills from "@/components/ResumeSkills";
+import ResumeSkillsDetailed from "@/components/ResumeSkillsDetailed";
 import ResumeTimeline from "@/components/ResumeTimeline";
 import ResumeEducation from "@/components/ResumeEducation";
 import ResumeProjects from "@/components/ResumeProjects";
@@ -14,7 +14,7 @@ export default function ResumePage() {
           <ResumeProjects />
         </div>
         <div className="space-y-8">
-          <ResumeSkills />
+          <ResumeSkillsDetailed />
           <ResumeEducation />
         </div>
       </div>

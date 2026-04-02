@@ -6,29 +6,29 @@ import { FaChartBar, FaCogs, FaLaptopCode } from "react-icons/fa";
 const pillars = [
   {
     icon: <FaCogs />,
-    title: "Application support and technical reliability",
-    desc: "I can work close to users, systems, and day-to-day operations. That includes troubleshooting, communication, documentation, and keeping business tools usable.",
-    bullets: ["User-facing support mindset", "Practical problem solving", "Microsoft 365 and business systems awareness"],
+    title: "ICT support that stays practical and user-focused",
+    desc: "I work close to users, systems, and day-to-day operations. That includes troubleshooting, communication, documentation, and keeping business tools usable.",
+    bullets: ["User-facing support mindset", "Microsoft 365 and business systems support", "Practical problem solving with clear follow-through"],
   },
   {
     icon: <FaLaptopCode />,
-    title: "Full stack development that looks professional",
-    desc: "My portfolio already demonstrates web development skill through client-facing projects built with modern front-end tools, clear structure, and polished presentation.",
-    bullets: ["React and Next.js delivery", "Responsive UI and modern layouts", "Backend-ready thinking and real deployment workflow"],
+    title: "Web delivery that already has real proof behind it",
+    desc: "This portfolio already demonstrates client-facing web work through live projects built with modern front-end tools, clean structure, and polished presentation.",
+    bullets: ["React and Next.js delivery", "Responsive UI and modern layouts", "Deployment, DNS, hosting, and production-minded ownership"],
   },
   {
     icon: <FaChartBar />,
-    title: "A credible transition into data analytics",
-    desc: "I am not pretending the data portfolio is finished yet. Instead, I am showing the right foundation: data experience, analytical tools, and a clear direction into analyst work.",
-    bullets: ["SQL, Excel, and Power BI growth", "Previous structured data experience", "Analytics portfolio section ready to expand"],
+    title: "Growth that supports the same core profile",
+    desc: "I keep building in adjacent areas like automation, reporting, and Microsoft cloud tools, but the core value stays the same: reliable support and practical technical delivery.",
+    bullets: ["PowerShell, SQL, and reporting growth", "Intune and Azure learning in progress", "Continuous improvement without diluting the main story"],
   },
 ];
 
 const hireReasons = [
-  "You get someone who can both support systems and build.",
+  "You get someone who can support users and still contribute to delivery work.",
   "I communicate clearly with technical and non-technical people.",
-  "My experience spans support, development, and structured data work.",
-  "I am actively growing into analyst work without hiding where I am today.",
+  "My experience spans support, websites, documentation, and business-facing execution.",
+  "I keep learning new tools without losing focus on what I can already do well.",
 ];
 
 export default function WhatIDo() {
@@ -45,15 +45,15 @@ export default function WhatIDo() {
           className="max-w-3xl"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-            Why Me
+            What I Bring
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A profile that is useful now and still growing in the right direction
+            A profile built around support, delivery, and being useful quickly
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            This portfolio is designed to show hiring managers the full picture:
-            strong web development skills, a dependable support mindset, and a
-            genuine transition into data analyst work that is already underway.
+            This portfolio is designed to show the clearest version of my value:
+            dependable ICT support, polished web delivery, and a working style
+            built on communication, ownership, and steady improvement.
           </p>
         </motion.div>
 

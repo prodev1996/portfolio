@@ -3,23 +3,23 @@
 import { motion } from "framer-motion";
 
 const foundation = [
-  "Past experience in structured data work gives this transition credibility.",
-  "SQL, Excel, and Power BI are the current focus areas I am building on consistently.",
-  "I want to move toward analyst roles that combine technical understanding with business usefulness.",
+  "I am building on the same strengths that already matter in support work: structure, documentation, analysis, and follow-through.",
+  "The focus areas right now are Microsoft cloud tools, automation, and stronger reporting skills.",
+  "I want my next layer of growth to make me more useful in support and hybrid technical environments.",
 ];
 
 const upcomingProjects = [
   {
-    title: "SQL analysis case study",
-    desc: "A portfolio project that will show data cleaning, exploration, and insight extraction using SQL queries and structured reporting.",
+    title: "Microsoft 365 and admin depth",
+    desc: "Continuing to strengthen Intune, Azure, identity, and admin workflows so I can contribute more confidently in modern workplace environments.",
   },
   {
-    title: "Excel reporting workflow",
-    desc: "A project focused on transforming raw information into business-friendly summaries, trends, and practical recommendations.",
+    title: "Automation and scripting",
+    desc: "Building more PowerShell and scripting confidence to reduce repetitive work, improve support workflows, and document repeatable fixes.",
   },
   {
-    title: "Power BI dashboard",
-    desc: "An interactive reporting example that will demonstrate visual storytelling, metrics, and decision-focused dashboard design.",
+    title: "Reporting and analysis",
+    desc: "Improving SQL, Excel, and reporting skills so I can turn operational data into clearer summaries, patterns, and practical next steps.",
   },
 ];
 
@@ -37,28 +37,28 @@ export default function DataJourney() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-              Data Analyst Transition
+              Growth Areas
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-              The next chapter is analytics, and I want to show that honestly
+              The next layer is deeper systems, automation, and reporting
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-              I am actively transitioning into data analyst roles. That means I
-              should be transparent: the analyst project portfolio is still in
-              progress. But the direction is real, the foundation is real, and
-              this site is built to make that progression easy to understand.
+              I want this section to stay honest and useful. Instead of leading
+              with future ambitions, it shows the areas I am actively building
+              right now to become stronger in support, systems, and
+              cross-functional technical roles.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="badge">SQL</span>
-              <span className="badge">Excel</span>
-              <span className="badge">Power BI</span>
-              <span className="badge">Reporting Mindset</span>
+              <span className="badge">Intune</span>
+              <span className="badge">Azure</span>
+              <span className="badge">PowerShell</span>
+              <span className="badge">SQL & Reporting</span>
             </div>
 
             <div className="mt-8 card">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#d7854f]">
-                Current positioning
+                What this means
               </p>
               <ul className="mt-4 space-y-3">
                 {foundation.map((item) => (
@@ -83,10 +83,10 @@ export default function DataJourney() {
               >
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#7b877f]">
-                    Planned Portfolio Piece 0{index + 1}
+                    Active Focus 0{index + 1}
                   </p>
                   <span className="rounded-full bg-[#dff2ea] px-3 py-1 text-xs font-medium text-[#1f9d72]">
-                    Coming Soon
+                    In Progress
                   </span>
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-[#1d2d25]">

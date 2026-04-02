@@ -11,7 +11,7 @@ const homeLinks = [
   { name: "Strengths", href: "#what-i-do" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#tech-stack" },
-  { name: "Data Path", href: "#data-journey" },
+  { name: "Growth", href: "#data-journey" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
@@ -43,7 +43,7 @@ export default function Navbar() {
 
       const headerHeight =
         document.querySelector("header")?.getBoundingClientRect().height ?? 104;
-      const marker = headerHeight + 20;
+      const marker = Math.max(headerHeight + 20, Math.min(window.innerHeight * 0.28, headerHeight + 110));
       const currentHash = window.location.hash;
       const hashMatch = homeLinks.find((link) => link.href === currentHash);
 
@@ -52,7 +52,7 @@ export default function Navbar() {
         if (target) {
           const rect = target.getBoundingClientRect();
           const hashSectionInView =
-            rect.top <= window.innerHeight * 0.42 && rect.bottom > marker;
+            rect.top <= marker + 110 && rect.bottom > marker - 40;
 
           if (hashSectionInView) {
             setActive(hashMatch.name);
@@ -85,11 +85,15 @@ export default function Navbar() {
     };
 
     updateNavigationState();
+    const rafId = window.requestAnimationFrame(updateNavigationState);
+    const timeoutId = window.setTimeout(updateNavigationState, 140);
     window.addEventListener("scroll", updateNavigationState);
     window.addEventListener("resize", updateNavigationState);
     window.addEventListener("hashchange", updateNavigationState);
 
     return () => {
+      window.cancelAnimationFrame(rafId);
+      window.clearTimeout(timeoutId);
       window.removeEventListener("scroll", updateNavigationState);
       window.removeEventListener("resize", updateNavigationState);
       window.removeEventListener("hashchange", updateNavigationState);
@@ -108,11 +112,18 @@ export default function Navbar() {
             : "border-white/60 bg-white/68"
         }`}
       >
-        <Link
-          href="/"
-          className="text-base font-semibold tracking-[0.08em] text-[#223128] sm:text-lg"
-        >
-          Rajiv Bhandari
+        <Link href="/" className="flex items-center gap-3 text-[#223128]">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/80 bg-[linear-gradient(135deg,_rgba(31,157,114,0.15),_rgba(255,255,255,0.92))] text-sm font-semibold tracking-[0.18em] text-[#1d2f26] shadow-[0_10px_24px_rgba(118,103,79,0.08)]">
+            RB
+          </span>
+          <span className="hidden min-w-0 flex-col sm:flex">
+            <span className="text-base font-semibold tracking-[0.08em] text-[#223128]">
+              Rajiv Bhandari
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.22em] text-[#6b7c73]">
+              ICT Support • Web Delivery
+            </span>
+          </span>
         </Link>
 
         {!isResumePage ? (
@@ -148,7 +159,7 @@ export default function Navbar() {
             })}
 
             <motion.div whileHover={{ y: -2 }}>
-              <Link href="/resume" className="btn-outline ml-2">
+              <Link href="/resume" className="btn-outline ml-3">
                 Resume
               </Link>
             </motion.div>

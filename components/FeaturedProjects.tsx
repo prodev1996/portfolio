@@ -8,7 +8,7 @@ const projects = [
   {
     title: "Glide Education",
     overview:
-      "A consultancy website designed to feel more credible, more modern, and easier for visitors to understand quickly.",
+      "A consultancy website designed to feel more credible, easier to navigate, and more trustworthy for prospective students and clients.",
     image: "/projects/glide.png",
     accentImage: "/projects/glide-services.png",
     liveUrl: "https://www.glideedu.com.au/",
@@ -16,17 +16,17 @@ const projects = [
     stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
     skillsShown: [
       "Modern responsive UI design",
-      "Content hierarchy and service presentation",
+      "Content hierarchy for service-heavy businesses",
       "Front-end implementation with reusable structure",
-      "Client-facing visual polish and trust-building",
+      "Trust-building presentation for a real client brand",
     ],
     takeaway:
-      "This project is a strong example of front-end presentation, layout thinking, and building a user experience that looks professional enough for real business use.",
+      "This project shows that I can translate business requirements into a polished website that feels credible, usable, and ready for real visitors.",
   },
   {
     title: "Prime Roof Care",
     overview:
-      "A service-business website focused on fast comprehension, local-business trust, and clear conversion paths for potential customers.",
+      "A service-business website focused on fast comprehension, local-business trust, and clear enquiry paths for potential customers.",
     image: "/projects/primeroof.png",
     accentImage: "/projects/prime-gallery.png",
     liveUrl: "https://www.primeroofcare.com.au/",
@@ -35,11 +35,11 @@ const projects = [
     skillsShown: [
       "Business-focused web page structure",
       "Responsive implementation across screen sizes",
-      "Lead-generation aware layout decisions",
-      "Clean visual execution for a service brand",
+      "Conversion-aware layout decisions",
+      "Clean visual execution for a local service brand",
     ],
     takeaway:
-      "This shows that I can create practical, polished websites that help real businesses present themselves professionally and guide visitors toward action.",
+      "This shows I can build practical websites that support real businesses, present services clearly, and help visitors move toward action.",
   },
 ];
 
@@ -57,16 +57,16 @@ export default function FeaturedProjects() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-            Featured Development Work
+            Featured Client Work
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Web development projects that already prove delivery, polish, and real client value
+            Live projects that prove delivery, polish, and business value
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            Since my analytics portfolio is still being built, this section leads
-            with the work that is ready today: web projects that demonstrate
-            design sense, implementation skill, responsiveness, and practical
-            thinking for real business needs.
+            These projects are here because they show practical delivery, not
+            just design taste. They demonstrate how I help real businesses
+            present themselves clearly, improve trust, and launch work that is
+            ready for production use.
           </p>
         </motion.div>
 

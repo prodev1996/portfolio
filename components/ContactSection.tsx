@@ -8,8 +8,8 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa
 const targets = [
   "Application Support",
   "ICT Support / Service Desk",
-  "Junior Developer",
-  "Entry-level Data Analyst",
+  "Support Analyst",
+  "Web Delivery / Small Business Sites",
 ];
 
 export default function ContactSection() {
@@ -18,7 +18,7 @@ export default function ContactSection() {
       id="contact"
       eyebrow="Contact"
       title="Let's start the conversation"
-      subtitle="If there is a role where dependable support, practical development, and a clear growth mindset matter, I would be glad to connect."
+      subtitle="If there is a role where dependable ICT support, practical delivery, and clear communication matter, I would be glad to connect."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))] !pb-12 !pt-8 sm:!pb-16 sm:!pt-10"
     >
       <div className="grid gap-5 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
@@ -37,12 +37,12 @@ export default function ContactSection() {
               Best Fit
             </p>
             <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[#1d2d25]">
-              Ready to contribute in support, development, and transition-ready data work
+              Ready to contribute in support, systems, and client-facing delivery
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[#5e6f65]">
               I bring dependable support, clear communication, and practical
-              technical delivery now, while continuing to grow into more
-              data-focused work.
+              technical delivery now, with a profile that fits well in ICT
+              support teams and hybrid technical environments.
             </p>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">

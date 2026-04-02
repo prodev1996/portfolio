@@ -8,18 +8,18 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
+    default: "Rajiv Bhandari | ICT Support & Web Delivery",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, an Adelaide-based technical professional with strengths in application support, full stack web development, and an active transition into data analytics.",
+    "Portfolio of Rajiv Bhandari, an Adelaide-based ICT support and web delivery professional with experience across Microsoft 365, troubleshooting, business systems, and client-facing websites.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
+    title: "Rajiv Bhandari | ICT Support & Web Delivery",
     description:
-      "Application support, user-focused technical problem solving, full stack web delivery, and a growing transition into data analyst work.",
+      "ICT support, Microsoft 365, troubleshooting, and client-facing web delivery for Adelaide teams and businesses.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -34,26 +34,25 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Support, Full Stack Development, and Data Analyst Transition",
+    title: "Rajiv Bhandari | ICT Support & Web Delivery",
     description:
-      "Adelaide-based technical professional with strengths across application support, web development, and a data analyst transition path.",
+      "Adelaide-based ICT support and web delivery professional focused on Microsoft 365, troubleshooting, and practical business systems support.",
     images: ["/og-image.png"],
   },
   keywords: [
     "Rajiv Bhandari",
-    "Application Support",
     "ICT Support",
     "IT Support",
     "Service Desk",
     "Support Analyst",
+    "Microsoft 365",
+    "SharePoint",
+    "Active Directory",
     "Full Stack Developer",
+    "Web Delivery",
     "React",
     "Next.js",
     "Django",
-    "SQL",
-    "Power BI",
-    "Excel",
-    "Data Analyst",
     "Adelaide",
   ],
   authors: [

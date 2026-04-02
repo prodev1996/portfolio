@@ -5,49 +5,80 @@ import { motion } from "framer-motion";
 
 const skillGroups = [
   {
-    title: "Front-end Development",
+    title: "ICT Support",
+    items: [
+      "Microsoft 365",
+      "Windows Support",
+      "Active Directory",
+      "Azure AD",
+      "SharePoint",
+      "Exchange Online",
+      "Teams",
+      "Account Access & Permissions",
+      "Troubleshooting",
+      "Documentation",
+    ],
+  },
+  {
+    title: "Systems & Device Support",
+    items: [
+      "Windows 10/11",
+      "Windows Server",
+      "Device Setup",
+      "Software Installation",
+      "Updates & Issue Diagnosis",
+      "Printer & User Support",
+      "Remote Support",
+      "Workflow Support",
+    ],
+  },
+  {
+    title: "Networking & Platform",
+    items: [
+      "TCP/IP",
+      "LAN / WAN Basics",
+      "DNS / DHCP",
+      "VPN Support",
+      "Hosting & DNS",
+      "SSL Setup",
+      "Production Deployments",
+      "Environment Updates",
+    ],
+  },
+  {
+    title: "Web Delivery",
     items: [
       "React",
       "Next.js",
       "TypeScript",
       "JavaScript",
-      "Responsive UI",
       "Tailwind CSS",
-      "Component-driven builds",
+      "Responsive UI",
+      "REST APIs",
     ],
   },
   {
-    title: "Back-end & Data Foundations",
+    title: "Development & Data Foundations",
     items: [
+      "Node.js",
       "Django",
       "REST APIs",
-      "MySQL / SQLite",
       "SQL",
+      "MySQL",
       "Structured Data",
-      "Data Validation",
-      "Dashboard Thinking",
+      "Testing & Iteration",
+      "Cross-functional Support",
     ],
   },
   {
-    title: "Support & Business Systems",
-    items: [
-      "Microsoft 365",
-      "Windows Support",
-      "Active Directory",
-      "Account Management",
-      "Troubleshooting",
-      "Documentation",
-      "User Communication",
-    ],
-  },
-  {
-    title: "Professional Strengths",
+    title: "Working Style",
     items: [
       "Problem Solving",
-      "Client Communication",
+      "User Communication",
       "Reliability",
+      "Ticket Management",
       "Process Improvement",
-      "Cross-functional Thinking",
+      "Client Communication",
       "Adaptability",
       "Fast Learning",
     ],
@@ -58,12 +89,12 @@ export default function TechStack() {
   return (
     <Section
       id="tech-stack"
-      eyebrow="Development Skills"
-      title="The technical toolkit behind the portfolio"
-      subtitle="I want this site to show more than interest. It should show capability. These are the tools and strengths that support my web development work today while also supporting my move toward analyst work."
+      eyebrow="Core Skills"
+      title="The toolkit behind support work and delivery"
+      subtitle="I want this site to show more than interest. It should show capability across the tools, systems, and habits that help me support users, solve issues, and ship clean technical work."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))]"
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {skillGroups.map((group, index) => (
           <motion.div
             key={group.title}

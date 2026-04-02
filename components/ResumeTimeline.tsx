@@ -31,7 +31,7 @@ const experience = [
     ],
   },
   {
-    company: "Eydean Inc",
+    company: "Eyden Inc",
     role: "Full Stack Developer",
     location: "Kathmandu, Nepal",
     period: "December 2020 - March 2022",
