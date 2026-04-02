@@ -132,9 +132,6 @@ export default function FeaturedProjects() {
                 </div>
 
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#d7854f]">
-                    Case Study 0{index + 1}
-                  </p>
                   <h3 className="mt-3 text-2xl font-semibold text-[#1d2d25] sm:text-3xl">
                     {project.title}
                   </h3>
