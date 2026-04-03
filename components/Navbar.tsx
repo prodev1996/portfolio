@@ -18,14 +18,16 @@ const homeLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const isResumePage = pathname === "/resume";
+  const usesSectionNav = isHomePage;
 
   const [active, setActive] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    if (isResumePage) return;
+    if (!usesSectionNav) return;
 
     const sections = homeLinks
       .map((link) => {
@@ -98,7 +100,7 @@ export default function Navbar() {
       window.removeEventListener("resize", updateNavigationState);
       window.removeEventListener("hashchange", updateNavigationState);
     };
-  }, [isResumePage]);
+  }, [usesSectionNav]);
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
@@ -126,7 +128,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {!isResumePage ? (
+        {usesSectionNav ? (
           <nav className="hidden items-center gap-1 lg:flex">
             {homeLinks.map((link) => {
               const isActive = active === link.name;
@@ -171,6 +173,13 @@ export default function Navbar() {
                 Back Home
               </Link>
             </motion.div>
+            {!isResumePage ? (
+              <motion.div whileHover={{ y: -2 }}>
+                <Link href="/resume" className="btn-primary">
+                  Resume
+                </Link>
+              </motion.div>
+            ) : null}
           </nav>
         )}
 
@@ -190,7 +199,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="mx-auto mt-3 max-w-6xl rounded-[28px] border border-[#dde6de] bg-[#fffaf2]/95 p-3 shadow-[0_24px_50px_rgba(118,103,79,0.12)] backdrop-blur-xl lg:hidden"
         >
-          {!isResumePage ? (
+          {usesSectionNav ? (
             <nav className="flex flex-col gap-2">
               {homeLinks.map((link) => {
                 const isActive = active === link.name;
@@ -231,6 +240,15 @@ export default function Navbar() {
               >
                 Back Home
               </Link>
+              {!isResumePage ? (
+                <Link
+                  href="/resume"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-primary text-center"
+                >
+                  Resume
+                </Link>
+              ) : null}
             </nav>
           )}
         </motion.div>
