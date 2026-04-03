@@ -92,7 +92,7 @@ export default function ResumeHeader() {
           </div>
 
           <a
-            href="/Rajiv_Bhandari_IT_Application_Support_Resume.docx"
+            href="/Rajiv_Bhandari_Resume.pdf"
             className="btn-primary mt-5"
           >
             Download Resume
