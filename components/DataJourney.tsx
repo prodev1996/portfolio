@@ -23,6 +23,36 @@ const upcomingProjects = [
   },
 ];
 
+const reportingProof = [
+  {
+    title: "Reporting and data accuracy",
+    desc: "Operational reporting, records, and data accuracy work using Excel and Microsoft 365 in a fast-moving environment.",
+    points: [
+      "Supported reporting and record accuracy tasks",
+      "Improved digital organisation to reduce manual errors",
+      "Worked across admin, ICT, and data support responsibilities",
+    ],
+  },
+  {
+    title: "Sales Dashboard (Power BI)",
+    desc: "Planned case study focused on KPIs, sales trends, category performance, and business-facing visuals.",
+    points: [
+      "KPI cards, trend lines, and summary visuals",
+      "Revenue, profit, and top-product insights",
+      "Will be the main reporting case study on the site",
+    ],
+  },
+  {
+    title: "SQL analysis project",
+    desc: "Planned SQL case study focused on joins, grouping, and business questions around customers, products, and sales trends.",
+    points: [
+      "JOIN, GROUP BY, filtering, and aggregation",
+      "Customer and sales analysis queries",
+      "Shows practical analysis thinking, not just syntax",
+    ],
+  },
+];
+
 export default function DataJourney() {
   return (
     <section
@@ -95,6 +125,50 @@ export default function DataJourney() {
                 <p className="mt-3 text-sm leading-7 text-[#5e6f65]">
                   {item.desc}
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
+              Data & Reporting Projects
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#1d2d25] sm:text-3xl">
+              Current proof now, plus the portfolio data work being built next
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
+              This keeps the reporting story in one place: the proof already in
+              the experience, and the Power BI and SQL case studies being built
+              next.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 xl:grid-cols-3">
+            {reportingProof.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.16 }}
+                transition={{ delay: index * 0.06 }}
+                className="card"
+              >
+                <h3 className="text-xl font-semibold text-[#1d2d25]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[#5e6f65]">
+                  {item.desc}
+                </p>
+                <ul className="mt-5 space-y-2 text-sm text-[#31463a]">
+                  {item.points.map((point) => (
+                    <li key={point} className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-[#1f9d72]" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>

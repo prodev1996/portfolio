@@ -8,13 +8,11 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "Roles", href: "#target-roles" },
-  { name: "Focus", href: "#what-i-do" },
+  { name: "Strengths", href: "#what-i-do" },
   { name: "Experience", href: "#experience" },
-  { name: "Data", href: "#reporting-proof" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#tech-stack" },
-  { name: "Current Focus", href: "#data-journey" },
+  { name: "Growth", href: "#data-journey" },
   { name: "Contact", href: "#contact" },
 ];
 

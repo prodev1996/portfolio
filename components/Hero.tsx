@@ -51,6 +51,13 @@ const quickWins = [
   "Two live client websites that prove delivery ownership, production support, and problem solving",
 ];
 
+const targetRoles = [
+  "Application Support Analyst",
+  "Business Systems Support",
+  "Microsoft 365 / Service Desk Support",
+  "Reporting / Data Analyst",
+];
+
 const heroFacts = [
   {
     value: "Adelaide based",
@@ -335,6 +342,19 @@ export default function Hero() {
               application support, structured problem solving, and growing
               capability in data analysis.
             </p>
+
+            <div className="mt-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#7a8a80]">
+                Target Roles
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {targetRoles.map((role) => (
+                  <span key={role} className="badge">
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
