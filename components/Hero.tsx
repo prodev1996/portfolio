@@ -20,7 +20,8 @@ import { FaLinkedin } from "react-icons/fa";
 const roleBadges = [
   "Microsoft 365",
   "Business Applications",
-  "Reporting",
+  "SQL",
+  "Power BI",
   "SharePoint",
   "Web Delivery",
   "Documentation",
@@ -92,7 +93,7 @@ export default function Hero() {
             >
               <BriefcaseBusiness className="h-3.5 w-3.5 text-[#1f9d72]" />
               <span>
-                Focused on application support and business systems roles
+                Focused on application support and data analytics growth
               </span>
             </motion.div>
 
@@ -102,7 +103,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.04 }}
               className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#1f9d72]"
             >
-              Application Support Analyst | Business Systems | Web Delivery
+              Application Support Analyst | Data Analytics (SQL, Power BI)
             </motion.p>
 
             <motion.h1
@@ -111,7 +112,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="max-w-3xl text-[2.45rem] font-semibold leading-[1.08] tracking-tight text-[#1d2d25] sm:text-[3rem] lg:text-[3.35rem]"
             >
-              Supporting business applications, solving workflow issues, and keeping day-to-day operations moving.
+              Supporting business systems and building data-driven insights.
             </motion.h1>
 
             <motion.p
@@ -123,10 +124,9 @@ export default function Hero() {
               Based in Adelaide, I bring hands-on experience across Microsoft
               365, user access, troubleshooting, business application support,
               and day-to-day operational workflows, alongside reporting growth
-              and the ability to design, build, launch, and maintain polished
-              websites for real clients. The strongest fit is in application
-              support and business systems roles where communication, ownership,
-              and practical delivery all matter.
+              in SQL and Power BI. The strongest fit is in application support
+              and data-focused roles where communication, ownership, reporting,
+              and practical problem solving all matter.
             </motion.p>
 
             <motion.div
@@ -257,7 +257,7 @@ export default function Hero() {
                   <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
                   <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
                   <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
-                    Application support first, with reporting growth and web delivery as supporting strengths.
+                    Application support first, with data analytics as the next capability layer.
                   </p>
                 </div>
 
@@ -332,8 +332,8 @@ export default function Hero() {
             <p className="mt-3 text-sm leading-7 text-[#5c6d63]">
               Current focus includes Intune, Azure, PowerShell, SQL, and
               operational reporting. The core profile stays the same:
-              application support, structured problem solving, and reliable
-              delivery in real business environments.
+              application support, structured problem solving, and growing
+              capability in data analysis.
             </p>
           </motion.div>
         </motion.div>

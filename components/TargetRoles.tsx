@@ -7,8 +7,8 @@ const roles = [
   "Application Support Analyst",
   "Business Systems Support",
   "Microsoft 365 / Service Desk Support",
-  "Reporting / Data Support Analyst",
-  "Hybrid support + delivery roles",
+  "Reporting / Data Analyst",
+  "Hybrid support + data roles",
 ];
 
 export default function TargetRoles() {
@@ -25,13 +25,13 @@ export default function TargetRoles() {
                 Target Roles
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[#1d2d25] sm:text-3xl">
-                The clearest fit is application support and business systems work
+                Primary target: application support now, data analytics next
               </h2>
               <p className="mt-4 text-sm leading-7 text-[#5b6d63] sm:text-[15px]">
-                The site still shows web delivery because it proves ownership,
-                problem solving, and production support, but the primary career
-                direction is application support, business systems, and
-                reporting-aware technical work.
+                The site still includes web projects because they prove
+                ownership, problem solving, and live support work, but the
+                clearer long-term story is application support transitioning
+                into data and reporting.
               </p>
             </div>
 

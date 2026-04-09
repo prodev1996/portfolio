@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, an Adelaide-based application support professional with experience across Microsoft 365, business systems, troubleshooting, reporting growth, and client-facing websites.",
+    "Portfolio of Rajiv Bhandari, an Adelaide-based application support professional transitioning into data analytics with experience across Microsoft 365, business systems, troubleshooting, SQL, Power BI, and reporting growth.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
     title: "Rajiv Bhandari | Application Support Analyst",
     description:
-      "Application support, Microsoft 365, business systems, troubleshooting, reporting growth, and delivery proof for Adelaide teams and businesses.",
+      "Application support, Microsoft 365, business systems, SQL, Power BI, reporting growth, and delivery proof for Adelaide teams and businesses.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rajiv Bhandari | Application Support Analyst",
     description:
-      "Adelaide-based application support professional focused on Microsoft 365, business systems, troubleshooting, reporting growth, and practical delivery.",
+      "Adelaide-based application support professional transitioning into data analytics with Microsoft 365, business systems, SQL, Power BI, and reporting growth.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     "Active Directory",
     "Business Systems",
     "Reporting",
+    "Data Analytics",
+    "SQL",
+    "Power BI",
     "Web Delivery",
     "React",
     "Next.js",

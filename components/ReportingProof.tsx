@@ -15,22 +15,22 @@ const proofAreas = [
     icon: FileSpreadsheet,
   },
   {
-    title: "SQL and operational analysis",
-    desc: "I am building SQL and reporting capability around practical operational questions so the transition into reporting-focused roles has visible proof behind it.",
+    title: "Sales Dashboard (Power BI)",
+    desc: "Planned case study for a Power BI dashboard focused on KPIs, sales trends, category performance, and business-facing visuals.",
     points: [
-      "SQL fundamentals and structured data work",
-      "Reporting-focused learning tied to business use cases",
-      "Operational analysis as a clear next capability layer",
+      "KPIs, trend lines, and summary visuals",
+      "Revenue, profit, and top-product insights",
+      "Will become the main reporting case study on the site",
     ],
     icon: Database,
   },
   {
-    title: "Documentation and process improvement",
-    desc: "Across support and delivery work, I keep coming back to the same value: clearer processes, better documentation, and more repeatable ways of working.",
+    title: "SQL analysis project",
+    desc: "Planned SQL case study focused on joins, grouping, and business questions such as customer, product, and sales analysis.",
     points: [
-      "Turn recurring issues into clearer support notes",
-      "Support smoother onboarding, access, and workflow changes",
-      "Connect support work with continuous improvement",
+      "JOIN, GROUP BY, filtering, and aggregation",
+      "Customer and sales analysis queries",
+      "Will show practical data analysis thinking, not just syntax",
     ],
     icon: BarChart3,
   },
@@ -45,15 +45,16 @@ export default function ReportingProof() {
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-            Reporting & Data Work
+            Data & Reporting Projects
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Support experience that also points toward reporting and process improvement
+            Current proof now, plus the data case studies being built next
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            Reporting is not just a future idea on this site. It already shows
-            up through data accuracy work, documentation, operational support,
-            and the tools I am actively building around SQL, Excel, and repeatable workflows.
+            This section shows the reporting work already present in my
+            experience, while also making space for the two data portfolio
+            projects that will strengthen the transition into analytics:
+            a Power BI sales dashboard and an SQL analysis case study.
           </p>
         </div>
 

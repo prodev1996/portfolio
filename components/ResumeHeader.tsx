@@ -21,7 +21,7 @@ export default function ResumeHeader() {
           </h1>
 
           <p className="mt-3 text-lg text-[#405247]">
-            Business Systems • Microsoft 365 • Web Development
+            Application Support Analyst • Data Analytics (SQL, Power BI)
           </p>
 
           <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
