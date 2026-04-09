@@ -26,8 +26,8 @@ const certifications = [
 ];
 
 const attributes = [
-  "Strong communication and customer support skills",
-  "Excellent troubleshooting and problem-solving ability",
+  "Strong communication and stakeholder support skills",
+  "Excellent troubleshooting, issue analysis, and problem-solving ability",
   "Reliable, adaptable, and detail-focused with a continuous learning mindset",
   "Team-oriented with a professional attitude and ability to work effectively under pressure",
 ];

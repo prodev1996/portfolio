@@ -19,51 +19,52 @@ import { FaLinkedin } from "react-icons/fa";
 
 const roleBadges = [
   "Microsoft 365",
-  "Windows Support",
-  "Active Directory",
+  "Business Systems",
+  "Problem Solving",
   "SharePoint",
   "React / Next.js",
-  "Troubleshooting",
+  "Web Delivery",
+  "Documentation",
 ];
 
 const strengths = [
   {
     title: "Support",
-    desc: "Microsoft 365, business systems, user support, and troubleshooting",
+    desc: "Business systems, Microsoft 365, access issues, and practical troubleshooting",
     icon: ShieldCheck,
   },
   {
-    title: "Web Delivery",
-    desc: "Client-facing websites, content updates, and polished front-end builds",
+    title: "Web Development",
+    desc: "Client-facing websites, deployments, content updates, and polished front-end builds",
     icon: Code2,
   },
   {
-    title: "Ownership",
-    desc: "Clear communication, documentation, and dependable follow-through",
+    title: "Problem Solving",
+    desc: "Clear communication, documentation, issue triage, and dependable follow-through",
     icon: BarChart3,
   },
 ];
 
 const quickWins = [
-  "Hands-on support across Microsoft 365, access issues, and day-to-day business tools",
-  "Real client websites already live, maintained, and easy to walk through",
-  "Comfortable switching between user problems, technical fixes, and delivery work",
+  "Hands-on experience supporting Microsoft 365, user access, workflow issues, and day-to-day business applications",
+  "Real client websites already live, maintained, and useful as proof of delivery and ownership",
+  "Comfortable analysing issues, documenting fixes, and switching between support work and web development",
 ];
 
 const heroFacts = [
   {
     value: "Adelaide based",
-    label: "Open to on-site, hybrid, and support-led roles",
+    label: "Open to on-site, hybrid, and practical technical roles",
     icon: MapPin,
   },
   {
-    value: "Support workflows handled",
-    label: "Access, troubleshooting, and business system support",
+    value: "Business systems support",
+    label: "Access, troubleshooting, workflow support, and user communication",
     icon: ShieldCheck,
   },
   {
     value: "2 live client sites",
-    label: "Already designed, launched, and maintained",
+    label: "Designed, launched, supported, and maintained end to end",
     icon: CheckCircle2,
   },
 ];
@@ -92,7 +93,7 @@ export default function Hero() {
             >
               <BriefcaseBusiness className="h-3.5 w-3.5 text-[#1f9d72]" />
               <span>
-                Open to ICT support, service desk, application support, and hybrid technical roles
+                Open to business systems, support, and hybrid web-focused roles
               </span>
             </motion.div>
 
@@ -102,7 +103,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.04 }}
               className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#1f9d72]"
             >
-              ICT Support • Microsoft 365 • Web Delivery
+              Business Systems • Microsoft 365 • Web Development
             </motion.p>
 
             <motion.h1
@@ -111,7 +112,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="max-w-3xl text-[2.45rem] font-semibold leading-[1.08] tracking-tight text-[#1d2d25] sm:text-[3rem] lg:text-[3.35rem]"
             >
-              ICT support, Microsoft 365 know-how, and polished web delivery for real businesses.
+              Business systems support, practical problem solving, and real web delivery.
             </motion.h1>
 
             <motion.p
@@ -121,11 +122,11 @@ export default function Hero() {
               className="mt-5 max-w-2xl text-[15px] leading-8 text-[#52645a] sm:text-[17px]"
             >
               Based in Adelaide, I bring hands-on experience across Microsoft
-              365, day-to-day business systems, troubleshooting, access and
-              support workflows, plus the ability to design, build, and maintain
-              polished websites for real clients. The strongest fit is in roles
-              where support, communication, ownership, and practical technical
-              delivery all matter.
+              365, user access, troubleshooting, business application support,
+              and day-to-day operational workflows, alongside the ability to
+              design, build, launch, and maintain polished websites for real
+              clients. The strongest fit is in roles where systems support,
+              communication, ownership, and practical delivery all matter.
             </motion.p>
 
             <motion.div
@@ -256,7 +257,7 @@ export default function Hero() {
                   <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
                   <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
                   <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
-                    ICT support, dependable web delivery, and calm ownership across technical work.
+                    Business systems support, dependable web delivery, and calm ownership across technical work.
                   </p>
                 </div>
 
@@ -326,13 +327,13 @@ export default function Hero() {
               </p>
             </div>
             <p className="mt-4 text-base font-semibold text-[#1d2d25]">
-              Building deeper systems, automation, and reporting skills alongside support work.
+              Building deeper reporting, automation, and systems depth over time.
             </p>
             <p className="mt-3 text-sm leading-7 text-[#5c6d63]">
               I am continuing to build in areas like Intune, Azure, PowerShell,
-              SQL, and reporting, but this site leads with the work I can
-              already prove today: support-minded delivery and real production
-              websites.
+              SQL, and reporting. The site still leads with the experience I
+              can already prove today: business systems support, structured
+              problem solving, and real production websites.
             </p>
           </motion.div>
         </motion.div>

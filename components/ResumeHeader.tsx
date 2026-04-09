@@ -21,17 +21,17 @@ export default function ResumeHeader() {
           </h1>
 
           <p className="mt-3 text-lg text-[#405247]">
-            IT Application Support Analyst • Microsoft 365 • Business Systems
+            Business Systems • Microsoft 365 • Web Development
           </p>
 
           <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            IT Application Support professional with experience supporting
-            Microsoft 365 and enterprise business applications across Windows
-            environments. Skilled in SharePoint administration, user access
+            Technical professional with experience supporting Microsoft 365 and
+            business applications across Windows environments. Skilled in access
             management, troubleshooting application issues, workflow support,
-            and collaborating with users to improve operational processes.
-            Holds a Master of Information Technology and brings a strong
-            continuous-improvement mindset to reliable business system support.
+            documentation, and stakeholder communication. Complements support
+            experience with web development and production delivery, bringing a
+            practical, business-aware approach to systems support and continuous
+            improvement.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">

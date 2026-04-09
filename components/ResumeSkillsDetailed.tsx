@@ -1,8 +1,8 @@
 const skillBlocks = [
   {
-    title: "IT Support & Troubleshooting",
+    title: "Application Support & Troubleshooting",
     items: [
-      "Level 1/2 support",
+      "Application support",
       "Incident handling",
       "User assistance",
       "Remote support",
@@ -12,12 +12,13 @@ const skillBlocks = [
     ],
   },
   {
-    title: "Windows & IT Systems",
+    title: "Business Systems & Operations",
     items: [
       "Windows 10/11",
       "Windows Server",
       "System maintenance",
       "System configuration",
+      "Workflow support",
     ],
   },
   {
@@ -32,39 +33,32 @@ const skillBlocks = [
       "Workflow support",
       "Active Directory",
       "Azure AD",
+      "Access management",
       "Basic Intune / Endpoint Manager",
     ],
   },
   {
-    title: "Networking Fundamentals",
+    title: "Reporting, Analysis & Improvement",
     items: [
-      "TCP/IP",
-      "LAN / WAN basics",
-      "DNS / DHCP",
-      "VPN support",
-      "Network troubleshooting",
+      "Excel reporting",
+      "SQL fundamentals",
+      "Structured data handling",
+      "Process documentation",
+      "Continuous improvement",
     ],
   },
   {
-    title: "Hardware & Software Support",
-    items: [
-      "Device setup",
-      "Software installation",
-      "Updates",
-      "Printer and network issues",
-      "Issue diagnosis & resolution",
-    ],
-  },
-  {
-    title: "Programming & Web Development",
+    title: "Web Development & Delivery",
     items: [
       "JavaScript",
       "React",
+      "Next.js",
       "Node.js",
       "MySQL",
       "HTML/CSS",
       "REST APIs",
       "Responsive UI",
+      "Deployment support",
     ],
   },
   {

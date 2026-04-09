@@ -53,7 +53,7 @@ export const projects: PortfolioProject[] = [
     proofPoints: [
       "Planned the structure around trust, service clarity, and enquiry flow.",
       "Built the front-end experience with reusable sections and responsive layouts.",
-      "Handled deployment setup, domain connection, and production updates.",
+      "Handled deployment setup, domain connection, production updates, and post-launch support.",
     ],
     skillsShown: [
       "Modern responsive UI design",
@@ -62,7 +62,7 @@ export const projects: PortfolioProject[] = [
       "Trust-building presentation for a real client brand",
     ],
     takeaway:
-      "This project shows that I can translate business requirements into a polished website that feels credible, usable, and ready for real visitors.",
+      "This project shows that I can translate business requirements into a polished digital solution that feels credible, usable, and ready for real visitors.",
     challenge:
       "The business needed a website that would immediately feel professional and trustworthy to visitors who were comparing providers and trying to understand services quickly.",
     solution:
@@ -71,8 +71,8 @@ export const projects: PortfolioProject[] = [
       "The result was a live production website that presents the business more credibly, gives visitors a clearer path through the content, and feels ready for real client use.",
     supportValue: [
       "Shows I can translate business needs into a practical digital solution.",
-      "Demonstrates ownership beyond design, including deployment and production updates.",
-      "Supports roles that need both user-facing communication and technical follow-through.",
+      "Demonstrates ownership beyond design, including deployment, troubleshooting, and production updates.",
+      "Strengthens my fit for analyst-style roles that need user-facing communication and technical follow-through.",
     ],
   },
   {
@@ -102,7 +102,7 @@ export const projects: PortfolioProject[] = [
     proofPoints: [
       "Structured the site so visitors understand services quickly on mobile and desktop.",
       "Designed the pages around enquiries, trust, and practical business needs.",
-      "Supported post-launch updates to keep the website current and usable.",
+      "Supported post-launch updates to keep the website current, usable, and easier to maintain.",
     ],
     skillsShown: [
       "Business-focused web page structure",
@@ -121,7 +121,7 @@ export const projects: PortfolioProject[] = [
     supportValue: [
       "Shows I can support real client delivery with practical business outcomes.",
       "Demonstrates responsiveness, content clarity, and post-launch support.",
-      "Fits hybrid roles where web updates, communication, and hands-on delivery overlap.",
+      "Fits hybrid roles where web updates, communication, and analyst-style ownership overlap.",
     ],
   },
 ];

@@ -5,37 +5,37 @@ import { motion } from "framer-motion";
 const experience = [
   {
     period: "Mar 2022 - Present",
-    track: "Support + Systems",
+    track: "Support & Systems",
     role: "IT Application Support Consultant",
     company: "Freelance / Contract",
     location: "Adelaide, Australia",
     summary:
-      "Supporting Microsoft 365, business applications, and user workflows for small-business clients with a focus on reliability, troubleshooting, and practical delivery.",
+      "Supporting Microsoft 365, business applications, and user workflows for small-business clients with a focus on issue analysis, reliability, troubleshooting, and practical delivery.",
     points: [
-      "Provided Level 1/2 IT and application support across Microsoft 365 and Windows environments.",
-      "Supported SharePoint, Outlook, Teams, and web-based systems used in day-to-day operations.",
-      "Managed onboarding, permissions, and access control across Microsoft 365 and related tools.",
-      "Configured hosting, DNS, SSL, and production website environments as part of client delivery.",
+      "Provided application support across Microsoft 365 and Windows environments, helping users resolve day-to-day system and workflow issues.",
+      "Supported SharePoint, Outlook, Teams, and web-based systems used in business operations.",
+      "Managed onboarding, permissions, access control, and account changes across Microsoft 365 and related tools.",
+      "Configured hosting, DNS, SSL, and production website environments as part of client delivery and ongoing support.",
     ],
   },
   {
     period: "Dec 2024 - May 2025",
-    track: "Operations + Data Support",
+    track: "Operations + Reporting",
     role: "Administrative Assistant (ICT and Data Support)",
     company: "SA Mushrooms",
     location: "Waterloo Corner, South Australia",
     summary:
-      "Blended reporting, admin, and technical support responsibilities in a fast-moving business environment where accuracy and communication mattered.",
+      "Blended reporting, administration, and technical support responsibilities in a fast-moving business environment where accuracy, communication, and structured follow-through mattered.",
     points: [
       "Supported records, reporting, and data accuracy tasks using Excel and Microsoft 365 tools.",
-      "Helped staff with device, login, shared-drive, and day-to-day IT issues.",
+      "Helped staff with device, login, shared-drive, and day-to-day business system issues.",
       "Improved documentation flow and reduced manual errors through better digital organisation.",
-      "Assisted with access issues and escalated more complex incidents when needed.",
+      "Assisted with access issues, system usage questions, and escalation of more complex incidents.",
     ],
   },
   {
     period: "Dec 2020 - Mar 2022",
-    track: "Development",
+    track: "Web Development",
     role: "Full Stack Developer",
     company: "Eydean",
     location: "Kathmandu, Nepal",
@@ -50,7 +50,7 @@ const experience = [
   },
   {
     period: "Nov 2017 - Sep 2020",
-    track: "Data Foundations",
+    track: "Data Quality",
     role: "Data Specialist",
     company: "CloudFactory",
     location: "Kathmandu, Nepal",
@@ -76,14 +76,14 @@ export default function Experience() {
             Experience
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A track record that connects support, web delivery, and real business value
+            Experience across support, web development, and operations
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
             This background is strongest when it is read as one story, not
-            separate jobs. I have supported users, built web products, and
-            worked in structured operational environments, which makes me well
-            suited to roles that need technical range, dependability, and clear
-            communication.
+            separate jobs. I have supported users, worked with business systems,
+            built web products, and operated in structured environments, which
+            makes me well suited to roles that need technical range,
+            dependability, issue analysis, and clear communication.
           </p>
         </div>
 
@@ -93,11 +93,10 @@ export default function Experience() {
               What this experience shows
             </p>
             <p className="mt-3 text-sm leading-7 text-[#4e6056]">
-              I can contribute in roles where technical support, digital delivery,
-              and continuous improvement overlap. That includes application
-              support, service desk, support analyst work, junior web delivery
-              roles, and hybrid environments where a practical technical mindset
-              is valuable.
+              I can contribute in roles where business application support,
+              digital delivery, and continuous improvement overlap. The best fit
+              is in business systems, support, and hybrid technical roles where
+              a practical, user-aware mindset is valuable.
             </p>
           </div>
 
@@ -107,13 +106,12 @@ export default function Experience() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {[
-                "Application Support",
+                "Business Systems",
                 "Microsoft 365",
-                "Web Delivery",
                 "Web Development",
-                "Troubleshooting",
-                "Documentation",
-                "User Communication",
+                "Problem Solving",
+                "Reporting & Documentation",
+                "Stakeholder Communication",
               ].map((item) => (
                 <span key={item} className="badge">
                   {item}

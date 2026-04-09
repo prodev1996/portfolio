@@ -5,40 +5,37 @@ import { motion } from "framer-motion";
 
 const skillGroups = [
   {
-    title: "ICT Support",
+    title: "Application Support",
     items: [
       "Microsoft 365",
-      "Windows Support",
-      "Active Directory",
-      "Azure AD",
+      "Business Applications",
       "SharePoint",
       "Exchange Online",
       "Teams",
       "Account Access & Permissions",
-      "Troubleshooting",
+      "Issue Triage",
       "Documentation",
     ],
   },
   {
-    title: "Systems & Device Support",
+    title: "Systems & Operations",
     items: [
       "Windows 10/11",
       "Windows Server",
       "Device Setup",
       "Software Installation",
-      "Updates & Issue Diagnosis",
-      "Printer & User Support",
+      "Issue Diagnosis",
       "Remote Support",
       "Workflow Support",
+      "User Onboarding",
     ],
   },
   {
-    title: "Networking & Platform",
+    title: "Identity & Platform",
     items: [
-      "TCP/IP",
-      "LAN / WAN Basics",
-      "DNS / DHCP",
-      "VPN Support",
+      "Active Directory",
+      "Azure AD",
+      "Identity Support",
       "Hosting & DNS",
       "SSL Setup",
       "Production Deployments",
@@ -46,7 +43,7 @@ const skillGroups = [
     ],
   },
   {
-    title: "Web Delivery",
+    title: "Web Development",
     items: [
       "React",
       "Next.js",
@@ -58,16 +55,15 @@ const skillGroups = [
     ],
   },
   {
-    title: "Development & Data Foundations",
+    title: "Data, Reporting & Automation",
     items: [
-      "Node.js",
-      "Django",
-      "REST APIs",
       "SQL",
       "MySQL",
       "Structured Data",
+      "Excel Reporting",
+      "PowerShell",
       "Testing & Iteration",
-      "Cross-functional Support",
+      "Process Improvement",
     ],
   },
   {
@@ -90,8 +86,8 @@ export default function TechStack() {
     <Section
       id="tech-stack"
       eyebrow="Core Skills"
-      title="The toolkit behind support work and delivery"
-      subtitle="I want this site to show more than interest. It should show capability across the tools, systems, and habits that help me support users, solve issues, and ship clean technical work."
+      title="The toolkit behind application support and delivery"
+      subtitle="I want this site to show more than interest. It should show capability across the tools, systems, and habits that help me support users, analyse issues, improve workflows, and ship clean technical work."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))]"
     >
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

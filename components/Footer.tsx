@@ -14,7 +14,7 @@ export default function Footer() {
                 Rajiv Bhandari
               </p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7a897f]">
-                ICT Support • Microsoft 365 • Web Delivery
+                Business Systems • Microsoft 365 • Web Development
               </p>
             </div>
           </div>

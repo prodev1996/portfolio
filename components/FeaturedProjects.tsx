@@ -87,13 +87,13 @@ export default function FeaturedProjects() {
             Featured Client Work
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Live projects that prove delivery, polish, and business value
+            Web projects that strengthen my application support profile
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            These projects are here because they show practical delivery, not
-            just design taste. They demonstrate how I help real businesses
-            present themselves clearly, improve trust, and launch work that is
-            ready for production use.
+            These projects are here because they prove practical delivery, not
+            just design taste. They show how I gather requirements, structure
+            solutions, support production changes, and deliver work that real
+            businesses can actually use.
           </p>
         </motion.div>
 

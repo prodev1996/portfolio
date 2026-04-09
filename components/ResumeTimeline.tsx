@@ -9,7 +9,7 @@ const experience = [
     location: "Adelaide, South Australia",
     period: "March 2022 - Present",
     bullets: [
-      "Provided Level 1/2 IT and application support for small business clients across Microsoft 365 and Windows environments.",
+      "Provided application support for small business clients across Microsoft 365 and Windows environments.",
       "Supported business applications including SharePoint, Outlook, Teams, and web-based systems.",
       "Managed onboarding and offboarding, permissions, and access control using Active Directory and Microsoft 365.",
       "Troubleshot application, workflow, and system issues to help maintain business continuity.",
@@ -24,7 +24,7 @@ const experience = [
     period: "December 2024 - May 2025",
     bullets: [
       "Supported records, reporting, and data accuracy tasks using Microsoft tools including Excel and Microsoft 365.",
-      "Assisted staff with basic IT support issues and coordinated escalations when required.",
+      "Assisted staff with access issues, account queries, and day-to-day business system usage questions.",
       "Improved digital documentation workflows to reduce manual errors and save time.",
       "Supported user account access issues and escalated complex incidents as needed.",
       "Helped staff with internal business application access and system usage queries.",

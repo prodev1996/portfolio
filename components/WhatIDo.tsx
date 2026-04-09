@@ -6,29 +6,29 @@ import { FaChartBar, FaCogs, FaLaptopCode } from "react-icons/fa";
 const pillars = [
   {
     icon: <FaCogs />,
-    title: "ICT support that stays practical and user-focused",
-    desc: "I work close to users, systems, and day-to-day operations. That includes troubleshooting, communication, documentation, and keeping business tools usable.",
-    bullets: ["User-facing support mindset", "Microsoft 365 and business systems support", "Practical problem solving with clear follow-through"],
+    title: "Support that stays practical and user-focused",
+    desc: "I work close to users, business systems, and day-to-day operations. That includes incident triage, troubleshooting, access management, documentation, and keeping workflows usable.",
+    bullets: ["Business application and Microsoft 365 support", "Issue analysis, access support, and workflow troubleshooting", "Clear user communication with dependable follow-through"],
   },
   {
     icon: <FaLaptopCode />,
-    title: "Web delivery that already has real proof behind it",
-    desc: "This portfolio already demonstrates client-facing web work through live projects built with modern front-end tools, clean structure, and polished presentation.",
-    bullets: ["React and Next.js delivery", "Responsive UI and modern layouts", "Deployment, DNS, hosting, and production-minded ownership"],
+    title: "Web development that already has real proof behind it",
+    desc: "This portfolio demonstrates client-facing web work through live projects built with modern front-end tools, clean structure, and production ownership.",
+    bullets: ["React and Next.js delivery", "Responsive UI, deployment, and production updates", "Requirements translated into practical digital solutions"],
   },
   {
     icon: <FaChartBar />,
-    title: "Growth that supports the same core profile",
-    desc: "I keep building in adjacent areas like automation, reporting, and Microsoft cloud tools, but the core value stays the same: reliable support and practical technical delivery.",
-    bullets: ["PowerShell, SQL, and reporting growth", "Intune and Azure learning in progress", "Continuous improvement without diluting the main story"],
+    title: "Reporting and systems growth that supports the same direction",
+    desc: "I keep building in automation, reporting, SQL, and Microsoft cloud tools because they strengthen the same core profile: support, systems thinking, and continuous improvement.",
+    bullets: ["PowerShell, SQL, and reporting growth", "Intune and Azure learning in progress", "Process improvement with a practical technical focus"],
   },
 ];
 
 const hireReasons = [
-  "You get someone who can support users and still contribute to delivery work.",
-  "I communicate clearly with technical and non-technical people.",
-  "My experience spans support, websites, documentation, and business-facing execution.",
-  "I keep learning new tools without losing focus on what I can already do well.",
+  "You get someone who can support users, understand workflows, and still contribute to delivery work.",
+  "I communicate clearly with both technical and non-technical stakeholders.",
+  "My experience spans business systems support, websites, documentation, and operational execution.",
+  "I keep building depth in reporting and systems work without losing focus on what I already do well.",
 ];
 
 export default function WhatIDo() {
@@ -48,12 +48,13 @@ export default function WhatIDo() {
             What I Bring
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A profile built around support, delivery, and being useful quickly
+            A practical mix of support, web delivery, and problem solving
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
             This portfolio is designed to show the clearest version of my value:
-            dependable ICT support, polished web delivery, and a working style
-            built on communication, ownership, and steady improvement.
+            dependable systems support, polished web development, and a
+            working style built on communication, ownership, documentation, and
+            steady improvement.
           </p>
         </motion.div>
 

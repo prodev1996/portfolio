@@ -38,7 +38,7 @@ export default function AboutSection() {
       id="about"
       eyebrow="About Me"
       title="Support-first, practical, and ready for real business environments"
-      subtitle="My background combines technical support, digital tools, business operations, documentation, and client-facing website work. That gives me a practical foundation for Australian IT support and support analyst roles."
+      subtitle="My background combines technical support, digital tools, business operations, documentation, and client-facing website work. That gives me a practical foundation for Australian support and business systems roles."
       className="bg-slate-950/70"
     >
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -67,10 +67,9 @@ export default function AboutSection() {
           </p>
 
           <p className="mt-5 text-sm leading-8 text-slate-300 sm:text-[15px]">
-            I’m especially interested in roles such as IT Support, ICT Support,
-            Service Desk, Support Analyst, Application Support, and positions
-            that combine support with reporting, systems administration, or
-            process improvement.
+            I’m especially interested in roles across support, business
+            systems, service delivery, and positions that combine user support
+            with reporting, systems administration, or process improvement.
           </p>
 
           <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-4">

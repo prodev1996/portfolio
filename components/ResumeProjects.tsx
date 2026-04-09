@@ -6,16 +6,16 @@
       bullets: [
         "Built a web-based tool to hide secret text inside images using steganography concepts.",
         "Used HTML, CSS, JavaScript, and Git-based version control during development.",
-        "Developed encoding and decoding functions, tested with sample images, and documented results.",
+        "Developed encoding and decoding functions, tested with sample images, and documented results clearly.",
       ],
     },
     {
       title: "Glide Education – Consultancy and Visa Services Platform",
       meta: "Technologies: React, Next.js, MySQL, Node.js, Tailwind, Vercel",
       bullets: [
-        "Solely developed and deployed a production website with responsive UI and service pages.",
+        "Solely developed and deployed a production website with responsive UI and structured service pages.",
         "Built secure enquiry and contact forms with validation and email notifications.",
-        "Managed hosting setup including domain, DNS, SSL, and deployment updates for stability.",
+        "Managed domain, DNS, SSL, and deployment updates, showing production ownership and change support.",
       ],
     },
     {
@@ -24,7 +24,7 @@
       bullets: [
         "Built a mobile-friendly service website to support customer enquiries and lead generation.",
         "Designed responsive pages using HTML, CSS, and Tailwind for smooth performance.",
-        "Managed basic hosting updates and content changes after deployment.",
+        "Managed hosting updates and content changes after deployment to keep the site current and usable.",
       ],
     },
   ];
