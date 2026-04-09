@@ -156,8 +156,6 @@ export default function FeaturedProjects() {
                     </Link>
                     <motion.a
                       href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="btn-outline"
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.98 }}

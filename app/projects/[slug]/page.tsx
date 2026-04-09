@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, Globe, Wrench } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Globe, Wrench } from "lucide-react";
 
+import ProjectBackButton from "@/components/ProjectBackButton";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectPageProps = {
@@ -49,17 +49,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <div className="grid gap-8">
         <div className="soft-panel rounded-[30px] px-6 py-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Link href="/#projects" className="btn-outline">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Projects
-            </Link>
+            <ProjectBackButton />
 
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
+            <a href={project.liveUrl} className="btn-primary">
               Visit Live Site
               <ArrowUpRight className="h-4 w-4" />
             </a>
