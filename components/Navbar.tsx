@@ -8,11 +8,13 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "Strengths", href: "#what-i-do" },
+  { name: "Roles", href: "#target-roles" },
+  { name: "Focus", href: "#what-i-do" },
+  { name: "Experience", href: "#experience" },
+  { name: "Data", href: "#reporting-proof" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#tech-stack" },
-  { name: "Growth", href: "#data-journey" },
-  { name: "Experience", href: "#experience" },
+  { name: "Current Focus", href: "#data-journey" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -176,7 +178,7 @@ export default function Navbar() {
             {!isResumePage ? (
               <motion.div whileHover={{ y: -2 }}>
                 <Link href="/resume" className="btn-primary">
-                  Resume
+                  View Resume
                 </Link>
               </motion.div>
             ) : null}
@@ -246,7 +248,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="btn-primary text-center"
                 >
-                  Resume
+                  View Resume
                 </Link>
               ) : null}
             </nav>
