@@ -7,10 +7,10 @@ import { FaEnvelope, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { CheckCircle2 } from "lucide-react";
 
 const targets = [
-  "Business Systems Support",
-  "Microsoft 365 Support",
-  "Service Desk / Support",
-  "Web Delivery / Small Business Sites",
+  "Application Support",
+  "Business Systems",
+  "Reporting / Data Support",
+  "Hybrid technical roles",
 ];
 
 const supportAreas = [
@@ -25,8 +25,8 @@ export default function ContactSection() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Let's start the conversation"
-      subtitle="If there is a role where dependable support, practical delivery, and clear communication matter, I would be glad to connect."
+      title="Open to application support, business systems, and reporting-focused roles"
+      subtitle="Available for on-site and hybrid opportunities in Adelaide."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))] !pb-12 !pt-8 sm:!pb-16 sm:!pt-10"
     >
       <div className="grid gap-5 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
@@ -45,12 +45,12 @@ export default function ContactSection() {
               Best Fit
             </p>
             <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[#1d2d25]">
-              Ready to contribute in support, systems, and client-facing delivery
+              Ready to contribute in support, systems, reporting, and practical delivery
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[#5e6f65]">
               I bring dependable support, clear communication, and practical
-              technical delivery now, with a profile that fits well in business
-              systems, support, and hybrid technical environments.
+              delivery now, with a profile that fits well in application
+              support, business systems, and reporting-aware environments.
             </p>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">

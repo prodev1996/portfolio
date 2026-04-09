@@ -128,16 +128,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="card">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
-              The Challenge
+              Business Goal
             </p>
-            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.challenge}</p>
+            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.businessGoal}</p>
           </div>
 
           <div className="card">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
-              The Solution
+              Measurable Outcome
             </p>
-            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.solution}</p>
+            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.measurableOutcome}</p>
           </div>
         </div>
 
@@ -158,13 +158,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="card">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
-              Why this matters
+              Support & problem-solving proof
             </p>
-            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.outcome}</p>
-
-            <div className="mt-6 rounded-[24px] bg-[#fffdf9] px-5 py-5">
-              <p className="text-sm leading-7 text-[#32463a]">{project.takeaway}</p>
-            </div>
+            <ul className="mt-4 space-y-3">
+              {project.supportProof.map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-7 text-[#33463b]">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-[#1f9d72]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -188,9 +191,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="card">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
-              Why this supports my profile
+              Why this matters
             </p>
-            <ul className="mt-4 space-y-3">
+            <p className="mt-4 text-sm leading-7 text-[#4f6157]">{project.outcome}</p>
+
+            <div className="mt-6 rounded-[24px] bg-[#fffdf9] px-5 py-5">
+              <p className="text-sm leading-7 text-[#32463a]">{project.takeaway}</p>
+            </div>
+
+            <ul className="mt-6 space-y-3">
               {project.supportValue.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-7 text-[#33463b]">
                   <span className="mt-2 h-2 w-2 rounded-full bg-[#1f9d72]" />

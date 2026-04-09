@@ -6,29 +6,22 @@ import { FaChartBar, FaCogs, FaLaptopCode } from "react-icons/fa";
 const pillars = [
   {
     icon: <FaCogs />,
-    title: "Support that stays practical and user-focused",
-    desc: "I work close to users, business systems, and day-to-day operations. That includes incident triage, troubleshooting, access management, documentation, and keeping workflows usable.",
-    bullets: ["Business application and Microsoft 365 support", "Issue analysis, access support, and workflow troubleshooting", "Clear user communication with dependable follow-through"],
-  },
-  {
-    icon: <FaLaptopCode />,
-    title: "Web development that already has real proof behind it",
-    desc: "This portfolio demonstrates client-facing web work through live projects built with modern front-end tools, clean structure, and production ownership.",
-    bullets: ["React and Next.js delivery", "Responsive UI, deployment, and production updates", "Requirements translated into practical digital solutions"],
+    title: "Application Support",
+    desc: "I work close to users, business systems, and day-to-day operations, helping resolve issues, support workflows, and keep tools usable.",
+    bullets: ["Business applications and Microsoft 365 support", "Issue triage, access support, and troubleshooting", "Clear communication with dependable follow-through"],
   },
   {
     icon: <FaChartBar />,
-    title: "Reporting and systems growth that supports the same direction",
-    desc: "I keep building in automation, reporting, SQL, and Microsoft cloud tools because they strengthen the same core profile: support, systems thinking, and continuous improvement.",
-    bullets: ["PowerShell, SQL, and reporting growth", "Intune and Azure learning in progress", "Process improvement with a practical technical focus"],
+    title: "Reporting & Process Improvement",
+    desc: "Reporting, data accuracy, documentation, and workflow improvement are already part of the work I do and the direction I am building further.",
+    bullets: ["Excel reporting and data accuracy support", "SQL, reporting, and PowerShell growth", "Process improvement through clearer documentation"],
   },
-];
-
-const hireReasons = [
-  "You get someone who can support users, understand workflows, and still contribute to delivery work.",
-  "I communicate clearly with both technical and non-technical stakeholders.",
-  "My experience spans business systems support, websites, documentation, and operational execution.",
-  "I keep building depth in reporting and systems work without losing focus on what I already do well.",
+  {
+    icon: <FaLaptopCode />,
+    title: "Web Delivery",
+    desc: "The web projects on this site are proof of delivery discipline, ownership, and live production support rather than a separate career direction.",
+    bullets: ["Live client projects in production", "Deployment, DNS, SSL, and ongoing updates", "Requirements translated into practical digital solutions"],
+  },
 ];
 
 export default function WhatIDo() {
@@ -48,13 +41,12 @@ export default function WhatIDo() {
             What I Bring
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A practical mix of support, web delivery, and problem solving
+            A focused profile with support first, reporting second, and delivery proof behind it
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            This portfolio is designed to show the clearest version of my value:
-            dependable systems support, polished web development, and a
-            working style built on communication, ownership, documentation, and
-            steady improvement.
+            I want recruiters to find the main story quickly: strong support and
+            business systems fundamentals, growing reporting capability, and web
+            projects that prove ownership and practical delivery.
           </p>
         </motion.div>
 
@@ -92,20 +84,6 @@ export default function WhatIDo() {
           ))}
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {hireReasons.map((reason, index) => (
-            <motion.div
-              key={reason}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="soft-panel rounded-[24px] px-5 py-5"
-            >
-              <p className="text-sm leading-6 text-[#33463b]">{reason}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

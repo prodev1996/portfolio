@@ -123,7 +123,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="text-[11px] uppercase tracking-[0.22em] text-[#6b7c73]">
-              Business Systems • Web Development
+              Application Support • Business Systems
             </span>
           </span>
         </Link>
@@ -162,7 +162,7 @@ export default function Navbar() {
 
             <motion.div whileHover={{ y: -2 }}>
               <Link href="/resume" className="btn-outline ml-3">
-                Resume
+                View Resume
               </Link>
             </motion.div>
           </nav>
@@ -228,7 +228,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="btn-outline mt-2 text-center"
               >
-                Resume
+                View Resume
               </Link>
             </nav>
           ) : (

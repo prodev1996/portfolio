@@ -8,18 +8,18 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Business Systems & Web Development",
+    default: "Rajiv Bhandari | Application Support Analyst",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, an Adelaide-based technical professional with experience across Microsoft 365, business systems, troubleshooting, and client-facing websites.",
+    "Portfolio of Rajiv Bhandari, an Adelaide-based application support professional with experience across Microsoft 365, business systems, troubleshooting, reporting growth, and client-facing websites.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Business Systems & Web Development",
+    title: "Rajiv Bhandari | Application Support Analyst",
     description:
-      "Microsoft 365, business systems support, troubleshooting, and client-facing web development for Adelaide teams and businesses.",
+      "Application support, Microsoft 365, business systems, troubleshooting, reporting growth, and delivery proof for Adelaide teams and businesses.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Business Systems & Web Development",
+    title: "Rajiv Bhandari | Application Support Analyst",
     description:
-      "Adelaide-based technical professional focused on Microsoft 365, business systems, troubleshooting, and practical web development.",
+      "Adelaide-based application support professional focused on Microsoft 365, business systems, troubleshooting, reporting growth, and practical delivery.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -44,11 +44,12 @@ export const metadata: Metadata = {
     "ICT Support",
     "IT Support",
     "Service Desk",
-    "Support Analyst",
+    "Application Support Analyst",
     "Microsoft 365",
     "SharePoint",
     "Active Directory",
-    "Full Stack Developer",
+    "Business Systems",
+    "Reporting",
     "Web Delivery",
     "React",
     "Next.js",

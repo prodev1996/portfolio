@@ -4,71 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Globe, Wrench } from "lucide-react";
-
-const projects = [
-  {
-    slug: "glide-education",
-    title: "Glide Education",
-    subtitle: "Consultancy and visa services platform",
-    overview:
-      "A consultancy website designed to feel more credible, easier to navigate, and more trustworthy for prospective students and clients.",
-    image: "/projects/glide.png",
-    accentImage: "/projects/glide-services.png",
-    liveUrl: "https://www.glideedu.com.au/",
-    liveLabel: "glideedu.com.au",
-    stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
-    role: "End-to-end website build and deployment",
-    trustSignals: [
-      "Live production site",
-      "Client-facing service business",
-      "Hosting and deployment managed",
-    ],
-    proofPoints: [
-      "Planned the structure around trust, service clarity, and enquiry flow.",
-      "Built the front-end experience with reusable sections and responsive layouts.",
-      "Handled deployment setup, domain connection, and production updates.",
-    ],
-    skillsShown: [
-      "Modern responsive UI design",
-      "Content hierarchy for service-heavy businesses",
-      "Front-end implementation with reusable structure",
-      "Trust-building presentation for a real client brand",
-    ],
-    takeaway:
-      "This project shows that I can translate business requirements into a polished website that feels credible, usable, and ready for real visitors.",
-  },
-  {
-    slug: "prime-roof-care",
-    title: "Prime Roof Care",
-    subtitle: "Service business website for enquiries and trust",
-    overview:
-      "A service-business website focused on fast comprehension, local-business trust, and clear enquiry paths for potential customers.",
-    image: "/projects/primeroof.png",
-    accentImage: "/projects/prime-gallery.png",
-    liveUrl: "https://www.primeroofcare.com.au/",
-    liveLabel: "primeroofcare.com.au",
-    stack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design"],
-    role: "Website build, launch support, and ongoing updates",
-    trustSignals: [
-      "Live production site",
-      "Local service brand",
-      "Content and hosting updates handled",
-    ],
-    proofPoints: [
-      "Structured the site so visitors understand services quickly on mobile and desktop.",
-      "Designed the pages around enquiries, trust, and practical business needs.",
-      "Supported post-launch updates to keep the website current and usable.",
-    ],
-    skillsShown: [
-      "Business-focused web page structure",
-      "Responsive implementation across screen sizes",
-      "Conversion-aware layout decisions",
-      "Clean visual execution for a local service brand",
-    ],
-    takeaway:
-      "This shows I can build practical websites that support real businesses, present services clearly, and help visitors move toward action.",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function FeaturedProjects() {
   return (
@@ -84,16 +20,16 @@ export default function FeaturedProjects() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-            Featured Client Work
+            Delivery Proof
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Web projects that strengthen my application support profile
+            Live projects that prove ownership, production support, and problem solving
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            These projects are here because they prove practical delivery, not
-            just design taste. They show how I gather requirements, structure
-            solutions, support production changes, and deliver work that real
-            businesses can actually use.
+            These projects are not here as a separate identity. They are here as
+            proof that I can gather requirements, manage live changes, support
+            production environments, and deliver practical outcomes for real
+            businesses.
           </p>
         </motion.div>
 
@@ -186,28 +122,31 @@ export default function FeaturedProjects() {
                     <div className="flex items-center gap-2 text-[#d7854f]">
                       <Wrench className="h-4 w-4" />
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
-                        What I handled
+                        Business Goal
                       </p>
                     </div>
                     <p className="mt-3 text-sm leading-7 text-[#32463a]">
-                      {project.role}
+                      {project.businessGoal}
                     </p>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.trustSignals.map((item, itemIndex) => (
-                      <motion.span
-                        key={item}
-                        className="badge"
-                        initial={{ opacity: 0, y: 8 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: itemIndex * 0.04 }}
-                        whileHover={{ y: -2, scale: 1.03 }}
-                      >
-                        {item}
-                      </motion.span>
-                    ))}
+                  <div className="mt-5 grid gap-3 md:grid-cols-2">
+                    <div className="rounded-[20px] bg-[#fffdf9] px-4 py-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
+                        My Role
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-[#32463a]">
+                        {project.role}
+                      </p>
+                    </div>
+                    <div className="rounded-[20px] bg-[#fffdf9] px-4 py-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
+                        Outcome
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-[#32463a]">
+                        {project.measurableOutcome}
+                      </p>
+                    </div>
                   </div>
 
                   <div className="mt-6 flex flex-wrap items-center gap-3">

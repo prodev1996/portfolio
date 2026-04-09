@@ -14,10 +14,13 @@ export type PortfolioProject = {
   liveUrl: string;
   liveLabel: string;
   stack: string[];
+  businessGoal: string;
   role: string;
+  measurableOutcome: string;
   trustSignals: string[];
   proofPoints: string[];
   skillsShown: string[];
+  supportProof: string[];
   takeaway: string;
   challenge: string;
   solution: string;
@@ -44,7 +47,11 @@ export const projects: PortfolioProject[] = [
     liveUrl: "https://www.glideedu.com.au/",
     liveLabel: "glideedu.com.au",
     stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
+    businessGoal:
+      "Create a more credible and easier-to-navigate website so prospective students and clients could understand services and enquire with more confidence.",
     role: "End-to-end website build and deployment",
+    measurableOutcome:
+      "Live production site launched and maintained with enquiry flow, deployment setup, and ongoing production updates handled.",
     trustSignals: [
       "Live production site",
       "Client-facing service business",
@@ -60,6 +67,11 @@ export const projects: PortfolioProject[] = [
       "Content hierarchy for service-heavy businesses",
       "Front-end implementation with reusable structure",
       "Trust-building presentation for a real client brand",
+    ],
+    supportProof: [
+      "Shows requirements gathering translated into a practical business solution.",
+      "Demonstrates deployment ownership, DNS and SSL handling, and post-launch support.",
+      "Proves calm production problem solving beyond front-end build work.",
     ],
     takeaway:
       "This project shows that I can translate business requirements into a polished digital solution that feels credible, usable, and ready for real visitors.",
@@ -93,7 +105,11 @@ export const projects: PortfolioProject[] = [
     liveUrl: "https://www.primeroofcare.com.au/",
     liveLabel: "primeroofcare.com.au",
     stack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design"],
+    businessGoal:
+      "Give a local service business a clearer online presence that explains services quickly, builds trust, and supports customer enquiries.",
     role: "Website build, launch support, and ongoing updates",
+    measurableOutcome:
+      "Live service site launched with ongoing content and hosting updates supported after go-live.",
     trustSignals: [
       "Live production site",
       "Local service brand",
@@ -109,6 +125,11 @@ export const projects: PortfolioProject[] = [
       "Responsive implementation across screen sizes",
       "Conversion-aware layout decisions",
       "Clean visual execution for a local service brand",
+    ],
+    supportProof: [
+      "Shows support-minded ownership after launch, not just initial delivery.",
+      "Demonstrates coordination across content changes, hosting, and live updates.",
+      "Supports the case for practical problem solving in production-facing work.",
     ],
     takeaway:
       "This shows I can build practical websites that support real businesses, present services clearly, and help visitors move toward action.",

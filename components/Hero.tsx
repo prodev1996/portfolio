@@ -19,36 +19,35 @@ import { FaLinkedin } from "react-icons/fa";
 
 const roleBadges = [
   "Microsoft 365",
-  "Business Systems",
-  "Problem Solving",
+  "Business Applications",
+  "Reporting",
   "SharePoint",
-  "React / Next.js",
   "Web Delivery",
   "Documentation",
 ];
 
 const strengths = [
   {
-    title: "Support",
-    desc: "Business systems, Microsoft 365, access issues, and practical troubleshooting",
+    title: "Application Support",
+    desc: "Business applications, Microsoft 365, access issues, and practical troubleshooting",
     icon: ShieldCheck,
   },
   {
-    title: "Web Development",
-    desc: "Client-facing websites, deployments, content updates, and polished front-end builds",
-    icon: Code2,
+    title: "Reporting & Improvement",
+    desc: "Documentation, workflow support, reporting growth, and steady process improvement",
+    icon: BarChart3,
   },
   {
-    title: "Problem Solving",
-    desc: "Clear communication, documentation, issue triage, and dependable follow-through",
-    icon: BarChart3,
+    title: "Web Delivery",
+    desc: "Client-facing websites, deployments, content updates, and polished front-end builds",
+    icon: Code2,
   },
 ];
 
 const quickWins = [
   "Hands-on experience supporting Microsoft 365, user access, workflow issues, and day-to-day business applications",
-  "Real client websites already live, maintained, and useful as proof of delivery and ownership",
-  "Comfortable analysing issues, documenting fixes, and switching between support work and web development",
+  "Reporting, data accuracy, and documentation work already present in operational support roles",
+  "Two live client websites that prove delivery ownership, production support, and problem solving",
 ];
 
 const heroFacts = [
@@ -93,7 +92,7 @@ export default function Hero() {
             >
               <BriefcaseBusiness className="h-3.5 w-3.5 text-[#1f9d72]" />
               <span>
-                Open to business systems, support, and hybrid web-focused roles
+                Focused on application support and business systems roles
               </span>
             </motion.div>
 
@@ -103,7 +102,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.04 }}
               className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#1f9d72]"
             >
-              Business Systems • Microsoft 365 • Web Development
+              Application Support Analyst | Business Systems | Web Delivery
             </motion.p>
 
             <motion.h1
@@ -112,7 +111,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="max-w-3xl text-[2.45rem] font-semibold leading-[1.08] tracking-tight text-[#1d2d25] sm:text-[3rem] lg:text-[3.35rem]"
             >
-              Business systems support, practical problem solving, and real web delivery.
+              Supporting business applications, solving workflow issues, and keeping day-to-day operations moving.
             </motion.h1>
 
             <motion.p
@@ -123,10 +122,11 @@ export default function Hero() {
             >
               Based in Adelaide, I bring hands-on experience across Microsoft
               365, user access, troubleshooting, business application support,
-              and day-to-day operational workflows, alongside the ability to
-              design, build, launch, and maintain polished websites for real
-              clients. The strongest fit is in roles where systems support,
-              communication, ownership, and practical delivery all matter.
+              and day-to-day operational workflows, alongside reporting growth
+              and the ability to design, build, launch, and maintain polished
+              websites for real clients. The strongest fit is in application
+              support and business systems roles where communication, ownership,
+              and practical delivery all matter.
             </motion.p>
 
             <motion.div
@@ -145,7 +145,7 @@ export default function Hero() {
               <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
                 <Link href="/resume" className="btn-outline">
                   <Download className="h-4 w-4" />
-                  Resume
+                  View Resume
                 </Link>
               </motion.div>
 
@@ -257,7 +257,7 @@ export default function Hero() {
                   <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
                   <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
                   <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
-                    Business systems support, dependable web delivery, and calm ownership across technical work.
+                    Application support first, with reporting growth and web delivery as supporting strengths.
                   </p>
                 </div>
 
@@ -323,17 +323,17 @@ export default function Hero() {
             <div className="flex items-center gap-3">
               <ChartNoAxesColumn className="h-5 w-5 text-[#d7854f] pulse-soft rounded-full" />
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6b776f]">
-                Also Growing
+                Current Focus
               </p>
             </div>
             <p className="mt-4 text-base font-semibold text-[#1d2d25]">
-              Building deeper reporting, automation, and systems depth over time.
+              Expanding capability in reporting, automation, and Microsoft 365 administration depth.
             </p>
             <p className="mt-3 text-sm leading-7 text-[#5c6d63]">
-              I am continuing to build in areas like Intune, Azure, PowerShell,
-              SQL, and reporting. The site still leads with the experience I
-              can already prove today: business systems support, structured
-              problem solving, and real production websites.
+              Current focus includes Intune, Azure, PowerShell, SQL, and
+              operational reporting. The core profile stays the same:
+              application support, structured problem solving, and reliable
+              delivery in real business environments.
             </p>
           </motion.div>
         </motion.div>

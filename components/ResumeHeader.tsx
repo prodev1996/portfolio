@@ -95,7 +95,7 @@ export default function ResumeHeader() {
             href="/Rajiv_Bhandari_Resume.pdf"
             className="btn-primary mt-5"
           >
-            Download Resume
+            View Resume PDF
           </a>
         </div>
       </div>

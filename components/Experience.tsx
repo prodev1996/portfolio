@@ -15,7 +15,7 @@ const experience = [
       "Provided application support across Microsoft 365 and Windows environments, helping users resolve day-to-day system and workflow issues.",
       "Supported SharePoint, Outlook, Teams, and web-based systems used in business operations.",
       "Managed onboarding, permissions, access control, and account changes across Microsoft 365 and related tools.",
-      "Configured hosting, DNS, SSL, and production website environments as part of client delivery and ongoing support.",
+      "Delivered and continue to maintain 2 live client websites, including hosting, DNS, SSL, and production updates.",
     ],
   },
   {
@@ -76,7 +76,7 @@ export default function Experience() {
             Experience
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Experience across support, web development, and operations
+            Experience that connects support, business systems, and operational work
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
             This background is strongest when it is read as one story, not
@@ -95,8 +95,8 @@ export default function Experience() {
             <p className="mt-3 text-sm leading-7 text-[#4e6056]">
               I can contribute in roles where business application support,
               digital delivery, and continuous improvement overlap. The best fit
-              is in business systems, support, and hybrid technical roles where
-              a practical, user-aware mindset is valuable.
+              is in application support, business systems, and reporting-aware
+              technical roles where a practical, user-aware mindset is valuable.
             </p>
           </div>
 
@@ -106,9 +106,10 @@ export default function Experience() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {[
+                "Application Support",
                 "Business Systems",
                 "Microsoft 365",
-                "Web Development",
+                "Reporting",
                 "Problem Solving",
                 "Reporting & Documentation",
                 "Stakeholder Communication",

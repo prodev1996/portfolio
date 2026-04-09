@@ -3,22 +3,22 @@
 import { motion } from "framer-motion";
 
 const foundation = [
-  "I am building on the same strengths that already matter in good support work: structure, documentation, issue analysis, and follow-through.",
-  "The focus areas right now are Microsoft cloud tools, automation, and stronger reporting capability.",
-  "The goal is to grow from broad support into stronger systems, reporting, and process-focused work.",
+  "These are the areas I am actively strengthening because they directly support application support and business systems work.",
+  "The focus is practical: Microsoft 365 administration depth, SQL and reporting, and more repeatable support workflows.",
+  "This is about expanding capability, not changing the core direction of the portfolio.",
 ];
 
 const upcomingProjects = [
   {
-    title: "Business systems and Microsoft 365 admin depth",
-    desc: "Continuing to strengthen Intune, Azure, identity, and admin workflows so I can contribute more confidently in modern workplace environments.",
+    title: "Microsoft 365 administration depth",
+    desc: "Strengthening Intune, Azure, identity, and admin workflows so I can contribute more confidently in modern workplace environments.",
   },
   {
-    title: "Automation, documentation, and repeatable fixes",
+    title: "PowerShell and repeatable support workflows",
     desc: "Building more PowerShell and scripting confidence to reduce repetitive work, improve support workflows, and document repeatable fixes.",
   },
   {
-    title: "Reporting, SQL, and operational analysis",
+    title: "SQL and operational reporting",
     desc: "Improving SQL, Excel, and reporting skills so I can turn operational data into clearer summaries, patterns, and practical next steps.",
   },
 ];
@@ -37,16 +37,15 @@ export default function DataJourney() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-              Growth Areas
+              Current Focus
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-              The next layer is deeper systems, automation, and reporting depth
+              Expanding capability in administration, reporting, and automation
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-              I want this section to stay honest and useful. Instead of leading
-              with future ambitions, it shows the areas I am actively building
-              right now to become stronger in systems, reporting, and
-              cross-functional technical work.
+              This section is here to show the capability I am actively
+              expanding right now, with a focus on the areas that strengthen
+              support, business systems, and reporting-focused work.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -87,7 +86,7 @@ export default function DataJourney() {
                     Focus Area 0{index + 1}
                   </p>
                   <span className="rounded-full bg-[#dff2ea] px-3 py-1 text-xs font-medium text-[#1f9d72]">
-                    In Progress
+                    Active
                   </span>
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-[#1d2d25]">
