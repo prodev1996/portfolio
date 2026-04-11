@@ -8,7 +8,7 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Support Analyst",
+    default: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
     template: "%s | Rajiv Bhandari",
   },
   description:
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Support Analyst",
+    title: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
     description:
       "Application support, Microsoft 365, business systems, SQL, Power BI, reporting, and client project delivery for Adelaide teams and businesses.",
     url: "https://www.rajivbhandari.com",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Support Analyst",
+    title: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
     description:
       "Adelaide-based application support professional building toward data analytics with Microsoft 365, business systems, SQL, Power BI, and reporting.",
     images: ["/og-image.png"],
