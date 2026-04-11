@@ -25,13 +25,11 @@ export default function ResumeHeader() {
           </p>
 
           <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            Technical professional with experience supporting Microsoft 365 and
-            business applications across Windows environments. Skilled in access
-            management, troubleshooting application issues, workflow support,
-            documentation, and stakeholder communication. Complements support
-            experience with web development and production delivery, bringing a
-            practical, business-aware approach to systems support and continuous
-            improvement.
+            Technical professional with experience supporting Microsoft 365,
+            business applications, access changes, workflow issues, and clear
+            documentation. I also bring web delivery experience from live client
+            projects, with a practical approach to support, reporting, and
+            continuous improvement.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">

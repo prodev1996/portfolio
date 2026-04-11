@@ -3,34 +3,34 @@
 import { motion } from "framer-motion";
 
 const foundation = [
-  "These are the areas I am actively strengthening because they directly support application support and business systems work.",
-  "The focus is practical: Microsoft 365 administration depth, SQL and reporting, and more repeatable support workflows.",
-  "This is about expanding capability, not changing the core direction of the portfolio.",
+  "I am strengthening these areas because they directly support application support and reporting work.",
+  "The focus is practical: Microsoft 365 administration, SQL reporting, and repeatable support workflows.",
+  "This builds on the same direction rather than changing it.",
 ];
 
 const upcomingProjects = [
   {
     title: "Microsoft 365 administration depth",
-    desc: "Strengthening Intune, Azure, identity, and admin workflows so I can contribute more confidently in modern workplace environments.",
+    desc: "Building more confidence with Intune, Azure, identity, and admin workflows used in modern workplace environments.",
   },
   {
     title: "PowerShell and repeatable support workflows",
-    desc: "Building more PowerShell and scripting confidence to reduce repetitive work, improve support workflows, and document repeatable fixes.",
+    desc: "Practising scripts and repeatable fixes that can reduce manual work and make support steps easier to document.",
   },
   {
     title: "SQL and operational reporting",
-    desc: "Improving SQL, Excel, and reporting skills so I can turn operational data into clearer summaries, patterns, and practical next steps.",
+    desc: "Improving SQL, Excel, and reporting skills to turn operational data into clearer summaries and next steps.",
   },
 ];
 
 const reportingProof = [
   {
     title: "Reporting and data accuracy",
-    desc: "Operational reporting, records, and data accuracy work using Excel and Microsoft 365 in a fast-moving environment.",
+    desc: "Operational reporting, records, and data accuracy work using Excel and Microsoft 365 in a busy environment.",
     points: [
       "Supported reporting and record accuracy tasks",
       "Improved digital organisation to reduce manual errors",
-      "Worked across admin, ICT, and data support responsibilities",
+      "Worked across admin, ICT, and data support tasks",
     ],
   },
   {
@@ -39,7 +39,7 @@ const reportingProof = [
     points: [
       "KPI cards, trend lines, and summary visuals",
       "Revenue, profit, and top-product insights",
-      "Will be the main reporting case study on the site",
+      "Will become the main reporting case study on the site",
     ],
   },
   {
@@ -70,12 +70,11 @@ export default function DataJourney() {
               Current Focus
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-              Expanding capability in administration, reporting, and automation
+              Building depth in administration, reporting, and automation
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-              This section is here to show the capability I am actively
-              expanding right now, with a focus on the areas that strengthen
-              support, business systems, and reporting-focused work.
+              These are the areas I am actively improving because they make me
+              stronger in application support and reporting-focused work.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -136,12 +135,12 @@ export default function DataJourney() {
               Data & Reporting Projects
             </p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#1d2d25] sm:text-3xl">
-              Current proof now, plus the portfolio data work being built next
+              Reporting work now, plus the data projects being built next
             </h3>
             <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-              This keeps the reporting story in one place: the proof already in
-              the experience, and the Power BI and SQL case studies being built
-              next.
+              I have already worked with records and reporting in operations.
+              The Power BI and SQL projects are the next portfolio pieces I am
+              building to show that direction more clearly.
             </p>
           </div>
 

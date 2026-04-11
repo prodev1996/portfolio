@@ -34,7 +34,7 @@ export const projects: PortfolioProject[] = [
     title: "Glide Education",
     subtitle: "Consultancy and visa services platform",
     overview:
-      "A consultancy website designed to feel more credible, easier to navigate, and more trustworthy for prospective students and clients.",
+      "A consultancy website built to make services easier to understand and enquiries easier to start.",
     image: "/projects/glide.png",
     accentImage: "/projects/glide-services.png",
     images: [
@@ -48,7 +48,7 @@ export const projects: PortfolioProject[] = [
     liveLabel: "glideedu.com.au",
     stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
     businessGoal:
-      "Create a more credible and easier-to-navigate website so prospective students and clients could understand services and enquire with more confidence.",
+      "Create a clearer website so prospective students and clients could understand services and enquire with more confidence.",
     role: "End-to-end website build and deployment",
     measurableOutcome:
       "Live production site launched and maintained with enquiry flow, deployment setup, and ongoing production updates handled.",
@@ -69,22 +69,22 @@ export const projects: PortfolioProject[] = [
       "Trust-building presentation for a real client brand",
     ],
     supportProof: [
-      "Shows requirements gathering translated into a practical business solution.",
-      "Demonstrates deployment ownership, DNS and SSL handling, and post-launch support.",
-      "Proves calm production problem solving beyond front-end build work.",
+      "Turned client requirements into a practical business website.",
+      "Handled deployment, DNS, SSL, and post-launch support.",
+      "Managed live-site updates and production issues beyond the initial build.",
     ],
     takeaway:
-      "This project shows that I can translate business requirements into a polished digital solution that feels credible, usable, and ready for real visitors.",
+      "This project reflects the kind of work I enjoy: understanding the business need, building the solution, and supporting it after launch.",
     challenge:
       "The business needed a website that would immediately feel professional and trustworthy to visitors who were comparing providers and trying to understand services quickly.",
     solution:
       "I structured the site around clear service presentation, stronger visual hierarchy, and a cleaner enquiry path so the business could explain its offer with less friction.",
     outcome:
-      "The result was a live production website that presents the business more credibly, gives visitors a clearer path through the content, and feels ready for real client use.",
+      "The result was a live production website with clearer services, a simpler enquiry path, and a more professional first impression.",
     supportValue: [
-      "Shows I can translate business needs into a practical digital solution.",
-      "Demonstrates ownership beyond design, including deployment, troubleshooting, and production updates.",
-      "Strengthens my fit for analyst-style roles that need user-facing communication and technical follow-through.",
+      "Connects business needs with a practical digital solution.",
+      "Covers ownership beyond design, including deployment, troubleshooting, and production updates.",
+      "Fits analyst-style roles that need user-facing communication and technical follow-through.",
     ],
   },
   {
@@ -92,7 +92,7 @@ export const projects: PortfolioProject[] = [
     title: "Prime Roof Care",
     subtitle: "Service business website for enquiries and trust",
     overview:
-      "A service-business website focused on fast comprehension, local-business trust, and clear enquiry paths for potential customers.",
+      "A service-business website built around clear services, local trust, and simple enquiry paths.",
     image: "/projects/primeroof.png",
     accentImage: "/projects/prime-gallery.png",
     images: [
@@ -127,12 +127,12 @@ export const projects: PortfolioProject[] = [
       "Clean visual execution for a local service brand",
     ],
     supportProof: [
-      "Shows support-minded ownership after launch, not just initial delivery.",
-      "Demonstrates coordination across content changes, hosting, and live updates.",
-      "Supports the case for practical problem solving in production-facing work.",
+      "Included support after launch, not just the initial delivery.",
+      "Covered content changes, hosting, and live updates.",
+      "Required practical problem solving in production-facing work.",
     ],
     takeaway:
-      "This shows I can build practical websites that support real businesses, present services clearly, and help visitors move toward action.",
+      "This project reflects real client work: build the site, support it, and keep the content clear after launch.",
     challenge:
       "The business needed a cleaner online presence that would explain services quickly, feel trustworthy for local customers, and support enquiries without overwhelming visitors.",
     solution:
@@ -140,8 +140,8 @@ export const projects: PortfolioProject[] = [
     outcome:
       "The finished website gives the business a more professional online presence and a clearer path for visitors to move from browsing into enquiry.",
     supportValue: [
-      "Shows I can support real client delivery with practical business outcomes.",
-      "Demonstrates responsiveness, content clarity, and post-launch support.",
+      "Connects real client delivery with practical business outcomes.",
+      "Includes responsiveness, content clarity, and post-launch support.",
       "Fits hybrid roles where web updates, communication, and analyst-style ownership overlap.",
     ],
   },

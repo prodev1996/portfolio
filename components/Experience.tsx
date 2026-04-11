@@ -10,7 +10,7 @@ const experience = [
     company: "Freelance / Contract",
     location: "Adelaide, Australia",
     summary:
-      "Supporting Microsoft 365, business applications, and user workflows for small-business clients with a focus on issue analysis, reliability, troubleshooting, and practical delivery.",
+      "Supporting Microsoft 365, business applications, and user workflows for small-business clients, including troubleshooting, access changes, and practical delivery.",
     points: [
       "Provided application support across Microsoft 365 and Windows environments, helping users resolve day-to-day system and workflow issues.",
       "Supported SharePoint, Outlook, Teams, and web-based systems used in business operations.",
@@ -25,7 +25,7 @@ const experience = [
     company: "SA Mushrooms",
     location: "Waterloo Corner, South Australia",
     summary:
-      "Blended reporting, administration, and technical support responsibilities in a fast-moving business environment where accuracy, communication, and structured follow-through mattered.",
+      "Worked across reporting, administration, and technical support in a busy operations environment where accuracy and follow-through mattered.",
     points: [
       "Supported records, reporting, and data accuracy tasks using Excel and Microsoft 365 tools.",
       "Helped staff with device, login, shared-drive, and day-to-day business system issues.",
@@ -40,7 +40,7 @@ const experience = [
     company: "Eydean",
     location: "Kathmandu, Nepal",
     summary:
-      "Built and maintained web applications with a strong balance of implementation, collaboration, and user-facing product thinking.",
+      "Built and maintained web applications while working closely with designers, stakeholders, and delivery teams.",
     points: [
       "Developed web applications using modern full-stack technologies and API-driven workflows.",
       "Implemented REST APIs, authentication, and role-based access control.",
@@ -55,7 +55,7 @@ const experience = [
     company: "CloudFactory",
     location: "Kathmandu, Nepal",
     summary:
-      "Built discipline in structured data work through high-volume processing, validation, and quality-focused execution.",
+      "Built discipline in structured data work through high-volume processing, validation, and quality-focused tasks.",
     points: [
       "Processed and validated large datasets with strong attention to quality standards.",
       "Worked within structured workflows while meeting productivity targets and deadlines.",
@@ -76,14 +76,12 @@ export default function Experience() {
             Experience
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Experience that connects support, business systems, and operational work
+            Experience across support, systems, and operational work
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            This background is strongest when it is read as one story, not
-            separate jobs. I have supported users, worked with business systems,
-            built web products, and operated in structured environments, which
-            makes me well suited to roles that need technical range,
-            dependability, issue analysis, and clear communication.
+            My background moves across support, admin and data tasks, web
+            delivery, and data quality. The common thread is helping people,
+            systems, and information flow more smoothly.
           </p>
         </div>
 
@@ -93,10 +91,9 @@ export default function Experience() {
               What this experience shows
             </p>
             <p className="mt-3 text-sm leading-7 text-[#4e6056]">
-              I can contribute in roles where business application support,
-              digital delivery, and continuous improvement overlap. The best fit
-              is in application support, business systems, and reporting-aware
-              technical roles where a practical, user-aware mindset is valuable.
+              I fit best in application support, business systems, and
+              reporting-aware roles where users need clear communication and
+              issues need steady follow-through.
             </p>
           </div>
 
@@ -111,7 +108,7 @@ export default function Experience() {
                 "Microsoft 365",
                 "Reporting",
                 "Problem Solving",
-                "Reporting & Documentation",
+                "Documentation",
                 "Stakeholder Communication",
               ].map((item) => (
                 <span key={item} className="badge">

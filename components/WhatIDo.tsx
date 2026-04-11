@@ -7,20 +7,20 @@ const pillars = [
   {
     icon: <FaCogs />,
     title: "Application Support",
-    desc: "I work close to users, business systems, and day-to-day operations, helping resolve issues, support workflows, and keep tools usable.",
+    desc: "I work with users, business systems, and day-to-day operations to resolve issues and keep tools usable.",
     bullets: ["Business applications and Microsoft 365 support", "Issue triage, access support, and troubleshooting", "Clear communication with dependable follow-through"],
   },
   {
     icon: <FaChartBar />,
     title: "Reporting & Process Improvement",
-    desc: "Reporting, data accuracy, documentation, and workflow improvement are already part of the work I do and the direction I am building further.",
-    bullets: ["Excel reporting and data accuracy support", "SQL, reporting, and PowerShell growth", "Process improvement through clearer documentation"],
+    desc: "I have worked with records, reporting, and documentation, and I am building further into SQL and Power BI.",
+    bullets: ["Excel reporting and data accuracy support", "SQL, reporting, and PowerShell practice", "Process improvement through clearer documentation"],
   },
   {
     icon: <FaLaptopCode />,
     title: "Web Delivery",
-    desc: "The web projects on this site are proof of delivery discipline, ownership, and live production support rather than a separate career direction.",
-    bullets: ["Live client projects in production", "Deployment, DNS, SSL, and ongoing updates", "Requirements translated into practical digital solutions"],
+    desc: "My web projects show that I can take a real request, build it, launch it, and support it after go-live.",
+    bullets: ["Live client projects in production", "Deployment, DNS, SSL, and ongoing updates", "Requirements turned into practical digital solutions"],
   },
 ];
 
@@ -41,12 +41,11 @@ export default function WhatIDo() {
             What I Bring
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            A focused profile with support first, reporting second, and delivery proof behind it
+            Support first, reporting next, with real delivery work behind it
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            I want recruiters to find the main story quickly: strong support and
-            business systems fundamentals, growing reporting capability, and web
-            projects that prove ownership and practical delivery.
+            I keep the focus simple: help users, understand systems, document
+            clearly, and use reporting to make day-to-day work easier.
           </p>
         </motion.div>
 

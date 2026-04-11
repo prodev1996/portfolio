@@ -14,13 +14,13 @@ export default function Footer() {
                 Rajiv Bhandari
               </p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7a897f]">
-                Business Systems • Microsoft 365 • Web Development
+                Application Support • Microsoft 365 • Reporting
               </p>
             </div>
           </div>
           <p className="mt-3 leading-7">
-            Built to show practical support capability, real client delivery,
-            and the kind of calm ownership teams value quickly.
+            Built to share my support experience, reporting focus, and live
+            client project work in one place.
           </p>
           <p className="mt-1 text-xs text-[#819086]">
             © 2026 Rajiv Bhandari. Built with Next.js and Tailwind CSS.

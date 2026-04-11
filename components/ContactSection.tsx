@@ -45,12 +45,11 @@ export default function ContactSection() {
               Best Fit
             </p>
             <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[#1d2d25]">
-              Ready to contribute in support, systems, reporting, and practical delivery
+              Available for support, systems, and reporting-focused work
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[#5e6f65]">
-              I bring dependable support, clear communication, and practical
-              delivery now, with a profile that fits well in application
-              support, business systems, and reporting-aware environments.
+              I am looking for roles where clear communication, steady issue
+              handling, and practical systems support matter.
             </p>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">

@@ -26,8 +26,7 @@ const experience = [
       "Supported records, reporting, and data accuracy tasks using Microsoft tools including Excel and Microsoft 365.",
       "Assisted staff with access issues, account queries, and day-to-day business system usage questions.",
       "Improved digital documentation workflows to reduce manual errors and save time.",
-      "Supported user account access issues and escalated complex incidents as needed.",
-      "Helped staff with internal business application access and system usage queries.",
+      "Escalated more complex incidents when they needed specialist support.",
     ],
   },
   {
@@ -38,7 +37,7 @@ const experience = [
     bullets: [
       "Developed and maintained web applications using full-stack technologies.",
       "Fixed bugs, enhanced features, and supported API and database-driven functionality.",
-      "Assisted deployments and collaborated with stakeholders to deliver stable releases.",
+      "Assisted deployments and worked with stakeholders to deliver stable releases.",
     ],
   },
   {

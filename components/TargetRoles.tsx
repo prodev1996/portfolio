@@ -30,8 +30,8 @@ export default function TargetRoles() {
               <p className="mt-4 text-sm leading-7 text-[#5b6d63] sm:text-[15px]">
                 The site still includes web projects because they prove
                 ownership, problem solving, and live support work, but the
-                clearer long-term story is application support transitioning
-                into data and reporting.
+                long-term direction is application support with more reporting
+                and data work over time.
               </p>
             </div>
 

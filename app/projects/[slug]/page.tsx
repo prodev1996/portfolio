@@ -150,7 +150,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="card">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7b877f]">
-              Support & problem-solving proof
+              Support and delivery notes
             </p>
             <ul className="mt-4 space-y-3">
               {project.supportProof.map((item) => (

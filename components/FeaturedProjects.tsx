@@ -20,16 +20,14 @@ export default function FeaturedProjects() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1f9d72]">
-            Delivery Proof
+            Client Projects
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#1d2d25] sm:text-4xl">
-            Live projects that prove ownership, production support, and problem solving
+            Live projects with real deployment and support work
           </h2>
           <p className="mt-4 text-sm leading-7 text-[#5e6f65] sm:text-[15px]">
-            These projects are not here as a separate identity. They are here as
-            proof that I can gather requirements, manage live changes, support
-            production environments, and deliver practical outcomes for real
-            businesses.
+            These are real client projects, so they show more than design work:
+            requirements, deployment, updates, and support after launch.
           </p>
         </motion.div>
 

@@ -23,7 +23,7 @@ const roleBadges = [
   "SQL",
   "Power BI",
   "SharePoint",
-  "Web Delivery",
+  "User Access",
   "Documentation",
 ];
 
@@ -35,7 +35,7 @@ const strengths = [
   },
   {
     title: "Reporting & Improvement",
-    desc: "Documentation, workflow support, reporting growth, and steady process improvement",
+    desc: "Documentation, workflow support, reporting, and steady process improvement",
     icon: BarChart3,
   },
   {
@@ -46,9 +46,9 @@ const strengths = [
 ];
 
 const quickWins = [
-  "Hands-on experience supporting Microsoft 365, user access, workflow issues, and day-to-day business applications",
-  "Reporting, data accuracy, and documentation work already present in operational support roles",
-  "Two live client websites that prove delivery ownership, production support, and problem solving",
+  "Supported Microsoft 365, user access, workflow issues, and day-to-day business applications",
+  "Worked with reporting, data accuracy, and documentation in operational support roles",
+  "Built and maintain 2 live client websites, including deployment and updates",
 ];
 
 const targetRoles = [
@@ -61,7 +61,7 @@ const targetRoles = [
 const heroFacts = [
   {
     value: "Adelaide based",
-    label: "Open to on-site, hybrid, and practical technical roles",
+    label: "Open to on-site and hybrid support or data-focused roles",
     icon: MapPin,
   },
   {
@@ -100,7 +100,7 @@ export default function Hero() {
             >
               <BriefcaseBusiness className="h-3.5 w-3.5 text-[#1f9d72]" />
               <span>
-                Focused on application support and data analytics growth
+                Application support, reporting, and Microsoft 365
               </span>
             </motion.div>
 
@@ -119,7 +119,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="max-w-3xl text-[2.45rem] font-semibold leading-[1.08] tracking-tight text-[#1d2d25] sm:text-[3rem] lg:text-[3.35rem]"
             >
-              Supporting business systems and building data-driven insights.
+              Supporting business systems and turning data into clearer insights.
             </motion.h1>
 
             <motion.p
@@ -128,12 +128,11 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.14 }}
               className="mt-5 max-w-2xl text-[15px] leading-8 text-[#52645a] sm:text-[17px]"
             >
-              Based in Adelaide, I bring hands-on experience across Microsoft
-              365, user access, troubleshooting, business application support,
-              and day-to-day operational workflows, alongside reporting growth
-              in SQL and Power BI. The strongest fit is in application support
-              and data-focused roles where communication, ownership, reporting,
-              and practical problem solving all matter.
+              Based in Adelaide, I support Microsoft 365, user access,
+              business applications, and day-to-day workflow issues. I am also
+              building deeper reporting skills with SQL and Power BI, so the
+              best fit is a role that connects application support,
+              communication, and operational data.
             </motion.p>
 
             <motion.div
@@ -264,7 +263,7 @@ export default function Hero() {
                   <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
                   <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
                   <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
-                    Application support first, with data analytics as the next capability layer.
+                    Application support first, building toward reporting and data analytics.
                   </p>
                 </div>
 
@@ -334,13 +333,13 @@ export default function Hero() {
               </p>
             </div>
             <p className="mt-4 text-base font-semibold text-[#1d2d25]">
-              Expanding capability in reporting, automation, and Microsoft 365 administration depth.
+              Building depth in reporting, automation, and Microsoft 365 administration.
             </p>
             <p className="mt-3 text-sm leading-7 text-[#5c6d63]">
               Current focus includes Intune, Azure, PowerShell, SQL, and
               operational reporting. The core profile stays the same:
-              application support, structured problem solving, and growing
-              capability in data analysis.
+              application support, structured problem solving, and clearer
+              reporting.
             </p>
 
             <div className="mt-5">

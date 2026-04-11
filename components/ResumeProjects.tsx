@@ -13,9 +13,9 @@
       title: "Glide Education – Consultancy and Visa Services Platform",
       meta: "Technologies: React, Next.js, MySQL, Node.js, Tailwind, Vercel",
       bullets: [
-        "Solely developed and deployed a production website with responsive UI and structured service pages.",
+        "Developed and deployed a production website with responsive UI and structured service pages.",
         "Built secure enquiry and contact forms with validation and email notifications.",
-        "Managed domain, DNS, SSL, and deployment updates, showing production ownership and change support.",
+        "Managed domain, DNS, SSL, and deployment updates after launch.",
       ],
     },
     {

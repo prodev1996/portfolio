@@ -63,8 +63,8 @@ export default function TechStack() {
     <Section
       id="tech-stack"
       eyebrow="Core Skills"
-      title="The toolkit behind support, systems, reporting, and delivery"
-      subtitle="The skills here are grouped around the main story of the portfolio: application support and business systems first, reporting and automation next, and web delivery as proof of ownership."
+      title="Tools I use across support, systems, reporting, and web work"
+      subtitle="Grouped by how I would use them in an application support or reporting-focused role."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))]"
     >
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
