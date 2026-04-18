@@ -31,21 +31,21 @@
 
   return (
     <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
         Projects
       </h2>
 
       <div className="mt-5 space-y-5">
         {projects.map((project) => (
           <div key={project.title}>
-            <h3 className="text-base font-semibold text-[#1d2d25]">
+            <h3 className="text-base font-semibold text-white">
               {project.title}
             </h3>
-            <p className="mt-1 text-sm text-[#5e6f65]">{project.meta}</p>
-            <ul className="mt-3 space-y-2 text-sm leading-7 text-[#4e6056]">
+            <p className="mt-1 text-sm text-[#8f87a0]">{project.meta}</p>
+            <ul className="mt-3 space-y-2 text-sm leading-7 text-[#c9c1d8]">
               {project.bullets.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#1f9d72]" />
+                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
                   <span>{item}</span>
                 </li>
               ))}

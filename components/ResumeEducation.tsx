@@ -35,31 +35,31 @@ const attributes = [
 export default function ResumeEducation() {
   return (
     <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
         Education
       </h2>
 
       <div className="mt-5 space-y-5">
         {education.map((item) => (
           <div key={item.qualification}>
-            <h3 className="text-base font-semibold text-[#1d2d25]">
+            <h3 className="text-base font-semibold text-white">
               {item.qualification}
             </h3>
-            <p className="mt-1 text-sm text-[#5e6f65]">{item.institution}</p>
-            <p className="mt-1 text-xs text-[#d7854f]">{item.period}</p>
+            <p className="mt-1 text-sm text-[#bdb5cc]">{item.institution}</p>
+            <p className="mt-1 text-xs text-[#f0abfc]">{item.period}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-8 border-t border-[#e1e6df] pt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <div className="mt-8 border-t border-white/10 pt-6">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
           Certifications & Licences
         </h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {certifications.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-[#dde5dd] bg-white px-3 py-1.5 text-xs text-[#415449]"
+              className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs text-[#d8d1e6]"
             >
               {item}
             </span>
@@ -67,14 +67,14 @@ export default function ResumeEducation() {
         </div>
       </div>
 
-      <div className="mt-8 border-t border-[#e1e6df] pt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <div className="mt-8 border-t border-white/10 pt-6">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
           Personal Attributes
         </h2>
-        <ul className="mt-4 space-y-2 text-sm leading-7 text-[#4e6056]">
+        <ul className="mt-4 space-y-2 text-sm leading-7 text-[#c9c1d8]">
           {attributes.map((item) => (
             <li key={item} className="flex gap-2">
-              <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#1f9d72]" />
+              <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
               <span>{item}</span>
             </li>
           ))}

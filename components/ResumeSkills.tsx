@@ -62,21 +62,21 @@
 export default function ResumeSkills() {
   return (
     <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
         Core Skills
       </h2>
 
       <div className="mt-5 space-y-5">
         {skillBlocks.map((block) => (
           <div key={block.title}>
-            <h3 className="text-sm font-semibold text-[#1d2d25]">
+            <h3 className="text-sm font-semibold text-white">
               {block.title}
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {block.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#dde5dd] bg-white px-3 py-1.5 text-xs text-[#415449]"
+                  className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs text-[#d8d1e6]"
                 >
                   {item}
                 </span>

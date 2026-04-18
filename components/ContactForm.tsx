@@ -70,20 +70,22 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45 }}
-      className="section-glow glass-card spotlight-ring rounded-[30px] p-5 sm:p-6"
+      className="section-glow glass-card spotlight-ring rounded-[34px] p-5 sm:p-6"
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#1f9d72]">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
         Direct Message
       </p>
-      <h3 className="mt-2 text-[1.25rem] font-semibold text-[#1d2d25]">Send a message</h3>
-      <p className="mt-1.5 text-sm leading-6 text-[#5e6f65]">
+      <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-white">
+        Send a message
+      </h3>
+      <p className="mt-1.5 text-sm leading-6 text-[#c9c1d8]">
         Reach out for roles, projects, or introductions.
       </p>
-      <p className="mt-1.5 text-xs leading-5 text-[#738179]">
+      <p className="mt-1.5 text-xs leading-5 text-[#8f87a0]">
         If the form ever fails, you can always email me directly at{" "}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="font-medium text-[#1f9d72] underline-offset-4 hover:underline"
+          className="font-medium text-[#f0abfc] underline-offset-4 hover:underline"
         >
           {CONTACT_EMAIL}
         </a>
@@ -92,39 +94,39 @@ export default function ContactForm() {
 
       <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm text-[#44584d]">Name</label>
+          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Name</label>
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-[#dfe5de] bg-[rgba(255,255,255,0.82)] px-4 py-3 text-sm text-[#1d2d25] outline-none transition focus:border-[#1f9d72] focus:bg-white"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
             placeholder="Your name"
           />
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm text-[#44584d]">Email</label>
+          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Email</label>
           <input
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-[#dfe5de] bg-[rgba(255,255,255,0.82)] px-4 py-3 text-sm text-[#1d2d25] outline-none transition focus:border-[#1f9d72] focus:bg-white"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
             placeholder="your@email.com"
           />
         </div>
 
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm text-[#44584d]">Message</label>
+          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Message</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
             rows={3}
-            className="w-full rounded-2xl border border-[#dfe5de] bg-[rgba(255,255,255,0.82)] px-4 py-3 text-sm text-[#1d2d25] outline-none transition focus:border-[#1f9d72] focus:bg-white"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
             placeholder="Tell me about the role, project, or opportunity"
           />
         </div>
@@ -140,7 +142,7 @@ export default function ContactForm() {
         </button>
 
         {feedback ? (
-          <p className="text-sm text-[#44584d]">{feedback}</p>
+          <p className="text-sm text-[#d8d1e6]">{feedback}</p>
         ) : null}
       </div>
     </motion.form>

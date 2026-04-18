@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
+import CursorStars from "@/components/CursorStars";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = {
@@ -79,11 +80,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#f7f2e9] text-[#203128] antialiased">
+      <body className="min-h-screen bg-[#05070d] text-[#f8f7ef] antialiased">
         <Navbar />
-        <main className="flex min-h-screen flex-col pb-16 pt-24 lg:pt-28">
-          {children}
-        </main>
+        <main className="flex min-h-screen flex-col pb-16">{children}</main>
+        <CursorStars />
         <ScrollToTopButton />
       </body>
     </html>

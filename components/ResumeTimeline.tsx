@@ -58,13 +58,13 @@ export default function ResumeTimeline() {
     <section className="card rounded-[32px]" aria-labelledby="experience-heading">
       <h2
         id="experience-heading"
-        className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#1f9d72]"
+        className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#f0abfc]"
       >
         Work Experience
       </h2>
 
-      <div className="relative border-l border-[#dfe5de] pl-5">
-        <div className="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-[#1f9d72]" />
+      <div className="relative border-l border-white/10 pl-5">
+        <div className="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-[#8b5cf6]" />
         {experience.map((job, index) => (
           <motion.article
             key={job.company + job.role}
@@ -75,18 +75,18 @@ export default function ResumeTimeline() {
             transition={{ delay: index * 0.05 }}
           >
             <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-[#1d2d25]">
+              <h3 className="text-sm font-semibold text-white">
                 {job.role}
               </h3>
-              <p className="text-xs text-[#687970]">{job.period}</p>
+              <p className="text-xs text-[#8f87a0]">{job.period}</p>
             </div>
-            <p className="text-xs font-medium text-[#42564a]">
+            <p className="text-xs font-medium text-[#bdb5cc]">
               {job.company} • {job.location}
             </p>
-            <ul className="mt-3 space-y-2 text-xs leading-6 text-[#4e6056]">
+            <ul className="mt-3 space-y-2 text-xs leading-6 text-[#c9c1d8]">
               {job.bullets.map((b) => (
                 <li key={b} className="flex gap-2">
-                  <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#1f9d72]" />
+                  <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
                   <span>{b}</span>
                 </li>
               ))}

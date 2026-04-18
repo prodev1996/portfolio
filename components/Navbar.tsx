@@ -5,14 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { FileText } from "lucide-react";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "Strengths", href: "#what-i-do" },
+  { name: "Strengths", href: "#strengths" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#tech-stack" },
-  { name: "Growth", href: "#data-journey" },
+  { name: "Skills", href: "#skills" },
+  { name: "Growth", href: "#growth" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -103,33 +104,33 @@ export default function Navbar() {
   }, [usesSectionNav]);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
+    <header className="fixed inset-x-0 top-3 z-50 px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-3 py-2 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
           scrolled
-            ? "border-[#d7dfd8] bg-[#fffaf2]/92 shadow-[0_18px_40px_rgba(118,103,79,0.12)]"
-            : "border-white/60 bg-white/68"
+            ? "border-white/12 bg-[#0d0b16]/82 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
+            : "border-white/10 bg-[#0d0b16]/58 shadow-[0_12px_44px_rgba(0,0,0,0.24)]"
         }`}
       >
-        <Link href="/" className="flex items-center gap-3 text-[#223128]">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/80 bg-[linear-gradient(135deg,_rgba(31,157,114,0.15),_rgba(255,255,255,0.92))] text-sm font-semibold tracking-[0.18em] text-[#1d2f26] shadow-[0_10px_24px_rgba(118,103,79,0.08)]">
+        <Link href="/" className="flex min-w-0 items-center gap-2 text-white">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#181424] text-xs font-black tracking-[0.16em] text-[#f8f7ef] shadow-[0_10px_32px_rgba(0,0,0,0.28)]">
             RB
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
-            <span className="text-base font-semibold tracking-[0.08em] text-[#223128]">
+            <span className="text-sm font-semibold tracking-[0.08em] text-white">
               Rajiv Bhandari
             </span>
-            <span className="text-[11px] uppercase tracking-[0.22em] text-[#6b7c73]">
+            <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
               Application Support • Data Analytics
             </span>
           </span>
         </Link>
 
         {usesSectionNav ? (
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center rounded-full border border-white/8 bg-[#181424]/72 p-1 lg:flex">
             {homeLinks.map((link) => {
               const isActive = active === link.name;
               return (
@@ -138,12 +139,12 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setActive(link.name)}
                   whileHover={{ y: -2 }}
-                  className="relative rounded-full px-4 py-2 text-sm"
+                  className="relative rounded-full px-2.5 py-1.5 text-[13px] font-semibold xl:px-3"
                 >
                   {isActive ? (
                     <motion.span
                       layoutId="nav-active-pill"
-                      className="absolute inset-0 rounded-full bg-[#1f9d72]"
+                      className="absolute inset-0 rounded-full bg-[#8b5cf6]"
                       transition={{ type: "spring", stiffness: 320, damping: 28 }}
                     />
                   ) : null}
@@ -151,7 +152,7 @@ export default function Navbar() {
                     className={`relative z-10 transition ${
                       isActive
                         ? "text-white"
-                        : "text-[#53645b] hover:text-[#1d2f26]"
+                        : "text-[#9a94a8] hover:text-white"
                     }`}
                   >
                     {link.name}
@@ -161,8 +162,12 @@ export default function Navbar() {
             })}
 
             <motion.div whileHover={{ y: -2 }}>
-              <Link href="/resume" className="btn-outline ml-3">
-                View Resume
+              <Link
+                href="/resume"
+                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#8b5cf6]/50 hover:bg-[#8b5cf6]/16 xl:inline-flex"
+              >
+                <FileText className="h-4 w-4" />
+                Resume
               </Link>
             </motion.div>
           </nav>
@@ -186,7 +191,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-[#d7dfd8] bg-white/80 p-2 text-[#284134] transition hover:border-[#1f9d72] hover:text-[#1f9d72] lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#8b5cf6]/55 hover:text-[#c4b5fd] lg:hidden"
           aria-label="Toggle menu"
         >
           {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
@@ -197,7 +202,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-3 max-w-6xl rounded-[28px] border border-[#dde6de] bg-[#fffaf2]/95 p-3 shadow-[0_24px_50px_rgba(118,103,79,0.12)] backdrop-blur-xl lg:hidden"
+          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/10 bg-[#05070d]/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
         >
           {usesSectionNav ? (
             <nav className="flex flex-col gap-2">
@@ -214,8 +219,8 @@ export default function Navbar() {
                     whileTap={{ scale: 0.99 }}
                     className={`rounded-2xl px-4 py-3 text-sm transition ${
                       isActive
-                        ? "bg-[#1f9d72] text-white"
-                        : "text-[#53645b] hover:bg-[#eef5ef] hover:text-[#1d2f26]"
+                        ? "bg-[#8b5cf6] text-white"
+                        : "text-[#a9b5a4] hover:bg-white/[0.06] hover:text-white"
                     }`}
                   >
                     {link.name}
