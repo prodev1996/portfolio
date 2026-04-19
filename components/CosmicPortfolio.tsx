@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   BarChart3,
   BriefcaseBusiness,
-  Database,
   Download,
   Mail,
   MessageCircle,
@@ -280,24 +279,6 @@ const timeline = [
     place: "Eydean",
     summary: "Built and maintained web applications, APIs, and database-backed features.",
     points: ["Web applications", "APIs", "Stakeholder delivery"],
-  },
-];
-
-const otherFocus = [
-  {
-    icon: Database,
-    title: "SQL analysis",
-    desc: "Customer, sales, and product queries using joins, grouping, and business questions.",
-  },
-  {
-    icon: BarChart3,
-    title: "Power BI dashboard",
-    desc: "KPI cards, trends, and visuals that explain what changed.",
-  },
-  {
-    icon: Workflow,
-    title: "Support notes",
-    desc: "Repeatable notes for common support issues, access changes, and workflow fixes.",
   },
 ];
 
@@ -942,39 +923,6 @@ export default function CosmicPortfolio() {
                 </motion.article>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="growth" className="section-shell px-5 py-20 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle
-            eyebrow="Growth"
-            title="Current focus."
-            subtitle="The next proof points: SQL practice, Power BI reporting, and repeatable support workflows."
-          />
-          <div className="grid gap-5 lg:grid-cols-3">
-            {otherFocus.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.08 }}
-                className="cosmic-card group"
-              >
-                <div className="flex items-start justify-between">
-                  <item.icon className="h-7 w-7 text-[#c084fc]" />
-                  <span className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1 text-xs font-black text-[#777184]">
-                    0{index + 1}
-                  </span>
-                </div>
-                <h3 className="mt-8 text-2xl font-black tracking-[-0.05em] text-white transition group-hover:text-[#f0abfc]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 leading-7 text-[#bdb5cc]">{item.desc}</p>
-              </motion.article>
-            ))}
           </div>
         </div>
       </section>

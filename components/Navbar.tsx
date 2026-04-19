@@ -13,7 +13,6 @@ const homeLinks = [
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
-  { name: "Growth", href: "#growth" },
   { name: "Contact", href: "#contact" },
 ];
 
