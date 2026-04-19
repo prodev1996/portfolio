@@ -100,6 +100,14 @@ const skillGroups = [
   },
 ];
 
+const orbitNodes = [
+  { label: "SQL", detail: "Data querying", angle: 12, tone: "from-[#8b5cf6] to-[#38bdf8]" },
+  { label: "Power BI", detail: "Dashboards", angle: 76, tone: "from-[#f59e0b] to-[#ec4899]" },
+  { label: "M365", detail: "Support systems", angle: 144, tone: "from-[#38bdf8] to-[#10b981]" },
+  { label: "Support", detail: "User outcomes", angle: 214, tone: "from-[#ec4899] to-[#8b5cf6]" },
+  { label: "Reporting", detail: "Clear insights", angle: 292, tone: "from-[#10b981] to-[#f59e0b]" },
+];
+
 // Interactive Bento Card with Spotlight
 function BentoCard({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
   const mouseX = useMotionValue(0);
@@ -131,6 +139,39 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
   );
 }
 
+function DataOrbit() {
+  return (
+    <div
+      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:6.8rem] sm:block lg:h-64 lg:w-64 lg:[--orbit-radius:7.8rem]"
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(139,92,246,0.08),transparent_62%)] shadow-[0_0_80px_rgba(139,92,246,0.16)]" />
+      <div className="data-orbit-spin absolute inset-0">
+        {orbitNodes.map((node) => (
+          <div
+            key={node.label}
+            className="absolute left-1/2 top-1/2"
+            style={{
+              transform: `rotate(${node.angle}deg) translateX(var(--orbit-radius)) rotate(-${node.angle}deg)`,
+            }}
+          >
+            <div className="group pointer-events-auto relative -translate-x-1/2 -translate-y-1/2">
+              <span
+                className={`inline-flex min-w-12 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/20 transition duration-300 group-hover:scale-110`}
+              >
+                {node.label}
+              </span>
+              <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/80 px-3 py-1 text-[10px] font-semibold text-[#d8d1e6] opacity-0 shadow-xl backdrop-blur-xl transition group-hover:opacity-100">
+                {node.detail}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function CosmicPortfolio() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -150,7 +191,7 @@ export default function CosmicPortfolio() {
       <section
         ref={heroRef}
         id="home"
-        className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4"
+        className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pb-14 pt-28 sm:pt-32"
       >
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
           <div className="absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#8b5cf6]/20 via-[#ec4899]/10 to-[#f59e0b]/20 blur-[120px]" />
@@ -173,10 +214,13 @@ export default function CosmicPortfolio() {
             animate="visible"
             className="flex flex-col items-center"
           >
-            <motion.div variants={fadeUp} className="mb-8 relative group">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#ec4899] blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-white/20 bg-black sm:h-36 sm:w-36">
-                <Image src="/profile-hero.png" alt="Rajiv Bhandari" fill className="object-cover" />
+            <motion.div variants={fadeUp} className="relative mb-8 mt-4 flex h-44 w-44 items-center justify-center sm:h-56 sm:w-56 lg:h-64 lg:w-64">
+              <DataOrbit />
+              <div className="relative group">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#ec4899] blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
+                <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-white/20 bg-black sm:h-36 sm:w-36">
+                  <Image src="/profile-hero.png" alt="Rajiv Bhandari" fill className="object-cover" />
+                </div>
               </div>
             </motion.div>
 

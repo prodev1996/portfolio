@@ -219,6 +219,34 @@ body::after {
   animation: float 6s ease-in-out infinite;
 }
 
+.data-orbit {
+  filter: drop-shadow(0 0 22px rgba(139, 92, 246, 0.18));
+}
+
+.data-orbit-spin {
+  animation: data-orbit-spin 28s linear infinite;
+}
+
+.data-orbit-spin:hover {
+  animation-play-state: paused;
+}
+
+@keyframes data-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-orbit-spin {
+    animation: none;
+  }
+}
+
 @media (max-width: 640px) {
   .cosmic-card {
     border-radius: 24px;
