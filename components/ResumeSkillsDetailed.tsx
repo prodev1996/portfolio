@@ -7,8 +7,8 @@ const skillBlocks = [
   {
     title: "Application Support",
     icon: ShieldCheck,
-    color: "from-[#8b5cf6] to-[#ec4899]",
-    shadowColor: "rgba(139,92,246,0.3)",
+    color: "from-[#7c6cf2] to-[#d9468f]",
+    shadowColor: "rgba(124,108,242,0.24)",
     proficiency: 95,
     items: [
       "Application support",
@@ -22,8 +22,8 @@ const skillBlocks = [
   {
     title: "Systems & Operations",
     icon: Terminal,
-    color: "from-[#38bdf8] to-[#8b5cf6]",
-    shadowColor: "rgba(56,189,248,0.3)",
+    color: "from-[#35aeca] to-[#7c6cf2]",
+    shadowColor: "rgba(53,174,202,0.24)",
     proficiency: 85,
     items: [
       "Windows 10/11",
@@ -36,8 +36,8 @@ const skillBlocks = [
   {
     title: "Microsoft 365 & Identity",
     icon: Workflow,
-    color: "from-[#f59e0b] to-[#ec4899]",
-    shadowColor: "rgba(245,158,11,0.3)",
+    color: "from-[#e49a2f] to-[#d9468f]",
+    shadowColor: "rgba(228,154,47,0.24)",
     proficiency: 90,
     items: [
       "Microsoft 365 config",
@@ -51,8 +51,8 @@ const skillBlocks = [
   {
     title: "Data & Reporting",
     icon: Database,
-    color: "from-[#10b981] to-[#3b82f6]",
-    shadowColor: "rgba(16,185,129,0.3)",
+    color: "from-[#20a779] to-[#3b82f6]",
+    shadowColor: "rgba(32,167,121,0.24)",
     proficiency: 80,
     items: [
       "Excel reporting",
@@ -65,7 +65,7 @@ const skillBlocks = [
   {
     title: "Web Delivery",
     icon: Code2,
-    color: "from-[#f43f5e] to-[#f59e0b]",
+    color: "from-[#e05268] to-[#e49a2f]",
     shadowColor: "rgba(244,63,94,0.3)",
     proficiency: 88,
     items: [
@@ -81,7 +81,7 @@ const skillBlocks = [
   {
     title: "Communication",
     icon: FileText,
-    color: "from-[#d946ef] to-[#8b5cf6]",
+    color: "from-[#c65bd7] to-[#7c6cf2]",
     shadowColor: "rgba(217,70,239,0.3)",
     proficiency: 92,
     items: [
@@ -175,11 +175,11 @@ function SkillCard({ block, index }: { block: typeof skillBlocks[0], index: numb
 export default function ResumeSkillsDetailed() {
   return (
     <section className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_40px_140px_rgba(0,0,0,0.4)] backdrop-blur-3xl sm:p-10">
-      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#ec4899]/10 blur-[120px] pointer-events-none" />
-      <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-[#8b5cf6]/10 blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#d9468f]/8 blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-[#7c6cf2]/8 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 flex items-center gap-4 mb-10">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ec4899]/30 bg-[#ec4899]/10 text-[#ec4899] shadow-[0_0_30px_rgba(236,72,153,0.2)]">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d9468f]/24 bg-[#d9468f]/10 text-[#d9468f] shadow-[0_0_24px_rgba(217,70,143,0.16)]">
           <Sparkles size={26} />
         </div>
         <div>

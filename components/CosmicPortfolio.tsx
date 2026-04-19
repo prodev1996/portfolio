@@ -82,7 +82,7 @@ const overviewProof = [
     value: "User-first",
     note: "Calm troubleshooting, clear communication, and reliable follow-through.",
     playful: "Issues -> answers",
-    accent: "from-[#8b5cf6] to-[#ec4899]",
+    accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
     icon: Workflow,
@@ -90,7 +90,7 @@ const overviewProof = [
     value: "Process-aware",
     note: "Understanding how access, tools, workflows, and documentation connect.",
     playful: "Tools -> workflows",
-    accent: "from-[#38bdf8] to-[#8b5cf6]",
+    accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: Database,
@@ -98,7 +98,7 @@ const overviewProof = [
     value: "Reporting-focused",
     note: "Growing SQL, Power BI, validation, and dashboard storytelling skills.",
     playful: "Records -> insight",
-    accent: "from-[#10b981] to-[#38bdf8]",
+    accent: "from-[#20a779] to-[#35aeca]",
   },
   {
     icon: Code2,
@@ -106,7 +106,7 @@ const overviewProof = [
     value: "Live delivery",
     note: "Real client websites, deployment, updates, and production support.",
     playful: "Ideas -> shipped",
-    accent: "from-[#f59e0b] to-[#ec4899]",
+    accent: "from-[#e49a2f] to-[#d9468f]",
   },
 ];
 
@@ -116,72 +116,72 @@ const technicalSkillGroups = [
     title: "Support",
     detail: "Level 1/2 support, incident handling, user assistance, remote support.",
     proof: "Turns user issues into clear resolution paths.",
-    accent: "from-[#8b5cf6] to-[#ec4899]",
+    accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
     icon: FaWindows,
     title: "Windows Systems",
     detail: "Windows 10/11, Windows Server, system maintenance and configuration.",
     proof: "Keeps workstations and environments stable.",
-    accent: "from-[#38bdf8] to-[#8b5cf6]",
+    accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: FaMicrosoft,
     title: "M365 & Identity",
     detail: "Exchange Online, Outlook, Teams, SharePoint admin, AD, Azure AD, basic Intune.",
     proof: "Supports access, collaboration, and permissions.",
-    accent: "from-[#10b981] to-[#38bdf8]",
+    accent: "from-[#20a779] to-[#35aeca]",
   },
   {
     icon: FaNetworkWired,
     title: "Networking",
     detail: "TCP/IP, LAN/WAN basics, DNS/DHCP, VPN support, printer and network issues.",
     proof: "Finds the cause behind connectivity friction.",
-    accent: "from-[#f59e0b] to-[#ec4899]",
+    accent: "from-[#e49a2f] to-[#d9468f]",
   },
   {
     icon: FaTools,
     title: "Devices & Software",
     detail: "Device setup, software installation, updates, diagnosis and resolution.",
     proof: "Moves issues from diagnosis to working setup.",
-    accent: "from-[#ec4899] to-[#8b5cf6]",
+    accent: "from-[#d9468f] to-[#7c6cf2]",
   },
   {
     icon: FaPython,
     title: "Web Development",
     detail: "Python, JavaScript, React, Node.js, MySQL, HTML/CSS and API work.",
     proof: "Builds and maintains real production websites.",
-    accent: "from-[#38bdf8] to-[#10b981]",
+    accent: "from-[#35aeca] to-[#20a779]",
   },
   {
     icon: FaRegFileAlt,
     title: "Documentation",
     detail: "Ticket management, knowledge articles and clear end-user explanations.",
     proof: "Makes support repeatable and easier to hand over.",
-    accent: "from-[#8b5cf6] to-[#f59e0b]",
+    accent: "from-[#7c6cf2] to-[#e49a2f]",
   },
   {
     icon: FaDatabase,
     title: "Reporting & Data",
     detail: "Python, SQL, Power BI, Excel reporting, data validation and dashboards.",
     proof: "Turns operational records into clearer insight.",
-    accent: "from-[#10b981] to-[#f59e0b]",
+    accent: "from-[#20a779] to-[#e49a2f]",
   },
   {
     icon: FaNodeJs,
     title: "Technical Range",
     detail: "API support, workflow thinking, troubleshooting and production website support.",
     proof: "Connects systems thinking with practical delivery.",
-    accent: "from-[#f59e0b] to-[#8b5cf6]",
+    accent: "from-[#e49a2f] to-[#7c6cf2]",
   },
 ];
 
 const orbitNodes = [
-  { label: "SQL", detail: "Data querying", angle: 12, tone: "from-[#8b5cf6] to-[#38bdf8]" },
-  { label: "Power BI", detail: "Dashboards", angle: 76, tone: "from-[#f59e0b] to-[#ec4899]" },
-  { label: "M365", detail: "Support systems", angle: 144, tone: "from-[#38bdf8] to-[#10b981]" },
-  { label: "Support", detail: "User outcomes", angle: 214, tone: "from-[#ec4899] to-[#8b5cf6]" },
-  { label: "Reporting", detail: "Clear insights", angle: 292, tone: "from-[#10b981] to-[#f59e0b]" },
+  { label: "SQL", detail: "Data querying", angle: 12, tone: "from-[#7c6cf2] to-[#35aeca]" },
+  { label: "Power BI", detail: "Dashboards", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
+  { label: "M365", detail: "Support systems", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
+  { label: "Support", detail: "User outcomes", angle: 214, tone: "from-[#d9468f] to-[#7c6cf2]" },
+  { label: "Reporting", detail: "Clear insights", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
 ];
 
 // Interactive Bento Card with Spotlight
@@ -202,7 +202,7 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
       onMouseMove={handleMouseMove}
-      className={`group relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] shadow-2xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)] ${className}`}
+      className={`group relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] shadow-2xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_34px_rgba(124,108,242,0.12)] ${className}`}
     >
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-[32px] opacity-0 transition duration-300 group-hover:opacity-100"
@@ -222,16 +222,16 @@ function TerminalBadge() {
       className="mt-8 w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-black/35 text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
     >
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#ec4899]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#f59e0b]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#d9468f]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#e49a2f]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#20a779]" />
         <span className="ml-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8f87a0]">
           career-path.sh
         </span>
       </div>
       <div className="grid gap-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
-        <p><span className="text-[#10b981]">&gt;</span> rajiv.path()</p>
-        <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b]">
+        <p><span className="text-[#20a779]">&gt;</span> rajiv.path()</p>
+        <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
           support -&gt; systems -&gt; reporting -&gt; data
         </p>
       </div>
@@ -245,7 +245,7 @@ function DataOrbit() {
       className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:5.2rem] sm:h-56 sm:w-56 sm:[--orbit-radius:6.8rem] lg:h-64 lg:w-64 lg:[--orbit-radius:7.8rem]"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(139,92,246,0.08),transparent_62%)] shadow-[0_0_80px_rgba(139,92,246,0.16)]" />
+      <div className="absolute inset-0 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(124,108,242,0.06),transparent_62%)] shadow-[0_0_64px_rgba(124,108,242,0.12)]" />
       <div className="data-orbit-spin absolute inset-0">
         {orbitNodes.map((node) => (
           <div
@@ -257,7 +257,7 @@ function DataOrbit() {
           >
             <div className="group pointer-events-auto relative -translate-x-1/2 -translate-y-1/2">
               <span
-                className={`inline-flex min-w-9 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/20 transition duration-300 group-hover:scale-110 sm:min-w-12 sm:px-3 sm:py-1.5 sm:text-[10px]`}
+                className={`inline-flex min-w-9 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.3)] ring-1 ring-white/15 transition duration-300 group-hover:scale-110 sm:min-w-12 sm:px-3 sm:py-1.5 sm:text-[10px]`}
               >
                 {node.label}
               </span>
@@ -284,7 +284,7 @@ export default function CosmicPortfolio() {
   const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
-    <div className="bg-[#020108] selection:bg-[#ec4899]/30 selection:text-white">
+    <div className="bg-[#020108] selection:bg-[#d9468f]/25 selection:text-white">
       <CursorStars />
 
       {/* --- HERO SECTION --- */}
@@ -294,7 +294,7 @@ export default function CosmicPortfolio() {
         className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pb-14 pt-28 sm:pt-32"
       >
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
-          <div className="absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#8b5cf6]/20 via-[#ec4899]/10 to-[#f59e0b]/20 blur-[120px]" />
+          <div className="absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#7c6cf2]/16 via-[#d9468f]/8 to-[#e49a2f]/16 blur-[120px]" />
         </motion.div>
 
         {/* Giant Background Typography */}
@@ -317,7 +317,7 @@ export default function CosmicPortfolio() {
             <motion.div variants={fadeUp} className="relative mb-8 mt-4 flex h-44 w-44 items-center justify-center sm:h-56 sm:w-56 lg:h-64 lg:w-64">
               <DataOrbit />
               <div className="relative group">
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#ec4899] blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#7c6cf2] to-[#d9468f] blur opacity-32 group-hover:opacity-58 transition duration-1000 group-hover:duration-200" />
                 <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-white/20 bg-black sm:h-36 sm:w-36">
                   <Image src="/profile-hero.png" alt="Rajiv Bhandari" fill className="object-cover" />
                 </div>
@@ -325,7 +325,7 @@ export default function CosmicPortfolio() {
             </motion.div>
 
             <motion.div variants={fadeUp} className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#d8d1e6] backdrop-blur-xl">
-              <span className="mr-2 h-2 w-2 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
+              <span className="mr-2 h-2 w-2 rounded-full bg-[#20a779] shadow-[0_0_8px_rgba(32,167,121,0.58)] animate-pulse" />
               Available for new roles
             </motion.div>
 
@@ -334,7 +334,7 @@ export default function CosmicPortfolio() {
               className="text-5xl font-black tracking-[-0.05em] text-white sm:text-7xl lg:text-[6rem] leading-[0.95]"
             >
               Connecting people, <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
                 systems & data.
               </span>
             </motion.h2>
@@ -368,7 +368,7 @@ export default function CosmicPortfolio() {
       {/* --- BENTO GRID ABOUT & SKILLS --- */}
       <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-8 lg:py-10 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="mb-5 max-w-[1000px] mx-auto">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#ec4899]">Overview</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#d9468f]">Overview</p>
           <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Expertise Dashboard</h2>
         </div>
 
@@ -376,7 +376,7 @@ export default function CosmicPortfolio() {
           {/* Main About Tile */}
           <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6" delay={0.1}>
             <div className="flex h-full flex-col justify-center">
-              <Sparkles className="h-6 w-6 text-[#f59e0b] mb-3" />
+              <Sparkles className="h-6 w-6 text-[#e49a2f] mb-3" />
               <div>
                 <h3 className="text-xl font-black tracking-tight text-white mb-2">The bridge between technical & practical.</h3>
                 <div className="space-y-2">
@@ -393,7 +393,7 @@ export default function CosmicPortfolio() {
 
           {/* Core Focus Tile */}
           <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6 relative flex flex-col justify-center" delay={0.2}>
-            <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#8b5cf6]/20 to-transparent opacity-50 blur-2xl pointer-events-none" />
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#7c6cf2]/16 to-transparent opacity-45 blur-2xl pointer-events-none" />
             <h3 className="text-lg font-bold text-white mb-3">Career Direction</h3>
             <div className="space-y-3 relative z-10">
               {[
@@ -408,7 +408,7 @@ export default function CosmicPortfolio() {
                   </div>
                   <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
                     <motion.div 
-                      className="h-full bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]"
+                      className="h-full bg-gradient-to-r from-[#7c6cf2] to-[#d9468f]"
                       initial={{ width: 0 }}
                       whileInView={{ width: stat.v }}
                       viewport={{ once: true }}
@@ -436,7 +436,7 @@ export default function CosmicPortfolio() {
               <div className={`flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white border border-white/10 mb-2 group-hover/skill:scale-110 transition-all duration-500`}>
                 <group.icon className="h-3.5 w-3.5" />
               </div>
-              <h3 className="text-sm font-bold text-white mb-0.5 group-hover/skill:text-[#ec4899] transition-colors">{group.label}</h3>
+              <h3 className="text-sm font-bold text-white mb-0.5 group-hover/skill:text-[#d9468f] transition-colors">{group.label}</h3>
               <p className="text-[8px] font-black text-[#8f87a0] uppercase tracking-widest mb-2">{group.value}</p>
               <p className="text-[10px] text-[#a1a1aa] leading-snug flex-grow">{group.note}</p>
               <p className="mt-2 translate-y-1 text-[8px] font-black uppercase tracking-[0.16em] text-[#d8d1e6] opacity-0 transition duration-300 group-hover/skill:translate-y-0 group-hover/skill:opacity-100">
@@ -450,7 +450,7 @@ export default function CosmicPortfolio() {
       {/* --- TECHNICAL SKILLS MATRIX --- */}
       <section id="skills" className="relative z-20 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="mb-5 flex flex-col gap-2 text-center">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#38bdf8]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#35aeca]">
             Technical Toolkit
           </p>
           <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
@@ -463,7 +463,7 @@ export default function CosmicPortfolio() {
         </div>
 
         <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] p-3 shadow-[0_28px_90px_rgba(0,0,0,0.34)] sm:p-4">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(139,92,246,0.18),transparent_30%),radial-gradient(circle_at_90%_20%,rgba(236,72,153,0.12),transparent_34%),radial-gradient(circle_at_52%_100%,rgba(56,189,248,0.10),transparent_34%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(124,108,242,0.13),transparent_30%),radial-gradient(circle_at_90%_20%,rgba(217,70,143,0.09),transparent_34%),radial-gradient(circle_at_52%_100%,rgba(53,174,202,0.08),transparent_34%)]" />
           <div className="relative grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {technicalSkillGroups.map((group, index) => (
               <motion.article
@@ -474,7 +474,7 @@ export default function CosmicPortfolio() {
                 transition={{ duration: 0.45, delay: index * 0.035, ease: "easeOut" }}
                 className="group relative min-h-[108px] overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.035] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055]"
               >
-                <div className={`absolute -right-12 -top-12 h-28 w-28 rounded-full bg-gradient-to-br ${group.accent} opacity-15 blur-2xl transition duration-500 group-hover:opacity-30`} />
+                <div className={`absolute -right-12 -top-12 h-28 w-28 rounded-full bg-gradient-to-br ${group.accent} opacity-12 blur-2xl transition duration-500 group-hover:opacity-24`} />
                 <div className="skill-card-scan pointer-events-none absolute inset-x-0 top-0 h-px opacity-0 transition group-hover:opacity-100" />
                 <div className="pointer-events-none absolute bottom-4 right-4 flex gap-1 opacity-30 transition group-hover:opacity-90">
                   {[0, 1, 2].map((dot) => (
@@ -487,7 +487,7 @@ export default function CosmicPortfolio() {
                 </div>
                 <div className="relative z-10 flex h-full flex-col">
                   <div className="mb-2 flex items-center justify-between gap-3">
-                    <span className={`skill-icon-bob flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white shadow-[0_14px_34px_rgba(0,0,0,0.26)]`}>
+                    <span className={`skill-icon-bob flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white shadow-[0_12px_28px_rgba(0,0,0,0.22)]`}>
                       <group.icon className="h-4 w-4" />
                     </span>
                     <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.16em] text-[#9d94b3]">
@@ -518,7 +518,7 @@ export default function CosmicPortfolio() {
             
             {/* Sticky Left Column */}
             <div className="lg:sticky lg:top-32 lg:col-span-5">
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#8b5cf6]">Journey</p>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7c6cf2]">Journey</p>
               <h2 className="mt-4 text-5xl font-black tracking-[-0.04em] text-white sm:text-6xl md:text-7xl">
                 Experience
               </h2>
@@ -538,13 +538,13 @@ export default function CosmicPortfolio() {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] p-8 transition hover:bg-[#0f0b1a]"
                 >
-                  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] opacity-0 blur-[60px] transition duration-700 group-hover:opacity-20" />
+                  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] opacity-0 blur-[60px] transition duration-700 group-hover:opacity-16" />
                   
                   <div className="relative z-10">
-                    <span className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#ec4899] mb-4">
+                    <span className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#d9468f] mb-4">
                       {item.year}
                     </span>
-                    <h3 className="text-2xl font-black tracking-tight text-white mb-1 group-hover:text-[#8b5cf6] transition-colors">
+                    <h3 className="text-2xl font-black tracking-tight text-white mb-1 group-hover:text-[#7c6cf2] transition-colors">
                       {item.role}
                     </h3>
                     <p className="text-sm font-semibold text-[#a1a1aa] mb-6">{item.place}</p>
@@ -553,7 +553,7 @@ export default function CosmicPortfolio() {
                     <ul className="space-y-3">
                       {item.points.map((point) => (
                         <li key={point} className="flex items-start gap-3 text-sm font-medium text-[#a1a1aa]">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -570,7 +570,7 @@ export default function CosmicPortfolio() {
       <section id="projects" className="relative z-20 py-12 sm:py-16 scroll-mt-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col items-center text-center">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#f59e0b]">Showcase</p>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#e49a2f]">Showcase</p>
             <h2 className="mt-2 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Live Client Builds</h2>
           </div>
 
@@ -582,7 +582,7 @@ export default function CosmicPortfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                className="group flex flex-col overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_40px_rgba(139,92,246,0.1)]"
+                className="group flex flex-col overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_32px_rgba(124,108,242,0.08)]"
               >
                 {/* Project Image */}
                 <Link href={`/projects/${project.slug}`} className="relative aspect-[2/1] w-full overflow-hidden bg-black border-b border-white/5">
@@ -601,7 +601,7 @@ export default function CosmicPortfolio() {
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 translate-y-3 rounded-2xl border border-white/10 bg-black/70 p-4 text-left opacity-0 shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur-2xl transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-[8px] font-black uppercase tracking-[0.24em] text-[#f59e0b]">
+                    <p className="text-[8px] font-black uppercase tracking-[0.24em] text-[#e49a2f]">
                       Mission card
                     </p>
                     <p className="mt-1 text-xs font-bold leading-snug text-white">
@@ -609,7 +609,7 @@ export default function CosmicPortfolio() {
                     </p>
                     <div className="mt-3 grid gap-2 sm:grid-cols-2">
                       <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
-                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#8b5cf6]">
+                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#7c6cf2]">
                           Proof
                         </p>
                         <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
@@ -617,7 +617,7 @@ export default function CosmicPortfolio() {
                         </p>
                       </div>
                       <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
-                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#ec4899]">
+                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#d9468f]">
                           Support
                         </p>
                         <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
@@ -642,11 +642,11 @@ export default function CosmicPortfolio() {
                   <p className="text-xs text-[#a1a1aa] mb-4 leading-relaxed flex-grow">{project.outcome}</p>
                   
                   <div className="rounded-xl border border-white/5 bg-white/[0.02] p-3 mb-4">
-                    <p className="text-[8px] font-black uppercase tracking-[0.2em] text-[#8b5cf6] mb-1">Value Delivered</p>
+                    <p className="text-[8px] font-black uppercase tracking-[0.2em] text-[#7c6cf2] mb-1">Value Delivered</p>
                     <p className="text-[11px] font-semibold text-white leading-snug">{project.supportProof[1]}</p>
                   </div>
 
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-[#ec4899] transition-colors w-fit">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-[#d9468f] transition-colors w-fit">
                     Visit Live Site <ArrowUpRight className="h-3 w-3" />
                   </a>
                 </div>
@@ -659,11 +659,11 @@ export default function CosmicPortfolio() {
       {/* --- CONTACT SECTION --- */}
       <section id="contact" className="relative z-20 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[48px] border border-white/10 bg-[#0a0812] shadow-2xl relative">
-          <div className="absolute top-0 right-0 h-[500px] w-[500px] bg-gradient-to-bl from-[#8b5cf6]/20 to-transparent blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 right-0 h-[500px] w-[500px] bg-gradient-to-bl from-[#7c6cf2]/16 to-transparent blur-[100px] pointer-events-none" />
           
           <div className="grid gap-12 p-8 sm:p-16 lg:grid-cols-2 relative z-10">
             <div className="flex flex-col justify-center">
-              <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Let&apos;s build <br/><span className="text-[#ec4899]">together.</span></h2>
+              <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Let&apos;s build <br/><span className="text-[#d9468f]">together.</span></h2>
               <p className="text-lg text-[#a1a1aa] mb-10 max-w-md">
                 Open to application support, business systems, and reporting-focused roles. Let&apos;s discuss how I can bring value to your team.
               </p>

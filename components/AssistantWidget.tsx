@@ -224,7 +224,7 @@ export default function AssistantWidget() {
           >
             <div className="flex items-center justify-between border-b border-white/5 bg-white/[0.02] px-5 py-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] shadow-[0_0_12px_rgba(124,108,242,0.24)]">
                   <Bot className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -254,7 +254,7 @@ export default function AssistantWidget() {
                   <div
                     className={`max-w-[85%] text-sm leading-relaxed ${
                       message.role === "user"
-                        ? "rounded-2xl rounded-tr-sm bg-[#8b5cf6] px-4 py-2.5 text-white"
+                        ? "rounded-2xl rounded-tr-sm bg-[#7c6cf2] px-4 py-2.5 text-white"
                         : "rounded-2xl rounded-tl-sm bg-white/5 border border-white/5 px-4 py-3 text-[#d8d1e6]"
                     }`}
                   >
@@ -276,7 +276,7 @@ export default function AssistantWidget() {
                             href={action.href}
                             target={action.external ? "_blank" : undefined}
                             rel={action.external ? "noopener noreferrer" : undefined}
-                            className="rounded-full border border-[#8b5cf6]/40 bg-[#8b5cf6]/10 px-2.5 py-1 text-[11px] font-semibold text-[#d8b4fe] transition hover:bg-[#8b5cf6]/20 hover:text-white"
+                            className="rounded-full border border-[#7c6cf2]/35 bg-[#7c6cf2]/10 px-2.5 py-1 text-[11px] font-semibold text-[#c9c0ff] transition hover:bg-[#7c6cf2]/18 hover:text-white"
                           >
                             {action.label}
                           </a>
@@ -297,7 +297,7 @@ export default function AssistantWidget() {
                     onClick={() => askAssistant(item)}
                     className={`rounded-full border px-3 py-1.5 text-[11px] font-medium transition ${
                       activeTab === item
-                        ? "border-[#8b5cf6]/40 bg-[#8b5cf6]/20 text-white"
+                        ? "border-[#7c6cf2]/35 bg-[#7c6cf2]/16 text-white"
                         : "border-white/5 bg-transparent text-[#a1a1aa] hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -307,7 +307,7 @@ export default function AssistantWidget() {
               </div>
               <form
                 onSubmit={handleAssistantSubmit}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 transition-colors focus-within:border-[#8b5cf6]/50"
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 transition-colors focus-within:border-[#7c6cf2]/45"
               >
                 <input
                   value={assistantInput}
@@ -319,7 +319,7 @@ export default function AssistantWidget() {
                 <button
                   type="submit"
                   disabled={!assistantInput.trim()}
-                  className="rounded-full bg-[#8b5cf6] p-1.5 text-white transition hover:bg-[#a78bfa] disabled:opacity-50"
+                  className="rounded-full bg-[#7c6cf2] p-1.5 text-white transition hover:bg-[#9488f5] disabled:opacity-50"
                 >
                   <Send className="h-3.5 w-3.5" />
                 </button>
@@ -333,7 +333,7 @@ export default function AssistantWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] shadow-[0_8px_30px_rgba(139,92,246,0.4)] transition-shadow hover:shadow-[0_12px_40px_rgba(139,92,246,0.6)]"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] shadow-[0_8px_26px_rgba(124,108,242,0.32)] transition-shadow hover:shadow-[0_12px_34px_rgba(124,108,242,0.44)]"
       >
         <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 blur-md transition group-hover:opacity-30" />
         {isOpen ? (

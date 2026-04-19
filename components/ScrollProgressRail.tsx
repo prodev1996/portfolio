@@ -13,7 +13,7 @@ export default function ScrollProgressRail() {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b] shadow-[0_0_24px_rgba(236,72,153,0.55)]"
+      className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f] shadow-[0_0_18px_rgba(217,70,143,0.38)]"
       style={{ scaleX }}
     />
   );

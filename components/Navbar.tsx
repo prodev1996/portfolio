@@ -163,7 +163,7 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -2 }}>
               <Link
                 href="/resume"
-                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#8b5cf6]/50 hover:bg-[#8b5cf6]/16 xl:inline-flex"
+                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#7c6cf2]/42 hover:bg-[#7c6cf2]/12 xl:inline-flex"
               >
                 <FileText className="h-4 w-4" />
                 Resume
@@ -190,7 +190,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#8b5cf6]/55 hover:text-[#c4b5fd] lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#7c6cf2]/45 hover:text-[#c9c0ff] lg:hidden"
           aria-label="Toggle menu"
         >
           {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}

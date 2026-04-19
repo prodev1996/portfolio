@@ -57,10 +57,10 @@ const experience = [
 export default function ResumeTimeline() {
   return (
     <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8" aria-labelledby="experience-heading">
-      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#8b5cf6]/10 blur-[100px] pointer-events-none" />
+      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#7c6cf2]/8 blur-[100px] pointer-events-none" />
       
       <div className="flex items-center gap-4 mb-8">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#8b5cf6]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#7c6cf2]">
           <Briefcase size={22} />
         </div>
         <h2
@@ -81,21 +81,21 @@ export default function ResumeTimeline() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
-            <div className="absolute -left-[35px] top-1 h-5 w-5 rounded-full border-4 border-[#120f1d] bg-[#38bdf8] shadow-[0_0_20px_rgba(56,189,248,0.8)] transition-transform group-hover:scale-125 sm:-left-[43px]" />
+            <div className="absolute -left-[35px] top-1 h-5 w-5 rounded-full border-4 border-[#120f1d] bg-[#35aeca] shadow-[0_0_14px_rgba(53,174,202,0.55)] transition-transform group-hover:scale-125 sm:-left-[43px]" />
             
             <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-white/[0.04] to-transparent opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
             
             <div className="relative rounded-2xl border border-transparent p-5 transition duration-500 group-hover:border-white/10 group-hover:bg-white/[0.02]">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-xl font-bold tracking-tight text-white transition group-hover:text-[#38bdf8]">
+                <h3 className="text-xl font-bold tracking-tight text-white transition group-hover:text-[#35aeca]">
                   {job.role}
                 </h3>
                 <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-semibold text-[#8f87a0] backdrop-blur-md">
                   {job.period}
                 </span>
               </div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#ec4899]">
-                {job.company} <span className="mx-2 text-white/20">•</span> <span className="text-[#8b5cf6]">{job.location}</span>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#d9468f]">
+                {job.company} <span className="mx-2 text-white/20">•</span> <span className="text-[#7c6cf2]">{job.location}</span>
               </p>
               <ul className="space-y-3 text-sm leading-relaxed text-[#c9c1d8]">
                 {job.bullets.map((b, i) => (

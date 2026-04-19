@@ -100,7 +100,7 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
             placeholder="Your name"
           />
         </div>
@@ -113,7 +113,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
             placeholder="your@email.com"
           />
         </div>
@@ -126,7 +126,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             rows={3}
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#8b5cf6]/60 focus:bg-white/[0.11]"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
             placeholder="Tell me about the role, project, or opportunity"
           />
         </div>

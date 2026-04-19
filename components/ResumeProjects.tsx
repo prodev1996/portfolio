@@ -43,10 +43,10 @@ export default function ResumeProjects() {
 
   return (
     <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8">
-      <div className="absolute right-10 bottom-0 h-64 w-64 rounded-full bg-[#f59e0b]/10 blur-[100px] pointer-events-none" />
+      <div className="absolute right-10 bottom-0 h-64 w-64 rounded-full bg-[#e49a2f]/8 blur-[100px] pointer-events-none" />
 
       <div className="flex items-center gap-4 mb-8">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#f59e0b]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#e49a2f]">
           <FolderGit2 size={22} />
         </div>
         <h2 className="text-lg font-black tracking-[-0.04em] text-white">
@@ -64,11 +64,11 @@ export default function ResumeProjects() {
             transition={{ delay: index * 0.1 }}
             className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition duration-300 hover:border-white/10 hover:bg-white/[0.04]"
           >
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#f59e0b] to-[#ec4899] opacity-0 blur-xl transition duration-500 group-hover:opacity-10" />
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#e49a2f] to-[#d9468f] opacity-0 blur-xl transition duration-500 group-hover:opacity-8" />
 
             <div className="relative z-10 mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
               <div>
-                <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#f59e0b]">
+                <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#e49a2f]">
                   {project.title}
                   {project.link && (
                     <Link href={project.link} className="text-white/40 transition hover:text-white">
@@ -84,7 +84,7 @@ export default function ResumeProjects() {
             <ul className="relative z-10 space-y-2 text-sm leading-relaxed text-[#c9c1d8]">
               {project.bullets.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
+                  <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
                   <span>{item}</span>
                 </li>
               ))}

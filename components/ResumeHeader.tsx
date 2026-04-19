@@ -19,9 +19,9 @@ export default function ResumeHeader() {
       transition={{ duration: 0.6 }}
       className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_40px_140px_rgba(0,0,0,0.4)] backdrop-blur-3xl sm:p-10"
     >
-      <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#8b5cf6]/20 blur-[100px]" />
-      <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-[#ec4899]/15 blur-[100px]" />
-      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,transparent_60%)]" />
+      <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#7c6cf2]/16 blur-[100px]" />
+      <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-[#d9468f]/12 blur-[100px]" />
+      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(228,154,47,0.06)_0%,transparent_60%)]" />
 
       <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div className="relative flex-1">
@@ -31,7 +31,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.2 }}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-[#d8d1e6] shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
           >
-            <Sparkles className="h-3.5 w-3.5 text-[#ec4899]" />
+            <Sparkles className="h-3.5 w-3.5 text-[#d9468f]" />
             Professional Resume
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.3 }}
             className="text-5xl font-extrabold tracking-[-0.04em] text-white sm:text-6xl md:text-7xl"
           >
-            Rajiv <span className="bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b] bg-clip-text text-transparent">Bhandari</span>
+            Rajiv <span className="bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f] bg-clip-text text-transparent">Bhandari</span>
           </motion.h1>
 
           <motion.p 
@@ -117,28 +117,28 @@ export default function ResumeHeader() {
             </a>
 
             <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#8b5cf6]/10 text-[#8b5cf6]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7c6cf2]/10 text-[#7c6cf2]">
                 <FaPhoneAlt size={16} />
               </div>
               <span>+61 413 230 855</span>
             </div>
 
             <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f59e0b]/10 text-[#f59e0b]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
                 <FaMapMarkerAlt size={16} />
               </div>
               <span>Adelaide, South Australia</span>
             </div>
 
             <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#38bdf8]/10 text-[#38bdf8] transition group-hover:scale-110 group-hover:bg-[#38bdf8]/20">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#35aeca]/10 text-[#35aeca] transition group-hover:scale-110 group-hover:bg-[#35aeca]/18">
                 <FaLinkedin size={18} />
               </div>
               <span className="truncate">linkedin.com/in/rajiv-bhandari25</span>
             </a>
 
             <a href="https://www.rajivbhandari.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ec4899]/10 text-[#ec4899] transition group-hover:scale-110 group-hover:bg-[#ec4899]/20">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d9468f]/10 text-[#d9468f] transition group-hover:scale-110 group-hover:bg-[#d9468f]/18">
                 <FaGlobe size={18} />
               </div>
               <span className="truncate">rajivbhandari.com</span>
