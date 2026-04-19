@@ -15,7 +15,17 @@ import {
   Code2,
   Database,
 } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import {
+  FaDatabase,
+  FaLinkedin,
+  FaMicrosoft,
+  FaNetworkWired,
+  FaNodeJs,
+  FaPython,
+  FaRegFileAlt,
+  FaTools,
+  FaWindows,
+} from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
 import CursorStars from "@/components/CursorStars";
@@ -65,38 +75,104 @@ const timeline = [
   },
 ];
 
-const skillGroups = [
+const overviewProof = [
   {
     icon: ShieldCheck,
-    label: "Application Support",
-    level: "Primary strength",
-    color: "from-[#8b5cf6] to-[#ec4899]",
-    note: "Resolving access issues, Microsoft 365 workflows, and daily system support.",
-    items: ["Microsoft 365", "SharePoint", "Teams", "Exchange", "User Access", "Ticketing"],
+    label: "Support mindset",
+    value: "User-first",
+    note: "Calm troubleshooting, clear communication, and reliable follow-through.",
+    playful: "Issues -> answers",
+    accent: "from-[#8b5cf6] to-[#ec4899]",
   },
   {
     icon: Workflow,
-    label: "Systems & Identity",
-    level: "Working toolkit",
-    color: "from-[#38bdf8] to-[#8b5cf6]",
-    note: "Managing environments, device policies, identity, and hosting infrastructure.",
-    items: ["Windows", "Active Directory", "Azure AD", "Intune", "DNS", "SSL"],
+    label: "Systems thinking",
+    value: "Process-aware",
+    note: "Understanding how access, tools, workflows, and documentation connect.",
+    playful: "Tools -> workflows",
+    accent: "from-[#38bdf8] to-[#8b5cf6]",
   },
   {
     icon: Database,
-    label: "Reporting & Data",
-    level: "Current direction",
-    color: "from-[#10b981] to-[#38bdf8]",
-    note: "Transforming raw records and issue logs into actionable business insights.",
-    items: ["SQL", "Power BI", "Excel Reporting", "Data Validation", "Dashboards"],
+    label: "Data direction",
+    value: "Reporting-focused",
+    note: "Growing SQL, Power BI, validation, and dashboard storytelling skills.",
+    playful: "Records -> insight",
+    accent: "from-[#10b981] to-[#38bdf8]",
   },
   {
     icon: Code2,
-    label: "Web Delivery",
-    level: "Proof of ownership",
-    color: "from-[#f59e0b] to-[#ec4899]",
-    note: "Building, maintaining, and deploying scalable client websites.",
-    items: ["React", "Next.js", "Tailwind CSS", "Vercel", "API Integration"],
+    label: "Build ownership",
+    value: "Live delivery",
+    note: "Real client websites, deployment, updates, and production support.",
+    playful: "Ideas -> shipped",
+    accent: "from-[#f59e0b] to-[#ec4899]",
+  },
+];
+
+const technicalSkillGroups = [
+  {
+    icon: FaTools,
+    title: "Support",
+    detail: "Level 1/2 support, incident handling, user assistance, remote support.",
+    proof: "Turns user issues into clear resolution paths.",
+    accent: "from-[#8b5cf6] to-[#ec4899]",
+  },
+  {
+    icon: FaWindows,
+    title: "Windows Systems",
+    detail: "Windows 10/11, Windows Server, system maintenance and configuration.",
+    proof: "Keeps workstations and environments stable.",
+    accent: "from-[#38bdf8] to-[#8b5cf6]",
+  },
+  {
+    icon: FaMicrosoft,
+    title: "M365 & Identity",
+    detail: "Exchange Online, Outlook, Teams, SharePoint admin, AD, Azure AD, basic Intune.",
+    proof: "Supports access, collaboration, and permissions.",
+    accent: "from-[#10b981] to-[#38bdf8]",
+  },
+  {
+    icon: FaNetworkWired,
+    title: "Networking",
+    detail: "TCP/IP, LAN/WAN basics, DNS/DHCP, VPN support, printer and network issues.",
+    proof: "Finds the cause behind connectivity friction.",
+    accent: "from-[#f59e0b] to-[#ec4899]",
+  },
+  {
+    icon: FaTools,
+    title: "Devices & Software",
+    detail: "Device setup, software installation, updates, diagnosis and resolution.",
+    proof: "Moves issues from diagnosis to working setup.",
+    accent: "from-[#ec4899] to-[#8b5cf6]",
+  },
+  {
+    icon: FaPython,
+    title: "Web Development",
+    detail: "Python, JavaScript, React, Node.js, MySQL, HTML/CSS and API work.",
+    proof: "Builds and maintains real production websites.",
+    accent: "from-[#38bdf8] to-[#10b981]",
+  },
+  {
+    icon: FaRegFileAlt,
+    title: "Documentation",
+    detail: "Ticket management, knowledge articles and clear end-user explanations.",
+    proof: "Makes support repeatable and easier to hand over.",
+    accent: "from-[#8b5cf6] to-[#f59e0b]",
+  },
+  {
+    icon: FaDatabase,
+    title: "Reporting & Data",
+    detail: "Python, SQL, Power BI, Excel reporting, data validation and dashboards.",
+    proof: "Turns operational records into clearer insight.",
+    accent: "from-[#10b981] to-[#f59e0b]",
+  },
+  {
+    icon: FaNodeJs,
+    title: "Technical Range",
+    detail: "API support, workflow thinking, troubleshooting and production website support.",
+    proof: "Connects systems thinking with practical delivery.",
+    accent: "from-[#f59e0b] to-[#8b5cf6]",
   },
 ];
 
@@ -135,6 +211,30 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
         }}
       />
       {children}
+    </motion.div>
+  );
+}
+
+function TerminalBadge() {
+  return (
+    <motion.div
+      variants={fadeUp}
+      className="mt-8 w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-black/35 text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
+    >
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-[#ec4899]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#f59e0b]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
+        <span className="ml-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8f87a0]">
+          career-path.sh
+        </span>
+      </div>
+      <div className="grid gap-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
+        <p><span className="text-[#10b981]">&gt;</span> rajiv.path()</p>
+        <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b]">
+          support -&gt; systems -&gt; reporting -&gt; data
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -246,6 +346,8 @@ export default function CosmicPortfolio() {
               I am an Adelaide-based IT professional focused on application support, Microsoft 365, and transforming complex workflows into clear data reporting.
             </motion.p>
 
+            <TerminalBadge />
+
             <motion.div variants={fadeUp} className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
               <Link href="#projects" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white px-8 py-4 font-bold text-black transition hover:scale-105 active:scale-95">
                 <span className="relative z-10 flex items-center gap-2">
@@ -264,10 +366,10 @@ export default function CosmicPortfolio() {
       </section>
 
       {/* --- BENTO GRID ABOUT & SKILLS --- */}
-      <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-10 lg:py-14 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="mb-6 lg:mb-8 max-w-[1000px] mx-auto">
+      <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-8 lg:py-10 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="mb-5 max-w-[1000px] mx-auto">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[#ec4899]">Overview</p>
-          <h2 className="mt-2 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Expertise Dashboard</h2>
+          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Expertise Dashboard</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-4 md:grid-rows-2 max-w-[1000px] mx-auto">
@@ -292,13 +394,13 @@ export default function CosmicPortfolio() {
           {/* Core Focus Tile */}
           <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6 relative flex flex-col justify-center" delay={0.2}>
             <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#8b5cf6]/20 to-transparent opacity-50 blur-2xl pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-3">Core Focus Areas</h3>
+            <h3 className="text-lg font-bold text-white mb-3">Career Direction</h3>
             <div className="space-y-3 relative z-10">
               {[
-                { label: "Application Support", v: "100%" },
-                { label: "M365 & Active Directory", v: "90%" },
-                { label: "SQL & Power BI Reporting", v: "85%" },
-                { label: "Web Development", v: "90%" }
+                { label: "Support foundation", v: "100%" },
+                { label: "Systems confidence", v: "90%" },
+                { label: "Data analytics growth", v: "78%" },
+                { label: "Data engineering path", v: "54%" }
               ].map((stat, i) => (
                 <div key={stat.label}>
                   <div className="flex justify-between text-xs font-bold text-[#c9c1d8] mb-2 uppercase tracking-wider">
@@ -318,25 +420,94 @@ export default function CosmicPortfolio() {
             </div>
           </BentoCard>
 
-          {/* Skill Blocks - Bottom Row */}
-          {skillGroups.map((group, index) => (
-            <BentoCard key={group.label} className="md:col-span-1 md:row-span-1 p-4 lg:p-5 flex flex-col group/skill" delay={0.3 + (index * 0.1)}>
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 border border-white/10 mb-3 group-hover/skill:scale-110 group-hover/skill:bg-white/10 transition-all duration-500">
-                <group.icon className="h-4 w-4 text-white" />
-              </div>
-              <h3 className="text-base font-bold text-white mb-0.5 group-hover/skill:text-[#ec4899] transition-colors">{group.label}</h3>
-              <p className="text-[9px] font-black text-[#8f87a0] uppercase tracking-widest mb-2">{group.level}</p>
-              <p className="text-[11px] text-[#a1a1aa] leading-tight mb-3 flex-grow">{group.note}</p>
-              
-              <div className="mt-auto flex flex-wrap gap-1">
-                {group.items.map(item => (
-                  <span key={item} className="rounded-md bg-white/[0.03] px-2 py-1 text-[9px] font-bold text-[#d8d1e6] border border-white/10 whitespace-nowrap transition-colors hover:bg-white/10 hover:text-white">
-                    {item}
-                  </span>
+          {/* Proof Blocks - Bottom Row */}
+          {overviewProof.map((group, index) => (
+            <BentoCard key={group.label} className="overview-play-card md:col-span-1 md:row-span-1 p-3 lg:p-4 flex flex-col group/skill" delay={0.3 + (index * 0.1)}>
+              <div className={`overview-card-scan absolute left-0 top-0 h-px w-full bg-gradient-to-r ${group.accent} opacity-0 transition group-hover/skill:opacity-100`} />
+              <div className="pointer-events-none absolute right-3 top-3 flex gap-1 opacity-30 transition group-hover/skill:opacity-100">
+                {[0, 1, 2].map((dot) => (
+                  <span
+                    key={dot}
+                    className={`overview-spark-dot h-1 w-1 rounded-full bg-gradient-to-r ${group.accent}`}
+                    style={{ animationDelay: `${dot * 120}ms` }}
+                  />
                 ))}
               </div>
+              <div className={`flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white border border-white/10 mb-2 group-hover/skill:scale-110 transition-all duration-500`}>
+                <group.icon className="h-3.5 w-3.5" />
+              </div>
+              <h3 className="text-sm font-bold text-white mb-0.5 group-hover/skill:text-[#ec4899] transition-colors">{group.label}</h3>
+              <p className="text-[8px] font-black text-[#8f87a0] uppercase tracking-widest mb-2">{group.value}</p>
+              <p className="text-[10px] text-[#a1a1aa] leading-snug flex-grow">{group.note}</p>
+              <p className="mt-2 translate-y-1 text-[8px] font-black uppercase tracking-[0.16em] text-[#d8d1e6] opacity-0 transition duration-300 group-hover/skill:translate-y-0 group-hover/skill:opacity-100">
+                {group.playful}
+              </p>
             </BentoCard>
           ))}
+        </div>
+      </section>
+
+      {/* --- TECHNICAL SKILLS MATRIX --- */}
+      <section id="skills" className="relative z-20 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="mb-5 flex flex-col gap-2 text-center">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#38bdf8]">
+            Technical Toolkit
+          </p>
+          <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
+            Support, systems, and data skills.
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
+            A compact skill map grouped around the work I actually do: support,
+            systems, reporting, documentation, and web delivery.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] p-3 shadow-[0_28px_90px_rgba(0,0,0,0.34)] sm:p-4">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(139,92,246,0.18),transparent_30%),radial-gradient(circle_at_90%_20%,rgba(236,72,153,0.12),transparent_34%),radial-gradient(circle_at_52%_100%,rgba(56,189,248,0.10),transparent_34%)]" />
+          <div className="relative grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {technicalSkillGroups.map((group, index) => (
+              <motion.article
+                key={group.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.45, delay: index * 0.035, ease: "easeOut" }}
+                className="group relative min-h-[108px] overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.035] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055]"
+              >
+                <div className={`absolute -right-12 -top-12 h-28 w-28 rounded-full bg-gradient-to-br ${group.accent} opacity-15 blur-2xl transition duration-500 group-hover:opacity-30`} />
+                <div className="skill-card-scan pointer-events-none absolute inset-x-0 top-0 h-px opacity-0 transition group-hover:opacity-100" />
+                <div className="pointer-events-none absolute bottom-4 right-4 flex gap-1 opacity-30 transition group-hover:opacity-90">
+                  {[0, 1, 2].map((dot) => (
+                    <span
+                      key={dot}
+                      className={`skill-signal-dot h-1 w-1 rounded-full bg-gradient-to-r ${group.accent}`}
+                      style={{ animationDelay: `${dot * 160}ms` }}
+                    />
+                  ))}
+                </div>
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <span className={`skill-icon-bob flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white shadow-[0_14px_34px_rgba(0,0,0,0.26)]`}>
+                      <group.icon className="h-4 w-4" />
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.16em] text-[#9d94b3]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <h3 className="text-sm font-black tracking-[-0.03em] text-white">
+                    {group.title}
+                  </h3>
+                  <p className="mt-1 text-[11px] leading-4 text-[#a1a1aa]">
+                    {group.detail}
+                  </p>
+                  <p className="mt-auto translate-y-1 pt-2 text-[8px] font-bold uppercase tracking-[0.14em] text-[#d8d1e6] opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    {group.proof}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -427,6 +598,33 @@ export default function CosmicPortfolio() {
                     <span className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
                       View Case Study <ArrowUpRight className="h-4 w-4" />
                     </span>
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 right-4 translate-y-3 rounded-2xl border border-white/10 bg-black/70 p-4 text-left opacity-0 shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur-2xl transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="text-[8px] font-black uppercase tracking-[0.24em] text-[#f59e0b]">
+                      Mission card
+                    </p>
+                    <p className="mt-1 text-xs font-bold leading-snug text-white">
+                      {project.businessGoal}
+                    </p>
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                      <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
+                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#8b5cf6]">
+                          Proof
+                        </p>
+                        <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
+                          {project.measurableOutcome}
+                        </p>
+                      </div>
+                      <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
+                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#ec4899]">
+                          Support
+                        </p>
+                        <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
+                          {project.supportProof[0]}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </Link>
 

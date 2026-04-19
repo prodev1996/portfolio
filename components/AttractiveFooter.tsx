@@ -3,6 +3,7 @@ import { FaArrowUp, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 const footerLinks = [
   { label: "Overview", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },

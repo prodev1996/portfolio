@@ -333,12 +333,13 @@ export default function AssistantWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] shadow-[0_8px_30px_rgba(139,92,246,0.4)] transition-shadow hover:shadow-[0_12px_40px_rgba(139,92,246,0.6)]"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] shadow-[0_8px_30px_rgba(139,92,246,0.4)] transition-shadow hover:shadow-[0_12px_40px_rgba(139,92,246,0.6)]"
       >
+        <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 blur-md transition group-hover:opacity-30" />
         {isOpen ? (
-          <X className="h-6 w-6 text-white" />
+          <X className="relative h-6 w-6 text-white" />
         ) : (
-          <MessageCircle className="h-6 w-6 text-white" />
+          <MessageCircle className="relative h-6 w-6 text-white" />
         )}
       </motion.button>
     </div>

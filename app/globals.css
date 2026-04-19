@@ -219,6 +219,15 @@ body::after {
   animation: float 6s ease-in-out infinite;
 }
 
+.terminal-type {
+  display: inline-block;
+  width: 0;
+  max-width: max-content;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: terminal-type 3.2s steps(39, end) 900ms forwards;
+}
+
 .data-orbit {
   filter: drop-shadow(0 0 22px rgba(139, 92, 246, 0.18));
 }
@@ -231,6 +240,42 @@ body::after {
   animation-play-state: paused;
 }
 
+.skill-card-scan {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.65),
+    rgba(236, 72, 153, 0.65),
+    rgba(245, 158, 11, 0.65),
+    transparent
+  );
+  animation: skill-card-scan 1.8s ease-in-out infinite;
+}
+
+.skill-signal-dot {
+  animation: skill-signal-pulse 1.8s ease-in-out infinite;
+}
+
+.skill-icon-bob {
+  animation: skill-icon-bob 4.5s ease-in-out infinite;
+}
+
+.overview-play-card {
+  transform-style: preserve-3d;
+}
+
+.overview-play-card:hover {
+  transform: translateY(-3px) rotateX(1.5deg) rotateY(-1.5deg);
+}
+
+.overview-card-scan {
+  animation: overview-card-scan 1.6s ease-in-out infinite;
+}
+
+.overview-spark-dot {
+  animation: overview-spark 1.6s ease-in-out infinite;
+}
+
 @keyframes data-orbit-spin {
   from {
     transform: rotate(0deg);
@@ -241,9 +286,88 @@ body::after {
   }
 }
 
+@keyframes skill-card-scan {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skill-signal-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes skill-icon-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes overview-card-scan {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes overview-spark {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes terminal-type {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .data-orbit-spin {
+  .data-orbit-spin,
+  .terminal-type,
+  .skill-card-scan,
+  .skill-signal-dot,
+  .skill-icon-bob,
+  .overview-card-scan,
+  .overview-spark-dot {
     animation: none;
+  }
+
+  .terminal-type {
+    width: 100%;
   }
 }
 
