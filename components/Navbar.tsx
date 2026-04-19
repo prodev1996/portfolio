@@ -9,7 +9,7 @@ import { FileText } from "lucide-react";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "Strengths", href: "#strengths" },
+  { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
@@ -139,7 +139,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setActive(link.name)}
                   whileHover={{ y: -2 }}
-                  className="relative rounded-full px-2.5 py-1.5 text-[13px] font-semibold xl:px-3"
+                  className="relative rounded-full px-2 py-1.5 text-[12px] font-semibold xl:px-2.5"
                 >
                   {isActive ? (
                     <motion.span
