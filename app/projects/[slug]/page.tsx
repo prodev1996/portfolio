@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <section className="relative isolate min-h-svh overflow-hidden px-5 pb-16 pt-24 sm:px-8 lg:px-10">
+    <section className="relative isolate min-h-svh overflow-hidden px-5 pb-14 pt-24 sm:px-8 lg:px-10">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_28%_8%,rgba(139,92,246,0.22),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(236,72,153,0.12),transparent_26%),linear-gradient(180deg,#090713_0%,#120f1d_48%,#080711_100%)]" />
       <div className="pointer-events-none absolute left-[-80px] top-40 h-72 w-72 rounded-full bg-[#8b5cf6]/18 blur-3xl" />
       <div className="pointer-events-none absolute bottom-28 right-[-80px] h-80 w-80 rounded-full bg-[#ec4899]/12 blur-3xl" />
@@ -54,26 +54,38 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <ProjectBackButton />
 
-          <a href={project.liveUrl} className="btn-primary">
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
             Open Website
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="mt-7 grid gap-5 rounded-[36px] border border-white/10 bg-[#120f1d]/72 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.34)] backdrop-blur-2xl lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:p-7">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.28em] text-[#f0abfc]">
               Project
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-[0.95] tracking-[-0.07em] text-white sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-black leading-[0.95] tracking-[-0.07em] text-white sm:text-5xl lg:text-6xl">
               {project.title}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#c9c1d8]">
               {project.outcome}
             </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.trustSignals.map((signal) => (
+                <span key={signal} className="cosmic-chip">
+                  {signal}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="rounded-[30px] border border-white/10 bg-white/[0.045] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+          <div className="rounded-[28px] border border-white/10 bg-white/[0.045] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-2xl">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[#a78bfa]">
               My role
             </p>
@@ -90,8 +102,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-4 shadow-[0_38px_120px_rgba(0,0,0,0.36)] backdrop-blur-2xl">
-          <div className="relative aspect-[16/9] min-h-[300px] overflow-hidden rounded-[28px] border border-white/10 bg-[#090712]">
+        <div className="mt-6 overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:p-4">
+          <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
             <Image
               src={project.image}
               alt={project.title}
@@ -103,7 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 lg:grid-cols-3">
           {[
             ["Goal", project.businessGoal],
             ["Result", project.measurableOutcome],
@@ -118,7 +130,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <div className="mt-5 grid gap-5 lg:grid-cols-2">
           {project.images.map((image) => (
             <div
               key={image.src}
