@@ -142,7 +142,7 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
 function DataOrbit() {
   return (
     <div
-      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:6.8rem] sm:block lg:h-64 lg:w-64 lg:[--orbit-radius:7.8rem]"
+      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:5.2rem] sm:h-56 sm:w-56 sm:[--orbit-radius:6.8rem] lg:h-64 lg:w-64 lg:[--orbit-radius:7.8rem]"
       aria-hidden="true"
     >
       <div className="absolute inset-0 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(139,92,246,0.08),transparent_62%)] shadow-[0_0_80px_rgba(139,92,246,0.16)]" />
@@ -157,7 +157,7 @@ function DataOrbit() {
           >
             <div className="group pointer-events-auto relative -translate-x-1/2 -translate-y-1/2">
               <span
-                className={`inline-flex min-w-12 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/20 transition duration-300 group-hover:scale-110`}
+                className={`inline-flex min-w-9 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.35)] ring-1 ring-white/20 transition duration-300 group-hover:scale-110 sm:min-w-12 sm:px-3 sm:py-1.5 sm:text-[10px]`}
               >
                 {node.label}
               </span>
