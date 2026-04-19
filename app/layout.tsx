@@ -1,10 +1,23 @@
-﻿// app/layout.tsx
+// app/layout.tsx
 import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import CursorStars from "@/components/CursorStars";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
@@ -79,8 +92,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#05070d] text-[#f8f7ef] antialiased">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
+      <body className={`min-h-screen bg-[#050505] text-[#f8f7ef] antialiased font-sans`}>
         <Navbar />
         <main className="flex min-h-screen flex-col pb-16">{children}</main>
         <CursorStars />

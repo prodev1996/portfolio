@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -9,10 +9,9 @@ import { FileText } from "lucide-react";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
+  { name: "Overview", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -110,12 +109,12 @@ export default function Navbar() {
         transition={{ duration: 0.4 }}
         className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-3 py-2 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
           scrolled
-            ? "border-white/12 bg-[#0d0b16]/82 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
-            : "border-white/10 bg-[#0d0b16]/58 shadow-[0_12px_44px_rgba(0,0,0,0.24)]"
+            ? "border-white/10 bg-[#050505]/80 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
+            : "border-white/5 bg-[#050505]/40 shadow-[0_12px_44px_rgba(0,0,0,0.24)]"
         }`}
       >
         <Link href="/" className="flex min-w-0 items-center gap-2 text-white">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#181424] text-xs font-black tracking-[0.16em] text-[#f8f7ef] shadow-[0_10px_32px_rgba(0,0,0,0.28)]">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-[0.16em] text-[#f8f7ef] shadow-[0_10px_32px_rgba(0,0,0,0.28)]">
             RB
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
@@ -129,7 +128,7 @@ export default function Navbar() {
         </Link>
 
         {usesSectionNav ? (
-          <nav className="hidden items-center rounded-full border border-white/8 bg-[#181424]/72 p-1 lg:flex">
+          <nav className="hidden items-center rounded-full border border-white/10 bg-white/[0.03] p-1.5 lg:flex">
             {homeLinks.map((link) => {
               const isActive = active === link.name;
               return (
@@ -143,7 +142,7 @@ export default function Navbar() {
                   {isActive ? (
                     <motion.span
                       layoutId="nav-active-pill"
-                      className="absolute inset-0 rounded-full bg-[#8b5cf6]"
+                      className="absolute inset-0 rounded-full bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]"
                       transition={{ type: "spring", stiffness: 320, damping: 28 }}
                     />
                   ) : null}
@@ -201,7 +200,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/10 bg-[#05070d]/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
+          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/10 bg-[#050505]/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
         >
           {usesSectionNav ? (
             <nav className="flex flex-col gap-2">
@@ -216,10 +215,10 @@ export default function Navbar() {
                       setMenuOpen(false);
                     }}
                     whileTap={{ scale: 0.99 }}
-                    className={`rounded-2xl px-4 py-3 text-sm transition ${
+                    className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
                       isActive
-                        ? "bg-[#8b5cf6] text-white"
-                        : "text-[#a9b5a4] hover:bg-white/[0.06] hover:text-white"
+                        ? "bg-white/10 text-white"
+                        : "text-[#a1a1aa] hover:bg-white/[0.06] hover:text-white"
                     }`}
                   >
                     {link.name}

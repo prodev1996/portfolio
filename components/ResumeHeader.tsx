@@ -1,4 +1,7 @@
-﻿import Link from "next/link";
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaLinkedin,
@@ -6,107 +9,143 @@ import {
   FaPhoneAlt,
   FaGlobe,
 } from "react-icons/fa";
+import { Download, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function ResumeHeader() {
   return (
-    <section className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-5 shadow-[0_34px_110px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:p-7">
-      <div className="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[#8b5cf6]/18 blur-3xl" />
-      <div className="absolute -bottom-24 left-10 h-56 w-56 rounded-full bg-[#f59e0b]/10 blur-3xl" />
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div className="relative max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#f0abfc]">
-            Resume Overview
-          </p>
+    <motion.section 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_40px_140px_rgba(0,0,0,0.4)] backdrop-blur-3xl sm:p-10"
+    >
+      <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#8b5cf6]/20 blur-[100px]" />
+      <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-[#ec4899]/15 blur-[100px]" />
+      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,transparent_60%)]" />
 
-          <h1 className="mt-3 text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl">
-            Rajiv Bhandari
-          </h1>
+      <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <div className="relative flex-1">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-[#d8d1e6] shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
+          >
+            <Sparkles className="h-3.5 w-3.5 text-[#ec4899]" />
+            Professional Resume
+          </motion.div>
 
-          <p className="mt-3 text-lg text-[#d8d1e6]">
-            Application Support Analyst • Data Analytics (SQL, Power BI)
-          </p>
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-5xl font-extrabold tracking-[-0.04em] text-white sm:text-6xl md:text-7xl"
+          >
+            Rajiv <span className="bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#f59e0b] bg-clip-text text-transparent">Bhandari</span>
+          </motion.h1>
 
-          <p className="mt-5 max-w-3xl text-sm leading-7 text-[#bdb5cc] sm:text-[15px]">
+          <motion.p 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl"
+          >
+            Application Support Analyst • Data Analytics
+          </motion.p>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg"
+          >
             Technical professional with experience supporting Microsoft 365,
             business applications, access changes, workflow issues, and clear
             documentation. I also bring web delivery experience from live client
             projects, with a practical approach to support, reporting, and
             continuous improvement.
-          </p>
+          </motion.p>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {["Microsoft 365", "Business systems", "SQL + Power BI", "Live support"].map((item) => (
-              <span key={item} className="cosmic-chip">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-8 flex flex-wrap gap-2"
+          >
+            {["Microsoft 365", "Business systems", "SQL + Power BI", "Live support"].map((item, i) => (
+              <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/" className="btn-outline">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <Link href="/" className="btn-outline flex items-center gap-2 group">
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Home
             </Link>
 
-            <Link href="/#projects" className="btn-outline">
-              View Projects
-            </Link>
-
-            <Link href="/#contact" className="btn-primary">
-              Contact Me
-            </Link>
-          </div>
+            <a
+              href="/Rajiv_Bhandari_Resume.pdf"
+              className="btn-primary flex items-center gap-2 group"
+            >
+              <Download className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
+              Download PDF
+            </a>
+          </motion.div>
         </div>
 
-        <div className="relative rounded-[28px] border border-white/10 bg-black/28 p-5 text-sm text-[#d8d1e6] shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl">
-          <div className="space-y-3">
-            <p className="flex items-center gap-3">
-              <FaEnvelope className="text-[#f0abfc]" />
-              <span>bhandarirajiv25@gmail.com</span>
-            </p>
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          className="relative w-full max-w-sm rounded-[32px] border border-white/10 bg-black/40 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-2xl lg:w-80 shrink-0"
+        >
+          <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 flex flex-col gap-5 text-sm font-medium text-[#c9c1d8]">
+            <a href="mailto:bhandarirajiv25@gmail.com" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f0abfc]/10 text-[#f0abfc] transition group-hover:scale-110 group-hover:bg-[#f0abfc]/20">
+                <FaEnvelope size={16} />
+              </div>
+              <span className="truncate">bhandarirajiv25@gmail.com</span>
+            </a>
 
-            <p className="flex items-center gap-3">
-              <FaPhoneAlt className="text-[#f0abfc]" />
+            <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#8b5cf6]/10 text-[#8b5cf6]">
+                <FaPhoneAlt size={16} />
+              </div>
               <span>+61 413 230 855</span>
-            </p>
+            </div>
 
-            <p className="flex items-center gap-3">
-              <FaMapMarkerAlt className="text-[#f0abfc]" />
+            <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f59e0b]/10 text-[#f59e0b]">
+                <FaMapMarkerAlt size={16} />
+              </div>
               <span>Adelaide, South Australia</span>
-            </p>
+            </div>
 
-            <p className="flex items-center gap-3">
-              <FaLinkedin className="text-[#f0abfc]" />
-              <a
-                href="https://www.linkedin.com/in/rajiv-bhandari25/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-white"
-              >
-                linkedin.com/in/rajiv-bhandari25
-              </a>
-            </p>
+            <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#38bdf8]/10 text-[#38bdf8] transition group-hover:scale-110 group-hover:bg-[#38bdf8]/20">
+                <FaLinkedin size={18} />
+              </div>
+              <span className="truncate">linkedin.com/in/rajiv-bhandari25</span>
+            </a>
 
-            <p className="flex items-center gap-3">
-              <FaGlobe className="text-[#f0abfc]" />
-              <a
-                href="https://www.rajivbhandari.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-white"
-              >
-                rajivbhandari.com
-              </a>
-            </p>
+            <a href="https://www.rajivbhandari.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ec4899]/10 text-[#ec4899] transition group-hover:scale-110 group-hover:bg-[#ec4899]/20">
+                <FaGlobe size={18} />
+              </div>
+              <span className="truncate">rajivbhandari.com</span>
+            </a>
           </div>
-
-          <a
-            href="/Rajiv_Bhandari_Resume.pdf"
-            className="btn-primary mt-5"
-          >
-            View Resume PDF
-          </a>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

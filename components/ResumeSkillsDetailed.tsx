@@ -1,54 +1,73 @@
+"use client";
+
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { Sparkles, Terminal, Code2, Database, ShieldCheck, Workflow, FileText } from "lucide-react";
+
 const skillBlocks = [
   {
-    title: "Application Support & Troubleshooting",
+    title: "Application Support",
+    icon: ShieldCheck,
+    color: "from-[#8b5cf6] to-[#ec4899]",
+    shadowColor: "rgba(139,92,246,0.3)",
+    proficiency: 95,
     items: [
       "Application support",
       "Incident handling",
       "User assistance",
       "Remote support",
       "Troubleshooting",
-      "Issue diagnosis & resolution",
-      "Knowledge articles",
+      "Issue diagnosis",
     ],
   },
   {
-    title: "Business Systems & Operations",
+    title: "Systems & Operations",
+    icon: Terminal,
+    color: "from-[#38bdf8] to-[#8b5cf6]",
+    shadowColor: "rgba(56,189,248,0.3)",
+    proficiency: 85,
     items: [
       "Windows 10/11",
       "Windows Server",
       "System maintenance",
-      "System configuration",
+      "System config",
       "Workflow support",
     ],
   },
   {
     title: "Microsoft 365 & Identity",
+    icon: Workflow,
+    color: "from-[#f59e0b] to-[#ec4899]",
+    shadowColor: "rgba(245,158,11,0.3)",
+    proficiency: 90,
     items: [
-      "Microsoft 365 configuration",
+      "Microsoft 365 config",
       "Exchange Online",
-      "Outlook",
-      "Teams",
-      "SharePoint administration",
-      "Document libraries",
-      "Workflow support",
+      "Teams & SharePoint",
       "Active Directory",
       "Azure AD",
       "Access management",
-      "Basic Intune / Endpoint Manager",
     ],
   },
   {
-    title: "Reporting, Analysis & Improvement",
+    title: "Data & Reporting",
+    icon: Database,
+    color: "from-[#10b981] to-[#3b82f6]",
+    shadowColor: "rgba(16,185,129,0.3)",
+    proficiency: 80,
     items: [
       "Excel reporting",
       "SQL fundamentals",
-      "Structured data handling",
+      "Structured data",
       "Process documentation",
       "Continuous improvement",
     ],
   },
   {
-    title: "Web Development & Delivery",
+    title: "Web Delivery",
+    icon: Code2,
+    color: "from-[#f43f5e] to-[#f59e0b]",
+    shadowColor: "rgba(244,63,94,0.3)",
+    proficiency: 88,
     items: [
       "JavaScript",
       "React",
@@ -56,47 +75,126 @@ const skillBlocks = [
       "Node.js",
       "MySQL",
       "HTML/CSS",
-      "REST APIs",
-      "Responsive UI",
       "Deployment support",
     ],
   },
   {
-    title: "Documentation & Communication",
+    title: "Communication",
+    icon: FileText,
+    color: "from-[#d946ef] to-[#8b5cf6]",
+    shadowColor: "rgba(217,70,239,0.3)",
+    proficiency: 92,
     items: [
       "Ticket management",
       "Process documentation",
-      "Workflow support",
-      "Clear end-user explanations",
-      "Stakeholder communication",
+      "Clear explanations",
+      "Stakeholder comms",
+      "Knowledge articles",
     ],
   },
 ];
 
+function SkillCard({ block, index }: { block: typeof skillBlocks[0], index: number }) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      className="group relative flex flex-col overflow-hidden rounded-[32px] border border-white/5 bg-[#0a0812] p-6 shadow-xl transition-all duration-500 hover:scale-[1.02] hover:border-white/10 hover:shadow-2xl sm:p-8"
+      style={{
+        boxShadow: `0 20px 40px -20px ${block.shadowColor}`,
+      }}
+    >
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-[32px] opacity-0 transition duration-300 group-hover:opacity-100"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              650px circle at ${mouseX}px ${mouseY}px,
+              rgba(255,255,255,0.06),
+              transparent 80%
+            )
+          `,
+        }}
+      />
+      
+      <div className={`absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br ${block.color} opacity-10 blur-[50px] transition duration-700 group-hover:opacity-30 group-hover:blur-[60px]`} />
+
+      <div className="relative z-10 flex items-center gap-4 mb-6">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-black/50 shadow-inner backdrop-blur-md transition-transform duration-500 group-hover:scale-110 group-hover:border-white/20">
+          <block.icon className="h-6 w-6 text-white" />
+        </div>
+        <div className="w-full">
+          <h3 className="text-lg font-black tracking-tight text-white transition-colors duration-300 group-hover:text-[#f0abfc]">
+            {block.title}
+          </h3>
+          <div className="mt-2 flex items-center justify-between gap-3">
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.05] shadow-inner">
+              <motion.div 
+                className={`h-full rounded-full bg-gradient-to-r ${block.color}`}
+                initial={{ width: 0 }}
+                whileInView={{ width: `${block.proficiency}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
+              />
+            </div>
+            <span className="text-[10px] font-bold text-[#8f87a0]">{block.proficiency}%</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="relative z-10 mt-auto flex flex-wrap gap-2">
+        {block.items.map((item, i) => (
+          <motion.span
+            key={item}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 + (index * 0.1) + (i * 0.05), type: "spring", stiffness: 200 }}
+            className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs font-semibold text-[#c9c1d8] backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08] hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+          >
+            {item}
+          </motion.span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 export default function ResumeSkillsDetailed() {
   return (
-    <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
-        Core Skills
-      </h2>
+    <section className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_40px_140px_rgba(0,0,0,0.4)] backdrop-blur-3xl sm:p-10">
+      <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[#ec4899]/10 blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-[#8b5cf6]/10 blur-[120px] pointer-events-none" />
 
-      <div className="mt-5 space-y-5">
-        {skillBlocks.map((block) => (
-          <div key={block.title}>
-            <h3 className="text-sm font-semibold text-white">
-              {block.title}
-            </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {block.items.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs text-[#d8d1e6]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+      <div className="relative z-10 flex items-center gap-4 mb-10">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ec4899]/30 bg-[#ec4899]/10 text-[#ec4899] shadow-[0_0_30px_rgba(236,72,153,0.2)]">
+          <Sparkles size={26} />
+        </div>
+        <div>
+          <h2 className="text-2xl font-black tracking-[-0.04em] text-white sm:text-3xl">
+            Core Competencies
+          </h2>
+          <p className="mt-1 text-sm font-medium text-[#8f87a0]">
+            A breakdown of my technical and operational expertise.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative z-10 grid gap-6 sm:grid-cols-2">
+        {skillBlocks.map((block, index) => (
+          <SkillCard key={block.title} block={block} index={index} />
         ))}
       </div>
     </section>

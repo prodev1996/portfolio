@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa";
@@ -24,7 +24,7 @@ export default function ScrollToTopButton() {
         })
       }
       aria-label="Back to top"
-      className="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#dfe5de] bg-white/92 text-[#294236] shadow-[0_16px_34px_rgba(118,103,79,0.12)] transition hover:border-[#1f9d72] hover:text-[#1f9d72]"
+      className="fixed bottom-6 right-[5.5rem] z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#120f1d]/80 text-[#d8d1e6] shadow-[0_16px_34px_rgba(0,0,0,0.4)] backdrop-blur-xl transition hover:border-[#8b5cf6]/50 hover:bg-[#8b5cf6]/10 hover:text-white"
     >
       <FaChevronUp size={14} />
     </button>

@@ -1,17 +1,22 @@
-﻿const education = [
+"use client";
+
+import { motion } from "framer-motion";
+import { GraduationCap, Award, Shield, FileCheck } from "lucide-react";
+
+const education = [
   {
-    qualification: "Professional Year Program (Information Technology)",
-    institution: "Performance Education, Adelaide, South Australia",
+    qualification: "Professional Year Program (IT)",
+    institution: "Performance Education, Adelaide",
     period: "Ongoing",
   },
   {
     qualification: "Master of Information Technology",
-    institution: "Torrens University, Adelaide, South Australia",
+    institution: "Torrens University, Adelaide",
     period: "Graduated: 2024",
   },
   {
-    qualification: "Bachelor of Computer Science and Information Technology",
-    institution: "Tribhuvan University, Kathmandu, Nepal",
+    qualification: "Bachelor of Computer Science (IT)",
+    institution: "Tribhuvan University, Nepal",
     period: "Graduated: 2019",
   },
 ];
@@ -20,63 +25,97 @@ const certifications = [
   "Google IT Support",
   "Zendesk Customer Service",
   "Cyber Security Foundation",
-  "South Australian Driving License",
+  "SA Driving License",
   "Working With Children Check",
   "NDIS Worker Screening",
 ];
 
 const attributes = [
-  "Strong communication and stakeholder support skills",
-  "Excellent troubleshooting, issue analysis, and problem-solving ability",
-  "Reliable, adaptable, and detail-focused with a continuous learning mindset",
-  "Team-oriented with a professional attitude and ability to work effectively under pressure",
+  "Strong communication & stakeholder support",
+  "Excellent troubleshooting & issue analysis",
+  "Reliable, adaptable, continuous learner",
+  "Team-oriented & professional under pressure",
 ];
 
 export default function ResumeEducation() {
   return (
-    <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
-        Education
-      </h2>
+    <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8">
+      <div className="absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-[#38bdf8]/10 blur-[100px] pointer-events-none" />
 
-      <div className="mt-5 space-y-5">
-        {education.map((item) => (
-          <div key={item.qualification}>
-            <h3 className="text-base font-semibold text-white">
-              {item.qualification}
-            </h3>
-            <p className="mt-1 text-sm text-[#bdb5cc]">{item.institution}</p>
-            <p className="mt-1 text-xs text-[#f0abfc]">{item.period}</p>
-          </div>
+      <div className="flex items-center gap-4 mb-8">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#38bdf8]">
+          <GraduationCap size={22} />
+        </div>
+        <h2 className="text-lg font-black tracking-[-0.04em] text-white">
+          Education & Credentials
+        </h2>
+      </div>
+
+      <div className="space-y-4">
+        {education.map((item, index) => (
+          <motion.div
+            key={item.qualification}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group relative flex flex-col justify-between gap-2 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-white/10 hover:bg-white/[0.04] sm:flex-row sm:items-center"
+          >
+            <div>
+              <h3 className="text-base font-bold text-white transition group-hover:text-[#38bdf8]">
+                {item.qualification}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-[#bdb5cc]">{item.institution}</p>
+            </div>
+            <span className="shrink-0 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-semibold text-[#8f87a0] backdrop-blur-md">
+              {item.period}
+            </span>
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-8 border-t border-white/10 pt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
-          Certifications & Licences
-        </h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {certifications.map((item) => (
-            <span
+      <div className="mt-8 pt-8 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-[80%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="flex items-center gap-3 mb-6">
+          <Award className="h-5 w-5 text-[#f59e0b]" />
+          <h3 className="text-sm font-bold text-white">Certifications & Clearances</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {certifications.map((item, index) => (
+            <motion.span
               key={item}
-              className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs text-[#d8d1e6]"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-[#d8d1e6] transition hover:bg-white/[0.08] hover:text-white"
             >
+              <Shield className="h-3 w-3 text-[#f0abfc]" />
               {item}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
 
-      <div className="mt-8 border-t border-white/10 pt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
-          Personal Attributes
-        </h2>
-        <ul className="mt-4 space-y-2 text-sm leading-7 text-[#c9c1d8]">
-          {attributes.map((item) => (
-            <li key={item} className="flex gap-2">
-              <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
+      <div className="mt-8 pt-8 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-[80%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="flex items-center gap-3 mb-6">
+          <FileCheck className="h-5 w-5 text-[#10b981]" />
+          <h3 className="text-sm font-bold text-white">Professional Attributes</h3>
+        </div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {attributes.map((item, index) => (
+            <motion.li 
+              key={item}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-start gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-3 text-sm font-medium leading-relaxed text-[#c9c1d8] transition hover:border-white/10 hover:text-white"
+            >
+              <span className="mt-1 flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
               <span>{item}</span>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

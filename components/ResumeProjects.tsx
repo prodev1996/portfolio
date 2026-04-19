@@ -1,56 +1,95 @@
-﻿export default function ResumeProjects() {
+"use client";
+
+import { motion } from "framer-motion";
+import { FolderGit2, ExternalLink } from "lucide-react";
+import Link from "next/link";
+
+export default function ResumeProjects() {
   const projects = [
     {
-      title: "Image Steggy (Image Steganography Tool)",
-      meta: "Torrens University Australia, Adelaide • 2023 - 2024",
+      title: "Image Steggy",
+      subtitle: "Image Steganography Tool",
+      meta: "Torrens University Australia • 2023 - 2024",
       bullets: [
         "Built a web-based tool to hide secret text inside images using steganography concepts.",
         "Used HTML, CSS, JavaScript, and Git-based version control during development.",
         "Developed encoding and decoding functions, tested with sample images, and documented results clearly.",
       ],
+      link: null,
     },
     {
-      title: "Glide Education – Consultancy and Visa Services Platform",
-      meta: "Technologies: React, Next.js, MySQL, Node.js, Tailwind, Vercel",
+      title: "Glide Education",
+      subtitle: "Consultancy and Visa Services Platform",
+      meta: "React, Next.js, MySQL, Node.js, Tailwind, Vercel",
       bullets: [
         "Developed and deployed a production website with responsive UI and structured service pages.",
         "Built secure enquiry and contact forms with validation and email notifications.",
         "Managed domain, DNS, SSL, and deployment updates after launch.",
       ],
+      link: "/#projects",
     },
     {
-      title: "Prime Roof Care – Service Management Website",
-      meta: "Technologies: HTML, CSS, Tailwind",
+      title: "Prime Roof Care",
+      subtitle: "Service Management Website",
+      meta: "HTML, CSS, Tailwind",
       bullets: [
         "Built a mobile-friendly service website to support customer enquiries and lead generation.",
         "Designed responsive pages using HTML, CSS, and Tailwind for smooth performance.",
         "Managed hosting updates and content changes after deployment to keep the site current and usable.",
       ],
+      link: "/#projects",
     },
   ];
 
   return (
-    <section className="card rounded-[32px]">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
-        Projects
-      </h2>
+    <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8">
+      <div className="absolute right-10 bottom-0 h-64 w-64 rounded-full bg-[#f59e0b]/10 blur-[100px] pointer-events-none" />
 
-      <div className="mt-5 space-y-5">
-        {projects.map((project) => (
-          <div key={project.title}>
-            <h3 className="text-base font-semibold text-white">
-              {project.title}
-            </h3>
-            <p className="mt-1 text-sm text-[#8f87a0]">{project.meta}</p>
-            <ul className="mt-3 space-y-2 text-sm leading-7 text-[#c9c1d8]">
-              {project.bullets.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
+      <div className="flex items-center gap-4 mb-8">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#f59e0b]">
+          <FolderGit2 size={22} />
+        </div>
+        <h2 className="text-lg font-black tracking-[-0.04em] text-white">
+          Key Projects
+        </h2>
+      </div>
+
+      <div className="grid gap-6">
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition duration-300 hover:border-white/10 hover:bg-white/[0.04]"
+          >
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#f59e0b] to-[#ec4899] opacity-0 blur-xl transition duration-500 group-hover:opacity-10" />
+
+            <div className="relative z-10 mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
+              <div>
+                <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#f59e0b]">
+                  {project.title}
+                  {project.link && (
+                    <Link href={project.link} className="text-white/40 transition hover:text-white">
+                      <ExternalLink size={14} />
+                    </Link>
+                  )}
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-[#f0abfc]">{project.subtitle}</p>
+                <p className="mt-1 text-xs font-medium text-[#8f87a0]">{project.meta}</p>
+              </div>
+            </div>
+
+            <ul className="relative z-10 space-y-2 text-sm leading-relaxed text-[#c9c1d8]">
+              {project.bullets.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

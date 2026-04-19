@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 
 const experience = [
   {
@@ -55,42 +56,63 @@ const experience = [
 
 export default function ResumeTimeline() {
   return (
-    <section className="card rounded-[32px]" aria-labelledby="experience-heading">
-      <h2
-        id="experience-heading"
-        className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#f0abfc]"
-      >
-        Work Experience
-      </h2>
+    <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8" aria-labelledby="experience-heading">
+      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#8b5cf6]/10 blur-[100px] pointer-events-none" />
+      
+      <div className="flex items-center gap-4 mb-8">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#8b5cf6]">
+          <Briefcase size={22} />
+        </div>
+        <h2
+          id="experience-heading"
+          className="text-lg font-black tracking-[-0.04em] text-white"
+        >
+          Work Experience
+        </h2>
+      </div>
 
-      <div className="relative border-l border-white/10 pl-5">
-        <div className="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-[#8b5cf6]" />
+      <div className="relative border-l-2 border-white/5 pl-6 sm:pl-8 ml-3 sm:ml-4">
         {experience.map((job, index) => (
           <motion.article
             key={job.company + job.role}
-            className="mb-8 last:mb-0"
-            initial={{ opacity: 0, y: 20 }}
+            className="group relative mb-12 last:mb-0"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: index * 0.05 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
-            <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-sm font-semibold text-white">
-                {job.role}
-              </h3>
-              <p className="text-xs text-[#8f87a0]">{job.period}</p>
+            <div className="absolute -left-[35px] top-1 h-5 w-5 rounded-full border-4 border-[#120f1d] bg-[#38bdf8] shadow-[0_0_20px_rgba(56,189,248,0.8)] transition-transform group-hover:scale-125 sm:-left-[43px]" />
+            
+            <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-white/[0.04] to-transparent opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+            
+            <div className="relative rounded-2xl border border-transparent p-5 transition duration-500 group-hover:border-white/10 group-hover:bg-white/[0.02]">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-xl font-bold tracking-tight text-white transition group-hover:text-[#38bdf8]">
+                  {job.role}
+                </h3>
+                <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-semibold text-[#8f87a0] backdrop-blur-md">
+                  {job.period}
+                </span>
+              </div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#ec4899]">
+                {job.company} <span className="mx-2 text-white/20">•</span> <span className="text-[#8b5cf6]">{job.location}</span>
+              </p>
+              <ul className="space-y-3 text-sm leading-relaxed text-[#c9c1d8]">
+                {job.bullets.map((b, i) => (
+                  <motion.li 
+                    key={i} 
+                    className="flex gap-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: (index * 0.1) + (i * 0.05) }}
+                  >
+                    <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#f0abfc] shadow-[0_0_10px_rgba(240,171,252,0.8)]" />
+                    <span>{b}</span>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
-            <p className="text-xs font-medium text-[#bdb5cc]">
-              {job.company} • {job.location}
-            </p>
-            <ul className="mt-3 space-y-2 text-xs leading-6 text-[#c9c1d8]">
-              {job.bullets.map((b) => (
-                <li key={b} className="flex gap-2">
-                  <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#8b5cf6]" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
           </motion.article>
         ))}
       </div>
