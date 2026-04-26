@@ -6,7 +6,6 @@ import {
   FaEnvelope,
   FaLinkedin,
   FaMapMarkerAlt,
-  FaPhoneAlt,
   FaGlobe,
 } from "react-icons/fa";
 import { Download, ArrowLeft, Sparkles } from "lucide-react";
@@ -115,13 +114,6 @@ export default function ResumeHeader() {
               </div>
               <span className="truncate">bhandarirajiv25@gmail.com</span>
             </a>
-
-            <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7c6cf2]/10 text-[#7c6cf2]">
-                <FaPhoneAlt size={16} />
-              </div>
-              <span>+61 413 230 855</span>
-            </div>
 
             <div className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
