@@ -21,25 +21,25 @@ const assistantTabs = {
   Work: {
     question: "show me your work",
     answer:
-      "I have delivered and maintained live client websites, including deployment, DNS, SSL, content updates, and post-launch support.",
-    highlights: ["Glide Education", "Prime Roof Care", "Deployment + support"],
+      "My portfolio projects show practical delivery habits: gathering requirements, updating production sites, documenting changes, and supporting work after launch.",
+    highlights: ["Live client work", "Versioned delivery", "Post-launch support"],
   },
   "About me": {
     question: "tell me more about yourself",
     answer:
-      "I am an Adelaide-based application support professional focused on Microsoft 365, business systems, access support, documentation, SQL, and Power BI.",
-    highlights: ["Adelaide based", "Application support", "Data direction"],
+      "I am a junior SQL and data-focused systems candidate with experience in support, documentation, reporting, Microsoft 365, and business applications.",
+    highlights: ["Junior SQL", "Systems", "Reporting"],
   },
   Skills: {
     question: "what skills do you bring?",
     answer:
-      "My strongest mix is Microsoft 365 support, systems troubleshooting, reporting, and practical web delivery.",
-    highlights: ["Microsoft 365", "SQL + Power BI", "React + Next.js"],
+      "My strongest mix is SQL and reporting growth, data validation, documentation, business systems support, and practical delivery discipline.",
+    highlights: ["SQL + Power BI", "Data validation", "Business systems"],
   },
   Contact: {
     question: "how can I contact you?",
     answer:
-      "Email me, connect on LinkedIn, or use the direct message form. I am open to application support, business systems, and reporting-focused roles in Adelaide.",
+      "Email me, connect on LinkedIn, or use the direct message form. I am open to junior SQL, reporting, data-focused systems, and business support roles.",
     actions: [
       { label: "Email", href: "mailto:bhandarirajiv25@gmail.com" },
       {
@@ -63,8 +63,8 @@ type ChatMessage = {
 const initialChatMessages: ChatMessage[] = [
   {
     role: "assistant",
-    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his experience, projects, skills, data direction, or how to contact him.",
-    highlights: ["Experience", "Projects", "Skills", "Contact"],
+    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his junior SQL direction, reporting work, systems background, projects, or contact details.",
+    highlights: ["SQL direction", "Projects", "Skills", "Contact"],
   },
 ];
 
@@ -141,8 +141,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "I have experience across application support, ICT/data support, full-stack development, and structured reporting work.",
-      highlights: ["Application support", "Data support", "Web delivery"],
+      text: "My background combines systems support, ICT/data support, structured reporting, and development exposure that strengthens junior SQL and data-focused work.",
+      highlights: ["Systems support", "Reporting", "Data discipline"],
     };
   }
 
@@ -154,8 +154,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "I am building deeper reporting skills with SQL and Power BI, supported by dashboard and analysis projects.",
-      highlights: ["SQL", "Power BI", "Reporting projects"],
+      text: "I am building further into junior SQL, reporting, data validation, and analysis work, supported by Power BI practice and structured reporting projects.",
+      highlights: ["SQL", "Power BI", "Data validation"],
     };
   }
 

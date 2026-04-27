@@ -123,7 +123,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
-              Application Support • Data Analytics
+              Junior SQL • Systems • Reporting
             </span>
           </span>
         </Link>

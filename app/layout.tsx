@@ -23,18 +23,18 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
+    default: "Rajiv Bhandari | Junior SQL & Data Analyst",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, an Adelaide-based application support professional building toward data analytics with experience across Microsoft 365, business systems, troubleshooting, SQL, Power BI, and reporting.",
+    "Portfolio of Rajiv Bhandari, a junior SQL and data-focused systems candidate with experience across support, reporting, data validation, Microsoft 365, and business systems.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
+    title: "Rajiv Bhandari | Junior SQL & Data Analyst",
     description:
-      "Application support, Microsoft 365, business systems, SQL, Power BI, reporting, and client project delivery for Adelaide teams and businesses.",
+      "Junior SQL, reporting, data validation, Microsoft 365, business systems, and practical delivery experience for Australian teams and businesses.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Support Analyst & Data Analytics",
+    title: "Rajiv Bhandari | Junior SQL & Data Analyst",
     description:
-      "Adelaide-based application support professional building toward data analytics with Microsoft 365, business systems, SQL, Power BI, and reporting.",
+      "Junior SQL and data-focused systems candidate with experience in reporting, validation, Microsoft 365, and business systems.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -59,20 +59,22 @@ export const metadata: Metadata = {
     "ICT Support",
     "IT Support",
     "Service Desk",
-    "Application Support Analyst",
+    "Junior SQL Developer",
+    "Data Analyst",
     "Microsoft 365",
     "SharePoint",
     "Active Directory",
     "Business Systems",
     "Reporting",
-    "Data Analytics",
+    "Data Quality",
     "SQL",
     "Power BI",
+    "Data Migration",
     "Web Delivery",
     "React",
     "Next.js",
     "Django",
-    "Adelaide",
+    "Australia",
   ],
   authors: [
     {

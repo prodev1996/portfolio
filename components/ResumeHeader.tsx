@@ -49,7 +49,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.4 }}
             className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl"
           >
-            Application Support Analyst • Data Analytics
+            Junior SQL & Data Analyst • Systems Support
           </motion.p>
 
           <motion.p 
@@ -58,11 +58,11 @@ export default function ResumeHeader() {
             transition={{ delay: 0.5 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg"
           >
-            Technical professional with experience supporting Microsoft 365,
-            business applications, access changes, workflow issues, and clear
-            documentation. I also bring web delivery experience from live client
-            projects, with a practical approach to support, reporting, and
-            continuous improvement.
+            Technical professional with experience across Microsoft 365,
+            business applications, records, reporting, documentation, and data
+            accuracy tasks. I am building further into junior SQL, reporting,
+            and data quality work, supported by practical delivery experience
+            from live client projects.
           </motion.p>
 
           <motion.div 
@@ -71,7 +71,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.6 }}
             className="mt-8 flex flex-wrap gap-2"
           >
-            {["Microsoft 365", "Business systems", "SQL + Power BI", "Live support"].map((item, i) => (
+            {["SQL + reporting", "Data quality", "Business systems", "Documentation"].map((item, i) => (
               <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>
@@ -119,7 +119,7 @@ export default function ResumeHeader() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
                 <FaMapMarkerAlt size={16} />
               </div>
-              <span>Adelaide, South Australia</span>
+              <span>Australia</span>
             </div>
 
             <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">

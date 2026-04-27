@@ -7,7 +7,7 @@ const experience = [
   {
     company: "Freelance / Contract",
     role: "IT Application Support Consultant",
-    location: "Adelaide, South Australia",
+    location: "Australia",
     period: "March 2022 - Present",
     bullets: [
       "Provided application support for small business clients across Microsoft 365 and Windows environments.",
@@ -21,7 +21,7 @@ const experience = [
   {
     company: "SA Mushrooms",
     role: "Administrative Assistant (ICT and Data Support)",
-    location: "Waterloo Corner, South Australia",
+    location: "Australia",
     period: "December 2024 - May 2025",
     bullets: [
       "Supported records, reporting, and data accuracy tasks using Microsoft tools including Excel and Microsoft 365.",
