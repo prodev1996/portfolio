@@ -92,7 +92,7 @@ export default function ResumeHeader() {
             </Link>
 
             <a
-              href="/Rajiv_Bhandari_ATS_SQL_Database_Resume_FINAL.docx"
+              href="/Rajiv_Bhandari_Database_Resume_.pdf"
               className="btn-primary flex items-center gap-2 group"
             >
               <Download className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
