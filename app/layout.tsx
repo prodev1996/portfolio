@@ -23,18 +23,18 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Junior SQL & Data Analyst",
+    default: "Rajiv Bhandari | SQL, Data Quality & Application Support",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, a junior SQL and data-focused systems candidate with experience across support, reporting, data validation, Microsoft 365, and business systems.",
+    "Portfolio of Rajiv Bhandari, a database and application support professional with experience in SQL, data quality, reporting, Git/GitHub, structured troubleshooting, and business systems support.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Junior SQL & Data Analyst",
+    title: "Rajiv Bhandari | SQL, Data Quality & Application Support",
     description:
-      "Junior SQL, reporting, data validation, Microsoft 365, business systems, and practical delivery experience for Australian teams and businesses.",
+      "Database-backed applications, SQL, data quality, ETL support foundations, Git/GitHub, and business systems support for project-focused teams.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Junior SQL & Data Analyst",
+    title: "Rajiv Bhandari | SQL, Data Quality & Application Support",
     description:
-      "Junior SQL and data-focused systems candidate with experience in reporting, validation, Microsoft 365, and business systems.",
+      "Database and application support profile with SQL, data quality, reporting, documentation, Git/GitHub, and structured troubleshooting experience.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -59,15 +59,18 @@ export const metadata: Metadata = {
     "ICT Support",
     "IT Support",
     "Service Desk",
-    "Junior SQL Developer",
-    "Data Analyst",
+    "SQL Developer",
+    "Database Support",
+    "Data Quality",
+    "ETL Support",
     "Microsoft 365",
     "SharePoint",
     "Active Directory",
     "Business Systems",
     "Reporting",
-    "Data Quality",
     "SQL",
+    "SQL Server",
+    "T-SQL",
     "Power BI",
     "Data Migration",
     "Web Delivery",

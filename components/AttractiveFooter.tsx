@@ -29,12 +29,12 @@ export default function AttractiveFooter() {
                   Rajiv Bhandari
                 </p>
                 <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#9d94b3]">
-                  Junior SQL | Data Quality | Systems
+                  SQL | Data Quality | ETL Support
                 </p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d8d1e6]">
-                  Built to present a junior SQL and data-focused profile shaped
-                  by support discipline, reporting work, documentation, and
-                  practical client delivery.
+                  Built to present a database and application support profile
+                  shaped by SQL foundations, data quality work, structured
+                  troubleshooting, documentation, and practical delivery.
                 </p>
               </div>
             </div>

@@ -21,25 +21,25 @@ const assistantTabs = {
   Work: {
     question: "show me your work",
     answer:
-      "My portfolio projects show practical delivery habits: gathering requirements, updating production sites, documenting changes, and supporting work after launch.",
-    highlights: ["Live client work", "Versioned delivery", "Post-launch support"],
+      "My work shows practical delivery habits across database-backed applications, live production support, documentation, troubleshooting, and structured change handling.",
+    highlights: ["Database-backed work", "Git/GitHub", "Post-launch support"],
   },
   "About me": {
     question: "tell me more about yourself",
     answer:
-      "I am a junior SQL and data-focused systems candidate with experience in support, documentation, reporting, Microsoft 365, and business applications.",
-    highlights: ["Junior SQL", "Systems", "Reporting"],
+      "I am a database and application support professional with experience in SQL foundations, data quality checks, business systems support, documentation, and structured troubleshooting.",
+    highlights: ["SQL foundation", "Data quality", "Application support"],
   },
   Skills: {
     question: "what skills do you bring?",
     answer:
-      "My strongest mix is SQL and reporting growth, data validation, documentation, business systems support, and practical delivery discipline.",
-    highlights: ["SQL + Power BI", "Data validation", "Business systems"],
+      "My strongest mix is SQL and relational database foundations, data validation, Git/GitHub, documentation, business systems support, and practical delivery discipline.",
+    highlights: ["SQL", "Data validation", "Git/GitHub"],
   },
   Contact: {
     question: "how can I contact you?",
     answer:
-      "Email me, connect on LinkedIn, or use the direct message form. I am open to junior SQL, reporting, data-focused systems, and business support roles.",
+      "Email me, connect on LinkedIn, or use the direct message form. I am open to SQL, data quality, ETL support, database support, and application support roles.",
     actions: [
       { label: "Email", href: "mailto:bhandarirajiv25@gmail.com" },
       {
@@ -63,8 +63,8 @@ type ChatMessage = {
 const initialChatMessages: ChatMessage[] = [
   {
     role: "assistant",
-    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his junior SQL direction, reporting work, systems background, projects, or contact details.",
-    highlights: ["SQL direction", "Projects", "Skills", "Contact"],
+    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his SQL foundation, data quality work, application support background, projects, or contact details.",
+    highlights: ["SQL foundation", "Projects", "Skills", "Contact"],
   },
 ];
 
@@ -141,8 +141,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "My background combines systems support, ICT/data support, structured reporting, and development exposure that strengthens junior SQL and data-focused work.",
-      highlights: ["Systems support", "Reporting", "Data discipline"],
+      text: "My background combines application support, database-backed development exposure, structured reporting, and data quality habits that support SQL and ETL-style work.",
+      highlights: ["Application support", "Database work", "Data discipline"],
     };
   }
 
@@ -154,8 +154,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "I am building further into junior SQL, reporting, data validation, and analysis work, supported by Power BI practice and structured reporting projects.",
-      highlights: ["SQL", "Power BI", "Data validation"],
+      text: "I bring SQL foundations, data validation habits, and growing knowledge of SQL Server, T-SQL, ETL, staging, and migration-style verification work.",
+      highlights: ["SQL", "Data validation", "ETL support"],
     };
   }
 

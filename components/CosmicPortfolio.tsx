@@ -47,31 +47,24 @@ const staggerContainer: Variants = {
 const timeline = [
   {
     year: "2022 - Now",
-    role: "IT Application Support Consultant",
+    role: "IT Application & Database Support Consultant",
     place: "Freelance / Contract",
-    summary: "Supporting small business systems, access requests, website updates, and day-to-day operational changes.",
-    points: ["Microsoft 365 and access support", "Workflow follow-through", "Production website updates"],
-  },
-  {
-    year: "2024 - 2025",
-    role: "Administrative Assistant",
-    place: "SA Mushrooms",
-    summary: "Worked across records, reporting, documentation, and ICT/data support in a busy operational team.",
-    points: ["Record accuracy and reporting", "Excel and admin support", "Documentation improvement"],
+    summary: "Develop and support database-backed websites, enquiry workflows, production environments, and business system issues.",
+    points: ["SQL/MySQL queries and validation checks", "Git/GitHub and technical documentation", "Microsoft 365, access, and deployment support"],
   },
   {
     year: "2020 - 2022",
-    role: "Full Stack Developer",
-    place: "Eyden Inc",
-    summary: "Built and maintained web applications and database-backed features, giving me practical development foundations.",
-    points: ["Database-backed features", "API and front-end changes", "Version-controlled delivery"],
+    role: "Database & Application Support Developer",
+    place: "Eydean Inc",
+    summary: "Developed and maintained database-driven application features with practical exposure to APIs, CRUD workflows, and structured troubleshooting.",
+    points: ["Database-driven features", "CRUD and API/data handling", "Git/GitHub and handover notes"],
   },
   {
     year: "2017 - 2020",
     role: "Data Specialist",
     place: "CloudFactory",
-    summary: "Processed and validated high-volume data with strong accuracy and quality standards.",
-    points: ["Data validation", "Quality standards", "Client requirements"],
+    summary: "Processed and validated high-volume client data while following strict quality, productivity, and confidentiality standards.",
+    points: ["Data validation", "Anomaly identification", "Structured workflows"],
   },
 ];
 
@@ -80,108 +73,108 @@ const overviewProof = [
     icon: ShieldCheck,
     label: "Support discipline",
     value: "Reliable base",
-    note: "Calm troubleshooting, clear communication, and careful follow-through.",
+    note: "Clear communication, structured troubleshooting, and careful follow-through in business environments.",
     playful: "Issues -> clarity",
     accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
-    icon: Workflow,
-    label: "Systems thinking",
-    value: "Process-aware",
-    note: "Understanding how access, records, workflows, and documentation connect.",
-    playful: "Systems -> flow",
+    icon: Database,
+    label: "SQL foundation",
+    value: "Database-aware",
+    note: "SQL, MySQL, relational database concepts, validation queries, and database-backed application exposure.",
+    playful: "Queries -> checks",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
-    icon: Database,
-    label: "Data direction",
-    value: "Junior growth",
-    note: "Growing SQL, reporting, validation, and data quality skills in a practical way.",
-    playful: "Records -> checks",
-    accent: "from-[#20a779] to-[#35aeca]",
+    icon: Workflow,
+    label: "Data quality mindset",
+    value: "Detail-first",
+    note: "High-volume validation, anomaly checks, record accuracy, and structured workflow habits.",
+    playful: "Records -> quality",
+    accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: Code2,
-    label: "Delivery exposure",
-    value: "Practical work",
-    note: "Live client websites, updates, deployment exposure, and production follow-through.",
-    playful: "Tasks -> shipped",
+    label: "Project readiness",
+    value: "Guideline-ready",
+    note: "Git/GitHub, documentation, testing habits, and the ability to learn technical standards quickly.",
+    playful: "Tasks -> tracked",
     accent: "from-[#e49a2f] to-[#d9468f]",
   },
 ];
 
 const technicalSkillGroups = [
   {
-    icon: FaTools,
-    title: "Support",
-    detail: "Level 1/2 support, incident handling, user assistance, remote support.",
-    proof: "Turns user issues into clear resolution paths.",
+    icon: FaDatabase,
+    title: "SQL & Databases",
+    detail: "SQL, MySQL, joins, filtering, grouping, data comparison, CRUD workflows, and database-backed applications.",
+    proof: "Strong practical foundation across relational data work.",
     accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
     icon: FaWindows,
-    title: "Windows Systems",
-    detail: "Windows 10/11, Windows Server, system maintenance and configuration.",
-    proof: "Keeps workstations and environments stable.",
+    title: "SQL Server / T-SQL",
+    detail: "Validation queries, SSMS familiarity, views and stored-procedure concepts, and staging-table understanding.",
+    proof: "Growing SQL Server capability with honest fundamentals.",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
-    icon: FaMicrosoft,
-    title: "M365 & Identity",
-    detail: "Exchange Online, Outlook, Teams, SharePoint admin, AD, Azure AD, basic Intune.",
-    proof: "Supports access, collaboration, and permissions.",
+    icon: FaNetworkWired,
+    title: "Data Migration & ETL",
+    detail: "ETL concepts, source-to-target mapping, data profiling, transformation logic, and reconciliation checks.",
+    proof: "Ready to contribute to migration-style tasks under guidance.",
     accent: "from-[#20a779] to-[#35aeca]",
   },
   {
-    icon: FaNetworkWired,
-    title: "Networking",
-    detail: "TCP/IP, LAN/WAN basics, DNS/DHCP, VPN support, printer and network issues.",
-    proof: "Finds the cause behind connectivity friction.",
+    icon: FaDatabase,
+    title: "Data Quality & Reporting",
+    detail: "Data validation, records accuracy, anomaly identification, Excel reporting, confidentiality, and compliance.",
+    proof: "Strong detail habits developed in real operational work.",
     accent: "from-[#e49a2f] to-[#d9468f]",
   },
   {
     icon: FaTools,
-    title: "Devices & Software",
-    detail: "Device setup, software installation, updates, diagnosis and resolution.",
-    proof: "Moves issues from diagnosis to working setup.",
+    title: "Application Support",
+    detail: "Structured troubleshooting, issue diagnosis, business systems support, user assistance, and workflow follow-through.",
+    proof: "Turns technical issues into stable outcomes and clear notes.",
     accent: "from-[#d9468f] to-[#7c6cf2]",
   },
   {
     icon: FaPython,
-    title: "Development Foundations",
-    detail: "Python, JavaScript, React, Node.js, MySQL, HTML/CSS, and API fundamentals.",
-    proof: "Adds scripting and build confidence as I grow in data work.",
+    title: "Development & Scripting",
+    detail: "JavaScript, React, Next.js, Node.js, APIs, HTML/CSS, Tailwind, and troubleshooting data-related application issues.",
+    proof: "Supports the database and application support story with practical build exposure.",
     accent: "from-[#35aeca] to-[#20a779]",
   },
   {
     icon: FaRegFileAlt,
-    title: "Documentation",
-    detail: "Ticket management, knowledge articles, process notes, and clear end-user explanations.",
-    proof: "Helps make support and data tasks repeatable.",
+    title: "Tools & Practices",
+    detail: "Git/GitHub, VS Code, issue tracking, technical notes, deployment support, DNS, SSL, and stakeholder communication.",
+    proof: "Comfortable working with version control and structured team practices.",
     accent: "from-[#7c6cf2] to-[#e49a2f]",
   },
   {
-    icon: FaDatabase,
-    title: "Reporting & Data",
-    detail: "SQL fundamentals, Power BI, Excel reporting, data validation, and record accuracy work.",
-    proof: "Turns operational records into cleaner checks and clearer insight.",
+    icon: FaMicrosoft,
+    title: "Business Systems",
+    detail: "Microsoft 365, access support, business application workflows, and clear communication with non-technical users.",
+    proof: "Keeps the portfolio grounded in real support and operational environments.",
     accent: "from-[#20a779] to-[#e49a2f]",
   },
   {
     icon: FaNodeJs,
-    title: "Practical Range",
-    detail: "API basics, workflow thinking, troubleshooting, Git, and production website support.",
-    proof: "Connects analytical thinking with real delivery habits.",
+    title: "Project Readiness",
+    detail: "Testing, documentation, change tracking, technical learning, and reliable contribution in guided project teams.",
+    proof: "Built for junior SQL, database support, and ETL support environments.",
     accent: "from-[#e49a2f] to-[#7c6cf2]",
   },
 ];
 
 const orbitNodes = [
   { label: "SQL", detail: "Data querying", angle: 12, tone: "from-[#7c6cf2] to-[#35aeca]" },
-  { label: "Power BI", detail: "Reporting", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
-  { label: "Quality", detail: "Data checks", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
-  { label: "Systems", detail: "Business tools", angle: 214, tone: "from-[#d9468f] to-[#7c6cf2]" },
-  { label: "Validation", detail: "Careful review", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
+  { label: "Quality", detail: "Data checks", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
+  { label: "ETL", detail: "Migration flow", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
+  { label: "Git", detail: "Version control", angle: 214, tone: "from-[#d9468f] to-[#7c6cf2]" },
+  { label: "Validation", detail: "Reconciliation", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
 ];
 
 // Interactive Bento Card with Spotlight
@@ -343,7 +336,7 @@ export default function CosmicPortfolio() {
               variants={fadeUp}
               className="mt-8 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-[#a1a1aa]"
             >
-              I am a junior SQL and data-focused systems candidate with a background in support, reporting, Microsoft 365, documentation, and careful operational follow-through.
+              I am a junior SQL and data-focused systems candidate with experience across database-backed applications, data quality checks, documentation, Git/GitHub, and careful operational follow-through.
             </motion.p>
 
             <TerminalBadge />
@@ -381,10 +374,10 @@ export default function CosmicPortfolio() {
                 <h3 className="text-xl font-black tracking-tight text-white mb-2">A practical path into SQL and data work.</h3>
                 <div className="space-y-2">
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    My background started in support and operations, where careful records, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward SQL, reporting, and data quality work.
+                    My background started in support and operations, where careful records, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward SQL, reporting, validation, and data quality work.
                   </p>
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    I am not presenting myself as a senior engineer yet. I am aiming for junior opportunities where I can contribute with support discipline, analytical thinking, and growing hands-on SQL, reporting, validation, and systems knowledge.
+                    I am not presenting myself as a senior engineer yet. I am aiming for junior opportunities where I can contribute with support discipline, analytical thinking, and growing hands-on SQL, data validation, ETL support concepts, and systems knowledge.
                   </p>
                 </div>
               </div>

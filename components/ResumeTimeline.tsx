@@ -6,39 +6,26 @@ import { Briefcase } from "lucide-react";
 const experience = [
   {
     company: "Freelance / Contract",
-    role: "IT Application Support Consultant",
-    location: "Australia",
+    role: "IT Application & Database Support Consultant",
+    location: "Brisbane, QLD",
     period: "March 2022 - Present",
     bullets: [
-      "Provided application support for small business clients across Microsoft 365 and Windows environments.",
-      "Supported business applications including SharePoint, Outlook, Teams, and web-based systems.",
-      "Managed onboarding and offboarding, permissions, and access control using Active Directory and Microsoft 365.",
-      "Troubleshot application, workflow, and system issues to help maintain business continuity.",
-      "Configured hosting, domain, DNS, and SSL environments for production websites.",
-      "Collaborated with clients to understand business requirements and implement practical technical solutions.",
+      "Developed and supported database-backed websites, enquiry workflows, and hosted application environments using React, Next.js, Node.js, MySQL, APIs, and practical production support habits.",
+      "Used SQL and MySQL queries for data retrieval, validation checks, and troubleshooting across application and workflow issues.",
+      "Investigated application, API, form, access, deployment, and data-related issues to help maintain business continuity and reliable delivery.",
+      "Used Git and GitHub for version control, change tracking, and technical documentation across live client work.",
+      "Supported hosting, domain, DNS, SSL, Microsoft 365, and business system tasks while communicating clearly with non-technical users.",
     ],
   },
   {
-    company: "SA Mushrooms",
-    role: "Administrative Assistant (ICT and Data Support)",
-    location: "Australia",
-    period: "December 2024 - May 2025",
-    bullets: [
-      "Supported records, reporting, and data accuracy tasks using Microsoft tools including Excel and Microsoft 365.",
-      "Assisted staff with access issues, account queries, and day-to-day business system usage questions.",
-      "Improved digital documentation workflows to reduce manual errors and save time.",
-      "Escalated more complex incidents when they needed specialist support.",
-    ],
-  },
-  {
-    company: "Eyden Inc",
-    role: "Full Stack Developer",
+    company: "Eydean Inc",
+    role: "Database & Application Support Developer",
     location: "Kathmandu, Nepal",
     period: "December 2020 - March 2022",
     bullets: [
-      "Developed and maintained web applications using full-stack technologies.",
-      "Fixed bugs, enhanced features, and supported API and database-driven functionality.",
-      "Assisted deployments and worked with stakeholders to deliver stable releases.",
+      "Developed and maintained database-driven application features using JavaScript, React, Node.js, APIs, HTML/CSS, and MySQL-backed workflows.",
+      "Worked with CRUD processes, form validation, API/database functionality, and bug fixing to support stable day-to-day application use.",
+      "Used Git and GitHub in structured workflows and maintained technical notes to support clearer handover and delivery discipline.",
     ],
   },
   {
@@ -95,7 +82,7 @@ export default function ResumeTimeline() {
                 </span>
               </div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#d9468f]">
-                {job.company} <span className="mx-2 text-white/20">•</span> <span className="text-[#7c6cf2]">{job.location}</span>
+                {job.company} <span className="mx-2 text-white/20">|</span> <span className="text-[#7c6cf2]">{job.location}</span>
               </p>
               <ul className="space-y-3 text-sm leading-relaxed text-[#c9c1d8]">
                 {job.bullets.map((b, i) => (

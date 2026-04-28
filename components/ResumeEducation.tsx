@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award, Shield, FileCheck } from "lucide-react";
+import { GraduationCap, Award, FileCheck } from "lucide-react";
 
 const education = [
   {
     qualification: "Professional Year Program (IT)",
-    institution: "Performance Education, Adelaide",
+    institution: "Performance Education, Australia",
     period: "Ongoing",
   },
   {
     qualification: "Master of Information Technology",
-    institution: "Torrens University, Adelaide",
+    institution: "Torrens University Australia",
     period: "Graduated: 2024",
   },
   {
@@ -21,20 +21,18 @@ const education = [
   },
 ];
 
-const certifications = [
-  "Google IT Support",
-  "Zendesk Customer Service",
-  "Cyber Security Foundation",
-  "SA Driving License",
-  "Working With Children Check",
-  "NDIS Worker Screening",
+const foundations = [
+  "SQL and relational database foundations built through development work, MySQL exposure, and IT study.",
+  "Strong data quality habits developed through high-volume validation, records accuracy, and anomaly checking work.",
+  "Practical Git and GitHub experience for version control, structured workflows, and technical change tracking.",
+  "Ready to contribute to data migration, ETL support, validation tasks, and guided project delivery environments.",
 ];
 
 const attributes = [
-  "Strong communication & stakeholder support",
-  "Excellent troubleshooting & issue analysis",
-  "Reliable, adaptable, continuous learner",
-  "Team-oriented & professional under pressure",
+  "Clear communication and dependable stakeholder support",
+  "Attention to detail with structured troubleshooting habits",
+  "Curious learner who adapts quickly to technical standards",
+  "Ready to support guided trials, validation work, and go-live preparation",
 ];
 
 export default function ResumeEducation() {
@@ -78,21 +76,21 @@ export default function ResumeEducation() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-[80%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="flex items-center gap-3 mb-6">
           <Award className="h-5 w-5 text-[#e49a2f]" />
-          <h3 className="text-sm font-bold text-white">Certifications & Clearances</h3>
+          <h3 className="text-sm font-bold text-white">Relevant Foundations</h3>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {certifications.map((item, index) => (
-            <motion.span
+        <div className="grid gap-3">
+          {foundations.map((item, index) => (
+            <motion.div
               key={item}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-[#d8d1e6] transition hover:bg-white/[0.08] hover:text-white"
+              className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-sm font-medium leading-relaxed text-[#d8d1e6] transition hover:bg-white/[0.08] hover:text-white"
             >
-              <Shield className="h-3 w-3 text-[#f0abfc]" />
+              <span className="mt-1 flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#f0abfc] shadow-[0_0_8px_rgba(240,171,252,0.55)]" />
               {item}
-            </motion.span>
+            </motion.div>
           ))}
         </div>
       </div>

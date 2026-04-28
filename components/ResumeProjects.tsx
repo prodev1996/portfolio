@@ -7,9 +7,20 @@ import Link from "next/link";
 export default function ResumeProjects() {
   const projects = [
     {
+      title: "SQL Data Validation & ETL Practice Project",
+      subtitle: "Practice project for SQL, staging, and reconciliation",
+      meta: "SQL Server / MySQL / Excel / Git",
+      bullets: [
+        "Worked through import, staging, duplicate checks, NULL checks, record counts, and source-to-target comparison tasks in a structured practice setup.",
+        "Focused on validation logic, reconciliation habits, and documentation of assumptions, test steps, and results.",
+        "Used the project to build confidence in ETL support thinking, data quality checks, and junior migration-style workflows.",
+      ],
+      link: null,
+    },
+    {
       title: "Image Steggy",
       subtitle: "Image Steganography Tool",
-      meta: "Torrens University Australia • 2023 - 2024",
+      meta: "Torrens University Australia | 2023 - 2024",
       bullets: [
         "Built a web-based tool to hide secret text inside images using steganography concepts.",
         "Used HTML, CSS, JavaScript, and Git-based version control during development.",
