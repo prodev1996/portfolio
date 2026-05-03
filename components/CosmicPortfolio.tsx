@@ -164,17 +164,17 @@ const technicalSkillGroups = [
     icon: FaNodeJs,
     title: "Project Readiness",
     detail: "Testing, documentation, change tracking, technical learning, and reliable contribution across application support and SQL-focused teams.",
-    proof: "Built for junior-to-early-mid systems, support, and SQL-adjacent environments.",
+    proof: "Built for systems, support, reporting, and SQL-aware environments.",
     accent: "from-[#e49a2f] to-[#7c6cf2]",
   },
 ];
 
 const orbitNodes = [
-  { label: "SQL", detail: "Data querying", angle: 12, tone: "from-[#7c6cf2] to-[#35aeca]" },
-  { label: "Quality", detail: "Data checks", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
-  { label: "ETL", detail: "Migration flow", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
+  { label: "Apps", detail: "Business systems", angle: 12, tone: "from-[#7c6cf2] to-[#35aeca]" },
+  { label: "M365", detail: "User workflows", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
+  { label: "SQL", detail: "Queries and checks", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
   { label: "Git", detail: "Version control", angle: 214, tone: "from-[#d9468f] to-[#7c6cf2]" },
-  { label: "Validation", detail: "Reconciliation", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
+  { label: "Support", detail: "Incident handling", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
 ];
 
 // Interactive Bento Card with Spotlight
@@ -225,7 +225,7 @@ function TerminalBadge() {
       <div className="grid gap-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
         <p><span className="text-[#20a779]">&gt;</span> rajiv.path()</p>
         <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
-          support -&gt; reporting -&gt; sql -&gt; data
+          support -&gt; systems -&gt; sql -&gt; applications
         </p>
       </div>
     </motion.div>
@@ -374,7 +374,7 @@ export default function CosmicPortfolio() {
                 <h3 className="text-xl font-black tracking-tight text-white mb-2">A practical path into application systems and SQL work.</h3>
                 <div className="space-y-2">
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    My background started in support and operations, where user support, business applications, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward systems analysis, SQL support, reporting, and data-focused work.
+                    My background started in support and operations, where user support, business applications, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward systems analysis, SQL support, reporting, and structured business data work.
                   </p>
                   <p className="text-sm text-[#a1a1aa] leading-snug">
                     I am not presenting myself as a senior engineer yet. I am aiming for roles where I can contribute with application support discipline, analytical thinking, SQL/MySQL exposure, process improvement mindset, and growing systems knowledge.
@@ -516,8 +516,8 @@ export default function CosmicPortfolio() {
               <h2 className="mt-4 text-5xl font-black tracking-[-0.04em] text-white sm:text-6xl md:text-7xl">
                 Experience
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-[#a1a1aa] max-w-md">
-                Experience that built careful habits around systems, records, support, and clear operational follow-through.
+            <p className="mt-6 text-lg leading-relaxed text-[#a1a1aa] max-w-md">
+                Experience that built careful habits around business systems, user support, records, documentation, and clear operational follow-through.
               </p>
             </div>
 
@@ -568,8 +568,8 @@ export default function CosmicPortfolio() {
             <h2 className="mt-2 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Practical Delivery Projects</h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#a1a1aa]">
               These projects are included as proof of delivery, structure, and
-              follow-through while I continue building stronger SQL and data
-              portfolio work.
+              follow-through while I continue building stronger application
+              systems, reporting, and SQL support portfolio work.
             </p>
           </div>
 

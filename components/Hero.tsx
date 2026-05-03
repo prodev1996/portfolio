@@ -61,7 +61,7 @@ const targetRoles = [
 const heroFacts = [
   {
     value: "Australia based",
-    label: "Open to on-site and hybrid support or data-focused roles",
+    label: "Open to on-site and hybrid application support, systems, or reporting roles",
     icon: MapPin,
   },
   {

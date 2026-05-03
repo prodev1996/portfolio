@@ -75,8 +75,8 @@ export default function AboutSection() {
           <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-4">
             <p className="text-sm leading-7 text-slate-300">
               My goal is simple: join a strong team, support users well, keep
-              systems running smoothly, and continue growing into higher-value
-              support and data-focused roles over time.
+              systems running smoothly, and continue growing into stronger
+              application systems, reporting, and SQL-aware roles over time.
             </p>
           </div>
         </motion.div>

@@ -32,7 +32,7 @@ const attributes = [
   "Clear communication and dependable stakeholder support",
   "Attention to detail with structured troubleshooting habits",
   "Curious learner who adapts quickly to technical standards",
-  "Ready to support guided trials, validation work, and go-live preparation",
+  "Ready to support guided testing, validation work, and system change activities",
 ];
 
 export default function ResumeEducation() {

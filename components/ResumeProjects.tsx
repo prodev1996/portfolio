@@ -7,13 +7,13 @@ import Link from "next/link";
 export default function ResumeProjects() {
   const projects = [
     {
-      title: "SQL Data Validation & ETL Practice Project",
+      title: "SQL Data Validation & Migration Practice Project",
       subtitle: "Practice project for SQL, staging, and reconciliation",
       meta: "SQL Server / MySQL / Excel / Git",
       bullets: [
         "Worked through import, staging, duplicate checks, NULL checks, record counts, and source-to-target comparison tasks in a structured practice setup.",
         "Focused on validation logic, reconciliation habits, and documentation of assumptions, test steps, and results.",
-        "Used the project to build confidence in ETL support thinking, data quality checks, and junior migration-style workflows.",
+        "Used the project to build confidence in SQL support thinking, data quality checks, and migration-related validation workflows.",
       ],
       link: null,
     },
