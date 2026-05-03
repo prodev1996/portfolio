@@ -22,10 +22,10 @@ const education = [
 ];
 
 const foundations = [
-  "SQL and relational database foundations built through development work, MySQL exposure, and IT study.",
-  "Strong data quality habits developed through high-volume validation, records accuracy, and anomaly checking work.",
-  "Practical Git and GitHub experience for version control, structured workflows, and technical change tracking.",
-  "Ready to contribute to data migration, ETL support, validation tasks, and guided project delivery environments.",
+  "Application systems and business support foundations built through Microsoft 365, web-based systems, user access, and workflow support work.",
+  "SQL/MySQL and data accuracy habits developed through development exposure, validation-heavy tasks, and reporting-aware workflows.",
+  "Practical Git and GitHub experience for version control, structured workflows, documentation, and technical change tracking.",
+  "Ready to contribute to system upgrades, reporting support, data migration assistance, user acceptance testing, and guided project delivery environments.",
 ];
 
 const attributes = [

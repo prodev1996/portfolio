@@ -6,15 +6,16 @@ import { Briefcase } from "lucide-react";
 const experience = [
   {
     company: "Freelance / Contract",
-    role: "IT Application & Database Support Consultant",
-    location: "Brisbane, QLD",
+    role: "Application Systems & Database Support Consultant",
+    location: "Australia",
     period: "March 2022 - Present",
     bullets: [
-      "Developed and supported database-backed websites, enquiry workflows, and hosted application environments using React, Next.js, Node.js, MySQL, APIs, and practical production support habits.",
-      "Used SQL and MySQL queries for data retrieval, validation checks, and troubleshooting across application and workflow issues.",
-      "Investigated application, API, form, access, deployment, and data-related issues to help maintain business continuity and reliable delivery.",
-      "Used Git and GitHub for version control, change tracking, and technical documentation across live client work.",
-      "Supported hosting, domain, DNS, SSL, Microsoft 365, and business system tasks while communicating clearly with non-technical users.",
+      "Supported business applications, Microsoft 365, web-based systems, and database-backed workflows across client environments, with a focus on reliability, user support, and incident resolution.",
+      "Used SQL/MySQL for data retrieval, validation checks, reporting support, form review, and troubleshooting application and data-related issues.",
+      "Investigated workflow, access, API/database integration, and application issues; identified root causes, documented fixes, and supported reliable change implementation.",
+      "Used Git/GitHub for version control, release tracking, documentation, and support of ongoing system updates and improvements.",
+      "Coordinated hosting, DNS, SSL, deployment, and service changes while maintaining support notes and vendor-facing troubleshooting when required.",
+      "Worked directly with users and stakeholders to support process improvement, user acceptance testing, and clear communication across technical and non-technical teams.",
     ],
   },
   {
@@ -23,9 +24,10 @@ const experience = [
     location: "Kathmandu, Nepal",
     period: "December 2020 - March 2022",
     bullets: [
-      "Developed and maintained database-driven application features using JavaScript, React, Node.js, APIs, HTML/CSS, and MySQL-backed workflows.",
-      "Worked with CRUD processes, form validation, API/database functionality, and bug fixing to support stable day-to-day application use.",
-      "Used Git and GitHub in structured workflows and maintained technical notes to support clearer handover and delivery discipline.",
+      "Supported and improved database-driven business application features using JavaScript, React, Node.js, APIs, HTML/CSS, and MySQL-backed workflows.",
+      "Handled CRUD workflows, form validation, reporting-related data checks, API/database functionality, and integration troubleshooting to support stable day-to-day application use.",
+      "Investigated application defects, tested fixes, supported user acceptance testing, and collaborated with stakeholders to deliver stable releases.",
+      "Used Git and GitHub in structured workflows and maintained technical notes to support handover, future troubleshooting, and change support.",
     ],
   },
   {
@@ -34,9 +36,10 @@ const experience = [
     location: "Kathmandu, Nepal",
     period: "November 2017 - September 2020",
     bullets: [
-      "Processed and validated high-volume data with strong accuracy and quality standards.",
-      "Followed structured workflows while meeting productivity targets and deadlines.",
-      "Maintained attention to detail, confidentiality, and compliance with client requirements.",
+      "Processed and validated high-volume client data while meeting strict accuracy, productivity, and confidentiality requirements.",
+      "Followed structured workflows and quality standards to maintain reporting-ready data and consistent output.",
+      "Identified anomalies, corrected issues where appropriate, and escalated unclear cases through the proper channels.",
+      "Built attention to detail and process discipline directly relevant to reporting support, data migration checks, and system-related data work.",
     ],
   },
 ];

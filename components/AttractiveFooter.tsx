@@ -29,12 +29,13 @@ export default function AttractiveFooter() {
                   Rajiv Bhandari
                 </p>
                 <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#9d94b3]">
-                  SQL | Data Quality | ETL Support
+                  Application Systems | Microsoft 365 | SQL Support
                 </p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d8d1e6]">
-                  Built to present a database and application support profile
-                  shaped by SQL foundations, data quality work, structured
-                  troubleshooting, documentation, and practical delivery.
+                  Built to present an application systems and support profile
+                  shaped by business applications, Microsoft 365, SQL/MySQL,
+                  structured troubleshooting, documentation, and practical
+                  delivery.
                 </p>
               </div>
             </div>

@@ -60,7 +60,7 @@ const targetRoles = [
 
 const heroFacts = [
   {
-    value: "Adelaide based",
+    value: "Australia based",
     label: "Open to on-site and hybrid support or data-focused roles",
     icon: MapPin,
   },
@@ -128,7 +128,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.14 }}
               className="mt-5 max-w-2xl text-[15px] leading-8 text-[#52645a] sm:text-[17px]"
             >
-              Based in Adelaide, I support Microsoft 365, user access,
+              Based in Australia, I support Microsoft 365, user access,
               business applications, and day-to-day workflow issues. I am also
               building deeper reporting skills with SQL and Power BI, so the
               best fit is a role that connects application support,
@@ -243,7 +243,7 @@ export default function Hero() {
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="absolute right-5 top-5 z-10 rounded-full border border-white/75 bg-white/86 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#355246] shadow-[0_10px_24px_rgba(118,103,79,0.12)]">
-                Available in Adelaide
+                Available in Australia
               </div>
               <div className="relative overflow-hidden rounded-[24px] border border-[#e4e6df] bg-[#f3ebe0]">
                 <motion.div className="relative aspect-[4/2.5]" whileHover={{ scale: 1.015 }}>
@@ -261,7 +261,7 @@ export default function Hero() {
               <div className="grid gap-3 px-2 pb-1 pt-3.5">
                 <div>
                   <p className="text-[1.55rem] font-semibold text-[#1d2d25]">Rajiv Bhandari</p>
-                  <p className="mt-1 text-sm text-[#5a6d63]">Adelaide, Australia</p>
+                  <p className="mt-1 text-sm text-[#5a6d63]">Australia</p>
                   <p className="mt-2.5 text-[14px] leading-6 text-[#4f6258]">
                     Application support first, building toward reporting and data analytics.
                   </p>

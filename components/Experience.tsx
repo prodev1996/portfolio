@@ -8,7 +8,7 @@ const experience = [
     track: "Support & Systems",
     role: "IT Application Support Consultant",
     company: "Freelance / Contract",
-    location: "Adelaide, Australia",
+    location: "Australia",
     summary:
       "Supporting Microsoft 365, business applications, and user workflows for small-business clients, including troubleshooting, access changes, and practical delivery.",
     points: [
@@ -23,7 +23,7 @@ const experience = [
     track: "Operations + Reporting",
     role: "Administrative Assistant (ICT and Data Support)",
     company: "SA Mushrooms",
-    location: "Waterloo Corner, South Australia",
+    location: "Australia",
     summary:
       "Worked across reporting, administration, and technical support in a busy operations environment where accuracy and follow-through mattered.",
     points: [

@@ -26,7 +26,7 @@ export default function ContactSection() {
       id="contact"
       eyebrow="Contact"
       title="Open to application support, business systems, and reporting-focused roles"
-      subtitle="Available for on-site and hybrid opportunities in Adelaide."
+      subtitle="Available for on-site and hybrid opportunities across Australia."
       className="section-shell bg-[linear-gradient(180deg,_rgba(255,255,255,0.28),_rgba(255,255,255,0.02))] !pb-12 !pt-8 sm:!pb-16 sm:!pt-10"
     >
       <div className="grid gap-5 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
@@ -119,7 +119,7 @@ export default function ContactSection() {
                 <FaMapMarkerAlt className="text-[#d7854f]" />
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.18em] text-[#819087]">Location</p>
-                  <p className="mt-1">Adelaide, Australia</p>
+                  <p className="mt-1">Australia</p>
                 </div>
               </div>
 

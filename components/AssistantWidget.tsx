@@ -21,25 +21,25 @@ const assistantTabs = {
   Work: {
     question: "show me your work",
     answer:
-      "My work shows practical delivery habits across database-backed applications, live production support, documentation, troubleshooting, and structured change handling.",
-    highlights: ["Database-backed work", "Git/GitHub", "Post-launch support"],
+      "My work shows practical delivery habits across business applications, database-backed systems, Microsoft 365 support, documentation, troubleshooting, and structured change handling.",
+    highlights: ["Business apps", "Git/GitHub", "Post-launch support"],
   },
   "About me": {
     question: "tell me more about yourself",
     answer:
-      "I am a database and application support professional with experience in SQL foundations, data quality checks, business systems support, documentation, and structured troubleshooting.",
-    highlights: ["SQL foundation", "Data quality", "Application support"],
+      "I am an application systems and support professional with experience in business applications, Microsoft 365, SQL/MySQL, documentation, troubleshooting, and structured operational support.",
+    highlights: ["Business apps", "SQL/MySQL", "Application support"],
   },
   Skills: {
     question: "what skills do you bring?",
     answer:
-      "My strongest mix is SQL and relational database foundations, data validation, Git/GitHub, documentation, business systems support, and practical delivery discipline.",
-    highlights: ["SQL", "Data validation", "Git/GitHub"],
+      "My strongest mix is business applications support, Microsoft 365, SQL/MySQL, troubleshooting, documentation, reporting support, and practical delivery discipline.",
+    highlights: ["Microsoft 365", "SQL/MySQL", "Troubleshooting"],
   },
   Contact: {
     question: "how can I contact you?",
     answer:
-      "Email me, connect on LinkedIn, or use the direct message form. I am open to SQL, data quality, ETL support, database support, and application support roles.",
+      "Email me, connect on LinkedIn, or use the direct message form. I am open to application systems, Microsoft 365, SQL support, business applications, and data-aware support roles.",
     actions: [
       { label: "Email", href: "mailto:bhandarirajiv25@gmail.com" },
       {
@@ -63,8 +63,8 @@ type ChatMessage = {
 const initialChatMessages: ChatMessage[] = [
   {
     role: "assistant",
-    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his SQL foundation, data quality work, application support background, projects, or contact details.",
-    highlights: ["SQL foundation", "Projects", "Skills", "Contact"],
+    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his application systems background, SQL/MySQL support skills, projects, or contact details.",
+    highlights: ["Business apps", "Projects", "Skills", "Contact"],
   },
 ];
 
@@ -141,8 +141,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "My background combines application support, database-backed development exposure, structured reporting, and data quality habits that support SQL and ETL-style work.",
-      highlights: ["Application support", "Database work", "Data discipline"],
+      text: "My background combines application systems support, Microsoft 365, database-backed development exposure, structured reporting, and data quality habits that support SQL-focused work.",
+      highlights: ["Application systems", "Database work", "Reporting"],
     };
   }
 
@@ -154,8 +154,8 @@ function getAssistantResponse(question: string): ChatMessage {
   ) {
     return {
       role: "assistant",
-      text: "I bring SQL foundations, data validation habits, and growing knowledge of SQL Server, T-SQL, ETL, staging, and migration-style verification work.",
-      highlights: ["SQL", "Data validation", "ETL support"],
+      text: "I bring SQL/MySQL foundations, data validation habits, reporting support exposure, and growing knowledge of SQL Server, T-SQL, data migration, and verification-style work.",
+      highlights: ["SQL/MySQL", "Reporting", "Data migration"],
     };
   }
 

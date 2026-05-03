@@ -50,7 +50,7 @@ export default function AboutSection() {
           className="rounded-3xl border border-slate-800/80 bg-slate-950/95 p-6 sm:p-8"
         >
           <p className="text-sm leading-8 text-slate-300 sm:text-[15px]">
-            I’m an Adelaide-based ICT professional with experience in user
+                I’m an Australia-based ICT professional with experience in user
             support, Microsoft 365, troubleshooting, documentation, website
             administration, and day-to-day digital operations. My work has
             included helping users, supporting systems, managing updates,

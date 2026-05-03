@@ -123,7 +123,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
-              SQL • Data Quality • ETL Support
+              Application Systems • Microsoft 365 • SQL Support
             </span>
           </span>
         </Link>

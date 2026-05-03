@@ -47,17 +47,17 @@ const staggerContainer: Variants = {
 const timeline = [
   {
     year: "2022 - Now",
-    role: "IT Application & Database Support Consultant",
+    role: "Application Systems & Database Support Consultant",
     place: "Freelance / Contract",
-    summary: "Develop and support database-backed websites, enquiry workflows, production environments, and business system issues.",
-    points: ["SQL/MySQL queries and validation checks", "Git/GitHub and technical documentation", "Microsoft 365, access, and deployment support"],
+    summary: "Support business applications, Microsoft 365, production environments, and database-backed workflows with structured troubleshooting and change support.",
+    points: ["SQL/MySQL and reporting support", "Stakeholder communication and documentation", "Microsoft 365, access, and deployment support"],
   },
   {
     year: "2020 - 2022",
     role: "Database & Application Support Developer",
     place: "Eydean Inc",
-    summary: "Developed and maintained database-driven application features with practical exposure to APIs, CRUD workflows, and structured troubleshooting.",
-    points: ["Database-driven features", "CRUD and API/data handling", "Git/GitHub and handover notes"],
+    summary: "Supported database-driven application features with practical exposure to APIs, CRUD workflows, user-focused testing, and structured troubleshooting.",
+    points: ["Database-driven features", "Integration and data handling", "Git/GitHub and handover notes"],
   },
   {
     year: "2017 - 2020",
@@ -79,17 +79,17 @@ const overviewProof = [
   },
   {
     icon: Database,
-    label: "SQL foundation",
+    label: "Systems support",
     value: "Database-aware",
-    note: "SQL, MySQL, relational database concepts, validation queries, and database-backed application exposure.",
+    note: "Business applications support backed by SQL/MySQL, validation queries, user access support, and database-aware troubleshooting.",
     playful: "Queries -> checks",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: Workflow,
-    label: "Data quality mindset",
+    label: "Process mindset",
     value: "Detail-first",
-    note: "High-volume validation, anomaly checks, record accuracy, and structured workflow habits.",
+    note: "Structured workflows, data accuracy, anomaly checks, reporting support, and careful follow-through during system changes.",
     playful: "Records -> quality",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
@@ -106,65 +106,65 @@ const overviewProof = [
 const technicalSkillGroups = [
   {
     icon: FaDatabase,
-    title: "SQL & Databases",
-    detail: "SQL, MySQL, joins, filtering, grouping, data comparison, CRUD workflows, and database-backed applications.",
-    proof: "Strong practical foundation across relational data work.",
+    title: "Business Applications",
+    detail: "Business applications support, incident resolution, workflow troubleshooting, documentation, and user-focused operational support.",
+    proof: "Grounded in practical day-to-day systems support.",
     accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
     icon: FaWindows,
-    title: "SQL Server / T-SQL",
-    detail: "Validation queries, SSMS familiarity, views and stored-procedure concepts, and staging-table understanding.",
-    proof: "Growing SQL Server capability with honest fundamentals.",
+    title: "Microsoft 365 & Identity",
+    detail: "Microsoft 365, SharePoint, Active Directory, Azure AD, access support, permissions, and user account handling.",
+    proof: "Reliable support across common business systems and user environments.",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: FaNetworkWired,
-    title: "Data Migration & ETL",
-    detail: "ETL concepts, source-to-target mapping, data profiling, transformation logic, and reconciliation checks.",
-    proof: "Ready to contribute to migration-style tasks under guidance.",
+    title: "SQL/MySQL & Reporting",
+    detail: "SQL/MySQL, validation queries, data checks, reporting support, records accuracy, and database-backed application exposure.",
+    proof: "Practical SQL support skills with room to keep growing.",
     accent: "from-[#20a779] to-[#35aeca]",
   },
   {
     icon: FaDatabase,
-    title: "Data Quality & Reporting",
-    detail: "Data validation, records accuracy, anomaly identification, Excel reporting, confidentiality, and compliance.",
-    proof: "Strong detail habits developed in real operational work.",
+    title: "Systems Analysis",
+    detail: "Application systems analysis, process improvement, stakeholder engagement, system upgrades, and user acceptance testing support.",
+    proof: "Able to bridge users, workflows, and system change in a practical way.",
     accent: "from-[#e49a2f] to-[#d9468f]",
   },
   {
     icon: FaTools,
-    title: "Application Support",
-    detail: "Structured troubleshooting, issue diagnosis, business systems support, user assistance, and workflow follow-through.",
-    proof: "Turns technical issues into stable outcomes and clear notes.",
+    title: "Technical Troubleshooting",
+    detail: "Integration troubleshooting, API/database issue investigation, incident analysis, testing support, and change implementation.",
+    proof: "Turns technical issues into stable outcomes and clearer support notes.",
     accent: "from-[#d9468f] to-[#7c6cf2]",
   },
   {
     icon: FaPython,
     title: "Development & Scripting",
-    detail: "JavaScript, React, Next.js, Node.js, APIs, HTML/CSS, Tailwind, and troubleshooting data-related application issues.",
-    proof: "Supports the database and application support story with practical build exposure.",
+    detail: "JavaScript, React, Next.js, Node.js, Python, APIs, HTML/CSS, and practical experience supporting web-based systems.",
+    proof: "Adds hands-on technical context to application systems support work.",
     accent: "from-[#35aeca] to-[#20a779]",
   },
   {
     icon: FaRegFileAlt,
-    title: "Tools & Practices",
-    detail: "Git/GitHub, VS Code, issue tracking, technical notes, deployment support, DNS, SSL, and stakeholder communication.",
-    proof: "Comfortable working with version control and structured team practices.",
+    title: "Delivery & Change",
+    detail: "Documentation, Git/GitHub, issue tracking, deployment support, vendor coordination support, and stakeholder communication.",
+    proof: "Useful in environments that need clear change handling and continuity.",
     accent: "from-[#7c6cf2] to-[#e49a2f]",
   },
   {
     icon: FaMicrosoft,
-    title: "Business Systems",
-    detail: "Microsoft 365, access support, business application workflows, and clear communication with non-technical users.",
-    proof: "Keeps the portfolio grounded in real support and operational environments.",
+    title: "Data Migration Exposure",
+    detail: "Data migration concepts, verification support, reconciliation habits, structured data handling, and reporting-aware validation work.",
+    proof: "Relevant support foundation for migration and upgrade-focused teams.",
     accent: "from-[#20a779] to-[#e49a2f]",
   },
   {
     icon: FaNodeJs,
     title: "Project Readiness",
-    detail: "Testing, documentation, change tracking, technical learning, and reliable contribution in guided project teams.",
-    proof: "Built for junior SQL, database support, and ETL support environments.",
+    detail: "Testing, documentation, change tracking, technical learning, and reliable contribution across application support and SQL-focused teams.",
+    proof: "Built for junior-to-early-mid systems, support, and SQL-adjacent environments.",
     accent: "from-[#e49a2f] to-[#7c6cf2]",
   },
 ];
@@ -319,7 +319,7 @@ export default function CosmicPortfolio() {
 
             <motion.div variants={fadeUp} className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#d8d1e6] backdrop-blur-xl">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#20a779] shadow-[0_0_8px_rgba(32,167,121,0.58)] animate-pulse" />
-              Open to junior data roles
+              Open to application systems and SQL roles
             </motion.div>
 
             <motion.h2
@@ -336,7 +336,7 @@ export default function CosmicPortfolio() {
               variants={fadeUp}
               className="mt-8 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-[#a1a1aa]"
             >
-              I am a junior SQL and data-focused systems candidate with experience across database-backed applications, data quality checks, documentation, Git/GitHub, and careful operational follow-through.
+              I support business applications, Microsoft 365, user workflows, and database-backed systems, with hands-on SQL/MySQL, troubleshooting, documentation, and reporting support habits.
             </motion.p>
 
             <TerminalBadge />
@@ -362,7 +362,7 @@ export default function CosmicPortfolio() {
       <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-8 lg:py-10 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="mb-5 max-w-[1000px] mx-auto">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[#d9468f]">Overview</p>
-          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Junior Data Profile</h2>
+          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Systems &amp; Data Profile</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-4 md:grid-rows-2 max-w-[1000px] mx-auto">
@@ -371,13 +371,13 @@ export default function CosmicPortfolio() {
             <div className="flex h-full flex-col justify-center">
               <Sparkles className="h-6 w-6 text-[#e49a2f] mb-3" />
               <div>
-                <h3 className="text-xl font-black tracking-tight text-white mb-2">A practical path into SQL and data work.</h3>
+                <h3 className="text-xl font-black tracking-tight text-white mb-2">A practical path into application systems and SQL work.</h3>
                 <div className="space-y-2">
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    My background started in support and operations, where careful records, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward SQL, reporting, validation, and data quality work.
+                    My background started in support and operations, where user support, business applications, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward systems analysis, SQL support, reporting, and data-focused work.
                   </p>
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    I am not presenting myself as a senior engineer yet. I am aiming for junior opportunities where I can contribute with support discipline, analytical thinking, and growing hands-on SQL, data validation, ETL support concepts, and systems knowledge.
+                    I am not presenting myself as a senior engineer yet. I am aiming for roles where I can contribute with application support discipline, analytical thinking, SQL/MySQL exposure, process improvement mindset, and growing systems knowledge.
                   </p>
                 </div>
               </div>
@@ -392,8 +392,8 @@ export default function CosmicPortfolio() {
               {[
                 { label: "Support foundation", v: "100%" },
                 { label: "Documentation discipline", v: "92%" },
-                { label: "SQL and reporting growth", v: "74%" },
-                { label: "Data engineering path", v: "48%" }
+                { label: "SQL and reporting support", v: "78%" },
+                { label: "Systems analysis growth", v: "64%" }
               ].map((stat, i) => (
                 <div key={stat.label}>
                   <div className="flex justify-between text-xs font-bold text-[#c9c1d8] mb-2 uppercase tracking-wider">
@@ -447,12 +447,12 @@ export default function CosmicPortfolio() {
             Technical Toolkit
           </p>
           <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
-            Junior SQL, systems, and data skills.
+            Application systems, SQL, and support skills.
           </h2>
           <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-            A compact skill map grouped around the work I actually do today and
-            the data direction I am building into: systems, reporting,
-            validation, documentation, and delivery.
+            A compact skill map grouped around the work I actually do today:
+            business applications, Microsoft 365, SQL/MySQL, troubleshooting,
+            documentation, and structured delivery support.
           </p>
         </div>
 
@@ -664,7 +664,7 @@ export default function CosmicPortfolio() {
             <div className="flex flex-col justify-center">
               <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Let&apos;s build <br/><span className="text-[#d9468f]">together.</span></h2>
               <p className="text-lg text-[#a1a1aa] mb-10 max-w-md">
-                Open to junior SQL, reporting, data-focused systems, and business support roles. Let&apos;s discuss how I can contribute and keep growing with your team.
+                Open to application systems, business applications, Microsoft 365, SQL support, and data-aware support roles. Let&apos;s discuss how I can contribute and keep growing with your team.
               </p>
               
               <div className="flex flex-col gap-4 sm:flex-row">
