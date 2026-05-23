@@ -49,7 +49,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.4 }}
             className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl"
           >
-            Application Systems Analyst | Business Applications | Microsoft 365 | SQL &amp; Systems Support
+            Application Support &amp; Developer | IT Support Professional | SQL, Microsoft 365, SharePoint, Windows &amp; Web Applications
           </motion.p>
 
           <motion.p 
@@ -58,17 +58,16 @@ export default function ResumeHeader() {
             transition={{ delay: 0.5 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg"
           >
-            Application Systems Analyst with experience supporting business
-            applications, Microsoft 365, SharePoint, Windows environments, user
-            access, workflows, data accuracy, and web-based systems. Skilled in
-            troubleshooting application issues, supporting system improvements,
-            assisting with reporting and data tasks, and communicating
-            technical information clearly to non-technical users. Background in
-            full-stack development, SQL/MySQL, API and database-driven systems,
-            business process support, and structured technical documentation.
-            Holds a Master of Information Technology and brings a strong
-            customer-focused approach to improving reliable, secure, and
-            user-friendly systems.
+            Adelaide-based Application Support & Developer and IT Support
+            Professional with experience across business applications,
+            Microsoft 365, SharePoint, Windows environments, user access,
+            web-based systems, workflows, and technical troubleshooting.
+            Currently gaining additional practical experience at SpaceTel IT across website
+            review, user experience analysis, issue identification, website
+            testing, competitor research, reporting, and improvement planning.
+            Background includes application support, full-stack development,
+            data quality, SQL/MySQL, APIs, DNS, SSL, hosting, and technical
+            documentation.
           </motion.p>
 
           <motion.div 
@@ -77,7 +76,7 @@ export default function ResumeHeader() {
             transition={{ delay: 0.6 }}
             className="mt-8 flex flex-wrap gap-2"
           >
-            {["Business apps", "Microsoft 365", "SQL/MySQL", "Systems support"].map((item, i) => (
+            {["Application support", "IT Support L1/L2", "SQL/MySQL", "Microsoft 365", "SharePoint", "Windows", "Web applications"].map((item, i) => (
               <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>
@@ -125,7 +124,7 @@ export default function ResumeHeader() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
                 <FaMapMarkerAlt size={16} />
               </div>
-              <span>Australia</span>
+              <span>Adelaide, South Australia</span>
             </div>
 
             <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">

@@ -28,10 +28,11 @@ const skillBlocks = [
     items: [
       "Microsoft 365",
       "SharePoint",
+      "Outlook",
+      "Teams",
       "Active Directory",
       "Azure AD",
       "User access",
-      "Permissions support",
     ],
   },
   {
@@ -45,23 +46,23 @@ const skillBlocks = [
       "Validation queries",
       "Reporting support",
       "Data accuracy",
-      "Excel reporting",
+      "Form submission review",
       "Data checks",
     ],
   },
   {
-    title: "Systems Analysis & Improvement",
+    title: "Website QA & Improvement",
     icon: Database,
     color: "from-[#20a779] to-[#3b82f6]",
     shadowColor: "rgba(32,167,121,0.24)",
     proficiency: 76,
     items: [
-      "Systems analysis",
+      "Website review",
+      "UX analysis",
+      "Lighthouse",
+      "PageSpeed Insights",
+      "SEO basics",
       "Process improvement",
-      "System upgrades",
-      "Stakeholder engagement",
-      "Requirements support",
-      "User acceptance testing",
     ],
   },
   {
@@ -71,12 +72,12 @@ const skillBlocks = [
     shadowColor: "rgba(244,63,94,0.3)",
     proficiency: 82,
     items: [
-      "Integration troubleshooting",
-      "API/database systems",
+      "DNS/SSL/hosting",
+      "API/database issues",
       "Web-based apps",
       "Incident analysis",
       "Testing support",
-      "Change implementation",
+      "Domain issues",
     ],
   },
   {
@@ -86,12 +87,12 @@ const skillBlocks = [
     shadowColor: "rgba(217,70,239,0.3)",
     proficiency: 78,
     items: [
-      "Vendor coordination support",
+      "Reports",
+      "Presentation material",
       "Stakeholder communication",
-      "Data migration exposure",
       "Git/GitHub",
       "Documentation",
-      "Release support",
+      "Deployment support",
     ],
   },
 ];
@@ -189,7 +190,7 @@ export default function ResumeSkillsDetailed() {
             Core Competencies
           </h2>
           <p className="mt-1 text-sm font-medium text-[#8f87a0]">
-            Hybrid capability across application systems support, Microsoft 365, SQL/MySQL, troubleshooting, and structured delivery.
+            Hybrid capability across IT support, application support, Microsoft 365, SQL/MySQL, website QA, troubleshooting, and structured delivery.
           </p>
         </div>
       </div>

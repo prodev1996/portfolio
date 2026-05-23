@@ -5,27 +5,27 @@ import { GraduationCap, Award, FileCheck } from "lucide-react";
 
 const education = [
   {
-    qualification: "Professional Year Program (IT)",
-    institution: "Performance Education, Australia",
-    period: "Ongoing",
-  },
-  {
-    qualification: "Master of Information Technology",
+    qualification: "Master of Information Technology (Advanced), Information Technology",
     institution: "Torrens University Australia",
-    period: "Graduated: 2024",
+    period: "2022 - 2024",
   },
   {
-    qualification: "Bachelor of Computer Science (IT)",
-    institution: "Tribhuvan University, Nepal",
-    period: "Graduated: 2019",
+    qualification: "Professional Year, Information Technology",
+    institution: "Performance Education",
+    period: "Aug 2025 - 2026",
+  },
+  {
+    qualification: "Bachelor's degree, Computer Science and Information Technology",
+    institution: "Tribhuvan University",
+    period: "2015 - 2019",
   },
 ];
 
 const foundations = [
-  "Application systems and business support foundations built through Microsoft 365, web-based systems, user access, and workflow support work.",
-  "SQL/MySQL and data accuracy habits developed through development exposure, validation-heavy tasks, and reporting-aware workflows.",
-  "Practical Git and GitHub experience for version control, structured workflows, documentation, and technical change tracking.",
-  "Ready to contribute to system upgrades, reporting support, data migration assistance, user acceptance testing, and guided project delivery environments.",
+  "Zendesk Customer Service Professional Certificate, LinkedIn, issued Sep 2024.",
+  "Google IT Support Specialization, Coursera, issued Nov 2020.",
+  "Crash Course on Python, Coursera, issued Sep 2020.",
+  "Cyber Security Foundation, Certiprof, issued Dec 2020.",
 ];
 
 const attributes = [

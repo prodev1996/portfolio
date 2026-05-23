@@ -11,6 +11,7 @@ const homeLinks = [
   { name: "Home", href: "#home" },
   { name: "Overview", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Credentials", href: "#credentials" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -123,7 +124,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
-              Application Systems • Microsoft 365 • SQL Support
+              IT Support · Microsoft 365 · SQL
             </span>
           </span>
         </Link>

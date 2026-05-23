@@ -14,6 +14,9 @@ import {
   Workflow,
   Code2,
   Database,
+  Award,
+  GraduationCap,
+  MapPin,
 } from "lucide-react";
 import {
   FaDatabase,
@@ -46,25 +49,40 @@ const staggerContainer: Variants = {
 
 const timeline = [
   {
+    year: "May 2026 - Present",
+    role: "Software Developer Intern",
+    place: "SpaceTel IT · Adelaide, South Australia · On-site",
+    summary: "Reviewing websites, user journeys, technical quality, and competitor positioning while preparing practical improvement reports for redesign and content planning.",
+    points: [
+      "Website review, UX analysis, navigation checks, and issue identification",
+      "Lighthouse, PageSpeed Insights, crawler-style review, and manual testing",
+      "Reports, presentation material, responsive layout notes, and content improvement planning",
+    ],
+  },
+  {
     year: "2022 - Now",
-    role: "Application Systems & Database Support Consultant",
-    place: "Freelance / Contract",
-    summary: "Support business applications, Microsoft 365, production environments, and database-backed workflows with structured troubleshooting and change support.",
-    points: ["SQL/MySQL and reporting support", "Stakeholder communication and documentation", "Microsoft 365, access, and deployment support"],
+    role: "Application Support & IT Support Consultant",
+    place: "Sole trader / Contract · Remote",
+    summary: "Provide Level 1/2 IT and application support for small-business clients across Microsoft 365, Windows environments, SharePoint, Outlook, Teams, and web-based systems.",
+    points: [
+      "Microsoft 365, SharePoint, Outlook, Teams, access, permissions, and user workflow support",
+      "SQL/MySQL checks for data retrieval, validation, form submissions, and troubleshooting",
+      "Website setup, hosting, DNS, SSL, domain configuration, deployment, and ongoing updates",
+    ],
   },
   {
-    year: "2020 - 2022",
-    role: "Database & Application Support Developer",
+    year: "Dec 2020 - Mar 2022",
+    role: "Application Support Developer",
     place: "Eydean Inc",
-    summary: "Supported database-driven application features with practical exposure to APIs, CRUD workflows, user-focused testing, and structured troubleshooting.",
-    points: ["Database-driven features", "Integration and data handling", "Git/GitHub and handover notes"],
+    summary: "Developed and supported web applications while working on application features, database integration, APIs, testing, bug fixing, and documentation.",
+    points: ["React, Django, MySQL, APIs, and database-backed features", "Application testing, debugging, system improvement, and maintenance", "Team collaboration, Git/GitHub, and practical handover notes"],
   },
   {
-    year: "2017 - 2020",
+    year: "Nov 2017 - Nov 2020",
     role: "Data Specialist",
     place: "CloudFactory",
-    summary: "Processed and validated high-volume client data while following strict quality, productivity, and confidentiality standards.",
-    points: ["Data validation", "Anomaly identification", "Structured workflows"],
+    summary: "Performed data validation, data review, quality assurance, and accuracy checks across large volumes of structured digital data.",
+    points: ["Data monitoring, validation, and quality checks", "Error identification, correction, and consistency review", "Detailed instructions, documentation, deadlines, and structured workflows"],
   },
 ];
 
@@ -73,7 +91,7 @@ const overviewProof = [
     icon: ShieldCheck,
     label: "Support discipline",
     value: "Reliable base",
-    note: "Clear communication, structured troubleshooting, and careful follow-through in business environments.",
+    note: "Level 1/2 support mindset with clear communication, structured troubleshooting, and careful follow-through.",
     playful: "Issues -> clarity",
     accent: "from-[#7c6cf2] to-[#d9468f]",
   },
@@ -81,7 +99,7 @@ const overviewProof = [
     icon: Database,
     label: "Systems support",
     value: "Database-aware",
-    note: "Business applications support backed by SQL/MySQL, validation queries, user access support, and database-aware troubleshooting.",
+    note: "Business applications support backed by SQL/MySQL checks, access support, and database-aware troubleshooting.",
     playful: "Queries -> checks",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
@@ -89,7 +107,7 @@ const overviewProof = [
     icon: Workflow,
     label: "Process mindset",
     value: "Detail-first",
-    note: "Structured workflows, data accuracy, anomaly checks, reporting support, and careful follow-through during system changes.",
+    note: "Data quality, website testing, reporting notes, documentation, and improvement planning.",
     playful: "Records -> quality",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
@@ -97,7 +115,7 @@ const overviewProof = [
     icon: Code2,
     label: "Project readiness",
     value: "Guideline-ready",
-    note: "Git/GitHub, documentation, testing habits, and the ability to learn technical standards quickly.",
+    note: "Git/GitHub, HTML, CSS, JavaScript, testing habits, and the ability to learn technical standards quickly.",
     playful: "Tasks -> tracked",
     accent: "from-[#e49a2f] to-[#d9468f]",
   },
@@ -107,56 +125,56 @@ const technicalSkillGroups = [
   {
     icon: FaDatabase,
     title: "Business Applications",
-    detail: "Business applications support, incident resolution, workflow troubleshooting, documentation, and user-focused operational support.",
+    detail: "Business applications support, incident resolution, workflow troubleshooting, issue documentation, and user-focused operational support.",
     proof: "Grounded in practical day-to-day systems support.",
     accent: "from-[#7c6cf2] to-[#d9468f]",
   },
   {
     icon: FaWindows,
     title: "Microsoft 365 & Identity",
-    detail: "Microsoft 365, SharePoint, Active Directory, Azure AD, access support, permissions, and user account handling.",
+    detail: "Microsoft 365, SharePoint, Outlook, Teams, Active Directory, Azure AD, access support, permissions, and account handling.",
     proof: "Reliable support across common business systems and user environments.",
     accent: "from-[#35aeca] to-[#7c6cf2]",
   },
   {
     icon: FaNetworkWired,
     title: "SQL/MySQL & Reporting",
-    detail: "SQL/MySQL, validation queries, data checks, reporting support, records accuracy, and database-backed application exposure.",
+    detail: "SQL/MySQL, validation queries, form submission review, data checks, reporting support, records accuracy, and database-backed application exposure.",
     proof: "Practical SQL support skills with room to keep growing.",
     accent: "from-[#20a779] to-[#35aeca]",
   },
   {
     icon: FaDatabase,
-    title: "Systems Analysis",
-    detail: "Application systems analysis, process improvement, stakeholder engagement, system upgrades, and user acceptance testing support.",
+    title: "Website QA & Systems Analysis",
+    detail: "Website review, UX analysis, responsive testing, SEO basics, performance checks, process improvement, and user acceptance testing support.",
     proof: "Able to bridge users, workflows, and system change in a practical way.",
     accent: "from-[#e49a2f] to-[#d9468f]",
   },
   {
     icon: FaTools,
     title: "Technical Troubleshooting",
-    detail: "Integration troubleshooting, API/database issue investigation, incident analysis, testing support, and change implementation.",
+    detail: "Application, workflow, website, hosting, DNS, SSL, domain, API, database, and incident troubleshooting.",
     proof: "Turns technical issues into stable outcomes and clearer support notes.",
     accent: "from-[#d9468f] to-[#7c6cf2]",
   },
   {
     icon: FaPython,
     title: "Development & Scripting",
-    detail: "JavaScript, React, Next.js, Node.js, Python, APIs, HTML/CSS, and practical experience supporting web-based systems.",
+    detail: "HTML, CSS, JavaScript, React, Next.js, Django, Node.js, Python, APIs, and practical experience supporting web-based systems.",
     proof: "Adds hands-on technical context to application systems support work.",
     accent: "from-[#35aeca] to-[#20a779]",
   },
   {
     icon: FaRegFileAlt,
     title: "Delivery & Change",
-    detail: "Documentation, Git/GitHub, issue tracking, deployment support, vendor coordination support, and stakeholder communication.",
+    detail: "Reports, presentation material, documentation, Git/GitHub, issue tracking, deployment support, and stakeholder communication.",
     proof: "Useful in environments that need clear change handling and continuity.",
     accent: "from-[#7c6cf2] to-[#e49a2f]",
   },
   {
     icon: FaMicrosoft,
-    title: "Data Migration Exposure",
-    detail: "Data migration concepts, verification support, reconciliation habits, structured data handling, and reporting-aware validation work.",
+    title: "Customer Support Foundation",
+    detail: "Zendesk customer service training, end-user communication, support professionalism, escalation awareness, and service mindset.",
     proof: "Relevant support foundation for migration and upgrade-focused teams.",
     accent: "from-[#20a779] to-[#e49a2f]",
   },
@@ -170,11 +188,57 @@ const technicalSkillGroups = [
 ];
 
 const orbitNodes = [
-  { label: "Apps", detail: "Business systems", angle: 12, tone: "from-[#7c6cf2] to-[#35aeca]" },
-  { label: "M365", detail: "User workflows", angle: 76, tone: "from-[#e49a2f] to-[#d9468f]" },
-  { label: "SQL", detail: "Queries and checks", angle: 144, tone: "from-[#35aeca] to-[#20a779]" },
-  { label: "Git", detail: "Version control", angle: 214, tone: "from-[#d9468f] to-[#7c6cf2]" },
-  { label: "Support", detail: "Incident handling", angle: 292, tone: "from-[#20a779] to-[#e49a2f]" },
+  { label: "Support", detail: "L1/L2 troubleshooting", angle: 8, tilt: -38, tone: "from-[#20a779] to-[#e49a2f]" },
+  { label: "M365", detail: "Teams, Outlook, admin", angle: 70, tilt: -42, tone: "from-[#e49a2f] to-[#d9468f]" },
+  { label: "Apps", detail: "Business systems", angle: 132, tilt: -18, tone: "from-[#7c6cf2] to-[#35aeca]" },
+  { label: "SQL", detail: "MySQL checks", angle: 196, tilt: 28, tone: "from-[#35aeca] to-[#20a779]" },
+  { label: "SharePoint", detail: "Sites and workflows", angle: 260, tilt: -48, tone: "from-[#d9468f] to-[#7c6cf2]" },
+  { label: "Windows", detail: "User environments", angle: 318, tilt: 34, tone: "from-[#35aeca] to-[#7c6cf2]" },
+];
+
+const education = [
+  {
+    school: "Torrens University Australia",
+    credential: "Master of Information Technology (Advanced), Information Technology",
+    period: "2022 - 2024",
+  },
+  {
+    school: "Performance Education",
+    credential: "Professional Year, Information Technology",
+    period: "Aug 2025 - 2026",
+  },
+  {
+    school: "Tribhuvan University",
+    credential: "Bachelor's degree, Computer Science and Information Technology",
+    period: "2015 - 2019",
+  },
+];
+
+const certifications = [
+  {
+    name: "Zendesk Customer Service Professional Certificate",
+    issuer: "LinkedIn",
+    issued: "Issued Sep 2024",
+    skills: "Customer support, service communication, support professionalism",
+  },
+  {
+    name: "Google IT Support Specialization",
+    issuer: "Coursera",
+    issued: "Issued Nov 2020",
+    skills: "Operating systems, troubleshooting, networking, IT support foundations",
+  },
+  {
+    name: "Crash Course on Python",
+    issuer: "Coursera",
+    issued: "Issued Sep 2020",
+    skills: "Python, debugging, troubleshooting, automation foundations",
+  },
+  {
+    name: "Cyber Security Foundation",
+    issuer: "Certiprof",
+    issued: "Issued Dec 2020",
+    skills: "Risk management, security awareness, technical foundations",
+  },
 ];
 
 // Interactive Bento Card with Spotlight
@@ -225,7 +289,7 @@ function TerminalBadge() {
       <div className="grid gap-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
         <p><span className="text-[#20a779]">&gt;</span> rajiv.path()</p>
         <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
-          support -&gt; systems -&gt; sql -&gt; applications
+          support -&gt; microsoft 365 -&gt; sql -&gt; web apps
         </p>
       </div>
     </motion.div>
@@ -235,10 +299,12 @@ function TerminalBadge() {
 function DataOrbit() {
   return (
     <div
-      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:5.2rem] sm:h-56 sm:w-56 sm:[--orbit-radius:6.8rem] lg:h-64 lg:w-64 lg:[--orbit-radius:7.8rem]"
+      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:5.9rem] sm:h-60 sm:w-60 sm:[--orbit-radius:7.4rem] lg:h-72 lg:w-72 lg:[--orbit-radius:8.7rem]"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(124,108,242,0.06),transparent_62%)] shadow-[0_0_64px_rgba(124,108,242,0.12)]" />
+      <div className="absolute inset-4 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(124,108,242,0.08),transparent_64%)] shadow-[0_0_64px_rgba(124,108,242,0.12)]" />
+      <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
+      <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#7c6cf2]/18 via-[#d9468f]/12 to-[#20a779]/14 blur-2xl sm:h-32 sm:w-32" />
       <div className="data-orbit-spin absolute inset-0">
         {orbitNodes.map((node) => (
           <div
@@ -250,7 +316,10 @@ function DataOrbit() {
           >
             <div className="group pointer-events-auto relative -translate-x-1/2 -translate-y-1/2">
               <span
-                className={`inline-flex min-w-9 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.3)] ring-1 ring-white/15 transition duration-300 group-hover:scale-110 sm:min-w-12 sm:px-3 sm:py-1.5 sm:text-[10px]`}
+                className={`inline-flex min-w-12 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2.5 py-1.5 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.34)] ring-1 ring-white/15 transition duration-300 group-hover:scale-110 sm:min-w-16 sm:px-3 sm:py-2 sm:text-[10px]`}
+                style={{
+                  transform: `rotate(${node.tilt}deg)`,
+                }}
               >
                 {node.label}
               </span>
@@ -260,6 +329,9 @@ function DataOrbit() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="absolute inset-x-8 bottom-8 hidden rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[8px] font-black uppercase tracking-[0.18em] text-[#d8d1e6] shadow-[0_12px_28px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:block">
+        Support + Developer
       </div>
     </div>
   );
@@ -317,18 +389,18 @@ export default function CosmicPortfolio() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#d8d1e6] backdrop-blur-xl">
+            <motion.div variants={fadeUp} className="mb-6 inline-flex max-w-[min(92vw,720px)] items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-center text-xs font-black uppercase tracking-[0.16em] text-[#d8d1e6] backdrop-blur-xl sm:tracking-[0.2em]">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#20a779] shadow-[0_0_8px_rgba(32,167,121,0.58)] animate-pulse" />
-              Open to application systems and SQL roles
+              Adelaide based · Application Support & Developer · IT Support Professional
             </motion.div>
 
             <motion.h2
               variants={fadeUp}
               className="text-5xl font-black tracking-[-0.05em] text-white sm:text-7xl lg:text-[6rem] leading-[0.95]"
             >
-              Connecting people, <br className="hidden sm:block" />
+              Application support <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
-                systems & data.
+                for modern business systems.
               </span>
             </motion.h2>
 
@@ -336,8 +408,25 @@ export default function CosmicPortfolio() {
               variants={fadeUp}
               className="mt-8 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-[#a1a1aa]"
             >
-              I support business applications, Microsoft 365, user workflows, and database-backed systems, with hands-on SQL/MySQL, troubleshooting, documentation, and reporting support habits.
+              I am an Adelaide-based Application Support & Developer and IT Support Professional with experience across SQL/MySQL, Microsoft 365, SharePoint, Windows environments, web applications, website testing, documentation, and user troubleshooting.
             </motion.p>
+
+            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center justify-center gap-2">
+              {[
+                "Application Support",
+                "IT Support L1/L2",
+                "Microsoft 365",
+                "SQL/MySQL",
+                "SharePoint",
+                "Website QA",
+                "Windows",
+                "Web Applications",
+              ].map((item) => (
+                <span key={item} className="cosmic-chip">
+                  {item}
+                </span>
+              ))}
+            </motion.div>
 
             <TerminalBadge />
 
@@ -351,7 +440,7 @@ export default function CosmicPortfolio() {
               </Link>
               <Link href="/resume" className="group inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 hover:border-white/30 hover:scale-105 active:scale-95">
                 <Download className="mr-2 h-4 w-4" />
-                Download Resume
+                View Resume
               </Link>
             </motion.div>
           </motion.div>
@@ -362,7 +451,7 @@ export default function CosmicPortfolio() {
       <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-8 lg:py-10 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="mb-5 max-w-[1000px] mx-auto">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[#d9468f]">Overview</p>
-          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Systems &amp; Data Profile</h2>
+          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Recruiter Snapshot</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-4 md:grid-rows-2 max-w-[1000px] mx-auto">
@@ -371,13 +460,13 @@ export default function CosmicPortfolio() {
             <div className="flex h-full flex-col justify-center">
               <Sparkles className="h-6 w-6 text-[#e49a2f] mb-3" />
               <div>
-                <h3 className="text-xl font-black tracking-tight text-white mb-2">A practical path into application systems and SQL work.</h3>
+                <h3 className="text-xl font-black tracking-tight text-white mb-2">Application Support & Developer with IT support depth.</h3>
                 <div className="space-y-2">
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    My background started in support and operations, where user support, business applications, documentation, issue handling, and follow-through mattered every day. That is what pulled me toward systems analysis, SQL support, reporting, and structured business data work.
+                    I support business applications, Microsoft 365, SharePoint, Windows environments, web-based systems, user access, workflows, and technical troubleshooting.
                   </p>
                   <p className="text-sm text-[#a1a1aa] leading-snug">
-                    I am not presenting myself as a senior engineer yet. I am aiming for roles where I can contribute with application support discipline, analytical thinking, SQL/MySQL exposure, process improvement mindset, and growing systems knowledge.
+                    I am also completing a Software Developer Internship at SpaceTel IT, where I review websites, assess user experience, identify issues, test performance, compare competitors, and prepare improvement reports.
                   </p>
                 </div>
               </div>
@@ -387,13 +476,13 @@ export default function CosmicPortfolio() {
           {/* Core Focus Tile */}
           <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6 relative flex flex-col justify-center" delay={0.2}>
             <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#7c6cf2]/16 to-transparent opacity-45 blur-2xl pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-3">Career Direction</h3>
+            <h3 className="text-lg font-bold text-white mb-3">Best-fit roles</h3>
             <div className="space-y-3 relative z-10">
               {[
-                { label: "Support foundation", v: "100%" },
-                { label: "Documentation discipline", v: "92%" },
-                { label: "SQL and reporting support", v: "78%" },
-                { label: "Systems analysis growth", v: "64%" }
+                { label: "Application Support / IT Support L1-L2", v: "100%" },
+                { label: "Technical Support / Software Support", v: "92%" },
+                { label: "Web Applications / Website QA", v: "78%" },
+                { label: "Database / Application Support", v: "70%" }
               ].map((stat, i) => (
                 <div key={stat.label}>
                   <div className="flex justify-between text-xs font-bold text-[#c9c1d8] mb-2 uppercase tracking-wider">
@@ -447,12 +536,12 @@ export default function CosmicPortfolio() {
             Technical Toolkit
           </p>
           <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
-            Application systems, SQL, and support skills.
+            Application support, SQL, Microsoft 365, SharePoint, Windows, and web systems.
           </h2>
           <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-            A compact skill map grouped around the work I actually do today:
-            business applications, Microsoft 365, SQL/MySQL, troubleshooting,
-            documentation, and structured delivery support.
+            A compact skill map grouped around employer-searchable areas:
+            application support, IT support L1/L2, Microsoft 365, SQL/MySQL,
+            SharePoint, website QA, documentation, and web application support.
           </p>
         </div>
 
@@ -505,6 +594,72 @@ export default function CosmicPortfolio() {
         </div>
       </section>
 
+      {/* --- EDUCATION & CREDENTIALS --- */}
+      <section id="credentials" className="relative z-20 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="mb-8 flex flex-col gap-2 text-center">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#20a779]">
+            Education & Credentials
+          </p>
+          <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
+            Formal IT study plus support-ready certifications.
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
+            This section is here for recruiters who scan quickly for Australian
+            education, support training, and technical foundations.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="rounded-[32px] border border-white/10 bg-[#0a0812] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#20a779] to-[#35aeca] text-white">
+                <GraduationCap className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#8f87a0]">
+                  Education
+                </p>
+                <h3 className="text-xl font-black text-white">IT qualifications</h3>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {education.map((item) => (
+                <div key={item.school} className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
+                  <p className="text-base font-black text-white">{item.school}</p>
+                  <p className="mt-1 text-sm leading-6 text-[#d8d1e6]">{item.credential}</p>
+                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8f87a0]">{item.period}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[32px] border border-white/10 bg-[#0a0812] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] text-white">
+                <Award className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#8f87a0]">
+                  Certifications
+                </p>
+                <h3 className="text-xl font-black text-white">Support and technical foundations</h3>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {certifications.map((item) => (
+                <div key={item.name} className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
+                  <p className="text-sm font-black leading-5 text-white">{item.name}</p>
+                  <p className="mt-2 text-xs font-semibold text-[#d8d1e6]">{item.issuer} · {item.issued}</p>
+                  <p className="mt-3 text-[11px] leading-5 text-[#a1a1aa]">{item.skills}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* --- STICKY EXPERIENCE SECTION --- */}
       <section id="experience" className="relative z-10 w-full bg-[#05040a] border-y border-white/5 py-24 sm:py-32 scroll-mt-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -517,7 +672,7 @@ export default function CosmicPortfolio() {
                 Experience
               </h2>
             <p className="mt-6 text-lg leading-relaxed text-[#a1a1aa] max-w-md">
-                Experience that built careful habits around business systems, user support, records, documentation, and clear operational follow-through.
+                Current internship, support consulting, application development, and data quality experience shaped around troubleshooting, documentation, testing, and user-focused systems work.
               </p>
             </div>
 
@@ -567,9 +722,9 @@ export default function CosmicPortfolio() {
             <p className="text-xs font-black uppercase tracking-[0.3em] text-[#e49a2f]">Showcase</p>
             <h2 className="mt-2 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Practical Delivery Projects</h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-              These projects are included as proof of delivery, structure, and
-              follow-through while I continue building stronger application
-              systems, reporting, and SQL support portfolio work.
+              These projects show practical delivery: requirements, website
+              development, hosting, DNS, SSL, deployment, content updates, and
+              support after go-live.
             </p>
           </div>
 
@@ -662,10 +817,19 @@ export default function CosmicPortfolio() {
           
           <div className="grid gap-12 p-8 sm:p-16 lg:grid-cols-2 relative z-10">
             <div className="flex flex-col justify-center">
-              <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Let&apos;s build <br/><span className="text-[#d9468f]">together.</span></h2>
+              <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Ready to support <br/><span className="text-[#d9468f]">your team.</span></h2>
               <p className="text-lg text-[#a1a1aa] mb-10 max-w-md">
-                Open to application systems, business applications, Microsoft 365, SQL support, and data-aware support roles. Let&apos;s discuss how I can contribute and keep growing with your team.
+                Open to Application Support, IT Support L1/L2, Technical Support, ICT Support, Web Applications Support, Web Development, and Database/Application Support opportunities.
               </p>
+
+              <div className="mb-8 flex flex-wrap gap-2">
+                <span className="cosmic-chip">
+                  <MapPin className="mr-2 h-3.5 w-3.5" />
+                  Adelaide, South Australia
+                </span>
+                <span className="cosmic-chip">On-site, hybrid, or remote</span>
+                <span className="cosmic-chip">Available for junior/support roles</span>
+              </div>
               
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a href="mailto:bhandarirajiv25@gmail.com" className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 font-bold text-black transition hover:scale-105">

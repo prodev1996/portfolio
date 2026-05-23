@@ -23,18 +23,18 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Systems, Microsoft 365 & SQL Support",
+    default: "Rajiv Bhandari | Application Support & Developer",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, an application systems and support professional with experience in business applications, Microsoft 365, SQL/MySQL, troubleshooting, reporting support, and structured documentation.",
+    "Adelaide-based portfolio of Rajiv Bhandari, an Application Support & Developer and IT Support Professional with SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, documentation, and user troubleshooting experience.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Systems, Microsoft 365 & SQL Support",
+    title: "Rajiv Bhandari | Application Support & Developer",
     description:
-      "Application systems support, Microsoft 365, SQL/MySQL, reporting support, system improvements, and structured troubleshooting for business-focused teams.",
+      "Adelaide-based Application Support & Developer and IT Support Professional focused on SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, and user troubleshooting.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Systems, Microsoft 365 & SQL Support",
+    title: "Rajiv Bhandari | Application Support & Developer",
     description:
-      "Application systems profile with business application support, Microsoft 365, SQL/MySQL, documentation, reporting support, and troubleshooting experience.",
+      "Application Support & Developer and IT Support Professional with SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, documentation, and troubleshooting experience.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     "ICT Support",
     "IT Support",
     "Service Desk",
+    "IT Support L1",
+    "IT Support L2",
+    "Application Support",
     "Application Systems Analyst",
     "Application Systems Analysis",
     "Business Applications Support",
@@ -89,6 +92,12 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Django",
+    "Website QA",
+    "Software Developer Intern",
+    "Junior Software Developer",
+    "Technical Support",
+    "Adelaide",
+    "South Australia",
     "Australia",
   ],
   authors: [
