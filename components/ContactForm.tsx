@@ -72,7 +72,7 @@ export default function ContactForm() {
       transition={{ duration: 0.45 }}
       className="section-glow glass-card spotlight-ring rounded-[34px] p-5 sm:p-6"
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0abfc]">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#d8a7e7]">
         Direct Message
       </p>
       <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-white">
@@ -85,7 +85,7 @@ export default function ContactForm() {
         If the form ever fails, you can always email me directly at{" "}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="font-medium text-[#f0abfc] underline-offset-4 hover:underline"
+          className="font-medium text-[#d8a7e7] underline-offset-4 hover:underline"
         >
           {CONTACT_EMAIL}
         </a>
@@ -94,39 +94,45 @@ export default function ContactForm() {
 
       <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Name</label>
+          <label htmlFor="contact-name" className="mb-1.5 block text-sm text-[#d8d1e6]">Name</label>
           <input
+            id="contact-name"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
+            autoComplete="name"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
             placeholder="Your name"
           />
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Email</label>
+          <label htmlFor="contact-email" className="mb-1.5 block text-sm text-[#d8d1e6]">Email</label>
           <input
+            id="contact-email"
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
+            autoComplete="email"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
             placeholder="your@email.com"
           />
         </div>
 
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm text-[#d8d1e6]">Message</label>
+          <label htmlFor="contact-message" className="mb-1.5 block text-sm text-[#d8d1e6]">Message</label>
           <textarea
+            id="contact-message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
-            rows={3}
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#7c6cf2]/48 focus:bg-white/[0.11]"
+            rows={4}
+            autoComplete="off"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
             placeholder="Tell me about the role, project, or opportunity"
           />
         </div>
@@ -142,7 +148,7 @@ export default function ContactForm() {
         </button>
 
         {feedback ? (
-          <p className="text-sm text-[#d8d1e6]">{feedback}</p>
+          <p role="status" aria-live="polite" className="text-sm text-[#d8d1e6]">{feedback}</p>
         ) : null}
       </div>
     </motion.form>

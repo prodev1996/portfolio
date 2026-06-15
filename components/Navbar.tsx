@@ -9,8 +9,8 @@ import { FileText } from "lucide-react";
 
 const homeLinks = [
   { name: "Home", href: "#home" },
-  { name: "Overview", href: "#about" },
-  { name: "Skills", href: "#skills" },
+  { name: "Snapshot", href: "#about" },
+  { name: "Capabilities", href: "#skills" },
   { name: "Credentials", href: "#credentials" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
@@ -46,7 +46,10 @@ export default function Navbar() {
 
       const headerHeight =
         document.querySelector("header")?.getBoundingClientRect().height ?? 104;
-      const marker = Math.max(headerHeight + 20, Math.min(window.innerHeight * 0.28, headerHeight + 110));
+      const marker = Math.max(
+        headerHeight + 20,
+        Math.min(window.innerHeight * 0.28, headerHeight + 110),
+      );
       const currentHash = window.location.hash;
       const hashMatch = homeLinks.find((link) => link.href === currentHash);
 
@@ -124,7 +127,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
-              IT Support · Microsoft 365 · SQL
+              Application Systems | Microsoft 365 | SQL Support
             </span>
           </span>
         </Link>
@@ -150,9 +153,7 @@ export default function Navbar() {
                   ) : null}
                   <span
                     className={`relative z-10 transition ${
-                      isActive
-                        ? "text-white"
-                        : "text-[#9a94a8] hover:text-white"
+                      isActive ? "text-white" : "text-[#9a94a8] hover:text-white"
                     }`}
                   >
                     {link.name}
@@ -164,7 +165,7 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -2 }}>
               <Link
                 href="/resume"
-                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#7c6cf2]/42 hover:bg-[#7c6cf2]/12 xl:inline-flex"
+                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#6f67df]/42 hover:bg-[#6f67df]/12 xl:inline-flex"
               >
                 <FileText className="h-4 w-4" />
                 Resume
@@ -191,7 +192,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#7c6cf2]/45 hover:text-[#c9c0ff] lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#6f67df]/45 hover:text-[#d9d2ff] lg:hidden"
           aria-label="Toggle menu"
         >
           {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}

@@ -16,7 +16,12 @@ export default function ProjectBackButton() {
   };
 
   return (
-    <button type="button" onClick={handleBack} className="btn-outline">
+    <button
+      type="button"
+      onClick={handleBack}
+      aria-label="Go back to the previous page"
+      className="btn-outline focus-visible:ring-2 focus-visible:ring-[#6f67df] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090713]"
+    >
       <ArrowLeft className="h-4 w-4" />
       Back
     </button>

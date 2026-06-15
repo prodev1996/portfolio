@@ -2,8 +2,8 @@ import Link from "next/link";
 import { FaArrowUp, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 const footerLinks = [
-  { label: "Overview", href: "#about" },
-  { label: "Skills", href: "#skills" },
+  { label: "Snapshot", href: "#about" },
+  { label: "Capabilities", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -13,7 +13,7 @@ export default function AttractiveFooter() {
   return (
     <footer className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#05070d]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(124,108,242,0.14),transparent_30%),radial-gradient(circle_at_88%_20%,rgba(217,70,143,0.1),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.035),transparent_42%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[82%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#7c6cf2]/55 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[82%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#6f67df]/55 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 text-[#bdb5cc] sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
@@ -32,10 +32,9 @@ export default function AttractiveFooter() {
                   Application Systems | Microsoft 365 | SQL Support
                 </p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d8d1e6]">
-                  Built to present an application systems and support profile
-                  shaped by business applications, Microsoft 365, SQL/MySQL,
-                  structured troubleshooting, documentation, and practical
-                  delivery.
+                  Built to present a polished application systems profile with
+                  Microsoft 365 support, SQL-aware troubleshooting, practical
+                  delivery context, and a clear path toward deeper data work.
                 </p>
               </div>
             </div>
@@ -51,7 +50,7 @@ export default function AttractiveFooter() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-xs font-semibold text-[#d8d1e6] transition hover:border-[#7c6cf2]/42 hover:bg-[#7c6cf2]/10 hover:text-white"
+                    className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-xs font-semibold text-[#d8d1e6] transition hover:border-[#6f67df]/42 hover:bg-[#6f67df]/10 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -66,7 +65,7 @@ export default function AttractiveFooter() {
               <div className="mt-3 flex flex-wrap gap-2">
                 <a
                   href="mailto:bhandarirajiv25@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-[#d9468f]/42 hover:bg-[#d9468f]/10 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-[#c55b9e]/42 hover:bg-[#c55b9e]/10 hover:text-white"
                 >
                   <FaEnvelope /> Email
                 </a>
@@ -74,7 +73,7 @@ export default function AttractiveFooter() {
                   href="https://www.linkedin.com/in/rajiv-bhandari25/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-[#7c6cf2]/42 hover:bg-[#7c6cf2]/10 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-[#6f67df]/42 hover:bg-[#6f67df]/10 hover:text-white"
                 >
                   <FaLinkedin /> LinkedIn
                 </a>
@@ -84,7 +83,7 @@ export default function AttractiveFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-[#777184] sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright 2026 Rajiv Bhandari. Built with Next.js and Tailwind CSS.</p>
+          <p>Copyright 2026 Rajiv Bhandari. Designed and built with Next.js and Tailwind CSS.</p>
           <Link
             href="#home"
             className="inline-flex w-fit items-center gap-2 rounded-full text-[#a99fbc] transition hover:text-white"

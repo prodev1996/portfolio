@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaLinkedin,
@@ -12,10 +11,7 @@ import { Download, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function ResumeHeader() {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <section 
       className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_40px_140px_rgba(0,0,0,0.4)] backdrop-blur-3xl sm:p-10"
     >
       <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#7c6cf2]/16 blur-[100px]" />
@@ -24,71 +20,40 @@ export default function ResumeHeader() {
 
       <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div className="relative flex-1">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-[#d8d1e6] shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
-          >
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-[#d8d1e6] shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
             <Sparkles className="h-3.5 w-3.5 text-[#d9468f]" />
             Professional Resume
-          </motion.div>
+          </div>
 
-          <motion.h1 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl font-extrabold tracking-[-0.04em] text-white sm:text-6xl md:text-7xl"
-          >
+          <h1 className="text-5xl font-extrabold tracking-[-0.04em] text-white sm:text-6xl md:text-7xl">
             Rajiv <span className="bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f] bg-clip-text text-transparent">Bhandari</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl"
-          >
-            Application Support &amp; Developer | IT Support Professional | SQL, Microsoft 365, SharePoint, Windows &amp; Web Applications
-          </motion.p>
+          <p className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl">
+            Application Systems Analyst | Business Applications | Microsoft 365 | SQL &amp; Systems Support
+          </p>
 
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg"
-          >
-            Adelaide-based Application Support & Developer and IT Support
-            Professional with experience across business applications,
-            Microsoft 365, SharePoint, Windows environments, user access,
-            web-based systems, workflows, and technical troubleshooting.
-            Currently gaining additional practical experience at SpaceTel IT across website
-            review, user experience analysis, issue identification, website
-            testing, competitor research, reporting, and improvement planning.
-            Background includes application support, full-stack development,
-            data quality, SQL/MySQL, APIs, DNS, SSL, hosting, and technical
-            documentation.
-          </motion.p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg">
+            Application Systems Analyst with experience supporting business
+            applications, Microsoft 365, SharePoint, Windows environments,
+            user access, workflows, data accuracy, and web-based systems.
+            Skilled in troubleshooting application issues, supporting system
+            improvements, assisting with reporting and data tasks, and
+            communicating technical information clearly to non-technical users.
+            Background includes full-stack development, MySQL, API and
+            database-driven systems, business process support, and practical
+            delivery ownership.
+          </p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mt-8 flex flex-wrap gap-2"
-          >
+          <div className="mt-8 flex flex-wrap gap-2">
             {["Application support", "IT Support L1/L2", "SQL/MySQL", "Microsoft 365", "SharePoint", "Windows", "Web applications"].map((item, i) => (
               <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
+          <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/" className="btn-outline flex items-center gap-2 group">
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Home
@@ -101,15 +66,10 @@ export default function ResumeHeader() {
               <Download className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
               Download Resume
             </a>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 }}
-          className="relative w-full max-w-sm rounded-[32px] border border-white/10 bg-black/40 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-2xl lg:w-80 shrink-0"
-        >
+        <div className="relative w-full max-w-sm rounded-[32px] border border-white/10 bg-black/40 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-2xl lg:w-80 shrink-0">
           <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none" />
           
           <div className="relative z-10 flex flex-col gap-5 text-sm font-medium text-[#c9c1d8]">
@@ -124,7 +84,7 @@ export default function ResumeHeader() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
                 <FaMapMarkerAlt size={16} />
               </div>
-              <span>Adelaide, South Australia</span>
+              <span>Australia</span>
             </div>
 
             <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
@@ -141,8 +101,8 @@ export default function ResumeHeader() {
               <span className="truncate">rajivbhandari.com</span>
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

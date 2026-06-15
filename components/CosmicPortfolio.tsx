@@ -2,48 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate, type Variants } from "framer-motion";
-import { useRef } from "react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  type Variants,
+} from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
-  Download,
-  Mail,
-  ShieldCheck,
-  Sparkles,
-  Workflow,
+  Award,
+  CheckCircle2,
   Code2,
   Database,
-  Award,
+  Download,
+  FileText,
   GraduationCap,
+  Mail,
   MapPin,
+  Network,
+  ServerCog,
+  ShieldCheck,
+  Workflow,
+  type LucideIcon,
 } from "lucide-react";
-import {
-  FaDatabase,
-  FaLinkedin,
-  FaMicrosoft,
-  FaNetworkWired,
-  FaNodeJs,
-  FaPython,
-  FaRegFileAlt,
-  FaTools,
-  FaWindows,
-} from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
-import CursorStars from "@/components/CursorStars";
 import { projects } from "@/data/projects";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 36 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    y: 0,
+    transition: { duration: 0.72, ease: "easeOut" },
   },
 };
 
@@ -51,165 +44,229 @@ const timeline = [
   {
     year: "May 2026 - Present",
     role: "Software Developer Intern",
-    place: "SpaceTel IT · Adelaide, South Australia · On-site",
-    summary: "Reviewing websites, user journeys, technical quality, and competitor positioning while preparing practical improvement reports for redesign and content planning.",
+    place: "SpaceTel IT | Australia | On-site internship",
+    summary:
+      "Review websites, user journeys, quality signals, and competitor positioning, then turn findings into practical recommendations for redesign and content improvement.",
     points: [
-      "Website review, UX analysis, navigation checks, and issue identification",
-      "Lighthouse, PageSpeed Insights, crawler-style review, and manual testing",
-      "Reports, presentation material, responsive layout notes, and content improvement planning",
+      "Website review, navigation checks, UX observations, and issue identification.",
+      "Lighthouse, PageSpeed Insights, crawler-style review, and manual QA testing.",
+      "Improvement reports, presentation material, and structured redesign notes.",
     ],
   },
   {
-    year: "2022 - Now",
-    role: "Application Support & IT Support Consultant",
-    place: "Sole trader / Contract · Remote",
-    summary: "Provide Level 1/2 IT and application support for small-business clients across Microsoft 365, Windows environments, SharePoint, Outlook, Teams, and web-based systems.",
+    year: "2022 - Present",
+    role: "Application Support and IT Support Consultant",
+    place: "Contract work | Australia | Remote",
+    summary:
+      "Support small-business clients across Microsoft 365, Windows environments, SharePoint, Outlook, Teams, websites, access issues, and day-to-day operational troubleshooting.",
     points: [
-      "Microsoft 365, SharePoint, Outlook, Teams, access, permissions, and user workflow support",
-      "SQL/MySQL checks for data retrieval, validation, form submissions, and troubleshooting",
-      "Website setup, hosting, DNS, SSL, domain configuration, deployment, and ongoing updates",
+      "Level 1/2 support, permissions, workflows, user assistance, and structured follow-through.",
+      "SQL/MySQL checks for data retrieval, validation, form issues, and troubleshooting.",
+      "Hosting, DNS, SSL, deployment, content updates, and ongoing website support.",
     ],
   },
   {
     year: "Dec 2020 - Mar 2022",
     role: "Application Support Developer",
-    place: "Eydean Inc",
-    summary: "Developed and supported web applications while working on application features, database integration, APIs, testing, bug fixing, and documentation.",
-    points: ["React, Django, MySQL, APIs, and database-backed features", "Application testing, debugging, system improvement, and maintenance", "Team collaboration, Git/GitHub, and practical handover notes"],
+    place: "Eydean Inc | Hybrid",
+    summary:
+      "Worked across web applications, APIs, testing, bug fixing, maintenance, database-backed features, and practical support documentation.",
+    points: [
+      "React, Django, MySQL, APIs, and application feature support.",
+      "Testing, debugging, maintenance, and practical system improvement work.",
+      "Team collaboration, Git/GitHub, and clearer handover documentation.",
+    ],
   },
   {
     year: "Nov 2017 - Nov 2020",
     role: "Data Specialist",
-    place: "CloudFactory",
-    summary: "Performed data validation, data review, quality assurance, and accuracy checks across large volumes of structured digital data.",
-    points: ["Data monitoring, validation, and quality checks", "Error identification, correction, and consistency review", "Detailed instructions, documentation, deadlines, and structured workflows"],
+    place: "CloudFactory | High-volume data operations",
+    summary:
+      "Built process discipline through structured data validation, quality assurance, accuracy checks, and careful handling of large digital datasets.",
+    points: [
+      "Data validation, consistency review, and error identification.",
+      "Structured workflows, deadlines, and documentation discipline.",
+      "Strong attention to detail relevant to reporting and migration-style checks.",
+    ],
   },
 ];
 
-const overviewProof = [
+const recruiterSignals = [
+  {
+    title: "Role direction",
+    value: "Application systems + SQL-ready support",
+    note: "Best suited to junior application systems, SQL support, technical support, and business application roles.",
+  },
+  {
+    title: "Working style",
+    value: "Calm, structured, detail-first",
+    note: "I like diagnosing clearly, documenting cleanly, validating carefully, and keeping users informed.",
+  },
+  {
+    title: "Growth track",
+    value: "Support -> SQL -> data engineering",
+    note: "The portfolio is intentionally positioned around the bridge between application support and data-focused delivery.",
+  },
+];
+
+const overviewCards = [
   {
     icon: ShieldCheck,
-    label: "Support discipline",
-    value: "Reliable base",
-    note: "Level 1/2 support mindset with clear communication, structured troubleshooting, and careful follow-through.",
-    playful: "Issues -> clarity",
-    accent: "from-[#7c6cf2] to-[#d9468f]",
+    label: "Support foundation",
+    title: "User-facing systems support with steady follow-through.",
+    copy:
+      "Level 1/2 support habits, issue ownership, remote assistance, and clear explanations for non-technical users.",
+    accent: "from-[#6f67df] to-[#c55b9e]",
+  },
+  {
+    icon: ServerCog,
+    label: "Business systems",
+    title: "Comfortable across Microsoft 365, identity, and workflows.",
+    copy:
+      "Microsoft 365, SharePoint, Outlook, Teams, Active Directory, Azure AD, permissions, and business application support.",
+    accent: "from-[#2ca2ba] to-[#6f67df]",
   },
   {
     icon: Database,
-    label: "Systems support",
-    value: "Database-aware",
-    note: "Business applications support backed by SQL/MySQL checks, access support, and database-aware troubleshooting.",
-    playful: "Queries -> checks",
-    accent: "from-[#35aeca] to-[#7c6cf2]",
-  },
-  {
-    icon: Workflow,
-    label: "Process mindset",
-    value: "Detail-first",
-    note: "Data quality, website testing, reporting notes, documentation, and improvement planning.",
-    playful: "Records -> quality",
-    accent: "from-[#35aeca] to-[#7c6cf2]",
+    label: "Data-aware support",
+    title: "SQL validation and reporting awareness, not just UI support.",
+    copy:
+      "SQL/MySQL checks, records accuracy, data validation, issue tracing, and growing SQL Server and ETL readiness.",
+    accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
     icon: Code2,
-    label: "Project readiness",
-    value: "Guideline-ready",
-    note: "Git/GitHub, HTML, CSS, JavaScript, testing habits, and the ability to learn technical standards quickly.",
-    playful: "Tasks -> tracked",
-    accent: "from-[#e49a2f] to-[#d9468f]",
+    label: "Delivery context",
+    title: "Web, deployment, and production support experience.",
+    copy:
+      "Real client sites, APIs, hosting, DNS, SSL, launch support, updates, and technical troubleshooting after go-live.",
+    accent: "from-[#d48d37] to-[#c55b9e]",
   },
 ];
 
-const technicalSkillGroups = [
+const skillDomains: {
+  icon: LucideIcon;
+  title: string;
+  blurb: string;
+  items: string[];
+  accent: string;
+}[] = [
   {
-    icon: FaDatabase,
-    title: "Business Applications",
-    detail: "Business applications support, incident resolution, workflow troubleshooting, issue documentation, and user-focused operational support.",
-    proof: "Grounded in practical day-to-day systems support.",
-    accent: "from-[#7c6cf2] to-[#d9468f]",
+    icon: ShieldCheck,
+    title: "IT Support & Troubleshooting",
+    blurb: "Strongest day-to-day support habits.",
+    items: [
+      "Level 1/2 support",
+      "Incident handling",
+      "Remote support",
+      "End-user assistance",
+      "Issue diagnosis",
+      "Resolution follow-through",
+    ],
+    accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
-    icon: FaWindows,
+    icon: ServerCog,
     title: "Microsoft 365 & Identity",
-    detail: "Microsoft 365, SharePoint, Outlook, Teams, Active Directory, Azure AD, access support, permissions, and account handling.",
-    proof: "Reliable support across common business systems and user environments.",
-    accent: "from-[#35aeca] to-[#7c6cf2]",
+    blurb: "Business application and user environment support.",
+    items: [
+      "Exchange Online",
+      "Outlook",
+      "Teams",
+      "SharePoint administration",
+      "Active Directory",
+      "Azure AD",
+      "Basic Intune exposure",
+    ],
+    accent: "from-[#2ca2ba] to-[#6f67df]",
   },
   {
-    icon: FaNetworkWired,
-    title: "SQL/MySQL & Reporting",
-    detail: "SQL/MySQL, validation queries, form submission review, data checks, reporting support, records accuracy, and database-backed application exposure.",
-    proof: "Practical SQL support skills with room to keep growing.",
-    accent: "from-[#20a779] to-[#35aeca]",
+    icon: Workflow,
+    title: "Windows & Endpoint Systems",
+    blurb: "Environment support and maintenance.",
+    items: [
+      "Windows 10/11",
+      "Windows Server basics",
+      "System maintenance",
+      "Configuration support",
+      "Device setup",
+      "Updates",
+    ],
+    accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
-    icon: FaDatabase,
-    title: "Website QA & Systems Analysis",
-    detail: "Website review, UX analysis, responsive testing, SEO basics, performance checks, process improvement, and user acceptance testing support.",
-    proof: "Able to bridge users, workflows, and system change in a practical way.",
-    accent: "from-[#e49a2f] to-[#d9468f]",
+    icon: Network,
+    title: "Networking & Device Support",
+    blurb: "Core infrastructure awareness for support roles.",
+    items: [
+      "TCP/IP",
+      "LAN/WAN basics",
+      "DNS and DHCP",
+      "VPN support",
+      "Printer issues",
+      "Network troubleshooting",
+    ],
+    accent: "from-[#d48d37] to-[#c55b9e]",
   },
   {
-    icon: FaTools,
-    title: "Technical Troubleshooting",
-    detail: "Application, workflow, website, hosting, DNS, SSL, domain, API, database, and incident troubleshooting.",
-    proof: "Turns technical issues into stable outcomes and clearer support notes.",
-    accent: "from-[#d9468f] to-[#7c6cf2]",
+    icon: Database,
+    title: "SQL, Reporting & Validation",
+    blurb: "The bridge toward SQL-focused roles.",
+    items: [
+      "SQL",
+      "MySQL",
+      "Validation queries",
+      "Reporting support",
+      "Data quality checks",
+      "Migration-style thinking",
+    ],
+    accent: "from-[#6f67df] to-[#2ca2ba]",
   },
   {
-    icon: FaPython,
-    title: "Development & Scripting",
-    detail: "HTML, CSS, JavaScript, React, Next.js, Django, Node.js, Python, APIs, and practical experience supporting web-based systems.",
-    proof: "Adds hands-on technical context to application systems support work.",
-    accent: "from-[#35aeca] to-[#20a779]",
+    icon: Code2,
+    title: "Web, APIs & Scripting",
+    blurb: "Technical delivery that supports application work.",
+    items: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Python",
+      "HTML/CSS",
+      "API integration",
+      "MySQL-backed apps",
+    ],
+    accent: "from-[#2ca2ba] to-[#1e9b73]",
   },
   {
-    icon: FaRegFileAlt,
-    title: "Delivery & Change",
-    detail: "Reports, presentation material, documentation, Git/GitHub, issue tracking, deployment support, and stakeholder communication.",
-    proof: "Useful in environments that need clear change handling and continuity.",
-    accent: "from-[#7c6cf2] to-[#e49a2f]",
+    icon: FileText,
+    title: "Documentation & Delivery",
+    blurb: "Important for analyst and systems roles.",
+    items: [
+      "Ticket management",
+      "Knowledge articles",
+      "Stakeholder communication",
+      "UAT support",
+      "Change support",
+      "Git/GitHub",
+    ],
+    accent: "from-[#d48d37] to-[#6f67df]",
   },
-  {
-    icon: FaMicrosoft,
-    title: "Customer Support Foundation",
-    detail: "Zendesk customer service training, end-user communication, support professionalism, escalation awareness, and service mindset.",
-    proof: "Relevant support foundation for migration and upgrade-focused teams.",
-    accent: "from-[#20a779] to-[#e49a2f]",
-  },
-  {
-    icon: FaNodeJs,
-    title: "Project Readiness",
-    detail: "Testing, documentation, change tracking, technical learning, and reliable contribution across application support and SQL-focused teams.",
-    proof: "Built for systems, support, reporting, and SQL-aware environments.",
-    accent: "from-[#e49a2f] to-[#7c6cf2]",
-  },
-];
-
-const orbitNodes = [
-  { label: "Support", detail: "L1/L2 troubleshooting", angle: 8, tilt: -38, tone: "from-[#20a779] to-[#e49a2f]" },
-  { label: "M365", detail: "Teams, Outlook, admin", angle: 70, tilt: -42, tone: "from-[#e49a2f] to-[#d9468f]" },
-  { label: "Apps", detail: "Business systems", angle: 132, tilt: -18, tone: "from-[#7c6cf2] to-[#35aeca]" },
-  { label: "SQL", detail: "MySQL checks", angle: 196, tilt: 28, tone: "from-[#35aeca] to-[#20a779]" },
-  { label: "SharePoint", detail: "Sites and workflows", angle: 260, tilt: -48, tone: "from-[#d9468f] to-[#7c6cf2]" },
-  { label: "Windows", detail: "User environments", angle: 318, tilt: 34, tone: "from-[#35aeca] to-[#7c6cf2]" },
 ];
 
 const education = [
   {
     school: "Torrens University Australia",
-    credential: "Master of Information Technology (Advanced), Information Technology",
+    credential: "Master of Information Technology (Advanced)",
     period: "2022 - 2024",
   },
   {
     school: "Performance Education",
-    credential: "Professional Year, Information Technology",
-    period: "Aug 2025 - 2026",
+    credential: "Professional Year Program, Information Technology",
+    period: "2025 - 2026",
   },
   {
     school: "Tribhuvan University",
-    credential: "Bachelor's degree, Computer Science and Information Technology",
+    credential: "Bachelor of Computer Science and Information Technology",
     period: "2015 - 2019",
   },
 ];
@@ -218,35 +275,78 @@ const certifications = [
   {
     name: "Zendesk Customer Service Professional Certificate",
     issuer: "LinkedIn",
-    issued: "Issued Sep 2024",
-    skills: "Customer support, service communication, support professionalism",
+    issued: "Sep 2024",
   },
   {
     name: "Google IT Support Specialization",
     issuer: "Coursera",
-    issued: "Issued Nov 2020",
-    skills: "Operating systems, troubleshooting, networking, IT support foundations",
+    issued: "Nov 2020",
   },
   {
     name: "Crash Course on Python",
     issuer: "Coursera",
-    issued: "Issued Sep 2020",
-    skills: "Python, debugging, troubleshooting, automation foundations",
+    issued: "Sep 2020",
   },
   {
     name: "Cyber Security Foundation",
     issuer: "Certiprof",
-    issued: "Issued Dec 2020",
-    skills: "Risk management, security awareness, technical foundations",
+    issued: "Dec 2020",
   },
 ];
 
-// Interactive Bento Card with Spotlight
-function BentoCard({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+const orbitNodes = [
+  { label: "Support", angle: 12, tilt: -18, tone: "from-[#1e9b73] to-[#d48d37]" },
+  { label: "M365", angle: 74, tilt: 18, tone: "from-[#d48d37] to-[#c55b9e]" },
+  { label: "Apps", angle: 140, tilt: -14, tone: "from-[#6f67df] to-[#2ca2ba]" },
+  { label: "SQL", angle: 214, tilt: 18, tone: "from-[#2ca2ba] to-[#1e9b73]" },
+  { label: "QA", angle: 282, tilt: -18, tone: "from-[#c55b9e] to-[#6f67df]" },
+  { label: "Python", angle: 338, tilt: 14, tone: "from-[#2ca2ba] to-[#6f67df]" },
+];
+
+function SectionIntro({
+  label,
+  title,
+  description,
+  align = "left",
+}: {
+  label: string;
+  title: string;
+  description: string;
+  align?: "left" | "center";
+}) {
+  const alignment =
+    align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl";
+
+  return (
+    <div className={alignment}>
+      <p className="section-label">{label}</p>
+      <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
+        {title}
+      </h2>
+      <p className="mt-3 text-sm leading-7 text-[#a8a5b3] sm:text-[15px]">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function BentoCard({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+  function handleMouseMove({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -254,17 +354,17 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.7, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay, ease: "easeOut" }}
       onMouseMove={handleMouseMove}
-      className={`group relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] shadow-2xl transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_34px_rgba(124,108,242,0.12)] ${className}`}
+      className={`group relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0a0910]/92 shadow-[0_26px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl ${className}`}
     >
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-[32px] opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded-[30px] opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
-          background: useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 80%)`,
+          background: useMotionTemplate`radial-gradient(520px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 75%)`,
         }}
       />
       {children}
@@ -276,20 +376,22 @@ function TerminalBadge() {
   return (
     <motion.div
       variants={fadeUp}
-      className="mt-8 w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-black/35 text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
+      className="mt-6 w-full max-w-xl overflow-hidden rounded-[24px] border border-white/10 bg-black/35 shadow-[0_20px_60px_rgba(0,0,0,0.3)] backdrop-blur-2xl"
     >
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#d9468f]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#e49a2f]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#20a779]" />
-        <span className="ml-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8f87a0]">
-          career-path.sh
+        <span className="h-2.5 w-2.5 rounded-full bg-[#c55b9e]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#d48d37]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#1e9b73]" />
+        <span className="ml-2 text-[10px] font-black uppercase tracking-[0.24em] text-[#8f87a0]">
+          positioning.log
         </span>
       </div>
-      <div className="grid gap-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
-        <p><span className="text-[#20a779]">&gt;</span> rajiv.path()</p>
-        <p className="terminal-type text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
-          support -&gt; microsoft 365 -&gt; sql -&gt; web apps
+      <div className="space-y-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
+        <p>
+          <span className="text-[#1e9b73]">&gt;</span> focus.current
+        </p>
+        <p className="terminal-type bg-gradient-to-r from-[#6f67df] via-[#c55b9e] to-[#d48d37] bg-clip-text text-transparent">
+          application systems -&gt; SQL support -&gt; data engineering path
         </p>
       </div>
     </motion.div>
@@ -299,12 +401,12 @@ function TerminalBadge() {
 function DataOrbit() {
   return (
     <div
-      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:5.9rem] sm:h-60 sm:w-60 sm:[--orbit-radius:7.4rem] lg:h-72 lg:w-72 lg:[--orbit-radius:8.7rem]"
+      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:6rem] sm:h-64 sm:w-64 sm:[--orbit-radius:7.8rem]"
       aria-hidden="true"
     >
-      <div className="absolute inset-4 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(124,108,242,0.08),transparent_64%)] shadow-[0_0_64px_rgba(124,108,242,0.12)]" />
-      <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
-      <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#7c6cf2]/18 via-[#d9468f]/12 to-[#20a779]/14 blur-2xl sm:h-32 sm:w-32" />
+      <div className="absolute inset-2 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(111,103,223,0.08),transparent_60%)]" />
+      <div className="absolute inset-7 rounded-full border border-dashed border-white/10" />
+      <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#6f67df]/16 via-[#c55b9e]/10 to-[#1e9b73]/14 blur-2xl sm:h-36 sm:w-36" />
       <div className="data-orbit-spin absolute inset-0">
         {orbitNodes.map((node) => (
           <div
@@ -314,279 +416,303 @@ function DataOrbit() {
               transform: `rotate(${node.angle}deg) translateX(var(--orbit-radius)) rotate(-${node.angle}deg)`,
             }}
           >
-            <div className="group pointer-events-auto relative -translate-x-1/2 -translate-y-1/2">
-              <span
-                className={`inline-flex min-w-12 items-center justify-center rounded-full bg-gradient-to-r ${node.tone} px-2.5 py-1.5 text-[8px] font-black uppercase tracking-[0.14em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.34)] ring-1 ring-white/15 transition duration-300 group-hover:scale-110 sm:min-w-16 sm:px-3 sm:py-2 sm:text-[10px]`}
-                style={{
-                  transform: `rotate(${node.tilt}deg)`,
-                }}
-              >
-                {node.label}
-              </span>
-              <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/80 px-3 py-1 text-[10px] font-semibold text-[#d8d1e6] opacity-0 shadow-xl backdrop-blur-xl transition group-hover:opacity-100">
-                {node.detail}
-              </span>
-            </div>
+            <span
+              className={`inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r ${node.tone} px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.32)] ring-1 ring-white/15 sm:text-[10px]`}
+              style={{
+                transform: `rotate(${node.tilt}deg)`,
+              }}
+            >
+              {node.label}
+            </span>
           </div>
         ))}
-      </div>
-      <div className="absolute inset-x-8 bottom-8 hidden rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[8px] font-black uppercase tracking-[0.18em] text-[#d8d1e6] shadow-[0_12px_28px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:block">
-        Support + Developer
       </div>
     </div>
   );
 }
 
 export default function CosmicPortfolio() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-
   return (
-    <div className="bg-[#020108] selection:bg-[#d9468f]/25 selection:text-white">
-      <CursorStars />
+    <div className="relative overflow-hidden bg-[#04030a] selection:bg-[#c55b9e]/25 selection:text-white">
+      <div className="premium-grid pointer-events-none absolute inset-0 opacity-45" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[52rem] bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.18),transparent_42%),radial-gradient(circle_at_72%_18%,rgba(197,91,158,0.14),transparent_24%),radial-gradient(circle_at_24%_32%,rgba(30,155,115,0.08),transparent_24%)]" />
 
-      {/* --- HERO SECTION --- */}
       <section
-        ref={heroRef}
         id="home"
-        className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pb-14 pt-28 sm:pt-32"
+        className="relative flex min-h-[100svh] items-center px-4 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:items-start lg:px-8 lg:pb-6 lg:pt-20"
       >
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
-          <div className="absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#7c6cf2]/16 via-[#d9468f]/8 to-[#e49a2f]/16 blur-[120px]" />
-        </motion.div>
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-[38%] h-[32rem] w-[90vw] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#6f67df]/14 via-[#c55b9e]/8 to-[#d48d37]/14 blur-[140px]" />
+        </div>
 
-        {/* Giant Background Typography */}
-        <motion.div 
-          style={{ y: heroY, opacity: heroOpacity, scale: textScale }}
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center mix-blend-screen"
-        >
-          <h1 className="text-[15vw] font-black leading-none tracking-tighter text-white/[0.03] select-none">
-            ANALYST
-          </h1>
-        </motion.div>
+        <div className="pointer-events-none absolute inset-x-0 top-[18%] hidden text-center lg:block">
+          <p className="text-[12vw] font-black uppercase tracking-[-0.08em] text-white/[0.035]">
+            SYSTEMS
+          </p>
+        </div>
 
-        <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-center"
-          >
-            <motion.div variants={fadeUp} className="relative mb-8 mt-4 flex h-44 w-44 items-center justify-center sm:h-56 sm:w-56 lg:h-64 lg:w-64">
-              <DataOrbit />
-              <div className="relative group">
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#7c6cf2] to-[#d9468f] blur opacity-32 group-hover:opacity-58 transition duration-1000 group-hover:duration-200" />
-                <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-white/20 bg-black sm:h-36 sm:w-36">
-                  <Image src="/profile-hero.png" alt="Rajiv Bhandari" fill className="object-cover" />
-                </div>
-              </div>
-            </motion.div>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-7 lg:grid-cols-[1.18fr_0.82fr] lg:items-start xl:gap-8">
+          <div className="max-w-3xl lg:max-w-[44rem]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-[#d8d1e6] backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-[#1e9b73] shadow-[0_0_12px_rgba(30,155,115,0.55)]" />
+              Open to junior application systems, SQL support, and technical support roles across Australia
+            </div>
 
-            <motion.div variants={fadeUp} className="mb-6 inline-flex max-w-[min(92vw,720px)] items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-center text-xs font-black uppercase tracking-[0.16em] text-[#d8d1e6] backdrop-blur-xl sm:tracking-[0.2em]">
-              <span className="mr-2 h-2 w-2 rounded-full bg-[#20a779] shadow-[0_0_8px_rgba(32,167,121,0.58)] animate-pulse" />
-              Adelaide based · Application Support & Developer · IT Support Professional
-            </motion.div>
-
-            <motion.h2
-              variants={fadeUp}
-              className="text-5xl font-black tracking-[-0.05em] text-white sm:text-7xl lg:text-[6rem] leading-[0.95]"
-            >
-              Application support <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7c6cf2] via-[#d9468f] to-[#e49a2f]">
-                for modern business systems.
+            <h1 className="mt-5 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
+              <span className="block">Application systems</span>
+              <span className="block">support with</span>
+              <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
+                SQL-ready delivery.
               </span>
-            </motion.h2>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-8 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-[#a1a1aa]"
-            >
-              I am an Adelaide-based Application Support & Developer and IT Support Professional with experience across SQL/MySQL, Microsoft 365, SharePoint, Windows environments, web applications, website testing, documentation, and user troubleshooting.
-            </motion.p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
+              I support business applications, Microsoft 365, SharePoint,
+              Windows environments, access control, workflows, web systems, and
+              data-aware troubleshooting while building deeper SQL and
+              engineering-ready delivery skills.
+            </p>
 
-            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center justify-center gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {[
-                "Application Support",
-                "IT Support L1/L2",
+                "Application systems",
                 "Microsoft 365",
-                "SQL/MySQL",
+                "SQL / MySQL",
                 "SharePoint",
-                "Website QA",
-                "Windows",
-                "Web Applications",
+                "Web applications",
               ].map((item) => (
                 <span key={item} className="cosmic-chip">
                   {item}
                 </span>
               ))}
-            </motion.div>
+            </div>
 
-            <TerminalBadge />
-
-            <motion.div variants={fadeUp} className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Link href="#projects" className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white px-8 py-4 font-bold text-black transition hover:scale-105 active:scale-95">
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Work
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer" />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="#projects" className="btn-primary group">
+                Explore Case Studies
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/resume" className="group inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 font-bold text-white backdrop-blur-md transition hover:bg-white/10 hover:border-white/30 hover:scale-105 active:scale-95">
-                <Download className="mr-2 h-4 w-4" />
+              <Link href="/resume" className="btn-outline group">
+                <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 View Resume
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+
+          <div className="relative lg:pt-1">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.14),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(197,91,158,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_40%)]" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="section-label">Profile Signal</p>
+                    <h2 className="mt-2 text-xl font-black leading-tight tracking-[-0.04em] text-white sm:text-[1.5rem]">
+                      Support-first, systems-aware, and growing deeper SQL strength.
+                    </h2>
+                  </div>
+                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#d8d1e6]">
+                    Junior-ready
+                  </span>
+                </div>
+
+                <div className="relative mt-4 flex h-[15.5rem] items-center justify-center sm:h-[18rem] lg:h-[16.5rem] xl:h-[17.5rem]">
+                  <DataOrbit />
+                  <div className="relative z-10 rounded-[32px] border border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-1.5 shadow-[0_22px_60px_rgba(0,0,0,0.4)]">
+                    <div className="relative overflow-hidden rounded-[26px] bg-[#06060c]">
+                      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-black/12" />
+                      <div className="relative h-36 w-36 sm:h-44 sm:w-44">
+                        <Image
+                          src="/profile-hero.png"
+                          alt="Rajiv Bhandari"
+                          fill
+                          sizes="(min-width: 640px) 176px, 144px"
+                          priority
+                          className="object-cover object-[center_16%]"
+                        />
+                      </div>
+                      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/50" />
+                      <div className="pointer-events-none absolute inset-x-4 bottom-0 h-px bg-white/18" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* --- BENTO GRID ABOUT & SKILLS --- */}
-      <section id="about" className="relative z-20 mx-auto max-w-7xl px-4 py-8 lg:py-10 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="mb-5 max-w-[1000px] mx-auto">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#d9468f]">Overview</p>
-          <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Recruiter Snapshot</h2>
+      <section
+        id="about"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-28"
+      >
+        <SectionIntro
+          label="Snapshot"
+          title="A recruiter-friendly read of where I fit best."
+          description="Research-backed pages work better when the most important points appear early, stay scannable, and use clear grouping. This section is designed to make the portfolio readable in under a minute while still feeling premium."
+        />
+
+        <div className="mt-8 grid gap-3 lg:grid-cols-3">
+          {recruiterSignals.map((signal) => (
+            <div
+              key={signal.title}
+              className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4 shadow-[0_18px_48px_rgba(0,0,0,0.22)] backdrop-blur-xl"
+            >
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#8f87a0]">
+                {signal.title}
+              </p>
+              <p className="mt-2 text-sm font-black leading-5 text-white">
+                {signal.value}
+              </p>
+              <p className="mt-2 text-[12px] leading-5 text-[#a8a5b3]">
+                {signal.note}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-4 md:grid-rows-2 max-w-[1000px] mx-auto">
-          {/* Main About Tile */}
-          <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6" delay={0.1}>
-            <div className="flex h-full flex-col justify-center">
-              <Sparkles className="h-6 w-6 text-[#e49a2f] mb-3" />
-              <div>
-                <h3 className="text-xl font-black tracking-tight text-white mb-2">Application Support & Developer with IT support depth.</h3>
-                <div className="space-y-2">
-                  <p className="text-sm text-[#a1a1aa] leading-snug">
-                    I support business applications, Microsoft 365, SharePoint, Windows environments, web-based systems, user access, workflows, and technical troubleshooting.
-                  </p>
-                  <p className="text-sm text-[#a1a1aa] leading-snug">
-                    I am also completing a Software Developer Internship at SpaceTel IT, where I review websites, assess user experience, identify issues, test performance, compare competitors, and prepare improvement reports.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </BentoCard>
-
-          {/* Core Focus Tile */}
-          <BentoCard className="md:col-span-2 md:row-span-1 p-5 lg:p-6 relative flex flex-col justify-center" delay={0.2}>
-            <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#7c6cf2]/16 to-transparent opacity-45 blur-2xl pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-3">Best-fit roles</h3>
-            <div className="space-y-3 relative z-10">
-              {[
-                { label: "Application Support / IT Support L1-L2", v: "100%" },
-                { label: "Technical Support / Software Support", v: "92%" },
-                { label: "Web Applications / Website QA", v: "78%" },
-                { label: "Database / Application Support", v: "70%" }
-              ].map((stat, i) => (
-                <div key={stat.label}>
-                  <div className="flex justify-between text-xs font-bold text-[#c9c1d8] mb-2 uppercase tracking-wider">
-                    <span>{stat.label}</span>
+        <div className="mt-8 grid gap-4 lg:grid-cols-12">
+          <BentoCard className="lg:col-span-6 p-6 sm:p-7" delay={0.05}>
+            <div className="relative z-10 flex h-full flex-col">
+              <p className="section-label">What I do now</p>
+              <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-white">
+                Application systems support backed by practical delivery context.
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[#b4b0bf]">
+                I support business applications, user workflows, Microsoft 365,
+                Windows environments, and web-based systems. I also bring
+                hands-on context from websites, APIs, hosting, deployment,
+                troubleshooting, and data-aware issue investigation.
+              </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Business applications support",
+                  "Microsoft 365 and identity",
+                  "SQL/MySQL checks and validation",
+                  "Documentation and change support",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[20px] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-[#d8d1e6]"
+                  >
+                    {item}
                   </div>
-                  <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-gradient-to-r from-[#7c6cf2] to-[#d9468f]"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: stat.v }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.3 + (i * 0.1) }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </BentoCard>
-
-          {/* Proof Blocks - Bottom Row */}
-          {overviewProof.map((group, index) => (
-            <BentoCard key={group.label} className="overview-play-card md:col-span-1 md:row-span-1 p-3 lg:p-4 flex flex-col group/skill" delay={0.3 + (index * 0.1)}>
-              <div className={`overview-card-scan absolute left-0 top-0 h-px w-full bg-gradient-to-r ${group.accent} opacity-0 transition group-hover/skill:opacity-100`} />
-              <div className="pointer-events-none absolute right-3 top-3 flex gap-1 opacity-30 transition group-hover/skill:opacity-100">
-                {[0, 1, 2].map((dot) => (
-                  <span
-                    key={dot}
-                    className={`overview-spark-dot h-1 w-1 rounded-full bg-gradient-to-r ${group.accent}`}
-                    style={{ animationDelay: `${dot * 120}ms` }}
-                  />
                 ))}
               </div>
-              <div className={`flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white border border-white/10 mb-2 group-hover/skill:scale-110 transition-all duration-500`}>
-                <group.icon className="h-3.5 w-3.5" />
+              <TerminalBadge />
+            </div>
+          </BentoCard>
+
+          <BentoCard className="lg:col-span-3 p-6" delay={0.12}>
+            <div className="relative z-10">
+              <p className="section-label">Best-fit roles</p>
+              <div className="mt-4 space-y-3">
+                {[
+                  "Junior Application Systems Analyst",
+                  "Application Support Analyst",
+                  "SQL support or SQL developer pathway role",
+                  "Technical support or business applications support",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[18px] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
-              <h3 className="text-sm font-bold text-white mb-0.5 group-hover/skill:text-[#d9468f] transition-colors">{group.label}</h3>
-              <p className="text-[8px] font-black text-[#8f87a0] uppercase tracking-widest mb-2">{group.value}</p>
-              <p className="text-[10px] text-[#a1a1aa] leading-snug flex-grow">{group.note}</p>
-              <p className="mt-2 translate-y-1 text-[8px] font-black uppercase tracking-[0.16em] text-[#d8d1e6] opacity-0 transition duration-300 group-hover/skill:translate-y-0 group-hover/skill:opacity-100">
-                {group.playful}
-              </p>
+            </div>
+          </BentoCard>
+
+          <BentoCard className="lg:col-span-3 p-6" delay={0.18}>
+            <div className="relative z-10">
+              <p className="section-label">What teams get</p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-[#b4b0bf]">
+                {[
+                  "Someone comfortable with users, tickets, and day-to-day systems issues.",
+                  "Someone who can write, test, and learn through technical detail instead of avoiding it.",
+                  "Someone deliberately building toward SQL-heavy and data-engineering-adjacent work.",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </BentoCard>
+
+          {overviewCards.map((card, index) => (
+            <BentoCard
+              key={card.label}
+              className="lg:col-span-3 p-5"
+              delay={0.24 + index * 0.06}
+            >
+              <div className="relative z-10">
+                <span
+                  className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br ${card.accent} text-white shadow-[0_14px_34px_rgba(0,0,0,0.24)]`}
+                >
+                  <card.icon className="h-5 w-5" />
+                </span>
+                <p className="mt-4 text-[10px] font-black uppercase tracking-[0.24em] text-[#8f87a0]">
+                  {card.label}
+                </p>
+                <h3 className="mt-2 text-lg font-black leading-6 text-white">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[#a8a5b3]">
+                  {card.copy}
+                </p>
+              </div>
             </BentoCard>
           ))}
         </div>
       </section>
 
-      {/* --- TECHNICAL SKILLS MATRIX --- */}
-      <section id="skills" className="relative z-20 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="mb-5 flex flex-col gap-2 text-center">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#35aeca]">
-            Technical Toolkit
-          </p>
-          <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
-            Application support, SQL, Microsoft 365, SharePoint, Windows, and web systems.
-          </h2>
-          <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-            A compact skill map grouped around employer-searchable areas:
-            application support, IT support L1/L2, Microsoft 365, SQL/MySQL,
-            SharePoint, website QA, documentation, and web application support.
-          </p>
-        </div>
+      <section
+        id="skills"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
+      >
+        <SectionIntro
+          label="Capabilities"
+          title="Capability areas grouped the way hiring teams usually scan them."
+          description="Instead of one long skill wall, this section is grouped into employer-searchable domains: support, Microsoft 365, systems, networking, SQL, development, and documentation."
+        />
 
-        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] p-3 shadow-[0_28px_90px_rgba(0,0,0,0.34)] sm:p-4">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(124,108,242,0.13),transparent_30%),radial-gradient(circle_at_90%_20%,rgba(217,70,143,0.09),transparent_34%),radial-gradient(circle_at_52%_100%,rgba(53,174,202,0.08),transparent_34%)]" />
-          <div className="relative grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {technicalSkillGroups.map((group, index) => (
+        <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {skillDomains.map((domain, index) => (
               <motion.article
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={domain.title}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.45, delay: index * 0.035, ease: "easeOut" }}
-                className="group relative min-h-[108px] overflow-hidden rounded-[22px] border border-white/10 bg-white/[0.035] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055]"
+                transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
+                className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] p-5 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
               >
-                <div className={`absolute -right-12 -top-12 h-28 w-28 rounded-full bg-gradient-to-br ${group.accent} opacity-12 blur-2xl transition duration-500 group-hover:opacity-24`} />
-                <div className="skill-card-scan pointer-events-none absolute inset-x-0 top-0 h-px opacity-0 transition group-hover:opacity-100" />
-                <div className="pointer-events-none absolute bottom-4 right-4 flex gap-1 opacity-30 transition group-hover:opacity-90">
-                  {[0, 1, 2].map((dot) => (
-                    <span
-                      key={dot}
-                      className={`skill-signal-dot h-1 w-1 rounded-full bg-gradient-to-r ${group.accent}`}
-                      style={{ animationDelay: `${dot * 160}ms` }}
-                    />
-                  ))}
-                </div>
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <span className={`skill-icon-bob flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${group.accent} text-white shadow-[0_12px_28px_rgba(0,0,0,0.22)]`}>
-                      <group.icon className="h-4 w-4" />
-                    </span>
-                    <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.16em] text-[#9d94b3]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  <h3 className="text-sm font-black tracking-[-0.03em] text-white">
-                    {group.title}
+                <div
+                  className={`absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br ${domain.accent} opacity-14 blur-2xl transition duration-300 group-hover:opacity-22`}
+                />
+                <div className="relative z-10">
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br ${domain.accent} text-white shadow-[0_12px_24px_rgba(0,0,0,0.2)]`}
+                  >
+                    <domain.icon className="h-4 w-4" />
+                  </span>
+                  <h3 className="mt-4 text-lg font-black text-white">
+                    {domain.title}
                   </h3>
-                  <p className="mt-1 text-[11px] leading-4 text-[#a1a1aa]">
-                    {group.detail}
-                  </p>
-                  <p className="mt-auto translate-y-1 pt-2 text-[8px] font-bold uppercase tracking-[0.14em] text-[#d8d1e6] opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    {group.proof}
-                  </p>
+                  <p className="mt-1 text-sm text-[#a8a5b3]">{domain.blurb}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {domain.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-semibold text-[#d8d1e6]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -594,260 +720,318 @@ export default function CosmicPortfolio() {
         </div>
       </section>
 
-      {/* --- EDUCATION & CREDENTIALS --- */}
-      <section id="credentials" className="relative z-20 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-28">
-        <div className="mb-8 flex flex-col gap-2 text-center">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#20a779]">
-            Education & Credentials
-          </p>
-          <h2 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
-            Formal IT study plus support-ready certifications.
-          </h2>
-          <p className="mx-auto max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-            This section is here for recruiters who scan quickly for Australian
-            education, support training, and technical foundations.
-          </p>
-        </div>
+      <section
+        id="credentials"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
+      >
+        <SectionIntro
+          label="Credentials"
+          title="Formal study plus support-focused foundations."
+          description="This section gives hiring managers a fast check on education, certifications, and technical foundations without interrupting the main portfolio story."
+        />
 
-        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="rounded-[32px] border border-white/10 bg-[#0a0812] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#20a779] to-[#35aeca] text-white">
+        <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[32px] border border-white/10 bg-[#090810]/92 p-6 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1e9b73] to-[#2ca2ba] text-white">
                 <GraduationCap className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#8f87a0]">
-                  Education
-                </p>
-                <h3 className="text-xl font-black text-white">IT qualifications</h3>
+                <p className="section-label">Education</p>
+                <h3 className="mt-2 text-2xl font-black text-white">
+                  IT qualifications
+                </h3>
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="mt-6 space-y-3">
               {education.map((item) => (
-                <div key={item.school} className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
+                <div
+                  key={item.school}
+                  className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4"
+                >
                   <p className="text-base font-black text-white">{item.school}</p>
-                  <p className="mt-1 text-sm leading-6 text-[#d8d1e6]">{item.credential}</p>
-                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8f87a0]">{item.period}</p>
+                  <p className="mt-1 text-sm leading-6 text-[#d8d1e6]">
+                    {item.credential}
+                  </p>
+                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8f87a0]">
+                    {item.period}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-white/10 bg-[#0a0812] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] text-white">
+          <div className="rounded-[32px] border border-white/10 bg-[#090810]/92 p-6 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6f67df] to-[#c55b9e] text-white">
                 <Award className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#8f87a0]">
-                  Certifications
-                </p>
-                <h3 className="text-xl font-black text-white">Support and technical foundations</h3>
+                <p className="section-label">Certifications</p>
+                <h3 className="mt-2 text-2xl font-black text-white">
+                  Support and technical readiness
+                </h3>
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {certifications.map((item) => (
-                <div key={item.name} className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
-                  <p className="text-sm font-black leading-5 text-white">{item.name}</p>
-                  <p className="mt-2 text-xs font-semibold text-[#d8d1e6]">{item.issuer} · {item.issued}</p>
-                  <p className="mt-3 text-[11px] leading-5 text-[#a1a1aa]">{item.skills}</p>
+                <div
+                  key={item.name}
+                  className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4"
+                >
+                  <p className="text-sm font-black leading-5 text-white">
+                    {item.name}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-[#d8d1e6]">
+                    {item.issuer} | {item.issued}
+                  </p>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* --- STICKY EXPERIENCE SECTION --- */}
-      <section id="experience" className="relative z-10 w-full bg-[#05040a] border-y border-white/5 py-24 sm:py-32 scroll-mt-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-            
-            {/* Sticky Left Column */}
-            <div className="lg:sticky lg:top-32 lg:col-span-5">
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7c6cf2]">Journey</p>
-              <h2 className="mt-4 text-5xl font-black tracking-[-0.04em] text-white sm:text-6xl md:text-7xl">
-                Experience
-              </h2>
-            <p className="mt-6 text-lg leading-relaxed text-[#a1a1aa] max-w-md">
-                Current internship, support consulting, application development, and data quality experience shaped around troubleshooting, documentation, testing, and user-focused systems work.
+            <div className="mt-5 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
+              <p className="section-label">Current emphasis</p>
+              <p className="mt-2 text-sm leading-7 text-[#b4b0bf]">
+                I am intentionally shaping my profile around application
+                systems, business applications, SQL support, reporting-aware
+                work, and the delivery habits that matter in junior analyst and
+                developer pathways.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Scrolling Right Column */}
-            <div className="lg:col-span-7 space-y-6">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] p-8 transition hover:bg-[#0f0b1a]"
-                >
-                  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] opacity-0 blur-[60px] transition duration-700 group-hover:opacity-16" />
-                  
-                  <div className="relative z-10">
-                    <span className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#d9468f] mb-4">
-                      {item.year}
-                    </span>
-                    <h3 className="text-2xl font-black tracking-tight text-white mb-1 group-hover:text-[#7c6cf2] transition-colors">
-                      {item.role}
-                    </h3>
-                    <p className="text-sm font-semibold text-[#a1a1aa] mb-6">{item.place}</p>
-                    <p className="text-base text-[#d8d1e6] mb-6 leading-relaxed">{item.summary}</p>
-                    
-                    <ul className="space-y-3">
-                      {item.points.map((point) => (
-                        <li key={point} className="flex items-start gap-3 text-sm font-medium text-[#a1a1aa]">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
+      <section
+        id="experience"
+        className="relative z-10 border-y border-white/5 bg-[#05040a] py-20 sm:py-24 scroll-mt-28"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="lg:sticky lg:top-32 lg:col-span-4">
+              <SectionIntro
+                label="Experience"
+                title="A practical track record across support, systems, delivery, and data accuracy."
+                description="The experience is intentionally framed to show junior but credible progression: user support, systems support, technical delivery, and data discipline."
+              />
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="relative space-y-5 pl-0 sm:pl-8">
+                <div className="absolute left-[0.95rem] top-3 hidden h-[calc(100%-1.5rem)] w-px bg-gradient-to-b from-white/20 via-white/8 to-transparent sm:block" />
+                {timeline.map((item, index) => (
+                  <motion.article
+                    key={`${item.role}-${item.year}`}
+                    initial={{ opacity: 0, x: 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-90px" }}
+                    transition={{ duration: 0.55, delay: index * 0.05, ease: "easeOut" }}
+                    className="relative rounded-[30px] border border-white/10 bg-[#0a0910]/92 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.3)]"
+                  >
+                    <div className="absolute left-4 top-8 hidden h-3 w-3 rounded-full border border-[#04030a] bg-[#2ca2ba] shadow-[0_0_18px_rgba(44,162,186,0.55)] sm:block" />
+                    <div className="sm:pl-8">
+                      <span className="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#c55b9e]">
+                        {item.year}
+                      </span>
+                      <h3 className="mt-4 text-2xl font-black tracking-[-0.04em] text-white">
+                        {item.role}
+                      </h3>
+                      <p className="mt-2 text-sm font-semibold text-[#9c98a8]">
+                        {item.place}
+                      </p>
+                      <p className="mt-4 text-sm leading-7 text-[#d8d1e6]">
+                        {item.summary}
+                      </p>
+                      <ul className="mt-5 space-y-3">
+                        {item.points.map((point) => (
+                          <li
+                            key={point}
+                            className="flex items-start gap-3 text-sm leading-6 text-[#a8a5b3]"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d48d37]" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- SHOWCASE PROJECTS --- */}
-      <section id="projects" className="relative z-20 py-12 sm:py-16 scroll-mt-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col items-center text-center">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#e49a2f]">Showcase</p>
-            <h2 className="mt-2 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Practical Delivery Projects</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#a1a1aa]">
-              These projects show practical delivery: requirements, website
-              development, hosting, DNS, SSL, deployment, content updates, and
-              support after go-live.
-            </p>
-          </div>
+      <section
+        id="projects"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 scroll-mt-28"
+      >
+        <SectionIntro
+          label="Projects"
+          title="Client-facing work presented like real case studies."
+          description="High-end portfolios feel stronger when projects explain business context, delivery decisions, and post-launch ownership. These two builds show real client work, not just visual mockups."
+          align="center"
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                className="group flex flex-col overflow-hidden rounded-[32px] border border-white/10 bg-[#0a0812] transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_32px_rgba(124,108,242,0.08)]"
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.slug}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
+              className="group overflow-hidden rounded-[34px] border border-white/10 bg-[#090810]/92 shadow-[0_30px_100px_rgba(0,0,0,0.34)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
+            >
+              <Link
+                href={`/projects/${project.slug}`}
+                className="relative block aspect-[1.65/1] overflow-hidden border-b border-white/10"
               >
-                {/* Project Image */}
-                <Link href={`/projects/${project.slug}`} className="relative aspect-[2/1] w-full overflow-hidden bg-black border-b border-white/5">
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover object-top transition duration-1000 group-hover:scale-105 group-hover:opacity-80" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0812] via-black/20 to-transparent opacity-80" />
-                  
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-500 group-hover:opacity-100 backdrop-blur-sm bg-black/20">
-                    <span className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
-                      View Case Study <ArrowUpRight className="h-4 w-4" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/18 to-transparent" />
+                <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white backdrop-blur-xl">
+                  Live delivery
+                </div>
+                <div className="absolute bottom-5 left-5 right-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#f1dcc1]">
+                    {project.liveLabel}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm text-[#d8d1e6]">
+                    {project.subtitle}
+                  </p>
+                </div>
+              </Link>
+
+              <div className="p-6">
+                <p className="text-sm leading-7 text-[#b4b0bf]">
+                  {project.businessGoal}
+                </p>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
+                    <p className="section-label">Role</p>
+                    <p className="mt-2 text-sm font-semibold leading-6 text-white">
+                      {project.role}
+                    </p>
+                  </div>
+                  <div className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
+                    <p className="section-label">Outcome</p>
+                    <p className="mt-2 text-sm font-semibold leading-6 text-white">
+                      {project.measurableOutcome}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-semibold text-[#d8d1e6]"
+                    >
+                      {tech}
                     </span>
-                  </div>
+                  ))}
+                </div>
 
-                  <div className="absolute bottom-4 left-4 right-4 translate-y-3 rounded-2xl border border-white/10 bg-black/70 p-4 text-left opacity-0 shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur-2xl transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-[8px] font-black uppercase tracking-[0.24em] text-[#e49a2f]">
-                      Mission card
-                    </p>
-                    <p className="mt-1 text-xs font-bold leading-snug text-white">
-                      {project.businessGoal}
-                    </p>
-                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                      <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
-                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#7c6cf2]">
-                          Proof
-                        </p>
-                        <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
-                          {project.measurableOutcome}
-                        </p>
-                      </div>
-                      <div className="rounded-xl border border-white/10 bg-white/[0.05] p-2">
-                        <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#d9468f]">
-                          Support
-                        </p>
-                        <p className="mt-1 text-[10px] font-semibold leading-snug text-[#d8d1e6]">
-                          {project.supportProof[0]}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <ul className="mt-5 space-y-3">
+                  {project.supportProof.slice(0, 2).map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-sm leading-6 text-[#a8a5b3]"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                {/* Project Info */}
-                <div className="flex flex-1 flex-col p-5 lg:p-6 relative">
-                  <div className="absolute top-0 right-6 -translate-y-1/2 flex gap-1.5">
-                    {project.stack.slice(0,2).map(tech => (
-                      <span key={tech} className="rounded-full border border-white/20 bg-black/80 backdrop-blur-md px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white shadow-xl">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h3 className="text-xl font-black tracking-tight text-white mb-2 mt-1">{project.title}</h3>
-                  <p className="text-xs text-[#a1a1aa] mb-4 leading-relaxed flex-grow">{project.outcome}</p>
-                  
-                  <div className="rounded-xl border border-white/5 bg-white/[0.02] p-3 mb-4">
-                    <p className="text-[8px] font-black uppercase tracking-[0.2em] text-[#7c6cf2] mb-1">Value Delivered</p>
-                    <p className="text-[11px] font-semibold text-white leading-snug">{project.supportProof[1]}</p>
-                  </div>
-
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-[#d9468f] transition-colors w-fit">
-                    Visit Live Site <ArrowUpRight className="h-3 w-3" />
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href={`/projects/${project.slug}`} className="btn-outline">
+                    Read Case Study
+                  </Link>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Visit Live Site
+                    <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </section>
 
-      {/* --- CONTACT SECTION --- */}
-      <section id="contact" className="relative z-20 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[48px] border border-white/10 bg-[#0a0812] shadow-2xl relative">
-          <div className="absolute top-0 right-0 h-[500px] w-[500px] bg-gradient-to-bl from-[#7c6cf2]/16 to-transparent blur-[100px] pointer-events-none" />
-          
-          <div className="grid gap-12 p-8 sm:p-16 lg:grid-cols-2 relative z-10">
-            <div className="flex flex-col justify-center">
-              <h2 className="text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl mb-6">Ready to support <br/><span className="text-[#d9468f]">your team.</span></h2>
-              <p className="text-lg text-[#a1a1aa] mb-10 max-w-md">
-                Open to Application Support, IT Support L1/L2, Technical Support, ICT Support, Web Applications Support, Web Development, and Database/Application Support opportunities.
-              </p>
+      <section
+        id="contact"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+      >
+        <div className="overflow-hidden rounded-[40px] border border-white/10 bg-[#090810]/92 shadow-[0_34px_120px_rgba(0,0,0,0.4)] backdrop-blur-3xl">
+          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.92fr_1.08fr] lg:p-10">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#6f67df]/18 blur-[90px]" />
+              <div className="relative z-10">
+                <p className="section-label">Contact</p>
+                <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
+                  Ready to support a team and grow into deeper systems work.
+                </h2>
+                <p className="mt-5 max-w-xl text-base leading-8 text-[#b4b0bf]">
+                  Open to junior application systems, business applications,
+                  technical support, Microsoft 365, and SQL-support pathways.
+                  I am happy to discuss roles that value practical ownership,
+                  clear communication, and strong learning momentum.
+                </p>
 
-              <div className="mb-8 flex flex-wrap gap-2">
-                <span className="cosmic-chip">
-                  <MapPin className="mr-2 h-3.5 w-3.5" />
-                  Adelaide, South Australia
-                </span>
-                <span className="cosmic-chip">On-site, hybrid, or remote</span>
-                <span className="cosmic-chip">Available for junior/support roles</span>
-              </div>
-              
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <a href="mailto:bhandarirajiv25@gmail.com" className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 font-bold text-black transition hover:scale-105">
-                  <Mail className="mr-2 h-4 w-4" /> Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 font-bold text-white hover:bg-white/10 transition">
-                  <FaLinkedin className="mr-2 h-4 w-4" /> LinkedIn
-                </a>
+                <div className="mt-6 flex flex-wrap gap-2.5">
+                  <span className="cosmic-chip">
+                    <MapPin className="mr-2 h-3.5 w-3.5" />
+                    Available across Australia
+                  </span>
+                  <span className="cosmic-chip">On-site, hybrid, or remote depending on role</span>
+                  <span className="cosmic-chip">Junior and growth-track opportunities</span>
+                </div>
+
+                <div className="mt-8 space-y-3">
+                  <a
+                    href="mailto:bhandarirajiv25@gmail.com"
+                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+                  >
+                    <Mail className="h-4 w-4 text-[#c55b9e]" />
+                    bhandarirajiv25@gmail.com
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/rajiv-bhandari25/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+                  >
+                    <FaLinkedin className="h-4 w-4 text-[#2ca2ba]" />
+                    linkedin.com/in/rajiv-bhandari25
+                  </a>
+                </div>
               </div>
             </div>
-            
-            <div className="rounded-[32px] border border-white/5 bg-white/[0.02] p-8 backdrop-blur-md">
+
+            <div className="rounded-[32px] border border-white/10 bg-black/18 p-1">
               <ContactForm />
             </div>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

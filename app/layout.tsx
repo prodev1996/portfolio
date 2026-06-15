@@ -23,18 +23,18 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Support & Developer",
+    default: "Rajiv Bhandari | Application Systems and SQL Support Portfolio",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Adelaide-based portfolio of Rajiv Bhandari, an Application Support & Developer and IT Support Professional with SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, documentation, and user troubleshooting experience.",
+    "Portfolio of Rajiv Bhandari, an application systems and support professional with Microsoft 365, SharePoint, Windows, SQL/MySQL, reporting support, web applications, documentation, and troubleshooting experience across Australia.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Support & Developer",
+    title: "Rajiv Bhandari | Application Systems and SQL Support Portfolio",
     description:
-      "Adelaide-based Application Support & Developer and IT Support Professional focused on SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, and user troubleshooting.",
+      "Application systems and support portfolio focused on Microsoft 365, SharePoint, Windows, SQL/MySQL, reporting support, web applications, and practical troubleshooting.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Support & Developer",
+    title: "Rajiv Bhandari | Application Systems and SQL Support Portfolio",
     description:
-      "Application Support & Developer and IT Support Professional with SQL/MySQL, Microsoft 365, SharePoint, Windows, web applications, website QA, documentation, and troubleshooting experience.",
+      "Application systems and support professional with Microsoft 365, SharePoint, Windows, SQL/MySQL, reporting support, web applications, documentation, and troubleshooting experience.",
     images: ["/og-image.png"],
   },
   keywords: [
@@ -96,8 +96,6 @@ export const metadata: Metadata = {
     "Software Developer Intern",
     "Junior Software Developer",
     "Technical Support",
-    "Adelaide",
-    "South Australia",
     "Australia",
   ],
   authors: [

@@ -67,7 +67,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <div className="mt-7 grid gap-5 rounded-[36px] border border-white/10 bg-[#120f1d]/72 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.34)] backdrop-blur-2xl lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:p-7">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#f0abfc]">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#d8a7e7]">
               Project
             </p>
             <h1 className="mt-4 text-4xl font-black leading-[0.95] tracking-[-0.07em] text-white sm:text-5xl lg:text-6xl">
@@ -102,18 +102,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        <div className="mt-6 overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:p-4">
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open live website for ${project.title}`}
+          className="group mt-6 block overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] outline-none backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-[#c55b9e] sm:p-4"
+        >
           <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
             <Image
               src={project.image}
               alt={project.title}
               fill
               priority
-              className="object-cover object-top"
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="object-cover object-top transition duration-700 group-hover:scale-[1.02] group-hover:opacity-85"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070610]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition duration-300 group-hover:bg-black/20 group-hover:opacity-100 group-hover:backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-black text-black shadow-2xl">
+                Open live website
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </div>
           </div>
-        </div>
+        </a>
 
         <div className="mt-5 grid gap-4 lg:grid-cols-3">
           {[
@@ -122,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ["Support", project.supportProof[1] ?? project.supportProof[0]],
           ].map(([label, value]) => (
             <article key={label} className="cosmic-card">
-              <p className="text-xs font-black uppercase tracking-[0.26em] text-[#f0abfc]">
+              <p className="text-xs font-black uppercase tracking-[0.26em] text-[#d8a7e7]">
                 {label}
               </p>
               <p className="mt-4 text-sm leading-7 text-[#d8d1e6]">{value}</p>
@@ -132,14 +145,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <div className="mt-5 grid gap-5 lg:grid-cols-2">
           {project.images.map((image) => (
-            <div
+            <a
               key={image.src}
-              className="overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_30px_100px_rgba(0,0,0,0.34)]"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open live website for ${project.title}`}
+              className="group overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_30px_100px_rgba(0,0,0,0.34)] outline-none transition duration-300 hover:-translate-y-1 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-[#c55b9e]"
             >
               <div className="relative aspect-[16/10] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
-                <Image src={image.src} alt={image.alt} fill className="object-cover object-top" />
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-top transition duration-700 group-hover:scale-[1.02] group-hover:opacity-85"
+                />
+                <div className="absolute right-4 top-4 flex translate-y-1 items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-white opacity-0 shadow-xl backdrop-blur-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  Open
+                  <ArrowUpRight className="h-3 w-3" />
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

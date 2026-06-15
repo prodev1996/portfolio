@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2, ExternalLink } from "lucide-react";
-import Link from "next/link";
+import { ArrowUpRight, FolderGit2 } from "lucide-react";
 
 export default function ResumeProjects() {
   const projects = [
@@ -37,7 +36,7 @@ export default function ResumeProjects() {
         "Built secure enquiry and contact forms with validation and email notifications.",
         "Managed domain, DNS, SSL, and deployment updates after launch.",
       ],
-      link: "/#projects",
+      link: "https://www.glideedu.com.au/",
     },
     {
       title: "Prime Roof Care",
@@ -48,7 +47,7 @@ export default function ResumeProjects() {
         "Designed responsive pages using HTML, CSS, and Tailwind for smooth performance.",
         "Managed hosting updates and content changes after deployment to keep the site current and usable.",
       ],
-      link: "/#projects",
+      link: "https://www.primeroofcare.com.au/",
     },
   ];
 
@@ -66,42 +65,72 @@ export default function ResumeProjects() {
       </div>
 
       <div className="grid gap-6">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition duration-300 hover:border-white/10 hover:bg-white/[0.04]"
-          >
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#e49a2f] to-[#d9468f] opacity-0 blur-xl transition duration-500 group-hover:opacity-8" />
+        {projects.map((project, index) => {
+          const content = (
+            <>
+              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#e49a2f] to-[#d9468f] opacity-0 blur-xl transition duration-500 group-hover:opacity-8" />
 
-            <div className="relative z-10 mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
-              <div>
-                <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#e49a2f]">
-                  {project.title}
-                  {project.link && (
-                    <Link href={project.link} className="text-white/40 transition hover:text-white">
-                      <ExternalLink size={14} />
-                    </Link>
-                  )}
-                </h3>
-                <p className="mt-1 text-sm font-semibold text-[#f0abfc]">{project.subtitle}</p>
-                <p className="mt-1 text-xs font-medium text-[#8f87a0]">{project.meta}</p>
+              <div className="relative z-10 mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
+                <div>
+                  <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#e49a2f]">
+                    {project.title}
+                    {project.link && (
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/50 transition group-hover:border-[#e49a2f]/35 group-hover:text-white">
+                        <ArrowUpRight size={13} />
+                      </span>
+                    )}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold text-[#f0abfc]">{project.subtitle}</p>
+                  <p className="mt-1 text-xs font-medium text-[#8f87a0]">{project.meta}</p>
+                </div>
               </div>
-            </div>
 
-            <ul className="relative z-10 space-y-2 text-sm leading-relaxed text-[#c9c1d8]">
-              {project.bullets.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+              <ul className="relative z-10 space-y-2 text-sm leading-relaxed text-[#c9c1d8]">
+                {project.bullets.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          );
+
+          const cardClassName =
+            "group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition duration-300 hover:border-white/10 hover:bg-white/[0.04]";
+
+          if (project.link) {
+            return (
+              <motion.a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open live website for ${project.title}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`${cardClassName} block outline-none hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#d9468f]`}
+              >
+                {content}
+              </motion.a>
+            );
+          }
+
+          return (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={cardClassName}
+            >
+              {content}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

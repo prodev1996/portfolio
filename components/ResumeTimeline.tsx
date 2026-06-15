@@ -7,7 +7,7 @@ const experience = [
   {
     company: "SpaceTel IT",
     role: "Software Developer Intern",
-    location: "Adelaide, South Australia",
+    location: "Australia",
     period: "May 2026 - Present",
     bullets: [
       "Reviewed website pages, navigation, layout, content structure, and user journey from a customer perspective.",
@@ -21,7 +21,7 @@ const experience = [
   {
     company: "Sole trader / Contract",
     role: "Application Support & IT Support Consultant",
-    location: "Australia · Remote",
+    location: "Australia | Remote",
     period: "2022 - Present",
     bullets: [
       "Provide Level 1/2 IT and application support for small business clients across Microsoft 365, Windows environments, SharePoint, Outlook, Teams, and web-based systems.",
@@ -61,10 +61,13 @@ const experience = [
 
 export default function ResumeTimeline() {
   return (
-    <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8" aria-labelledby="experience-heading">
+    <section
+      className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8"
+      aria-labelledby="experience-heading"
+    >
       <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#7c6cf2]/8 blur-[100px] pointer-events-none" />
-      
-      <div className="flex items-center gap-4 mb-8">
+
+      <div className="mb-8 flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#7c6cf2]">
           <Briefcase size={22} />
         </div>
@@ -76,7 +79,7 @@ export default function ResumeTimeline() {
         </h2>
       </div>
 
-      <div className="relative border-l-2 border-white/5 pl-6 sm:pl-8 ml-3 sm:ml-4">
+      <div className="relative ml-3 border-l-2 border-white/5 pl-6 sm:ml-4 sm:pl-8">
         {experience.map((job, index) => (
           <motion.article
             key={job.company + job.role}
@@ -87,9 +90,9 @@ export default function ResumeTimeline() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             <div className="absolute -left-[35px] top-1 h-5 w-5 rounded-full border-4 border-[#120f1d] bg-[#35aeca] shadow-[0_0_14px_rgba(53,174,202,0.55)] transition-transform group-hover:scale-125 sm:-left-[43px]" />
-            
+
             <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-white/[0.04] to-transparent opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-            
+
             <div className="relative rounded-2xl border border-transparent p-5 transition duration-500 group-hover:border-white/10 group-hover:bg-white/[0.02]">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                 <h3 className="text-xl font-bold tracking-tight text-white transition group-hover:text-[#35aeca]">
@@ -100,20 +103,21 @@ export default function ResumeTimeline() {
                 </span>
               </div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#d9468f]">
-                {job.company} <span className="mx-2 text-white/20">|</span> <span className="text-[#7c6cf2]">{job.location}</span>
+                {job.company} <span className="mx-2 text-white/20">|</span>{" "}
+                <span className="text-[#7c6cf2]">{job.location}</span>
               </p>
               <ul className="space-y-3 text-sm leading-relaxed text-[#c9c1d8]">
-                {job.bullets.map((b, i) => (
-                  <motion.li 
-                    key={i} 
+                {job.bullets.map((bullet, bulletIndex) => (
+                  <motion.li
+                    key={bulletIndex}
                     className="flex gap-3"
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: (index * 0.1) + (i * 0.05) }}
+                    transition={{ delay: index * 0.1 + bulletIndex * 0.05 }}
                   >
                     <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#f0abfc] shadow-[0_0_10px_rgba(240,171,252,0.8)]" />
-                    <span>{b}</span>
+                    <span>{bullet}</span>
                   </motion.li>
                 ))}
               </ul>

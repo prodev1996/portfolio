@@ -21,8 +21,8 @@ const assistantTabs = {
   Work: {
     question: "show me your work",
     answer:
-      "My work shows practical delivery habits across business applications, database-backed systems, Microsoft 365 support, documentation, troubleshooting, and structured change handling.",
-    highlights: ["Business apps", "Git/GitHub", "Post-launch support"],
+      "My work shows practical delivery across business applications, Microsoft 365 support, SQL-aware troubleshooting, live client websites, documentation, and post-launch support.",
+    highlights: ["Business apps", "SQL-aware", "Post-launch support"],
   },
   "About me": {
     question: "tell me more about yourself",
@@ -63,8 +63,8 @@ type ChatMessage = {
 const initialChatMessages: ChatMessage[] = [
   {
     role: "assistant",
-    text: "Hi, I am Rajiv's portfolio assistant. Ask me about his application systems background, SQL/MySQL support skills, projects, or contact details.",
-    highlights: ["Business apps", "Projects", "Skills", "Contact"],
+    text: "Hi, I am Rajiv's portfolio guide. Ask me about his application systems background, SQL-ready support skills, live projects, or contact details.",
+    highlights: ["Systems", "Projects", "Skills", "Contact"],
   },
 ];
 
@@ -212,7 +212,7 @@ export default function AssistantWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end sm:bottom-6 sm:right-6">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -220,11 +220,11 @@ export default function AssistantWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-4 w-[340px] overflow-hidden rounded-[24px] border border-white/10 bg-[#050505]/85 shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-3xl sm:w-[380px]"
+            className="mb-3 w-[min(380px,calc(100vw-1rem))] overflow-hidden rounded-[24px] border border-white/10 bg-[#050505]/88 shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-3xl sm:mb-4"
           >
             <div className="flex items-center justify-between border-b border-white/5 bg-white/[0.02] px-5 py-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] shadow-[0_0_12px_rgba(124,108,242,0.24)]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#6f67df] to-[#c55b9e] shadow-[0_0_12px_rgba(111,103,223,0.24)]">
                   <Bot className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -233,8 +233,10 @@ export default function AssistantWidget() {
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
                 className="rounded-full p-2 text-[#a1a1aa] transition hover:bg-white/10 hover:text-white"
+                aria-label="Close portfolio assistant"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -254,7 +256,7 @@ export default function AssistantWidget() {
                   <div
                     className={`max-w-[85%] text-sm leading-relaxed ${
                       message.role === "user"
-                        ? "rounded-2xl rounded-tr-sm bg-[#7c6cf2] px-4 py-2.5 text-white"
+                        ? "rounded-2xl rounded-tr-sm bg-[#6f67df] px-4 py-2.5 text-white"
                         : "rounded-2xl rounded-tl-sm bg-white/5 border border-white/5 px-4 py-3 text-[#d8d1e6]"
                     }`}
                   >
@@ -276,7 +278,7 @@ export default function AssistantWidget() {
                             href={action.href}
                             target={action.external ? "_blank" : undefined}
                             rel={action.external ? "noopener noreferrer" : undefined}
-                            className="rounded-full border border-[#7c6cf2]/35 bg-[#7c6cf2]/10 px-2.5 py-1 text-[11px] font-semibold text-[#c9c0ff] transition hover:bg-[#7c6cf2]/18 hover:text-white"
+                            className="rounded-full border border-[#6f67df]/35 bg-[#6f67df]/10 px-2.5 py-1 text-[11px] font-semibold text-[#d9d2ff] transition hover:bg-[#6f67df]/18 hover:text-white"
                           >
                             {action.label}
                           </a>
@@ -297,7 +299,7 @@ export default function AssistantWidget() {
                     onClick={() => askAssistant(item)}
                     className={`rounded-full border px-3 py-1.5 text-[11px] font-medium transition ${
                       activeTab === item
-                        ? "border-[#7c6cf2]/35 bg-[#7c6cf2]/16 text-white"
+                        ? "border-[#6f67df]/35 bg-[#6f67df]/16 text-white"
                         : "border-white/5 bg-transparent text-[#a1a1aa] hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -307,7 +309,7 @@ export default function AssistantWidget() {
               </div>
               <form
                 onSubmit={handleAssistantSubmit}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 transition-colors focus-within:border-[#7c6cf2]/45"
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 transition-colors focus-within:border-[#6f67df]/45"
               >
                 <input
                   value={assistantInput}
@@ -319,7 +321,7 @@ export default function AssistantWidget() {
                 <button
                   type="submit"
                   disabled={!assistantInput.trim()}
-                  className="rounded-full bg-[#7c6cf2] p-1.5 text-white transition hover:bg-[#9488f5] disabled:opacity-50"
+                  className="rounded-full bg-[#6f67df] p-1.5 text-white transition hover:bg-[#847ce8] disabled:opacity-50"
                 >
                   <Send className="h-3.5 w-3.5" />
                 </button>
@@ -333,13 +335,15 @@ export default function AssistantWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#7c6cf2] to-[#d9468f] shadow-[0_8px_26px_rgba(124,108,242,0.32)] transition-shadow hover:shadow-[0_12px_34px_rgba(124,108,242,0.44)]"
+        type="button"
+        aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}
+        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#6f67df] to-[#c55b9e] shadow-[0_8px_26px_rgba(111,103,223,0.3)] transition-shadow hover:shadow-[0_12px_34px_rgba(111,103,223,0.4)] sm:h-14 sm:w-14"
       >
         <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 blur-md transition group-hover:opacity-30" />
         {isOpen ? (
-          <X className="relative h-6 w-6 text-white" />
+          <X className="relative h-5 w-5 text-white sm:h-6 sm:w-6" />
         ) : (
-          <MessageCircle className="relative h-6 w-6 text-white" />
+          <MessageCircle className="relative h-5 w-5 text-white sm:h-6 sm:w-6" />
         )}
       </motion.button>
     </div>
