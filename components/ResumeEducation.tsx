@@ -29,10 +29,10 @@ const foundations = [
 ];
 
 const attributes = [
-  "Clear communication with both technical and non-technical stakeholders",
-  "Strong attention to detail and structured troubleshooting habits built across multiple roles",
-  "Proven ability to manage support tickets, documentation, and system changes end-to-end",
-  "Currently enrolled in a Professional Year Program — structured Australian workplace readiness",
+  "Clear communication and dependable stakeholder support",
+  "Attention to detail with structured troubleshooting habits",
+  "Curious learner who adapts quickly to technical standards",
+  "Ready to support guided testing, validation work, and system change activities",
 ];
 
 export default function ResumeEducation() {

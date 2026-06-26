@@ -30,60 +30,6 @@ export type PortfolioProject = {
 
 export const projects: PortfolioProject[] = [
   {
-    slug: "enterprise-compliance-platform",
-    title: "Enterprise Compliance Platform",
-    subtitle: "Multi-role compliance assessment and QMS support",
-    overview:
-      "Administration, testing, and release management of a role-based enterprise compliance platform — configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
-    image: "/projects/og-image.png",
-    accentImage: "/projects/og-image.png",
-    images: [
-      { src: "/projects/og-image.png", alt: "Enterprise Compliance Platform" },
-    ],
-    liveUrl: "#",
-    liveLabel: "SpaceTel IT — Adelaide",
-    stack: ["React", "Spring Boot", "PostgreSQL", "Selenium", "JUnit"],
-    businessGoal:
-      "Support the ongoing administration and quality assurance of a multi-role compliance platform used across Admin, Auditor, and Client roles.",
-    role: "Application Support & QA Analyst — configuration, testing, release management, and defect lifecycle",
-    measurableOutcome:
-      "Managed end-to-end defect lifecycle, coordinated pre-production UAT, and produced release summaries and test reports for stakeholder approval.",
-    trustSignals: [
-      "Live enterprise compliance platform",
-      "Multi-role system administration",
-      "Release and defect management",
-    ],
-    proofPoints: [
-      "Configured workflows, system access, form setup, and evidence-handling processes across multiple user roles.",
-      "Reviewed release notes and coordinated testing with key users prior to each production deployment.",
-      "Managed the full defect lifecycle including logging, reproduction steps, developer liaison, and retest before release.",
-    ],
-    skillsShown: [
-      "Enterprise application administration",
-      "Compliance workflow configuration",
-      "UAT coordination and release management",
-      "Defect lifecycle management",
-    ],
-    supportProof: [
-      "Collaborated with business users and stakeholders to translate requirements into functional system configurations.",
-      "Produced user documentation and supported end-user adoption across multiple business roles.",
-      "Tailored communication for both technical and non-technical audiences throughout the project lifecycle.",
-    ],
-    takeaway:
-      "This role reflects systems-level ownership, quality assurance discipline, and clear stakeholder communication in a production environment.",
-    challenge:
-      "A compliance platform with multiple user roles required careful configuration, thorough testing before each release, and structured defect management.",
-    solution:
-      "I worked closely with business users to understand requirements, configured the system accordingly, and managed a structured UAT and defect process to validate every change before sign-off.",
-    outcome:
-      "Delivered reliable release cycles with documented test reports, structured defect logs, and user documentation across multiple production deployments.",
-    supportValue: [
-      "Demonstrates real enterprise application support ownership beyond helpdesk-level work.",
-      "Shows structured QA and release management discipline in a live compliance environment.",
-      "Directly applicable to application support, business systems analyst, and QMS platform roles.",
-    ],
-  },
-  {
     slug: "glide-education",
     title: "Glide Education",
     subtitle: "Consultancy and visa services platform",
@@ -93,7 +39,10 @@ export const projects: PortfolioProject[] = [
     accentImage: "/projects/glide-services.png",
     images: [
       { src: "/projects/glide.png", alt: "Glide Education homepage" },
-      { src: "/projects/glide-services.png", alt: "Glide Education service detail section" },
+      {
+        src: "/projects/glide-services.png",
+        alt: "Glide Education service detail section",
+      },
     ],
     liveUrl: "https://www.glideedu.com.au/",
     liveLabel: "glideedu.com.au",
@@ -127,11 +76,11 @@ export const projects: PortfolioProject[] = [
     takeaway:
       "This project reflects the kind of work I enjoy: understanding the business need, building the solution, and supporting it after launch.",
     challenge:
-      "The business needed a website that would immediately feel professional and trustworthy to visitors comparing providers.",
+      "The business needed a website that would immediately feel professional and trustworthy to visitors who were comparing providers and trying to understand services quickly.",
     solution:
-      "I structured the site around clear service presentation, stronger visual hierarchy, and a cleaner enquiry path.",
+      "I structured the site around clear service presentation, stronger visual hierarchy, and a cleaner enquiry path so the business could explain its offer with less friction.",
     outcome:
-      "A live production website with clearer services, a simpler enquiry path, and a more professional first impression.",
+      "The result was a live production website with clearer services, a simpler enquiry path, and a more professional first impression.",
     supportValue: [
       "Connects business needs with a practical digital solution.",
       "Covers ownership beyond design, including deployment, troubleshooting, and production updates.",
@@ -148,7 +97,10 @@ export const projects: PortfolioProject[] = [
     accentImage: "/projects/prime-gallery.png",
     images: [
       { src: "/projects/primeroof.png", alt: "Prime Roof Care homepage" },
-      { src: "/projects/prime-gallery.png", alt: "Prime Roof Care gallery and service detail view" },
+      {
+        src: "/projects/prime-gallery.png",
+        alt: "Prime Roof Care gallery and service detail view",
+      },
     ],
     liveUrl: "https://www.primeroofcare.com.au/",
     liveLabel: "primeroofcare.com.au",
@@ -182,11 +134,11 @@ export const projects: PortfolioProject[] = [
     takeaway:
       "This project reflects real client work: build the site, support it, and keep the content clear after launch.",
     challenge:
-      "The business needed a cleaner online presence that would explain services quickly and support enquiries.",
+      "The business needed a cleaner online presence that would explain services quickly, feel trustworthy for local customers, and support enquiries without overwhelming visitors.",
     solution:
-      "I built the site around fast comprehension, practical service sections, and responsive layouts.",
+      "I built the site around fast comprehension, practical service sections, and responsive layouts that keep the business easy to understand across devices.",
     outcome:
-      "A more professional online presence with a clearer path for visitors to move from browsing into enquiry.",
+      "The finished website gives the business a more professional online presence and a clearer path for visitors to move from browsing into enquiry.",
     supportValue: [
       "Connects real client delivery with practical business outcomes.",
       "Includes responsiveness, content clarity, and post-launch support.",

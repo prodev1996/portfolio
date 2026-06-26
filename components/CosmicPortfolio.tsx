@@ -26,7 +26,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
 import { projects } from "@/data/projects";
@@ -1038,15 +1038,6 @@ export default function CosmicPortfolio() {
                   >
                     <FaLinkedin className="h-4 w-4 text-[#2ca2ba]" />
                     linkedin.com/in/rajiv-bhandari25
-                  </a>
-                  <a
-                    href="https://github.com/prodev1996"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
-                  >
-                    <FaGithub className="h-4 w-4 text-[#a8a5b3]" />
-                                   github.com/prodev1996
                   </a>
                 </div>
               </div>

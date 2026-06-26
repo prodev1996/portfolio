@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   FaEnvelope,
-  FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
   FaGlobe,
@@ -94,12 +93,6 @@ export default function ResumeHeader() {
               <span className="truncate">rajivbhandari.com</span>
             </a>
 
-            <a href="https://github.com/prodev1996" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/8 text-[#c9c1d8] transition group-hover:scale-110 group-hover:bg-white/14">
-                <FaGithub size={18} />
-              </div>
-              <span className="truncate">github.com/prodev1996</span>
-            </a>
           </div>
         </div>
       </div>
