@@ -26,7 +26,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
 import { projects } from "@/data/projects";
@@ -42,51 +42,59 @@ const fadeUp: Variants = {
 
 const timeline = [
   {
-    year: "May 2026 - Present",
-    role: "Software Developer Intern",
-    place: "SpaceTel IT | Australia | On-site internship",
+    year: "May 2026 – Present",
+    role: "Application Support & QA Analyst (Intern)",
+    place: "SpaceTel IT | Adelaide, SA | On-site",
     summary:
-      "Review websites, user journeys, quality signals, and competitor positioning, then turn findings into practical recommendations for redesign and content improvement.",
+      "Support the administration, testing, and release management of a multi-role enterprise compliance platform — configuring workflows, managing access, coordinating UAT, and managing the full defect lifecycle.",
     points: [
-      "Website review, navigation checks, UX observations, and issue identification.",
-      "Lighthouse, PageSpeed Insights, crawler-style review, and manual QA testing.",
-      "Improvement reports, presentation material, and structured redesign notes.",
+      "Configure workflows, system access, form setup, and evidence-handling processes across Admin, Auditor, and Client roles.",
+      "Review release notes and coordinate testing with key users prior to production deployments; produce release summaries and test reports.",
+      "Manage the full defect lifecycle — logging issues with reproduction steps, liaising with developers, and retesting fixes before release.",
     ],
   },
   {
-    year: "2022 - Present",
-    role: "Application Support and IT Support Consultant",
-    place: "Contract work | Australia | Remote",
+    year: "2024 – Present",
+    role: "Disability Support Worker (Part-time)",
+    place: "Adorable Home Care | Adelaide, SA",
     summary:
-      "Support small-business clients across Microsoft 365, Windows environments, SharePoint, Outlook, Teams, websites, access issues, and day-to-day operational troubleshooting.",
+      "Work within a regulated care environment, maintaining accurate digital records, incident documentation, and shift handovers in line with privacy legislation and care quality standards.",
     points: [
-      "Level 1/2 support, permissions, workflows, user assistance, and structured follow-through.",
-      "SQL/MySQL checks for data retrieval, validation, form issues, and troubleshooting.",
-      "Hosting, DNS, SSL, deployment, content updates, and ongoing website support.",
+      "Maintain accurate digital case notes, incident records, and shift handovers per organisational policy and privacy legislation.",
+      "Developed first-hand understanding of the systems, compliance documentation, and quality standards that underpin safe care delivery.",
     ],
   },
   {
-    year: "Dec 2020 - Mar 2022",
+    year: "2022 – Present",
+    role: "Application Support & IT Consultant",
+    place: "Freelance / Contract | Adelaide, SA / Remote",
+    summary:
+      "Administer and support business applications for clients across Microsoft 365, SharePoint, Teams, and web-based platforms — acting as the bridge between business need and technical solution.",
+    points: [
+      "Manage user access, permissions, workflows, system configurations, and integrations across Microsoft 365 and SharePoint.",
+      "Gather and clarify business requirements, translate them into functional system changes, and verify outcomes with clients before sign-off.",
+      "Use SQL and MySQL to validate records, investigate data issues, and troubleshoot reporting inconsistencies.",
+    ],
+  },
+  {
+    year: "Dec 2020 – Mar 2022",
     role: "Application Support Developer",
-    place: "Eydean Inc | Hybrid",
+    place: "Eydean Inc | Kathmandu, Nepal",
     summary:
-      "Worked across web applications, APIs, testing, bug fixing, maintenance, database-backed features, and practical support documentation.",
+      "Developed and supported web applications using React, Django, MySQL, and REST APIs — providing maintenance, bug resolution, feature implementation, and post-change stability checks.",
     points: [
-      "React, Django, MySQL, APIs, and application feature support.",
-      "Testing, debugging, maintenance, and practical system improvement work.",
-      "Team collaboration, Git/GitHub, and clearer handover documentation.",
+      "Investigated and resolved user-reported application issues across frontend, database, and API layers.",
+      "Collaborated with stakeholders to translate requirements into practical solutions and clear handover documentation.",
     ],
   },
   {
-    year: "Nov 2017 - Nov 2020",
+    year: "Nov 2017 – Nov 2020",
     role: "Data Specialist",
-    place: "CloudFactory | High-volume data operations",
+    place: "CloudFactory | Kathmandu, Nepal",
     summary:
-      "Built process discipline through structured data validation, quality assurance, accuracy checks, and careful handling of large digital datasets.",
+      "Processed and quality-checked high-volume structured datasets to defined accuracy and confidentiality standards.",
     points: [
-      "Data validation, consistency review, and error identification.",
-      "Structured workflows, deadlines, and documentation discipline.",
-      "Strong attention to detail relevant to reporting and migration-style checks.",
+      "Flagged inconsistencies and contributed to continuous-improvement processes across client data workflows.",
     ],
   },
 ];
@@ -94,52 +102,52 @@ const timeline = [
 const recruiterSignals = [
   {
     title: "Role direction",
-    value: "Application systems + SQL-ready support",
-    note: "Best suited to junior application systems, SQL support, technical support, and business application roles.",
+    value: "Enterprise application support & QMS",
+    note: "Best suited to application support analyst, business systems analyst, and compliance/QMS platform support roles.",
   },
   {
     title: "Working style",
-    value: "Calm, structured, detail-first",
-    note: "I like diagnosing clearly, documenting cleanly, validating carefully, and keeping users informed.",
+    value: "Structured, detail-first, ownership-driven",
+    note: "I gather requirements carefully, configure systems precisely, test thoroughly, and communicate clearly at all levels — technical and non-technical.",
   },
   {
-    title: "Growth track",
-    value: "Support -> SQL -> data engineering",
-    note: "The portfolio is intentionally positioned around the bridge between application support and data-focused delivery.",
+    title: "Background",
+    value: "Master of IT + real enterprise delivery",
+    note: "Torrens University Australia MIT, Professional Year Program (ongoing), enterprise compliance platform support at SpaceTel, and 4+ years across application support and development.",
   },
 ];
 
 const overviewCards = [
   {
     icon: ShieldCheck,
-    label: "Support foundation",
-    title: "User-facing systems support with steady follow-through.",
+    label: "Enterprise applications",
+    title: "Business application administration and configuration.",
     copy:
-      "Level 1/2 support habits, issue ownership, remote assistance, and clear explanations for non-technical users.",
+      "Workflow configuration, system access, role management, form setup, release testing, and defect lifecycle management.",
     accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
     icon: ServerCog,
-    label: "Business systems",
-    title: "Comfortable across Microsoft 365, identity, and workflows.",
+    label: "Microsoft 365 & identity",
+    title: "Comfortable across Microsoft 365, SharePoint, and Teams.",
     copy:
-      "Microsoft 365, SharePoint, Outlook, Teams, Active Directory, Azure AD, permissions, and business application support.",
+      "User access, permissions, SharePoint administration, Outlook, Teams, and day-to-day business application support.",
     accent: "from-[#2ca2ba] to-[#6f67df]",
   },
   {
     icon: Database,
-    label: "Data-aware support",
-    title: "SQL validation and reporting awareness, not just UI support.",
+    label: "Data & reporting",
+    title: "SQL validation, data accuracy, and reporting support.",
     copy:
-      "SQL/MySQL checks, records accuracy, data validation, issue tracing, and growing SQL Server and ETL readiness.",
+      "SQL/MySQL queries for record validation, data issue investigation, and troubleshooting reporting inconsistencies in database-backed applications.",
     accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
     icon: Code2,
-    label: "Delivery context",
-    title: "Web, deployment, and production support experience.",
+    label: "Release & change",
+    title: "UAT coordination, release management, and documentation.",
     copy:
-      "Real client sites, APIs, hosting, DNS, SSL, launch support, updates, and technical troubleshooting after go-live.",
+      "Release notes review, pre-production validation, regression testing, change documentation, and user guides for technical and non-technical audiences.",
     accent: "from-[#d48d37] to-[#c55b9e]",
   },
 ];
@@ -153,100 +161,98 @@ const skillDomains: {
 }[] = [
   {
     icon: ShieldCheck,
-    title: "IT Support & Troubleshooting",
-    blurb: "Strongest day-to-day support habits.",
+    title: "Enterprise Application Administration",
+    blurb: "Core strength across business application support.",
     items: [
-      "Level 1/2 support",
-      "Incident handling",
-      "Remote support",
-      "End-user assistance",
-      "Issue diagnosis",
-      "Resolution follow-through",
+      "Workflow configuration",
+      "System access management",
+      "Role management",
+      "Form setup",
+      "Incident investigation",
+      "System interfaces",
     ],
     accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
-    icon: ServerCog,
-    title: "Microsoft 365 & Identity",
-    blurb: "Business application and user environment support.",
+    icon: Award,
+    title: "Quality & Compliance Systems",
+    blurb: "QMS administration and compliance platform support.",
     items: [
-      "Exchange Online",
-      "Outlook",
-      "Teams",
-      "SharePoint administration",
-      "Active Directory",
-      "Azure AD",
-      "Basic Intune exposure",
+      "QMS administration",
+      "Compliance workflows",
+      "Evidence management",
+      "GRC alignment",
+      "Audit trails",
+      "Policy controls",
     ],
     accent: "from-[#2ca2ba] to-[#6f67df]",
   },
   {
     icon: Workflow,
-    title: "Windows & Endpoint Systems",
-    blurb: "Environment support and maintenance.",
+    title: "Release, Testing & Change",
+    blurb: "End-to-end release and change support.",
     items: [
-      "Windows 10/11",
-      "Windows Server basics",
-      "System maintenance",
-      "Configuration support",
-      "Device setup",
-      "Updates",
+      "UAT coordination",
+      "Release notes review",
+      "Regression testing",
+      "Pre-production validation",
+      "Defect lifecycle",
+      "Change documentation",
     ],
     accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
-    icon: Network,
-    title: "Networking & Device Support",
-    blurb: "Core infrastructure awareness for support roles.",
+    icon: ServerCog,
+    title: "Microsoft 365 & Identity",
+    blurb: "Business application and identity administration.",
     items: [
-      "TCP/IP",
-      "LAN/WAN basics",
-      "DNS and DHCP",
-      "VPN support",
-      "Printer issues",
-      "Network troubleshooting",
+      "Exchange Online",
+      "SharePoint",
+      "Teams",
+      "Outlook",
+      "Active Directory",
+      "Azure AD",
     ],
     accent: "from-[#d48d37] to-[#c55b9e]",
   },
   {
     icon: Database,
-    title: "SQL, Reporting & Validation",
-    blurb: "The bridge toward SQL-focused roles.",
+    title: "Data, SQL & Reporting",
+    blurb: "SQL for validation and reporting support.",
     items: [
-      "SQL",
-      "MySQL",
-      "Validation queries",
-      "Reporting support",
-      "Data quality checks",
-      "Migration-style thinking",
+      "SQL / MySQL",
+      "PostgreSQL",
+      "Data validation",
+      "Record investigation",
+      "REST APIs",
+      "Excel reporting",
     ],
     accent: "from-[#6f67df] to-[#2ca2ba]",
   },
   {
     icon: Code2,
-    title: "Web, APIs & Scripting",
-    blurb: "Technical delivery that supports application work.",
+    title: "Web & Application Development",
+    blurb: "Technical delivery context for application roles.",
     items: [
-      "JavaScript",
       "React",
-      "Node.js",
+      "Next.js",
+      "Django",
       "Python",
       "HTML/CSS",
       "API integration",
-      "MySQL-backed apps",
     ],
     accent: "from-[#2ca2ba] to-[#1e9b73]",
   },
   {
     icon: FileText,
-    title: "Documentation & Delivery",
-    blurb: "Important for analyst and systems roles.",
+    title: "Documentation & Communication",
+    blurb: "Clear handovers for technical and non-technical audiences.",
     items: [
-      "Ticket management",
-      "Knowledge articles",
+      "User guides",
+      "Release summaries",
       "Stakeholder communication",
-      "UAT support",
-      "Change support",
+      "Requirements gathering",
+      "Process improvement",
       "Git/GitHub",
     ],
     accent: "from-[#d48d37] to-[#6f67df]",
@@ -255,19 +261,22 @@ const skillDomains: {
 
 const education = [
   {
-    school: "Torrens University Australia",
-    credential: "Master of Information Technology (Advanced)",
-    period: "2022 - 2024",
-  },
-  {
     school: "Performance Education",
     credential: "Professional Year Program, Information Technology",
-    period: "2025 - 2026",
+    period: "2025 – 2026",
+    current: true,
+  },
+  {
+    school: "Torrens University Australia",
+    credential: "Master of Information Technology (Advanced)",
+    period: "2022 – 2024",
+    current: false,
   },
   {
     school: "Tribhuvan University",
     credential: "Bachelor of Computer Science and Information Technology",
-    period: "2015 - 2019",
+    period: "2015 – 2019",
+    current: false,
   },
 ];
 
@@ -455,31 +464,32 @@ export default function CosmicPortfolio() {
           <div className="max-w-3xl lg:max-w-[44rem]">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-[#d8d1e6] backdrop-blur-xl">
               <span className="h-2 w-2 rounded-full bg-[#1e9b73] shadow-[0_0_12px_rgba(30,155,115,0.55)]" />
-              Open to junior application systems, SQL support, and technical support roles across Australia
+              Available for full-time work in Adelaide — immediately
             </div>
 
             <h1 className="mt-5 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
-              <span className="block">Application systems</span>
-              <span className="block">support with</span>
+              <span className="block">IT Application</span>
+              <span className="block">Support Analyst —</span>
               <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
-                SQL-ready delivery.
+                enterprise systems.
               </span>
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
-              I support business applications, Microsoft 365, SharePoint,
-              Windows environments, access control, workflows, web systems, and
-              data-aware troubleshooting while building deeper SQL and
-              engineering-ready delivery skills.
+              Master of IT graduate based in Adelaide. I administer enterprise
+              business applications, configure compliance workflows, coordinate
+              UAT and release testing, and translate business requirements into
+              functional system solutions.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {[
-                "Application systems",
+                "Enterprise Applications",
+                "Compliance & QMS",
                 "Microsoft 365",
+                "UAT & Release Testing",
                 "SQL / MySQL",
-                "SharePoint",
-                "Web applications",
+                "Professional Year 2025–26",
               ].map((item) => (
                 <span key={item} className="cosmic-chip">
                   {item}
@@ -510,8 +520,8 @@ export default function CosmicPortfolio() {
                       Support-first, systems-aware, and growing deeper SQL strength.
                     </h2>
                   </div>
-                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#d8d1e6]">
-                    Junior-ready
+                  <span className="rounded-full border border-[#1e9b73]/35 bg-[#1e9b73]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
+                    Available Now
                   </span>
                 </div>
 
@@ -549,7 +559,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Snapshot"
           title="A recruiter-friendly read of where I fit best."
-          description="Research-backed pages work better when the most important points appear early, stay scannable, and use clear grouping. This section is designed to make the portfolio readable in under a minute while still feeling premium."
+          description="Master of IT graduate with hands-on experience across application support, Microsoft 365, SQL-backed troubleshooting, and live client delivery. Currently completing a Professional Year Program and actively seeking application systems or IT support roles across Australia."
         />
 
         <div className="mt-8 grid gap-3 lg:grid-cols-3">
@@ -608,10 +618,10 @@ export default function CosmicPortfolio() {
               <p className="section-label">Best-fit roles</p>
               <div className="mt-4 space-y-3">
                 {[
-                  "Junior Application Systems Analyst",
                   "Application Support Analyst",
-                  "SQL support or SQL developer pathway role",
-                  "Technical support or business applications support",
+                  "Business Systems Analyst",
+                  "IT Application Support (Enterprise / SaaS)",
+                  "QMS / Compliance Platform Support",
                 ].map((item) => (
                   <div
                     key={item}
@@ -629,9 +639,9 @@ export default function CosmicPortfolio() {
               <p className="section-label">What teams get</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-[#b4b0bf]">
                 {[
-                  "Someone comfortable with users, tickets, and day-to-day systems issues.",
-                  "Someone who can write, test, and learn through technical detail instead of avoiding it.",
-                  "Someone deliberately building toward SQL-heavy and data-engineering-adjacent work.",
+                  "A Master of IT graduate with hands-on enterprise application support, compliance platform administration, and release testing experience.",
+                  "Someone who translates business requirements into functional system changes and verifies outcomes before sign-off.",
+                  "Clear communication at all levels — from end users to project stakeholders — with thorough documentation every step.",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
@@ -748,9 +758,16 @@ export default function CosmicPortfolio() {
               {education.map((item) => (
                 <div
                   key={item.school}
-                  className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4"
+                  className={`rounded-[22px] border p-4 ${item.current ? "border-[#1e9b73]/30 bg-[#1e9b73]/[0.06]" : "border-white/10 bg-white/[0.035]"}`}
                 >
-                  <p className="text-base font-black text-white">{item.school}</p>
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="text-base font-black text-white">{item.school}</p>
+                    {item.current && (
+                      <span className="shrink-0 rounded-full border border-[#1e9b73]/40 bg-[#1e9b73]/15 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
+                        Current
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-1 text-sm leading-6 text-[#d8d1e6]">
                     {item.credential}
                   </p>
@@ -1021,6 +1038,15 @@ export default function CosmicPortfolio() {
                   >
                     <FaLinkedin className="h-4 w-4 text-[#2ca2ba]" />
                     linkedin.com/in/rajiv-bhandari25
+                  </a>
+                  <a
+                    href="https://github.com/prodev1996"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+                  >
+                    <FaGithub className="h-4 w-4 text-[#a8a5b3]" />
+                                   github.com/prodev1996
                   </a>
                 </div>
               </div>

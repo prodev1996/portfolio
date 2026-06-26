@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowUp, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FaArrowUp, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const footerLinks = [
   { label: "Snapshot", href: "#about" },
@@ -32,9 +32,10 @@ export default function AttractiveFooter() {
                   Application Systems | Microsoft 365 | SQL Support
                 </p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d8d1e6]">
-                  Built to present a polished application systems profile with
-                  Microsoft 365 support, SQL-aware troubleshooting, practical
-                  delivery context, and a clear path toward deeper data work.
+                  Master of IT graduate with hands-on experience in application
+                  support, Microsoft 365, SQL troubleshooting, and live client
+                  delivery. Currently completing a Professional Year Program and
+                  open to IT support and application systems roles across Australia.
                 </p>
               </div>
             </div>
@@ -76,6 +77,14 @@ export default function AttractiveFooter() {
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-[#6f67df]/42 hover:bg-[#6f67df]/10 hover:text-white"
                 >
                   <FaLinkedin /> LinkedIn
+                </a>
+                <a
+                  href="https://github.com/prodev1996"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#d8d1e6] transition hover:border-white/22 hover:bg-white/[0.08] hover:text-white"
+                >
+                  <FaGithub /> GitHub
                 </a>
               </div>
             </div>

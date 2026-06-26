@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   FaEnvelope,
+  FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
   FaGlobe,
@@ -30,23 +31,15 @@ export default function ResumeHeader() {
           </h1>
 
           <p className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl">
-            Application Systems Analyst | Business Applications | Microsoft 365 | SQL &amp; Systems Support
+            IT Application Support Analyst · Enterprise Business Applications · Quality &amp; Compliance Systems
           </p>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg">
-            Application Systems Analyst with experience supporting business
-            applications, Microsoft 365, SharePoint, Windows environments,
-            user access, workflows, data accuracy, and web-based systems.
-            Skilled in troubleshooting application issues, supporting system
-            improvements, assisting with reporting and data tasks, and
-            communicating technical information clearly to non-technical users.
-            Background includes full-stack development, MySQL, API and
-            database-driven systems, business process support, and practical
-            delivery ownership.
+            IT Application Support Analyst with a Master of Information Technology and experience spanning enterprise business application administration, compliance and quality management systems. Currently supporting a multi-role compliance platform at SpaceTel — configuring workflows, managing system access, coordinating release testing and resolving defects. Skilled at translating business requirements into functional system configurations and communicating clearly at all levels.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {["Application support", "IT Support L1/L2", "SQL/MySQL", "Microsoft 365", "SharePoint", "Windows", "Web applications"].map((item, i) => (
+            {["Enterprise Applications", "Compliance & QMS", "UAT & Release Testing", "Microsoft 365", "SQL/MySQL", "Requirements Gathering", "Documentation"].map((item, i) => (
               <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>
@@ -60,11 +53,11 @@ export default function ResumeHeader() {
             </Link>
 
             <a
-              href="/Rajiv_Bhandari_Application_Systems_SQL_Resume_v2.docx"
+              href="/Rajiv_Bhandari_Database_Resume_.pdf"
               className="btn-primary flex items-center gap-2 group"
             >
               <Download className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
-              Download Resume
+              Download Resume (PDF)
             </a>
           </div>
         </div>
@@ -99,6 +92,13 @@ export default function ResumeHeader() {
                 <FaGlobe size={18} />
               </div>
               <span className="truncate">rajivbhandari.com</span>
+            </a>
+
+            <a href="https://github.com/prodev1996" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/8 text-[#c9c1d8] transition group-hover:scale-110 group-hover:bg-white/14">
+                <FaGithub size={18} />
+              </div>
+              <span className="truncate">github.com/prodev1996</span>
             </a>
           </div>
         </div>
