@@ -20,21 +20,6 @@ const skillBlocks = [
     ],
   },
   {
-    title: "Compliance, QMS & Regulated Care Systems",
-    icon: Terminal,
-    color: "from-[#35aeca] to-[#7c6cf2]",
-    shadowColor: "rgba(53,174,202,0.24)",
-    proficiency: 84,
-    items: [
-      "Compliance platform admin",
-      "UAT coordination",
-      "Evidence & audit trails",
-      "Release testing",
-      "Care documentation",
-      "Privacy & policy compliance",
-    ],
-  },
-  {
     title: "SQL, Data & Reporting",
     icon: Workflow,
     color: "from-[#e49a2f] to-[#d9468f]",
@@ -47,21 +32,6 @@ const skillBlocks = [
       "ETL & staging concepts",
       "Source-to-target reconciliation",
       "Reporting support",
-    ],
-  },
-  {
-    title: "Microsoft 365 & Identity",
-    icon: Database,
-    color: "from-[#20a779] to-[#3b82f6]",
-    shadowColor: "rgba(32,167,121,0.24)",
-    proficiency: 82,
-    items: [
-      "Microsoft 365",
-      "SharePoint",
-      "Outlook",
-      "Teams",
-      "Active Directory",
-      "Azure AD",
     ],
   },
   {
@@ -80,6 +50,21 @@ const skillBlocks = [
     ],
   },
   {
+    title: "Microsoft 365 & Identity",
+    icon: Database,
+    color: "from-[#20a779] to-[#3b82f6]",
+    shadowColor: "rgba(32,167,121,0.24)",
+    proficiency: 82,
+    items: [
+      "Microsoft 365",
+      "SharePoint",
+      "Outlook",
+      "Teams",
+      "Active Directory",
+      "Azure AD",
+    ],
+  },
+  {
     title: "Delivery & Coordination",
     icon: FileText,
     color: "from-[#c65bd7] to-[#7c6cf2]",
@@ -92,6 +77,19 @@ const skillBlocks = [
       "Git/GitHub",
       "User documentation",
       "Deployment support",
+    ],
+  },
+  {
+    title: "Compliance & Regulated Care Support",
+    icon: Terminal,
+    color: "from-[#35aeca] to-[#7c6cf2]",
+    shadowColor: "rgba(53,174,202,0.24)",
+    proficiency: 78,
+    items: [
+      "Compliance platform admin",
+      "UAT coordination",
+      "Evidence & audit trails",
+      "Care documentation",
     ],
   },
 ];
@@ -189,7 +187,7 @@ export default function ResumeSkillsDetailed() {
             Core Competencies
           </h2>
           <p className="mt-1 text-sm font-medium text-[#8f87a0]">
-            Hybrid capability across application support, compliance & QMS systems, SQL/MySQL, Microsoft 365, web development, and structured delivery.
+            Hybrid capability across application support, SQL/MySQL & data analysis, software development, Microsoft 365, and structured delivery.
           </p>
         </div>
       </div>

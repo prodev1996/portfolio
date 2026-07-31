@@ -130,7 +130,7 @@ export default function Navbar() {
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8f87a0] xl:inline">
-              Application Systems · SQL · Compliance
+              Application Support · Data · Software
             </span>
           </span>
         </Link>

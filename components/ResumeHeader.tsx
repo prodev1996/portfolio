@@ -30,15 +30,15 @@ export default function ResumeHeader() {
           </h1>
 
           <p className="mt-4 text-xl font-medium tracking-tight text-[#d8d1e6] sm:text-2xl">
-            IT Application Support Analyst · Enterprise Business Applications · Quality &amp; Compliance Systems
+            IT Application Support · Data Analysis · Software Development
           </p>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg">
-            IT Application Support Analyst with a Master of Information Technology and experience spanning enterprise business application administration, compliance and quality management systems. Currently supporting a multi-role compliance platform at SpaceTel — configuring workflows, managing system access, coordinating release testing and resolving defects. Skilled at translating business requirements into functional system configurations and communicating clearly at all levels.
+            IT professional with a Master of Information Technology, based in Adelaide. My background spans application support, SQL-based data analysis, and software development — troubleshooting systems, validating data, and delivering practical solutions across enterprise and client environments. I&apos;m building toward a longer-term move into data engineering, with SQL and data-quality work as the throughline.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {["Enterprise Applications", "Compliance & QMS", "UAT & Release Testing", "Microsoft 365", "SQL/MySQL", "Requirements Gathering", "Documentation"].map((item, i) => (
+            {["Application Support", "Support & Troubleshooting", "Data Analysis", "SQL/MySQL", "Software Development", "Requirements Gathering", "Documentation"].map((item, i) => (
               <span key={item} className="cosmic-chip" style={{ animationDelay: `${i * 0.1}s` }}>
                 {item}
               </span>

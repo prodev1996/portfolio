@@ -94,18 +94,18 @@ const timeline = [
 const recruiterSignals = [
   {
     title: "Role direction",
-    value: "Enterprise application support & QMS",
-    note: "Best suited to application support analyst, business systems analyst, and compliance/QMS platform support roles.",
+    value: "Application support, data & software",
+    note: "Best suited to IT application support, support technician, data analyst, and junior software developer roles — building toward data engineering.",
   },
   {
     title: "Working style",
     value: "Structured, detail-first, ownership-driven",
-    note: "I gather requirements carefully, configure systems precisely, test thoroughly, and communicate clearly at all levels — technical and non-technical.",
+    note: "I gather requirements carefully, troubleshoot systems methodically, validate data thoroughly, and communicate clearly at all levels — technical and non-technical.",
   },
   {
     title: "Background",
-    value: "Master of IT + real enterprise delivery",
-    note: "Torrens University Australia MIT, Professional Year Program (ongoing), enterprise compliance platform support at SpaceTel, and 4+ years across application support and development.",
+    value: "Master of IT + real delivery across support & data",
+    note: "Torrens University Australia MIT, Professional Year Program (ongoing), enterprise application support at SpaceTel, and 4+ years across support, data, and software development.",
   },
 ];
 
@@ -423,27 +423,28 @@ export default function CosmicPortfolio() {
             </p>
 
             <h1 className="mt-3 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
-              <span className="block">IT Application</span>
-              <span className="block">Support Analyst —</span>
+              <span className="block">IT Support, Data &</span>
+              <span className="block">Software Delivery —</span>
               <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
-                enterprise systems.
+                growing into data engineering.
               </span>
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
-              Master of IT graduate based in Adelaide. I administer enterprise
-              business applications, configure compliance workflows, coordinate
-              UAT and release testing, and translate business requirements into
-              functional system solutions.
+              Master of IT graduate based in Adelaide, working across
+              application support, data analysis, and software development.
+              I troubleshoot systems, validate and query data with SQL, and
+              build practical software solutions — with data as the throughline
+              I&apos;m building toward a longer-term move into data engineering.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {[
-                "Enterprise Applications",
-                "Compliance & QMS",
-                "Microsoft 365",
-                "UAT & Release Testing",
+                "Application Support",
+                "Support & Troubleshooting",
+                "Data Analysis",
                 "SQL / MySQL",
+                "Software Development",
                 "Professional Year 2025–26",
               ].map((item) => (
                 <span key={item} className="cosmic-chip">
@@ -463,22 +464,6 @@ export default function CosmicPortfolio() {
               </Link>
             </div>
 
-            <div className="mt-9 grid grid-cols-3 gap-2 border-t border-white/10 pt-6 sm:max-w-lg">
-              {[
-                { value: "4+ yrs", label: "Support & data delivery" },
-                { value: "3", label: "Live production builds" },
-                { value: "Now", label: "Available in Adelaide" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-xl font-black tracking-[-0.03em] text-white sm:text-2xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-[11px] leading-4 text-[#8f87a0]">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="relative lg:pt-1">
@@ -543,7 +528,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Snapshot"
           title="A recruiter-friendly read of where I fit best."
-          description="Master of IT graduate with hands-on experience across application support, Microsoft 365, SQL-backed troubleshooting, and live client delivery. Currently completing a Professional Year Program and actively seeking application systems or IT support roles across Australia."
+          description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia — building toward data engineering."
         />
 
         <div className="mt-8 grid gap-3 lg:grid-cols-3">
@@ -602,10 +587,10 @@ export default function CosmicPortfolio() {
               <p className="section-label">Best-fit roles</p>
               <div className="mt-4 space-y-3">
                 {[
-                  "Application Support Analyst",
-                  "Business Systems Analyst",
-                  "IT Application Support (Enterprise / SaaS)",
-                  "QMS / Compliance Platform Support",
+                  "IT Application Support Specialist",
+                  "Support Technician / Service Desk",
+                  "Data Analyst",
+                  "Software Developer (Junior)",
                 ].map((item) => (
                   <div
                     key={item}
@@ -623,8 +608,8 @@ export default function CosmicPortfolio() {
               <p className="section-label">What teams get</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-[#b4b0bf]">
                 {[
-                  "A Master of IT graduate with hands-on enterprise application support, compliance platform administration, and release testing experience.",
-                  "Someone who translates business requirements into functional system changes and verifies outcomes before sign-off.",
+                  "A Master of IT graduate with hands-on application support, SQL-based data analysis, and practical software delivery experience.",
+                  "Someone who troubleshoots systems and data issues methodically, and verifies outcomes before calling something done.",
                   "Clear communication at all levels — from end users to project stakeholders — with thorough documentation every step.",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
@@ -796,9 +781,9 @@ export default function CosmicPortfolio() {
               <p className="section-label">Current emphasis</p>
               <p className="mt-2 text-sm leading-7 text-[#b4b0bf]">
                 I am intentionally shaping my profile around application
-                systems, business applications, SQL support, reporting-aware
-                work, and the delivery habits that matter in junior analyst and
-                developer pathways.
+                support, SQL and data analysis, and practical software
+                delivery — the foundations for a longer-term move into
+                data engineering.
               </p>
             </div>
           </div>
@@ -960,13 +945,13 @@ export default function CosmicPortfolio() {
               <div className="relative z-10">
                 <p className="section-label">Contact</p>
                 <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
-                  Ready to support a team and grow into deeper systems work.
+                  Ready to support, analyse, and build — toward data engineering.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-[#b4b0bf]">
-                  Open to junior application systems, business applications,
-                  technical support, Microsoft 365, and SQL-support pathways.
-                  I am happy to discuss roles that value practical ownership,
-                  clear communication, and strong learning momentum.
+                  Open to IT application support, support technician, data
+                  analyst, and junior software developer roles. I am happy to
+                  discuss positions that value practical ownership, clear
+                  communication, and strong learning momentum.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2.5">
