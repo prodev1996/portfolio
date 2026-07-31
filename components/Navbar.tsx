@@ -107,56 +107,65 @@ export default function Navbar() {
   }, [usesSectionNav]);
 
   return (
-    <header className="fixed inset-x-0 top-3 z-50 px-4 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-3 py-2 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-[20px] border px-3 py-2.5 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
           scrolled
-            ? "border-white/10 bg-[#050505]/80 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
-            : "border-white/5 bg-[#050505]/40 shadow-[0_12px_44px_rgba(0,0,0,0.24)]"
+            ? "border-white/10 bg-[#050505]/85 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
+            : "border-white/[0.06] bg-[#050505]/35 shadow-[0_12px_44px_rgba(0,0,0,0.2)]"
         }`}
       >
-        <Link href="/" className="flex min-w-0 items-center gap-2 text-white">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-[0.16em] text-[#f8f7ef] shadow-[0_10px_32px_rgba(0,0,0,0.28)]">
-            RB
+        <Link href="/" className="group flex min-w-0 items-center gap-2.5 text-white">
+          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6f67df] via-[#c55b9e] to-[#d48d37] p-[1.5px] shadow-[0_10px_28px_rgba(111,103,223,0.28)]">
+            <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0a0910] text-[11px] font-black tracking-[0.06em] text-white">
+              RB
+            </span>
+            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#0a0910] bg-[#1e9b73] shadow-[0_0_8px_rgba(30,155,115,0.7)]" />
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
-            <span className="text-sm font-semibold tracking-[0.08em] text-white">
+            <span className="text-sm font-black tracking-[0.02em] text-white">
               Rajiv Bhandari
             </span>
-            <span className="hidden text-[9px] uppercase tracking-[0.24em] text-[#9da99a] xl:inline">
-              Application Systems | Microsoft 365 | SQL Support
+            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8f87a0] xl:inline">
+              Application Systems · SQL · Compliance
             </span>
           </span>
         </Link>
 
         {usesSectionNav ? (
-          <nav className="hidden items-center rounded-full border border-white/10 bg-white/[0.03] p-1.5 lg:flex">
-            {homeLinks.map((link) => {
+          <nav className="hidden items-center gap-0.5 lg:flex">
+            {homeLinks.map((link, index) => {
               const isActive = active === link.name;
               return (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setActive(link.name)}
-                  whileHover={{ y: -2 }}
-                  className="relative rounded-full px-2 py-1.5 text-[12px] font-semibold xl:px-2.5"
+                  className="group relative flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-[12px] font-bold xl:px-3"
                 >
-                  {isActive ? (
-                    <motion.span
-                      layoutId="nav-active-pill"
-                      className="absolute inset-0 rounded-full bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]"
-                      transition={{ type: "spring", stiffness: 320, damping: 28 }}
-                    />
-                  ) : null}
                   <span
-                    className={`relative z-10 transition ${
-                      isActive ? "text-white" : "text-[#9a94a8] hover:text-white"
+                    className={`font-mono text-[9px] transition ${
+                      isActive ? "text-[#c55b9e]" : "text-[#5c5666] group-hover:text-[#8f87a0]"
+                    }`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`relative transition ${
+                      isActive ? "text-white" : "text-[#9a94a8] group-hover:text-white"
                     }`}
                   >
                     {link.name}
+                    {isActive ? (
+                      <motion.span
+                        layoutId="nav-active-underline"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e]"
+                        transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                      />
+                    ) : null}
                   </span>
                 </motion.a>
               );
@@ -165,9 +174,9 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -2 }}>
               <Link
                 href="/resume"
-                className="ml-2 hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white transition hover:border-[#6f67df]/42 hover:bg-[#6f67df]/12 xl:inline-flex"
+                className="ml-3 hidden items-center gap-2 rounded-[12px] bg-gradient-to-br from-[#6f67df] to-[#c55b9e] px-4 py-2 text-[12px] font-black text-white shadow-[0_10px_26px_rgba(111,103,223,0.28)] transition hover:brightness-110 xl:inline-flex"
               >
-                <FileText className="h-4 w-4" />
+                <FileText className="h-3.5 w-3.5" />
                 Resume
               </Link>
             </motion.div>

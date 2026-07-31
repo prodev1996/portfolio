@@ -417,7 +417,12 @@ export default function CosmicPortfolio() {
               Available for full-time work in Adelaide — immediately
             </div>
 
-            <h1 className="mt-5 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
+            <p className="mt-6 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.3em] text-[#8f87a0]">
+              <span className="h-px w-8 bg-gradient-to-r from-[#6f67df] to-transparent" />
+              Rajiv Bhandari
+            </p>
+
+            <h1 className="mt-3 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
               <span className="block">IT Application</span>
               <span className="block">Support Analyst —</span>
               <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
@@ -457,10 +462,27 @@ export default function CosmicPortfolio() {
                 View Resume
               </Link>
             </div>
+
+            <div className="mt-9 grid grid-cols-3 gap-2 border-t border-white/10 pt-6 sm:max-w-lg">
+              {[
+                { value: "4+ yrs", label: "Support & data delivery" },
+                { value: "3", label: "Live production builds" },
+                { value: "Now", label: "Available in Adelaide" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-xl font-black tracking-[-0.03em] text-white sm:text-2xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-[11px] leading-4 text-[#8f87a0]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="relative lg:pt-1">
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
+            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.14),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(197,91,158,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_40%)]" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between gap-4">
@@ -470,8 +492,9 @@ export default function CosmicPortfolio() {
                       Support-first, systems-aware, and growing deeper SQL strength.
                     </h2>
                   </div>
-                  <span className="rounded-full border border-[#1e9b73]/35 bg-[#1e9b73]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
-                    Available Now
+                  <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#1e9b73]/35 bg-[#1e9b73]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#1e9b73]" />
+                    Live
                   </span>
                 </div>
 
@@ -498,6 +521,17 @@ export default function CosmicPortfolio() {
 
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-4 hidden justify-center lg:flex">
+          <div className="flex flex-col items-center gap-2 text-[#5c5666]">
+            <span className="text-[9px] font-black uppercase tracking-[0.3em]">Scroll</span>
+            <motion.span
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              className="h-6 w-px bg-gradient-to-b from-[#8f87a0] to-transparent"
+            />
           </div>
         </div>
       </section>
@@ -773,7 +807,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="experience"
-        className="relative z-10 border-y border-white/5 bg-[#05040a] py-20 sm:py-24 scroll-mt-28"
+        className="relative z-10 border-y border-white/5 bg-[#05040a] py-14 sm:py-16 scroll-mt-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
@@ -843,116 +877,72 @@ export default function CosmicPortfolio() {
 
       <section
         id="projects"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           label="Projects"
-          title="Client-facing work presented like real case studies."
-          description="High-end portfolios feel stronger when projects explain business context, delivery decisions, and post-launch ownership. These two builds show real client work, not just visual mockups."
+          title="Real delivery work, not visual mockups."
+          description="A quick look at each build — click through for the full case study: business context, delivery decisions, and post-launch ownership."
           align="center"
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.article
               key={project.slug}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
-              className="group overflow-hidden rounded-[34px] border border-white/10 bg-[#090810]/92 shadow-[0_30px_100px_rgba(0,0,0,0.34)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
+              transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
+              className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 shadow-[0_24px_70px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
             >
               <Link
                 href={`/projects/${project.slug}`}
-                className="relative block aspect-[1.65/1] overflow-hidden border-b border-white/10"
+                className="relative block aspect-[4/3] overflow-hidden border-b border-white/10"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover object-top transition duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/18 to-transparent" />
-                <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white backdrop-blur-xl">
-                  Live delivery
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/25 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-xl">
+                  {project.liveUrl ? "Live delivery" : "Confidential"}
                 </div>
-                <div className="absolute bottom-5 left-5 right-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#f1dcc1]">
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#f1dcc1]">
                     {project.liveLabel}
                   </p>
-                  <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-white">
+                  <h3 className="mt-1.5 text-lg font-black leading-tight tracking-[-0.03em] text-white">
                     {project.title}
                   </h3>
-                  <p className="mt-2 max-w-xl text-sm text-[#d8d1e6]">
+                  <p className="mt-1 text-xs leading-5 text-[#d8d1e6]">
                     {project.subtitle}
                   </p>
                 </div>
               </Link>
 
-              <div className="p-6">
-                <p className="text-sm leading-7 text-[#b4b0bf]">
-                  {project.businessGoal}
-                </p>
-
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
-                    <p className="section-label">Role</p>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-white">
-                      {project.role}
-                    </p>
-                  </div>
-                  <div className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4">
-                    <p className="section-label">Outcome</p>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-white">
-                      {project.measurableOutcome}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
+              <div className="p-5">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.stack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-semibold text-[#d8d1e6]"
+                      className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[10px] font-semibold text-[#d8d1e6]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <ul className="mt-5 space-y-3">
-                  {project.supportProof.slice(0, 2).map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-3 text-sm leading-6 text-[#a8a5b3]"
-                    >
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link href={`/projects/${project.slug}`} className="btn-outline">
-                    Read Case Study
-                  </Link>
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary"
-                    >
-                      Visit Live Site
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f87a0]">
-                      Confidential — internal system
-                    </span>
-                  )}
-                </div>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-[#c55b9e] transition group-hover:text-[#d8a7e7]"
+                >
+                  View Case Study
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </motion.article>
           ))}
@@ -961,7 +951,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="contact"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8"
       >
         <div className="overflow-hidden rounded-[40px] border border-white/10 bg-[#090810]/92 shadow-[0_34px_120px_rgba(0,0,0,0.4)] backdrop-blur-3xl">
           <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.92fr_1.08fr] lg:p-10">
