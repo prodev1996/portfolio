@@ -41,12 +41,12 @@ const fadeUp: Variants = {
 const timeline = [
   {
     year: "May 2026 – Present",
-    role: "Software Developer (Intern)",
+    role: "Software Developer Intern",
     place: "SpaceTel IT | Adelaide, SA | On-site",
     summary:
-      "Support the administration, testing, and release management of a multi-role enterprise compliance platform — configuring workflows, managing access, coordinating UAT, and managing the full defect lifecycle.",
+      "Support the administration and testing of a multi-role enterprise compliance platform, translating business requirements into functional system configurations and managing the full defect lifecycle.",
     points: [
-      "Configure workflows, system access, form setup, and evidence-handling processes across Admin, Auditor, and Client roles.",
+      "Configure workflows, system access, and evidence-handling processes across multiple user roles; coordinate release testing with key users prior to production deployment.",
     ],
   },
   {
@@ -61,12 +61,12 @@ const timeline = [
   },
   {
     year: "2022 – Present",
-    role: "Application Support & IT Consultant",
-    place: "Freelance / Contract | Adelaide, SA / Remote",
+    role: "Application Support & IT Support Consultant",
+    place: "Sole Trader / Contract | Australia / Remote",
     summary:
       "Administer and support business applications for clients across Microsoft 365, SharePoint, Teams, and web-based platforms — acting as the bridge between business need and technical solution.",
     points: [
-      "Use SQL and MySQL to validate records, investigate data issues, and troubleshoot reporting inconsistencies.",
+      "Write and execute SQL/MySQL queries for data retrieval, validation, and reporting accuracy checks — building practical data analysis habits alongside application support.",
     ],
   },
   {
@@ -74,19 +74,19 @@ const timeline = [
     role: "Application Support Developer",
     place: "Eydean Inc | Kathmandu, Nepal",
     summary:
-      "Developed and supported web applications using React, Django, MySQL, and REST APIs — providing maintenance, bug resolution, feature implementation, and post-change stability checks.",
+      "Maintained and supported production web applications built with React, Django, Node.js, MySQL, and REST APIs — handling bug investigation, defect resolution, and post-change stability checks.",
     points: [
-      "Investigated and resolved user-reported application issues across frontend, database, and API layers.",
+      "Supported database-backed application features including data validation, query troubleshooting, and API integration testing — building foundational SQL and data analysis skills.",
     ],
   },
   {
-    year: "Nov 2017 – Sep 2020",
+    year: "Nov 2017 – Nov 2020",
     role: "Data Specialist",
     place: "CloudFactory | Kathmandu, Nepal",
     summary:
-      "Processed and quality-checked high-volume structured datasets to defined accuracy and confidentiality standards.",
+      "Performed data validation, quality assurance, and accuracy checks across large volumes of structured digital data, developing strong analytical and problem-solving habits.",
     points: [
-      "Flagged inconsistencies and contributed to continuous-improvement processes across client data workflows.",
+      "Identified data errors, corrected inconsistencies, and ensured outputs met required quality standards and project guidelines.",
     ],
   },
 ];
@@ -142,6 +142,28 @@ const overviewCards = [
       "Release notes review, pre-production validation, regression testing, change documentation, and user guides for technical and non-technical audiences.",
     accent: "from-[#d48d37] to-[#c55b9e]",
   },
+];
+
+const topSkillsRowOne = [
+  "SQL",
+  "MySQL",
+  "PostgreSQL",
+  "Data Validation & Analysis",
+  "Application Support",
+  "Microsoft 365",
+  "SharePoint",
+  "Requirements Gathering",
+];
+
+const topSkillsRowTwo = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "REST APIs",
+  "Git / GitHub",
+  "Troubleshooting",
+  "Documentation",
+  "Quality Assurance",
 ];
 
 const skillDomains: {
@@ -384,6 +406,32 @@ function DataOrbit() {
               {node.label}
             </span>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MarqueeRow({
+  items,
+  reverse = false,
+}: {
+  items: string[];
+  reverse?: boolean;
+}) {
+  const track = [...items, ...items];
+
+  return (
+    <div className="marquee-mask overflow-hidden">
+      <div className={`marquee-row gap-3 py-1 ${reverse ? "marquee-row-reverse" : ""}`}>
+        {track.map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-[13px] font-bold text-[#d8d1e6] shadow-[0_10px_28px_rgba(0,0,0,0.2)] backdrop-blur-xl"
+          >
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e]" />
+            {item}
+          </span>
         ))}
       </div>
     </div>
@@ -653,10 +701,15 @@ export default function CosmicPortfolio() {
         className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
-          label="Capabilities"
-          title="Capability areas grouped the way hiring teams usually scan them."
-          description="Instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
+          label="Skills"
+          title="The skills each role actually put to work."
+          description="Pulled straight from the experience below — instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
         />
+
+        <div className="mt-7 space-y-2">
+          <MarqueeRow items={topSkillsRowOne} />
+          <MarqueeRow items={topSkillsRowTwo} reverse />
+        </div>
 
         <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">
           <div className="grid gap-3 md:grid-cols-2">

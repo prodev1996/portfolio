@@ -10,7 +10,7 @@ import { FileText } from "lucide-react";
 const homeLinks = [
   { name: "Home", href: "#home" },
   { name: "Snapshot", href: "#about" },
-  { name: "Capabilities", href: "#skills" },
+  { name: "Skills", href: "#skills" },
   { name: "Credentials", href: "#credentials" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },

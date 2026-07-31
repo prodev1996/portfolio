@@ -43,7 +43,7 @@ export const projects: PortfolioProject[] = [
     stack: ["React", "Spring Boot", "PostgreSQL", "Selenium", "JUnit"],
     businessGoal:
       "Support the ongoing administration and quality assurance of a multi-role compliance platform used across Admin, Auditor, and Client roles.",
-    role: "Software Developer (Intern) — configuration, testing, release management, and defect lifecycle",
+    role: "Software Developer Intern — configuration, testing, release management, and defect lifecycle",
     measurableOutcome:
       "Managed end-to-end defect lifecycle, coordinated pre-production UAT, and produced release summaries and test reports for stakeholder approval.",
     trustSignals: [
