@@ -76,7 +76,7 @@ export default function ResumeHeader() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e49a2f]/10 text-[#e49a2f]">
                 <FaMapMarkerAlt size={16} />
               </div>
-              <span>Australia</span>
+              <span>Adelaide, SA</span>
             </div>
 
             <a href="https://www.linkedin.com/in/rajiv-bhandari25/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3 transition hover:bg-white/[0.06] hover:border-white/10">

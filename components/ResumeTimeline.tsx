@@ -6,7 +6,7 @@ import { Briefcase } from "lucide-react";
 const experience = [
   {
     company: "SpaceTel IT",
-    role: "Application Support & QA Analyst (Intern)",
+    role: "Software Developer (Intern)",
     location: "Adelaide, SA",
     period: "May 2026 – Present",
     bullets: [
@@ -18,12 +18,12 @@ const experience = [
     ],
   },
   {
-    company: "Adorable Home Care",
+    company: "Adorable Home Care & Northern Disability",
     role: "Disability Support Worker (Part-time)",
     location: "Adelaide, SA",
     period: "2024 – Present",
     bullets: [
-      "Work within a regulated care environment, maintaining accurate digital case notes, incident records and shift handovers in line with privacy legislation, organisational policy and care quality requirements.",
+      "Work within regulated care environments across two providers, maintaining accurate digital case notes, incident records and shift handovers in line with privacy legislation, organisational policy and care quality requirements.",
       "Developed first-hand understanding of the systems, compliance documentation and quality standards that underpin safe care delivery.",
     ],
   },
@@ -54,7 +54,7 @@ const experience = [
     company: "CloudFactory",
     role: "Data Specialist",
     location: "Kathmandu, Nepal",
-    period: "Nov 2017 – Nov 2020",
+    period: "Nov 2017 – Sep 2020",
     bullets: [
       "Processed and quality-checked high-volume structured datasets to defined accuracy and confidentiality standards, flagging inconsistencies and contributing to continuous-improvement processes.",
     ],

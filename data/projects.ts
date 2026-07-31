@@ -31,21 +31,21 @@ export type PortfolioProject = {
 export const projects: PortfolioProject[] = [
   {
     slug: "enterprise-compliance-platform",
-    title: "Enterprise Compliance Platform",
+    title: "Enterprise Compliance Assessment Platform",
     subtitle: "Multi-role compliance assessment and QMS support",
     overview:
       "Administration, testing, and release management of a role-based enterprise compliance platform — configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
     image: "/projects/og-image.png",
     accentImage: "/projects/og-image.png",
     images: [
-      { src: "/projects/og-image.png", alt: "Enterprise Compliance Platform" },
+      { src: "/projects/og-image.png", alt: "Enterprise Compliance Assessment Platform" },
     ],
     liveUrl: "#",
     liveLabel: "SpaceTel IT — Adelaide",
     stack: ["React", "Spring Boot", "PostgreSQL", "Selenium", "JUnit"],
     businessGoal:
       "Support the ongoing administration and quality assurance of a multi-role compliance platform used across Admin, Auditor, and Client roles.",
-    role: "Application Support & QA Analyst — configuration, testing, release management, and defect lifecycle",
+    role: "Software Developer (Intern) — configuration, testing, release management, and defect lifecycle",
     measurableOutcome:
       "Managed end-to-end defect lifecycle, coordinated pre-production UAT, and produced release summaries and test reports for stakeholder approval.",
     trustSignals: [
@@ -97,7 +97,7 @@ export const projects: PortfolioProject[] = [
     ],
     liveUrl: "https://www.glideedu.com.au/",
     liveLabel: "glideedu.com.au",
-    stack: ["React", "Next.js", "Tailwind CSS", "MySQL"],
+    stack: ["React", "Next.js", "Node.js", "Tailwind CSS", "MySQL"],
     businessGoal:
       "Create a clearer website so prospective students and clients could understand services and enquire with more confidence.",
     role: "End-to-end website build and deployment",

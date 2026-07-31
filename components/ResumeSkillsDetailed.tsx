@@ -5,26 +5,56 @@ import { Sparkles, Terminal, Code2, Database, ShieldCheck, Workflow, FileText } 
 
 const skillBlocks = [
   {
-    title: "Business Applications Support",
+    title: "Application & Business Systems Support",
     icon: ShieldCheck,
     color: "from-[#7c6cf2] to-[#d9468f]",
     shadowColor: "rgba(124,108,242,0.24)",
-    proficiency: 92,
+    proficiency: 90,
     items: [
-      "Business applications support",
-      "Incident resolution",
+      "Workflow configuration",
+      "System access management",
+      "Incident & defect resolution",
       "Change support",
-      "Workflow troubleshooting",
       "User assistance",
       "Documentation",
     ],
   },
   {
-    title: "Microsoft 365 & Identity",
+    title: "Compliance, QMS & Regulated Care Systems",
     icon: Terminal,
     color: "from-[#35aeca] to-[#7c6cf2]",
     shadowColor: "rgba(53,174,202,0.24)",
-    proficiency: 88,
+    proficiency: 84,
+    items: [
+      "Compliance platform admin",
+      "UAT coordination",
+      "Evidence & audit trails",
+      "Release testing",
+      "Care documentation",
+      "Privacy & policy compliance",
+    ],
+  },
+  {
+    title: "SQL, Data & Reporting",
+    icon: Workflow,
+    color: "from-[#e49a2f] to-[#d9468f]",
+    shadowColor: "rgba(228,154,47,0.24)",
+    proficiency: 80,
+    items: [
+      "SQL / MySQL",
+      "T-SQL fundamentals",
+      "Data validation",
+      "ETL & staging concepts",
+      "Source-to-target reconciliation",
+      "Reporting support",
+    ],
+  },
+  {
+    title: "Microsoft 365 & Identity",
+    icon: Database,
+    color: "from-[#20a779] to-[#3b82f6]",
+    shadowColor: "rgba(32,167,121,0.24)",
+    proficiency: 82,
     items: [
       "Microsoft 365",
       "SharePoint",
@@ -32,52 +62,21 @@ const skillBlocks = [
       "Teams",
       "Active Directory",
       "Azure AD",
-      "User access",
     ],
   },
   {
-    title: "SQL/MySQL & Reporting Support",
-    icon: Workflow,
-    color: "from-[#e49a2f] to-[#d9468f]",
-    shadowColor: "rgba(228,154,47,0.24)",
-    proficiency: 80,
-    items: [
-      "SQL/MySQL",
-      "Validation queries",
-      "Reporting support",
-      "Data accuracy",
-      "Form submission review",
-      "Data checks",
-    ],
-  },
-  {
-    title: "Website QA & Improvement",
-    icon: Database,
-    color: "from-[#20a779] to-[#3b82f6]",
-    shadowColor: "rgba(32,167,121,0.24)",
-    proficiency: 76,
-    items: [
-      "Website review",
-      "UX analysis",
-      "Lighthouse",
-      "PageSpeed Insights",
-      "SEO basics",
-      "Process improvement",
-    ],
-  },
-  {
-    title: "Integration & Technical Troubleshooting",
+    title: "Web & Application Development",
     icon: Code2,
     color: "from-[#e05268] to-[#e49a2f]",
     shadowColor: "rgba(244,63,94,0.3)",
-    proficiency: 82,
+    proficiency: 78,
     items: [
+      "React / Next.js",
+      "Node.js",
+      "REST APIs",
+      "MySQL",
+      "HTML/CSS",
       "DNS/SSL/hosting",
-      "API/database issues",
-      "Web-based apps",
-      "Incident analysis",
-      "Testing support",
-      "Domain issues",
     ],
   },
   {
@@ -85,13 +84,13 @@ const skillBlocks = [
     icon: FileText,
     color: "from-[#c65bd7] to-[#7c6cf2]",
     shadowColor: "rgba(217,70,239,0.3)",
-    proficiency: 78,
+    proficiency: 80,
     items: [
-      "Reports",
-      "Presentation material",
+      "Release notes & summaries",
       "Stakeholder communication",
+      "Requirements gathering",
       "Git/GitHub",
-      "Documentation",
+      "User documentation",
       "Deployment support",
     ],
   },
@@ -190,7 +189,7 @@ export default function ResumeSkillsDetailed() {
             Core Competencies
           </h2>
           <p className="mt-1 text-sm font-medium text-[#8f87a0]">
-            Hybrid capability across IT support, application support, Microsoft 365, SQL/MySQL, website QA, troubleshooting, and structured delivery.
+            Hybrid capability across application support, compliance & QMS systems, SQL/MySQL, Microsoft 365, web development, and structured delivery.
           </p>
         </div>
       </div>

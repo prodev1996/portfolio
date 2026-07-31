@@ -43,7 +43,7 @@ const fadeUp: Variants = {
 const timeline = [
   {
     year: "May 2026 – Present",
-    role: "Application Support & QA Analyst (Intern)",
+    role: "Software Developer (Intern)",
     place: "SpaceTel IT | Adelaide, SA | On-site",
     summary:
       "Support the administration, testing, and release management of a multi-role enterprise compliance platform — configuring workflows, managing access, coordinating UAT, and managing the full defect lifecycle.",
@@ -56,9 +56,9 @@ const timeline = [
   {
     year: "2024 – Present",
     role: "Disability Support Worker (Part-time)",
-    place: "Adorable Home Care | Adelaide, SA",
+    place: "Adorable Home Care & Northern Disability | Adelaide, SA",
     summary:
-      "Work within a regulated care environment, maintaining accurate digital records, incident documentation, and shift handovers in line with privacy legislation and care quality standards.",
+      "Work within regulated care environments across two providers, maintaining accurate digital records, incident documentation, and shift handovers in line with privacy legislation and care quality standards.",
     points: [
       "Maintain accurate digital case notes, incident records, and shift handovers per organisational policy and privacy legislation.",
       "Developed first-hand understanding of the systems, compliance documentation, and quality standards that underpin safe care delivery.",
@@ -88,7 +88,7 @@ const timeline = [
     ],
   },
   {
-    year: "Nov 2017 – Nov 2020",
+    year: "Nov 2017 – Sep 2020",
     role: "Data Specialist",
     place: "CloudFactory | Kathmandu, Nepal",
     summary:
