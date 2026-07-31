@@ -1,0 +1,109 @@
+<svg width="1200" height="727" viewBox="0 0 1200 727" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0910" />
+      <stop offset="100%" stop-color="#120f1d" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="18%" cy="12%" r="55%">
+      <stop offset="0%" stop-color="#6f67df" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#6f67df" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="86%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#c55b9e" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#c55b9e" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow3" cx="70%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#1e9b73" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#1e9b73" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6f67df" />
+      <stop offset="100%" stop-color="#2ca2ba" />
+    </linearGradient>
+    <linearGradient id="barA" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6f67df" />
+      <stop offset="100%" stop-color="#c55b9e" />
+    </linearGradient>
+    <linearGradient id="barB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2ca2ba" />
+      <stop offset="100%" stop-color="#1e9b73" />
+    </linearGradient>
+    <linearGradient id="barC" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d48d37" />
+      <stop offset="100%" stop-color="#c55b9e" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="727" fill="url(#bg)" />
+  <rect width="1200" height="727" fill="url(#glow1)" />
+  <rect width="1200" height="727" fill="url(#glow2)" />
+  <rect width="1200" height="727" fill="url(#glow3)" />
+
+  <!-- faint grid -->
+  <g stroke="#ffffff" stroke-opacity="0.035">
+    <line x1="0" y1="121" x2="1200" y2="121" />
+    <line x1="0" y1="242" x2="1200" y2="242" />
+    <line x1="0" y1="363" x2="1200" y2="363" />
+    <line x1="0" y1="484" x2="1200" y2="484" />
+    <line x1="0" y1="605" x2="1200" y2="605" />
+    <line x1="150" y1="0" x2="150" y2="727" />
+    <line x1="350" y1="0" x2="350" y2="727" />
+    <line x1="550" y1="0" x2="550" y2="727" />
+    <line x1="750" y1="0" x2="750" y2="727" />
+    <line x1="950" y1="0" x2="950" y2="727" />
+    <line x1="1150" y1="0" x2="1150" y2="727" />
+  </g>
+
+  <!-- abstract role-based dashboard card, evokes the product without showing real UI -->
+  <g transform="translate(120,150)">
+    <rect width="960" height="430" rx="28" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.08" />
+
+    <!-- three role columns: Admin / Auditor / Client -->
+    <g transform="translate(40,40)">
+      <rect width="280" height="350" rx="18" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.06" />
+      <rect x="24" y="24" width="90" height="22" rx="11" fill="url(#barA)" fill-opacity="0.85" />
+      <text x="24" y="70" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#e9e6f5">Admin</text>
+      <rect x="24" y="92" width="232" height="12" rx="6" fill="#ffffff" fill-opacity="0.12" />
+      <rect x="24" y="116" width="190" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="140" width="210" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="176" width="232" height="86" rx="14" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.06" />
+      <rect x="40" y="196" width="150" height="10" rx="5" fill="#ffffff" fill-opacity="0.14" />
+      <rect x="40" y="216" width="110" height="10" rx="5" fill="#ffffff" fill-opacity="0.09" />
+      <rect x="40" y="236" width="130" height="10" rx="5" fill="#ffffff" fill-opacity="0.09" />
+    </g>
+
+    <g transform="translate(340,40)">
+      <rect width="280" height="350" rx="18" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.06" />
+      <rect x="24" y="24" width="90" height="22" rx="11" fill="url(#barB)" fill-opacity="0.85" />
+      <text x="24" y="70" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#e9e6f5">Auditor</text>
+      <rect x="24" y="92" width="232" height="12" rx="6" fill="#ffffff" fill-opacity="0.12" />
+      <rect x="24" y="116" width="170" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="140" width="220" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="176" width="232" height="86" rx="14" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.06" />
+      <circle cx="56" cy="210" r="14" fill="#1e9b73" fill-opacity="0.28" />
+      <path d="M50 210 l4 5 l9 -10" stroke="#7be3c2" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="82" y="203" width="150" height="10" rx="5" fill="#ffffff" fill-opacity="0.12" />
+      <rect x="82" y="221" width="110" height="10" rx="5" fill="#ffffff" fill-opacity="0.08" />
+    </g>
+
+    <g transform="translate(640,40)">
+      <rect width="280" height="350" rx="18" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.06" />
+      <rect x="24" y="24" width="90" height="22" rx="11" fill="url(#barC)" fill-opacity="0.85" />
+      <text x="24" y="70" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#e9e6f5">Client</text>
+      <rect x="24" y="92" width="232" height="12" rx="6" fill="#ffffff" fill-opacity="0.12" />
+      <rect x="24" y="116" width="200" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="140" width="160" height="12" rx="6" fill="#ffffff" fill-opacity="0.08" />
+      <rect x="24" y="176" width="232" height="86" rx="14" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.06" />
+      <rect x="40" y="192" width="200" height="10" rx="5" fill="#ffffff" fill-opacity="0.14" />
+      <rect x="40" y="212" width="150" height="10" rx="5" fill="#ffffff" fill-opacity="0.09" />
+      <rect x="40" y="232" width="170" height="10" rx="5" fill="#ffffff" fill-opacity="0.09" />
+    </g>
+  </g>
+
+  <!-- shield badge -->
+  <g transform="translate(560,90)">
+    <circle cx="40" cy="40" r="40" fill="url(#shieldGrad)" fill-opacity="0.9" />
+    <path d="M40 18 L60 26 V42 C60 55 52 63 40 68 C28 63 20 55 20 42 V26 Z" fill="#0a0910" fill-opacity="0.9" />
+    <path d="M31 42 L37 48 L50 33" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

@@ -16,11 +16,9 @@ import {
   Code2,
   Database,
   Download,
-  FileText,
   GraduationCap,
   Mail,
   MapPin,
-  Network,
   ServerCog,
   ShieldCheck,
   Workflow,
@@ -49,8 +47,6 @@ const timeline = [
       "Support the administration, testing, and release management of a multi-role enterprise compliance platform — configuring workflows, managing access, coordinating UAT, and managing the full defect lifecycle.",
     points: [
       "Configure workflows, system access, form setup, and evidence-handling processes across Admin, Auditor, and Client roles.",
-      "Review release notes and coordinate testing with key users prior to production deployments; produce release summaries and test reports.",
-      "Manage the full defect lifecycle — logging issues with reproduction steps, liaising with developers, and retesting fixes before release.",
     ],
   },
   {
@@ -61,7 +57,6 @@ const timeline = [
       "Work within regulated care environments across two providers, maintaining accurate digital records, incident documentation, and shift handovers in line with privacy legislation and care quality standards.",
     points: [
       "Maintain accurate digital case notes, incident records, and shift handovers per organisational policy and privacy legislation.",
-      "Developed first-hand understanding of the systems, compliance documentation, and quality standards that underpin safe care delivery.",
     ],
   },
   {
@@ -71,8 +66,6 @@ const timeline = [
     summary:
       "Administer and support business applications for clients across Microsoft 365, SharePoint, Teams, and web-based platforms — acting as the bridge between business need and technical solution.",
     points: [
-      "Manage user access, permissions, workflows, system configurations, and integrations across Microsoft 365 and SharePoint.",
-      "Gather and clarify business requirements, translate them into functional system changes, and verify outcomes with clients before sign-off.",
       "Use SQL and MySQL to validate records, investigate data issues, and troubleshoot reporting inconsistencies.",
     ],
   },
@@ -84,7 +77,6 @@ const timeline = [
       "Developed and supported web applications using React, Django, MySQL, and REST APIs — providing maintenance, bug resolution, feature implementation, and post-change stability checks.",
     points: [
       "Investigated and resolved user-reported application issues across frontend, database, and API layers.",
-      "Collaborated with stakeholders to translate requirements into practical solutions and clear handover documentation.",
     ],
   },
   {
@@ -161,43 +153,29 @@ const skillDomains: {
 }[] = [
   {
     icon: ShieldCheck,
-    title: "Enterprise Application Administration",
-    blurb: "Core strength across business application support.",
+    title: "Enterprise Application & Compliance Support",
+    blurb: "Core strength across business application and QMS administration.",
     items: [
       "Workflow configuration",
-      "System access management",
-      "Role management",
-      "Form setup",
-      "Incident investigation",
-      "System interfaces",
+      "System access & role management",
+      "QMS & compliance workflows",
+      "Evidence & audit trails",
+      "Defect lifecycle",
+      "Policy controls",
     ],
     accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
-    icon: Award,
-    title: "Quality & Compliance Systems",
-    blurb: "QMS administration and compliance platform support.",
-    items: [
-      "QMS administration",
-      "Compliance workflows",
-      "Evidence management",
-      "GRC alignment",
-      "Audit trails",
-      "Policy controls",
-    ],
-    accent: "from-[#2ca2ba] to-[#6f67df]",
-  },
-  {
     icon: Workflow,
-    title: "Release, Testing & Change",
-    blurb: "End-to-end release and change support.",
+    title: "Release, Testing & Documentation",
+    blurb: "End-to-end release, change, and stakeholder communication.",
     items: [
       "UAT coordination",
       "Release notes review",
       "Regression testing",
-      "Pre-production validation",
-      "Defect lifecycle",
       "Change documentation",
+      "User guides",
+      "Requirements gathering",
     ],
     accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
@@ -217,45 +195,17 @@ const skillDomains: {
   },
   {
     icon: Database,
-    title: "Data, SQL & Reporting",
-    blurb: "SQL for validation and reporting support.",
+    title: "SQL, Data & Web Development",
+    blurb: "SQL support plus the technical delivery context behind it.",
     items: [
       "SQL / MySQL",
-      "PostgreSQL",
+      "T-SQL & ETL concepts",
       "Data validation",
-      "Record investigation",
+      "React / Next.js",
+      "Node.js",
       "REST APIs",
-      "Excel reporting",
     ],
     accent: "from-[#6f67df] to-[#2ca2ba]",
-  },
-  {
-    icon: Code2,
-    title: "Web & Application Development",
-    blurb: "Technical delivery context for application roles.",
-    items: [
-      "React",
-      "Next.js",
-      "Django",
-      "Python",
-      "HTML/CSS",
-      "API integration",
-    ],
-    accent: "from-[#2ca2ba] to-[#1e9b73]",
-  },
-  {
-    icon: FileText,
-    title: "Documentation & Communication",
-    blurb: "Clear handovers for technical and non-technical audiences.",
-    items: [
-      "User guides",
-      "Release summaries",
-      "Stakeholder communication",
-      "Requirements gathering",
-      "Process improvement",
-      "Git/GitHub",
-    ],
-    accent: "from-[#d48d37] to-[#6f67df]",
   },
 ];
 
@@ -686,11 +636,11 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Capabilities"
           title="Capability areas grouped the way hiring teams usually scan them."
-          description="Instead of one long skill wall, this section is grouped into employer-searchable domains: support, Microsoft 365, systems, networking, SQL, development, and documentation."
+          description="Instead of one long skill wall, this section is grouped into four employer-searchable domains: application & compliance support, release & documentation, Microsoft 365, and SQL/web development."
         />
 
         <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-3 md:grid-cols-2">
             {skillDomains.map((domain, index) => (
               <motion.article
                 key={domain.title}
@@ -876,6 +826,16 @@ export default function CosmicPortfolio() {
                   </motion.article>
                 ))}
               </div>
+
+              <div className="mt-6 sm:pl-8">
+                <Link
+                  href="/resume"
+                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-[#c55b9e] transition hover:text-[#d8a7e7]"
+                >
+                  See full experience & resume
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -977,15 +937,21 @@ export default function CosmicPortfolio() {
                   <Link href={`/projects/${project.slug}`} className="btn-outline">
                     Read Case Study
                   </Link>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                  >
-                    Visit Live Site
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                    >
+                      Visit Live Site
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f87a0]">
+                      Confidential — internal system
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.article>

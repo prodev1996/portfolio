@@ -35,12 +35,10 @@ export const projects: PortfolioProject[] = [
     subtitle: "Multi-role compliance assessment and QMS support",
     overview:
       "Administration, testing, and release management of a role-based enterprise compliance platform — configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
-    image: "/projects/og-image.png",
-    accentImage: "/projects/og-image.png",
-    images: [
-      { src: "/projects/og-image.png", alt: "Enterprise Compliance Assessment Platform" },
-    ],
-    liveUrl: "#",
+    image: "/projects/compliance-platform-cover.svg",
+    accentImage: "/projects/compliance-platform-cover.svg",
+    images: [],
+    liveUrl: "",
     liveLabel: "SpaceTel IT — Adelaide",
     stack: ["React", "Spring Boot", "PostgreSQL", "Selenium", "JUnit"],
     businessGoal:
