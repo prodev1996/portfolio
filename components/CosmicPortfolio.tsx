@@ -153,17 +153,31 @@ const skillDomains: {
 }[] = [
   {
     icon: ShieldCheck,
-    title: "Enterprise Application & Compliance Support",
-    blurb: "Core strength across business application and QMS administration.",
+    title: "Application & Business Systems Support",
+    blurb: "Core strength across business application support and troubleshooting.",
     items: [
       "Workflow configuration",
       "System access & role management",
-      "QMS & compliance workflows",
-      "Evidence & audit trails",
-      "Defect lifecycle",
-      "Policy controls",
+      "Incident & defect resolution",
+      "Root-cause troubleshooting",
+      "Change support",
+      "User assistance",
     ],
     accent: "from-[#6f67df] to-[#c55b9e]",
+  },
+  {
+    icon: Database,
+    title: "SQL, Data & Web Development",
+    blurb: "SQL and data analysis, plus the technical delivery context behind it.",
+    items: [
+      "SQL / MySQL",
+      "T-SQL & ETL concepts",
+      "Data validation & analysis",
+      "React / Next.js",
+      "Node.js",
+      "REST APIs",
+    ],
+    accent: "from-[#6f67df] to-[#2ca2ba]",
   },
   {
     icon: Workflow,
@@ -192,20 +206,6 @@ const skillDomains: {
       "Azure AD",
     ],
     accent: "from-[#d48d37] to-[#c55b9e]",
-  },
-  {
-    icon: Database,
-    title: "SQL, Data & Web Development",
-    blurb: "SQL support plus the technical delivery context behind it.",
-    items: [
-      "SQL / MySQL",
-      "T-SQL & ETL concepts",
-      "Data validation",
-      "React / Next.js",
-      "Node.js",
-      "REST APIs",
-    ],
-    accent: "from-[#6f67df] to-[#2ca2ba]",
   },
 ];
 
@@ -424,7 +424,7 @@ export default function CosmicPortfolio() {
 
             <h1 className="mt-3 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
               <span className="block">IT Support, Data &</span>
-              <span className="block">Software Delivery —</span>
+              <span className="block">Software Delivery,</span>
               <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
                 growing into data engineering.
               </span>
@@ -655,7 +655,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Capabilities"
           title="Capability areas grouped the way hiring teams usually scan them."
-          description="Instead of one long skill wall, this section is grouped into four employer-searchable domains: application & compliance support, release & documentation, Microsoft 365, and SQL/web development."
+          description="Instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
         />
 
         <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">

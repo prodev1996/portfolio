@@ -11,10 +11,8 @@ const experience = [
     period: "May 2026 – Present",
     bullets: [
       "Support the ongoing administration of a multi-role enterprise compliance platform, including workflow configuration, system access management, form setup and evidence-handling processes across Admin, Auditor and Client roles.",
-      "Collaborate with business users and project stakeholders to translate requirements into functional system configurations and test scenarios, ensuring changes meet the intended business outcome before sign-off.",
       "Review release notes and coordinate testing of new system versions with key users prior to each production deployment; produce release summaries and test reports for stakeholder approval.",
       "Manage the full defect lifecycle — logging issues with structured reproduction steps and supporting evidence, liaising with developers on resolution and retesting fixes before release.",
-      "Produce user documentation and support end-user adoption across multiple business roles, tailoring communication for both technical and non-technical audiences.",
     ],
   },
   {
