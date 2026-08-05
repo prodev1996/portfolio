@@ -96,10 +96,10 @@ export default function AttractiveFooter() {
                 window.dispatchEvent(new Event(OPEN_SUPPORT_DESK_GAME_EVENT))
               }
               aria-label="A little something extra"
-              title="A little something extra"
-              className="inline-flex h-5 w-5 items-center justify-center rounded-full text-[#4a4556] opacity-60 transition hover:text-[#c55b9e] hover:opacity-100"
+              title="A little something extra — click me"
+              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[#c9c1d8] shadow-[0_0_10px_rgba(197,91,158,0.25)] transition hover:scale-110 hover:border-[#c55b9e]/50 hover:text-[#c55b9e]"
             >
-              <Headset className="h-3 w-3" />
+              <Headset className="h-3.5 w-3.5" />
             </button>
           </p>
           <Link
