@@ -73,6 +73,12 @@ export default function Navbar() {
       let markerMatched = false;
 
       sections.forEach(({ name, element }) => {
+        // The hero ("Home") is nearly a full viewport tall, so it would
+        // otherwise dominate the marker match for 600-900px of scroll
+        // before anything else could activate. Once scrolled even a
+        // little past the very top, let the other sections compete.
+        if (name === "Home" && window.scrollY > 120) return;
+
         const rect = element.getBoundingClientRect();
 
         if (rect.top <= marker && rect.bottom > marker) {
