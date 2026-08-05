@@ -113,6 +113,24 @@ html.custom-cursor-active select {
   }
 }
 
+/* Modals/overlays that need a reliable native pointer opt out of the
+   custom cursor system entirely, regardless of html.custom-cursor-active. */
+.native-cursor-zone,
+.native-cursor-zone * {
+  cursor: auto !important;
+}
+
+.native-cursor-zone button,
+.native-cursor-zone a,
+.native-cursor-zone [role="button"] {
+  cursor: pointer !important;
+}
+
+body.native-cursor-active .custom-cursor-dot,
+body.native-cursor-active .custom-cursor-ring {
+  opacity: 0;
+}
+
 @keyframes cursor-star-drift {
   0% {
     opacity: 0.9;
