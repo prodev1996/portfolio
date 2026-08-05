@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,6 +9,8 @@ import {
   useMotionValue,
   type Variants,
 } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -27,7 +30,11 @@ import {
 import { FaLinkedin } from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
-import { projects } from "@/data/projects";
+import AnimatedGradientCanvas from "@/components/AnimatedGradientCanvas";
+import HeroHeadline from "@/components/HeroHeadline";
+import ParallaxLayer from "@/components/ParallaxLayer";
+import { useTilt } from "@/components/useTilt";
+import { projects, type PortfolioProject } from "@/data/projects";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 36 },
@@ -297,14 +304,59 @@ function SectionIntro({
 }) {
   const alignment =
     align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl";
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const targets = el.querySelectorAll<HTMLElement>("[data-reveal]");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      gsap.set(targets, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        targets,
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className={alignment}>
-      <p className="section-label">{label}</p>
-      <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
+    <div ref={containerRef} className={alignment}>
+      <p data-reveal className="section-label">{label}</p>
+      <h2
+        data-reveal
+        className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl"
+      >
         {title}
       </h2>
-      <p className="mt-3 text-sm leading-7 text-[#a8a5b3] sm:text-[15px]">
+      <p
+        data-reveal
+        className="mt-3 text-sm leading-7 text-[#a8a5b3] sm:text-[15px]"
+      >
         {description}
       </p>
     </div>
@@ -438,6 +490,76 @@ function MarqueeRow({
   );
 }
 
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: PortfolioProject;
+  index: number;
+}) {
+  const tiltRef = useTilt<HTMLElement>(5);
+
+  return (
+    <motion.article
+      ref={tiltRef}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
+      className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 shadow-[0_24px_70px_rgba(0,0,0,0.3)] transition-[transform,border-color] duration-200 ease-out will-change-transform hover:border-white/20 [transform-style:preserve-3d]"
+    >
+      <Link
+        href={`/projects/${project.slug}`}
+        className="relative block aspect-[4/3] overflow-hidden border-b border-white/10"
+      >
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover object-top transition duration-700 group-hover:scale-[1.04]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/25 to-transparent" />
+        <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-xl">
+          {project.liveUrl ? "Live delivery" : "Confidential"}
+        </div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#f1dcc1]">
+            {project.liveLabel}
+          </p>
+          <h3 className="mt-1.5 text-lg font-black leading-tight tracking-[-0.03em] text-white">
+            {project.title}
+          </h3>
+          <p className="mt-1 text-xs leading-5 text-[#d8d1e6]">
+            {project.subtitle}
+          </p>
+        </div>
+      </Link>
+
+      <div className="p-5">
+        <div className="flex flex-wrap gap-1.5">
+          {project.stack.slice(0, 4).map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[10px] font-semibold text-[#d8d1e6]"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <Link
+          href={`/projects/${project.slug}`}
+          className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-[#c55b9e] transition group-hover:text-[#d8a7e7]"
+        >
+          View Case Study
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function CosmicPortfolio() {
   return (
     <div className="relative overflow-hidden bg-[#04030a] selection:bg-[#c55b9e]/25 selection:text-white">
@@ -448,9 +570,7 @@ export default function CosmicPortfolio() {
         id="home"
         className="relative flex min-h-[100svh] items-center px-4 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:items-start lg:px-8 lg:pb-6 lg:pt-20"
       >
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-[38%] h-[32rem] w-[90vw] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#6f67df]/14 via-[#c55b9e]/8 to-[#d48d37]/14 blur-[140px]" />
-        </div>
+        <AnimatedGradientCanvas className="opacity-90 blur-[60px]" />
 
         <div className="pointer-events-none absolute inset-x-0 top-[18%] hidden text-center lg:block">
           <p className="text-[12vw] font-black uppercase tracking-[-0.08em] text-white/[0.035]">
@@ -470,13 +590,13 @@ export default function CosmicPortfolio() {
               Rajiv Bhandari
             </p>
 
-            <h1 className="mt-3 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
-              <span className="block">IT Support, Data &</span>
-              <span className="block">Software Delivery,</span>
-              <span className="block bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent">
-                growing into data engineering.
-              </span>
-            </h1>
+            <HeroHeadline
+              lines={[
+                { text: "IT Support, Data &" },
+                { text: "Software Delivery," },
+                { text: "growing into data engineering.", gradient: true },
+              ]}
+            />
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
               Master of IT graduate based in Adelaide, working across
@@ -514,7 +634,7 @@ export default function CosmicPortfolio() {
 
           </div>
 
-          <div className="relative lg:pt-1">
+          <ParallaxLayer speed={-0.08} className="relative lg:pt-1">
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.14),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(197,91,158,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_40%)]" />
               <div className="relative z-10">
@@ -554,7 +674,7 @@ export default function CosmicPortfolio() {
 
               </div>
             </div>
-          </div>
+          </ParallaxLayer>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-4 hidden justify-center lg:flex">
@@ -926,63 +1046,7 @@ export default function CosmicPortfolio() {
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <motion.article
-              key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
-              className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 shadow-[0_24px_70px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
-            >
-              <Link
-                href={`/projects/${project.slug}`}
-                className="relative block aspect-[4/3] overflow-hidden border-b border-white/10"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top transition duration-700 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/25 to-transparent" />
-                <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-xl">
-                  {project.liveUrl ? "Live delivery" : "Confidential"}
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#f1dcc1]">
-                    {project.liveLabel}
-                  </p>
-                  <h3 className="mt-1.5 text-lg font-black leading-tight tracking-[-0.03em] text-white">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1 text-xs leading-5 text-[#d8d1e6]">
-                    {project.subtitle}
-                  </p>
-                </div>
-              </Link>
-
-              <div className="p-5">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.stack.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[10px] font-semibold text-[#d8d1e6]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-[#c55b9e] transition group-hover:text-[#d8a7e7]"
-                >
-                  View Case Study
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </motion.article>
+            <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
       </section>
