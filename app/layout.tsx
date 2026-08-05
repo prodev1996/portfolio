@@ -5,6 +5,9 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import CursorStars from "@/components/CursorStars";
+import CustomCursor from "@/components/CustomCursor";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import PageTransition from "@/components/PageTransition";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollProgressRail from "@/components/ScrollProgressRail";
 
@@ -122,11 +125,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
       <body className={`min-h-screen bg-[#050505] text-[#f8f7ef] antialiased font-sans`}>
-        <ScrollProgressRail />
-        <Navbar />
-        <main className="flex min-h-screen flex-col pb-16">{children}</main>
-        <CursorStars />
-        <ScrollToTopButton />
+        <SmoothScrollProvider>
+          <ScrollProgressRail />
+          <Navbar />
+          <main className="flex min-h-screen flex-col pb-16">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <CursorStars />
+          <CustomCursor />
+          <ScrollToTopButton />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

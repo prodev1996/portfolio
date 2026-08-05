@@ -22,6 +22,112 @@ html {
   scrollbar-width: thin;
 }
 
+/* Lenis takes over smoothing once it initializes; native smooth-scroll
+   would otherwise fight its easing on anchor-link jumps. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis {
+  scroll-behavior: auto !important;
+}
+
+html.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Cursor star trail (CursorStars.tsx) */
+.cursor-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.cursor-star {
+  position: fixed;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #d8d1e6 35%,
+    rgba(197, 91, 158, 0.6) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(197, 91, 158, 0.55), 0 0 22px rgba(111, 103, 223, 0.35);
+  animation: cursor-star-drift 760ms ease-out forwards;
+}
+
+/* Custom cursor (CustomCursor.tsx) — desktop pointer-fine only */
+html.custom-cursor-active,
+html.custom-cursor-active a,
+html.custom-cursor-active button,
+html.custom-cursor-active [role="button"],
+html.custom-cursor-active input,
+html.custom-cursor-active textarea,
+html.custom-cursor-active select {
+  cursor: none;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 7px;
+  width: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 999px;
+  background: #f8f7ef;
+  pointer-events: none;
+  z-index: 90;
+  box-shadow: 0 0 8px rgba(248, 247, 239, 0.6);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 34px;
+  width: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(216, 209, 230, 0.55);
+  pointer-events: none;
+  z-index: 89;
+  will-change: transform;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+@media (max-width: 1023px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none;
+  }
+}
+
+@keyframes cursor-star-drift {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--star-x)),
+        calc(-50% + var(--star-y))
+      )
+      rotate(var(--star-rotate)) scale(0.2);
+  }
+}
+
 body {
   min-height: 100%;
   background:
