@@ -31,10 +31,10 @@ const foundations = [
 const attributes = [
   "Clear communication with both technical and non-technical stakeholders",
   "Strong attention to detail and structured troubleshooting habits built across multiple roles",
-  "Analytical mindset — comfortable using SQL to turn raw data into clear, validated answers",
+  "Analytical mindset, comfortable using SQL to turn raw data into clear, validated answers",
   "Proven ability to manage support tickets, documentation, and system changes end-to-end",
   "Growing technical depth toward data engineering, building on a support and software foundation",
-  "Currently enrolled in a Professional Year Program — structured Australian workplace readiness",
+  "Currently enrolled in a Professional Year Program for structured Australian workplace readiness",
 ];
 
 export default function ResumeEducation() {

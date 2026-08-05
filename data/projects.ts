@@ -34,16 +34,16 @@ export const projects: PortfolioProject[] = [
     title: "Enterprise Compliance Assessment Platform",
     subtitle: "Multi-role compliance assessment and QMS support",
     overview:
-      "Administration, testing, and release management of a role-based enterprise compliance platform — configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
+      "Administration, testing, and release management of a role-based enterprise compliance platform, configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
     image: "/projects/compliance-platform-cover.svg",
     accentImage: "/projects/compliance-platform-cover.svg",
     images: [],
     liveUrl: "",
-    liveLabel: "SpaceTel IT — Adelaide",
+    liveLabel: "SpaceTel IT, Adelaide",
     stack: ["React", "Spring Boot", "PostgreSQL", "Selenium", "JUnit"],
     businessGoal:
       "Support the ongoing administration and quality assurance of a multi-role compliance platform used across Admin, Auditor, and Client roles.",
-    role: "Software Developer Intern — configuration, testing, release management, and defect lifecycle",
+    role: "Software Developer Intern: configuration, testing, release management, and defect lifecycle",
     measurableOutcome:
       "Managed end-to-end defect lifecycle, coordinated pre-production UAT, and produced release summaries and test reports for stakeholder approval.",
     trustSignals: [

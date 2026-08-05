@@ -33,13 +33,14 @@ export default function AttractiveFooter() {
                   Rajiv Bhandari
                 </p>
                 <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#9d94b3]">
-                  Application Systems | Microsoft 365 | SQL Support
+                  Application Support | Data | Software
                 </p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d8d1e6]">
-                  Master of IT graduate with hands-on experience in application
-                  support, Microsoft 365, SQL troubleshooting, and live client
-                  delivery. Currently completing a Professional Year Program and
-                  open to IT support and application systems roles across Australia.
+                  Master of IT graduate with hands-on experience across
+                  application support, SQL-based data analysis, and software
+                  development. Currently completing a Professional Year
+                  Program and open to IT support, data analyst, and junior
+                  developer roles across Australia.
                 </p>
               </div>
             </div>
@@ -96,7 +97,7 @@ export default function AttractiveFooter() {
                 window.dispatchEvent(new Event(OPEN_SUPPORT_DESK_GAME_EVENT))
               }
               aria-label="A little something extra"
-              title="A little something extra — click me"
+              title="A little something extra, click me"
               className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[#c9c1d8] shadow-[0_0_10px_rgba(197,91,158,0.25)] transition hover:scale-110 hover:border-[#c55b9e]/50 hover:text-[#c55b9e]"
             >
               <Headset className="h-3.5 w-3.5" />

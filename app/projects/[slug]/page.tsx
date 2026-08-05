@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f87a0]">
-              Confidential — internal system
+              Confidential · Internal System
             </span>
           )}
         </div>
@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#070610]/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#d8d1e6] backdrop-blur-xl">
-                Confidential — internal system, no public link available
+                Confidential internal system, no public link available
               </div>
             </div>
           </div>

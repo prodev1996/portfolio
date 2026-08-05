@@ -25,7 +25,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
     ).matches;
 
     if (reducedMotion) {
-      gsap.set(words, { yPercent: 0, opacity: 1 });
+      gsap.set(words, { yPercent: 0, opacity: 1, clearProps: "transform" });
       return;
     }
 
@@ -40,6 +40,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
           ease: "power4.out",
           stagger: 0.045,
           delay: 0.15,
+          clearProps: "transform",
         },
       );
     }, container);

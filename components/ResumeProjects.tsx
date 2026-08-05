@@ -7,7 +7,7 @@ export default function ResumeProjects() {
   const projects = [
     {
       title: "Enterprise Compliance Assessment Platform",
-      subtitle: "Multi-role compliance platform — admin, testing & release support",
+      subtitle: "Multi-role compliance platform: admin, testing & release support",
       meta: "React · Spring Boot · PostgreSQL · Selenium · JUnit | SpaceTel IT",
       bullets: [
         "Supported the administration, testing and release management of a role-based enterprise compliance platform covering multi-stage assessment workflows, evidence submission, audit trails and policy controls.",

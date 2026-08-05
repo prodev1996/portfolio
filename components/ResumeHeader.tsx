@@ -34,7 +34,7 @@ export default function ResumeHeader() {
           </p>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#a1a1aa] sm:text-lg">
-            IT professional with a Master of Information Technology, based in Adelaide. My background spans application support, SQL-based data analysis, and software development — troubleshooting systems, validating data, and delivering practical solutions across enterprise and client environments. I&apos;m building toward a longer-term move into data engineering, with SQL and data-quality work as the throughline.
+            IT professional with a Master of Information Technology, based in Adelaide. My background spans application support, SQL-based data analysis, and software development, troubleshooting systems and delivering practical solutions across enterprise and client environments. SQL and data-quality work is where I keep gravitating, which is why data engineering is my longer-term goal.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">

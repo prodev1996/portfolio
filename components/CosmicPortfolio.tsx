@@ -72,9 +72,9 @@ const timeline = [
     role: "Application Support & IT Support Consultant",
     place: "Sole Trader / Contract | Australia / Remote",
     summary:
-      "Administer and support business applications for clients across Microsoft 365, SharePoint, Teams, and web-based platforms — acting as the bridge between business need and technical solution.",
+      "Administer and support business applications for clients across Microsoft 365, SharePoint, Teams, and web-based platforms, acting as the bridge between business need and technical solution.",
     points: [
-      "Write and execute SQL/MySQL queries for data retrieval, validation, and reporting accuracy checks — building practical data analysis habits alongside application support.",
+      "Write and execute SQL/MySQL queries for data retrieval, validation, and reporting accuracy checks, building practical data analysis habits alongside application support.",
     ],
   },
   {
@@ -82,9 +82,9 @@ const timeline = [
     role: "Application Support Developer",
     place: "Eydean Inc | Kathmandu, Nepal",
     summary:
-      "Maintained and supported production web applications built with React, Django, Node.js, MySQL, and REST APIs — handling bug investigation, defect resolution, and post-change stability checks.",
+      "Maintained and supported production web applications built with React, Django, Node.js, MySQL, and REST APIs, handling bug investigation, defect resolution, and post-change stability checks.",
     points: [
-      "Supported database-backed application features including data validation, query troubleshooting, and API integration testing — building foundational SQL and data analysis skills.",
+      "Supported database-backed application features including data validation, query troubleshooting, and API integration testing, building foundational SQL and data analysis skills.",
     ],
   },
   {
@@ -103,12 +103,12 @@ const recruiterSignals = [
   {
     title: "Role direction",
     value: "Application support, data & software",
-    note: "Best suited to IT application support, support technician, data analyst, and junior software developer roles — building toward data engineering.",
+    note: "Best suited to IT application support, support technician, data analyst, and junior software developer roles, with data engineering as the next step.",
   },
   {
     title: "Working style",
     value: "Structured, detail-first, ownership-driven",
-    note: "I gather requirements carefully, troubleshoot systems methodically, validate data thoroughly, and communicate clearly at all levels — technical and non-technical.",
+    note: "I gather requirements carefully, troubleshoot systems methodically, validate data thoroughly, and explain things clearly to both technical and non-technical people.",
   },
   {
     title: "Background",
@@ -584,28 +584,28 @@ export default function CosmicPortfolio() {
           <div className="max-w-3xl lg:max-w-[44rem]">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-[#d8d1e6] backdrop-blur-xl">
               <span className="h-2 w-2 rounded-full bg-[#1e9b73] shadow-[0_0_12px_rgba(30,155,115,0.55)]" />
-              Available for full-time work in Adelaide — immediately
+              Available for full-time work in Adelaide, starting now
             </div>
 
             <p className="mt-6 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.3em] text-[#8f87a0]">
               <span className="h-px w-8 bg-gradient-to-r from-[#6f67df] to-transparent" />
-              Rajiv Bhandari
+              Software Developer Intern at SpaceTel IT
             </p>
 
             <HeroHeadline
               lines={[
-                { text: "IT Support, Data &" },
-                { text: "Software Delivery," },
-                { text: "growing into data engineering.", gradient: true },
+                { text: "I fix things that break," },
+                { text: "then dig into the data" },
+                { text: "that explains why.", gradient: true },
               ]}
             />
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
-              Master of IT graduate based in Adelaide, working across
-              application support, data analysis, and software development.
-              I troubleshoot systems, validate and query data with SQL, and
-              build practical software solutions — with data as the throughline
-              I&apos;m building toward a longer-term move into data engineering.
+              Master of IT graduate based in Adelaide. Over the last few years
+              I&apos;ve supported business applications, written a fair amount
+              of SQL to track down data issues, and built small pieces of
+              software along the way. Right now I&apos;m leaning further into
+              data analysis, with data engineering as the longer-term goal.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -640,20 +640,7 @@ export default function CosmicPortfolio() {
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.14),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(197,91,158,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_40%)]" />
               <div className="relative z-10">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="section-label">Profile Signal</p>
-                    <h2 className="mt-2 text-xl font-black leading-tight tracking-[-0.04em] text-white sm:text-[1.5rem]">
-                      Support-first, systems-aware, and growing deeper SQL strength.
-                    </h2>
-                  </div>
-                  <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#1e9b73]/35 bg-[#1e9b73]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#1e9b73]" />
-                    Live
-                  </span>
-                </div>
-
-                <div className="relative mt-4 flex h-[15.5rem] items-center justify-center sm:h-[18rem] lg:h-[16.5rem] xl:h-[17.5rem]">
+                <div className="relative flex h-[18rem] items-center justify-center sm:h-[20rem] lg:h-[18.5rem] xl:h-[19.5rem]">
                   <DataOrbit />
                   <div className="relative z-10 rounded-[32px] border border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-1.5 shadow-[0_22px_60px_rgba(0,0,0,0.4)]">
                     <div className="relative overflow-hidden rounded-[26px] bg-[#06060c]">
@@ -698,7 +685,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Snapshot"
           title="A recruiter-friendly read of where I fit best."
-          description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia — building toward data engineering."
+          description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia, with data engineering as the longer-term goal."
         />
 
         <div className="mt-8 grid gap-3 lg:grid-cols-3">
@@ -780,7 +767,7 @@ export default function CosmicPortfolio() {
                 {[
                   "A Master of IT graduate with hands-on application support, SQL-based data analysis, and practical software delivery experience.",
                   "Someone who troubleshoots systems and data issues methodically, and verifies outcomes before calling something done.",
-                  "Clear communication at all levels — from end users to project stakeholders — with thorough documentation every step.",
+                  "Clear communication with everyone from end users to project stakeholders, backed by thorough documentation at every step.",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
@@ -825,7 +812,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Skills"
           title="The skills each role actually put to work."
-          description="Pulled straight from the experience below — instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
+          description="Pulled straight from the experience below. Instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
         />
 
         <div className="relative mt-7 space-y-2">
@@ -958,8 +945,8 @@ export default function CosmicPortfolio() {
               <p className="mt-2 text-sm leading-7 text-[#b4b0bf]">
                 I am intentionally shaping my profile around application
                 support, SQL and data analysis, and practical software
-                delivery — the foundations for a longer-term move into
-                data engineering.
+                delivery. Those are the foundations for a longer-term move
+                into data engineering.
               </p>
             </div>
           </div>
@@ -1043,7 +1030,7 @@ export default function CosmicPortfolio() {
         <SectionIntro
           label="Projects"
           title="Real delivery work, not visual mockups."
-          description="A quick look at each build — click through for the full case study: business context, delivery decisions, and post-launch ownership."
+          description="A quick look at each build. Click through for the full case study: business context, delivery decisions, and post-launch ownership."
           align="center"
         />
 
@@ -1065,7 +1052,7 @@ export default function CosmicPortfolio() {
               <div className="relative z-10">
                 <p className="section-label">Contact</p>
                 <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
-                  Ready to support, analyse, and build — toward data engineering.
+                  Ready to support, analyse, and build. Data engineering is next.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-[#b4b0bf]">
                   Open to IT application support, support technician, data

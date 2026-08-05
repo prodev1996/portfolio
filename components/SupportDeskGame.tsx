@@ -42,12 +42,12 @@ const TICKETS: Ticket[] = [
             text: "Check their SharePoint permissions and group membership",
             points: 3,
             feedback:
-              "Exactly right — most access issues trace back to group membership.",
+              "Exactly right. Most access issues trace back to group membership.",
           },
           {
             text: "Tell them to email the Finance team, not your problem",
             points: 0,
-            feedback: "It's very much your problem — that's the job.",
+            feedback: "It's very much your problem. That's the job.",
           },
         ],
       },
@@ -86,10 +86,10 @@ const TICKETS: Ticket[] = [
           "A stakeholder says the report totals don't match the source data. What do you check first?",
         choices: [
           {
-            text: "Compare the report's SQL logic against the source — check joins and filters",
+            text: "Compare the report's SQL logic against the source, checking joins and filters",
             points: 3,
             feedback:
-              "Right instinct — duplication almost always hides in a join.",
+              "Right instinct. Duplication almost always hides in a join.",
           },
           {
             text: "Tell them reports are always a little off",
@@ -111,7 +111,7 @@ const TICKETS: Ticket[] = [
             text: "Fix the join, validate against source counts, then document the fix",
             points: 3,
             feedback:
-              "Textbook — fixed, verified, and documented for next time.",
+              "Textbook: fixed, verified, and documented for next time.",
           },
           {
             text: "Subtract a rough estimate so the numbers look right",
@@ -122,7 +122,7 @@ const TICKETS: Ticket[] = [
             text: "Fix the join and move on without re-checking totals",
             points: 1,
             feedback:
-              "Better double-check — an unverified fix is just a guess.",
+              "Better double-check. An unverified fix is just a guess.",
           },
         ],
       },
@@ -141,7 +141,7 @@ const TICKETS: Ticket[] = [
             text: "Reproduce it with clear steps and gather evidence before logging",
             points: 3,
             feedback:
-              "Perfect — a defect with reproduction steps is a defect that gets fixed fast.",
+              "Perfect. A defect with reproduction steps is a defect that gets fixed fast.",
           },
           {
             text: "Log it immediately as \"permissions broken\"",
@@ -210,7 +210,7 @@ function getVerdict(score: number) {
   return {
     emoji: "😅",
     title: "Rookie Ticket",
-    blurb: "Everyone starts somewhere — even senior devs.",
+    blurb: "Everyone starts somewhere, even senior devs.",
   };
 }
 
