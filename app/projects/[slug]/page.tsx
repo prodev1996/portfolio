@@ -64,6 +64,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               Open Website
               <ArrowUpRight className="h-4 w-4" />
             </a>
+          ) : project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              View on GitHub
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           ) : (
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f87a0]">
               Confidential · Internal System
@@ -108,12 +118,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {project.liveUrl ? (
+        {project.liveUrl || project.githubUrl ? (
           <a
-            href={project.liveUrl}
+            href={project.liveUrl || project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Open live website for ${project.title}`}
+            aria-label={
+              project.liveUrl
+                ? `Open live website for ${project.title}`
+                : `View source for ${project.title} on GitHub`
+            }
             className="group mt-6 block overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] outline-none backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-[#c55b9e] sm:p-4"
           >
             <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
@@ -128,7 +142,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-[#070610]/80 via-transparent to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition duration-300 group-hover:bg-black/20 group-hover:opacity-100 group-hover:backdrop-blur-sm">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-black text-black shadow-2xl">
-                  Open live website
+                  {project.liveUrl ? "Open live website" : "View source on GitHub"}
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>

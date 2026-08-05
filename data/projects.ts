@@ -12,6 +12,7 @@ export type PortfolioProject = {
   accentImage: string;
   images: ProjectImage[];
   liveUrl: string;
+  githubUrl?: string;
   liveLabel: string;
   stack: string[];
   businessGoal: string;
@@ -189,6 +190,164 @@ export const projects: PortfolioProject[] = [
       "Connects real client delivery with practical business outcomes.",
       "Includes responsiveness, content clarity, and post-launch support.",
       "Fits hybrid roles where web updates, communication, and analyst-style ownership overlap.",
+    ],
+  },
+  {
+    slug: "sql-retail-analytics",
+    title: "SQL Retail Analytics",
+    subtitle: "SQL-first retail analysis: cohorts, churn risk, and window functions",
+    overview:
+      "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, built to demonstrate real analyst SQL (CTEs, window functions, cohort analysis) rather than just pandas.groupby.",
+    image: "/projects/sql-retail-analytics-cover.svg",
+    accentImage: "/projects/sql-retail-analytics-cover.svg",
+    images: [],
+    liveUrl: "",
+    githubUrl: "https://github.com/prodev1996/sql-retail-analytics",
+    liveLabel: "github.com/prodev1996/sql-retail-analytics",
+    stack: ["SQL", "Python", "Jupyter Notebook", "pytest"],
+    businessGoal:
+      "Prove out real analyst SQL, not just simple SELECTs, on a dataset realistic enough to have something genuine to say about customer behaviour.",
+    role: "Solo build: schema design, synthetic data generation, SQL analysis, and testing",
+    measurableOutcome:
+      "Five standalone SQL queries answering specific business questions, each backed by an executed, documented notebook and a data-integrity pytest suite.",
+    trustSignals: [
+      "Normalized relational schema",
+      "Window functions & cohort analysis",
+      "Data-integrity test suite",
+    ],
+    proofPoints: [
+      "Designed a normalized schema (customers, orders, order_items, products, categories) and a deterministic synthetic data generator with built-in seasonality, loyalty variance, and a churn tail.",
+      "Wrote five independent SQL queries covering revenue trend with month-over-month growth (LAG()), customer lifetime value (DENSE_RANK()), product ranking within category (RANK() PARTITION BY), signup-cohort retention, and a gap-ratio churn-risk model.",
+      "Built a pytest suite checking referential integrity, value ranges, and that every analysis query actually executes and returns rows.",
+    ],
+    skillsShown: [
+      "Advanced SQL (CTEs, window functions)",
+      "Relational schema design",
+      "Cohort & churn analysis",
+      "Data-integrity testing",
+    ],
+    supportProof: [
+      "Wrote up findings for each query directly in the notebook, with committed outputs so the analysis is readable on GitHub without running anything.",
+      "Used a gap-ratio churn rule (a customer's current order gap versus their own historical average) instead of a flat days-since-last-order cutoff, for a more personalised at-risk list.",
+      "Documented setup, data generation, and how to reproduce every result from scratch.",
+    ],
+    takeaway:
+      "This project is the clearest evidence of where I'm heading: real SQL analysis, not just querying a table, on the way to data engineering.",
+    challenge:
+      "It's easy to demonstrate basic SQL with a SELECT and a GROUP BY. It's harder to show the kind of analysis an actual analyst does, ranking, cohorts, and behaviour-based risk models, on data realistic enough for the findings to mean something.",
+    solution:
+      "I built a normalized schema and a synthetic data generator with real seasonality and churn patterns, then wrote five independent SQL queries using CTEs and window functions, each validated by a pytest data-integrity suite.",
+    outcome:
+      "A working, tested analysis with documented findings: revenue seasonality, a long-tail customer value distribution, category-leading products, and a personalised churn-risk model, all runnable and readable directly on GitHub.",
+    supportValue: [
+      "Directly demonstrates the SQL depth that data analyst and data engineering roles look for.",
+      "Shows testing discipline applied to a data project, not just application code.",
+      "The strongest single piece of evidence for the data engineering trajectory.",
+    ],
+  },
+  {
+    slug: "sales-dashboard",
+    title: "Northstar Sales Dashboard",
+    subtitle: "Interactive sales analytics dashboard, Streamlit + Plotly",
+    overview:
+      "A Streamlit sales dashboard with generated sample data, interactive filters, KPI cards, and revenue, regional, product, and channel breakdowns.",
+    image: "/projects/sales-dashboard-cover.svg",
+    accentImage: "/projects/sales-dashboard-cover.svg",
+    images: [],
+    liveUrl: "",
+    githubUrl: "https://github.com/prodev1996/sales-dashboard",
+    liveLabel: "github.com/prodev1996/sales-dashboard",
+    stack: ["Python", "Streamlit", "Pandas", "Plotly"],
+    businessGoal:
+      "Practice turning raw sales data into a dashboard someone could actually use to make decisions, not just a chart for its own sake.",
+    role: "Solo build: data generation, analysis logic, and dashboard UI",
+    measurableOutcome:
+      "A working interactive dashboard with KPI cards for revenue, orders, profit, and average order value, filterable by date range, region, segment, and channel.",
+    trustSignals: [
+      "Interactive Streamlit app",
+      "Filterable by date, region, segment, channel",
+      "Pandas + Plotly analysis",
+    ],
+    proofPoints: [
+      "Built a deterministic sample sales dataset generator so the dashboard has realistic data to work with out of the box.",
+      "Implemented KPI cards for revenue, orders, profit, and average order value, alongside revenue trend, regional performance, top products, and channel mix visuals.",
+      "Added a performance summary table for quickly slicing results by region and customer segment.",
+    ],
+    skillsShown: [
+      "Data visualization (Plotly)",
+      "Interactive filtering & state",
+      "Pandas data manipulation",
+      "Dashboard/UI design for analytics",
+    ],
+    supportProof: [
+      "Structured the project cleanly: app, sample-data generator, and requirements kept separate for easy setup.",
+      "Documented setup for both standard virtual environments and workspace-local installs, for machines where venv creation is restricted.",
+    ],
+    takeaway:
+      "This is the kind of dashboard work that sits right at the intersection of my SQL and data background and the reporting support roles I'm aiming at.",
+    challenge:
+      "Sales data is only useful if the person looking at it can slice it the way they actually think about the business, by region, channel, and time period, without digging through raw spreadsheets.",
+    solution:
+      "I built interactive filters into the dashboard so revenue, orders, and profit all update live, backed by a generated dataset with realistic seasonality and variance.",
+    outcome:
+      "A working dashboard covering the KPIs, trends, and breakdowns a sales or ops team would actually want to check regularly.",
+    supportValue: [
+      "Demonstrates practical data analysis and visualization skill.",
+      "Shows comfort translating raw data into decision-ready views.",
+      "Directly applicable to data analyst and reporting support roles.",
+    ],
+  },
+  {
+    slug: "fixorahub",
+    title: "FixoraHub",
+    subtitle: "AI-assisted tech-help platform, full-stack build",
+    overview:
+      "A tech-help platform for practical troubleshooting guides, built end-to-end: Next.js frontend, Django REST backend, and an AI-assisted fix path for common tech problems.",
+    image: "/projects/fixorahub-cover.svg",
+    accentImage: "/projects/fixorahub-cover.svg",
+    images: [],
+    liveUrl: "",
+    githubUrl: "https://github.com/prodev1996/fixorahub",
+    liveLabel: "github.com/prodev1996/fixorahub",
+    stack: ["Next.js", "TypeScript", "Django REST Framework", "Tailwind CSS", "PostgreSQL"],
+    businessGoal:
+      "Build a genuinely useful self-serve troubleshooting resource, starting with the Microsoft 365, Windows, and small-business IT problems people actually search for.",
+    role: "Solo full-stack build: frontend, backend, content system, and AI integration",
+    measurableOutcome:
+      "A working MVP with a Django-backed content system, an AI Fix Assistant endpoint, and SSG guide pages that revalidate on a schedule and fall back to seed data if the API is offline.",
+    trustSignals: [
+      "Full-stack Next.js + Django build",
+      "AI-assisted troubleshooting",
+      "Admin CMS for content",
+    ],
+    proofPoints: [
+      "Built a Django REST Framework backend with an admin CMS for articles, categories, and guides, including draft preview links and bulk publish and unpublish workflows.",
+      "Wired an AI Fix Assistant endpoint with an OpenAI-ready service and a local fallback, so the feature degrades gracefully without a key configured.",
+      "Set up static, incrementally revalidated guide pages that refresh every 5 minutes and fall back to local seed data if the API is unavailable, keeping the site resilient.",
+    ],
+    skillsShown: [
+      "Full-stack architecture (Next.js + Django REST)",
+      "Content modeling & admin tooling",
+      "API integration with graceful fallbacks",
+      "SSG/ISR content strategy",
+    ],
+    supportProof: [
+      "Designed the data model end-to-end: articles, categories, AI fix requests, product recommendations, contact leads, newsletter, and article feedback.",
+      "Built contact, newsletter, and feedback API endpoints alongside the content system.",
+      "Wrote setup and local-development documentation covering both the frontend and backend.",
+    ],
+    takeaway:
+      "This project is where the software development side of my background actually lives: an end-to-end build across frontend, backend, and content architecture.",
+    challenge:
+      "A useful troubleshooting site needs to work even when its AI features or backend are unavailable, and needs a content workflow that doesn't require touching code to publish a guide.",
+    solution:
+      "I built the content system in Django with a proper admin workflow (validation, draft previews, bulk actions), and made the frontend degrade gracefully: static pages with scheduled revalidation and a local seed-data fallback if the API goes down.",
+    outcome:
+      "A working MVP with the core content pipeline, AI-assisted fix suggestions, and lead-capture endpoints in place, structured to grow into a genuine content and tools resource.",
+    supportValue: [
+      "Shows full-stack ownership beyond a single framework.",
+      "Demonstrates resilient system design: fallbacks and graceful degradation.",
+      "Directly relevant to software developer and application support roles that touch both frontend and backend.",
     ],
   },
 ];

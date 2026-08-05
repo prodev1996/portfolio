@@ -51,7 +51,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
   return (
     <h1
       ref={containerRef}
-      className="mt-3 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]"
+      className="mt-6 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]"
     >
       {lines.map((line, lineIndex) => {
         const words = splitWords(line.text);

@@ -118,7 +118,16 @@ export default function Navbar() {
             : "border-white/[0.06] bg-[#050505]/35 shadow-[0_12px_44px_rgba(0,0,0,0.2)]"
         }`}
       >
-        <Link href="/" className="group flex min-w-0 items-center gap-2.5 text-white">
+        <Link
+          href="/"
+          onClick={(event) => {
+            if (isHomePage) {
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="group flex min-w-0 items-center gap-2.5 text-white"
+        >
           <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6f67df] via-[#c55b9e] to-[#d48d37] p-[1.5px] shadow-[0_10px_28px_rgba(111,103,223,0.28)]">
             <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0a0910] text-[11px] font-black tracking-[0.06em] text-white">
               RB

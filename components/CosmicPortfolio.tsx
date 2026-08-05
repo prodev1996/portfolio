@@ -27,7 +27,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 import ContactForm from "@/components/ContactForm";
 import AnimatedGradientCanvas from "@/components/AnimatedGradientCanvas";
@@ -523,7 +523,11 @@ function ProjectCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/25 to-transparent" />
         <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-xl">
-          {project.liveUrl ? "Live delivery" : "Confidential"}
+          {project.liveUrl
+            ? "Live delivery"
+            : project.githubUrl
+              ? "Open source"
+              : "Confidential"}
         </div>
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#f1dcc1]">
@@ -587,16 +591,11 @@ export default function CosmicPortfolio() {
               Available for full-time work in Adelaide, starting now
             </div>
 
-            <p className="mt-6 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.3em] text-[#8f87a0]">
-              <span className="h-px w-8 bg-gradient-to-r from-[#6f67df] to-transparent" />
-              Software Developer Intern at SpaceTel IT
-            </p>
-
             <HeroHeadline
               lines={[
-                { text: "I fix things that break," },
-                { text: "then dig into the data" },
-                { text: "that explains why.", gradient: true },
+                { text: "Hi, I'm Rajiv Bhandari." },
+                { text: "IT support by trade," },
+                { text: "data curious by nature.", gradient: true },
               ]}
             />
 
@@ -1086,6 +1085,15 @@ export default function CosmicPortfolio() {
                   >
                     <FaLinkedin className="h-4 w-4 text-[#2ca2ba]" />
                     linkedin.com/in/rajiv-bhandari25
+                  </a>
+                  <a
+                    href="https://github.com/prodev1996"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+                  >
+                    <FaGithub className="h-4 w-4 text-[#d8d1e6]" />
+                    github.com/prodev1996
                   </a>
                 </div>
               </div>
