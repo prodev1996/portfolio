@@ -34,6 +34,7 @@ import AnimatedGradientCanvas from "@/components/AnimatedGradientCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
 import ParallaxLayer from "@/components/ParallaxLayer";
 import { useTilt } from "@/components/useTilt";
+import SkillSnake from "@/components/SkillSnake";
 import { projects, type PortfolioProject } from "@/data/projects";
 
 const fadeUp: Variants = {
@@ -479,6 +480,7 @@ function MarqueeRow({
         {track.map((item, index) => (
           <span
             key={`${item}-${index}`}
+            data-skill-chip
             className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-[13px] font-bold text-[#d8d1e6] shadow-[0_10px_28px_rgba(0,0,0,0.2)] backdrop-blur-xl"
           >
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e]" />
@@ -826,9 +828,10 @@ export default function CosmicPortfolio() {
           description="Pulled straight from the experience below — instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
         />
 
-        <div className="mt-7 space-y-2">
+        <div className="relative mt-7 space-y-2">
           <MarqueeRow items={topSkillsRowOne} />
           <MarqueeRow items={topSkillsRowTwo} reverse />
+          <SkillSnake containerSelector="#skills" />
         </div>
 
         <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">
