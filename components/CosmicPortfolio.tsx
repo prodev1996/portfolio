@@ -593,9 +593,9 @@ export default function CosmicPortfolio() {
 
             <HeroHeadline
               lines={[
-                { text: "Hi, I'm Rajiv Bhandari." },
-                { text: "IT support by trade," },
-                { text: "data curious by nature.", gradient: true },
+                { text: "Hi, I am Rajiv Bhandari." },
+                { text: "I work with data and code," },
+                { text: "moving toward data engineering.", gradient: true },
               ]}
             />
 
