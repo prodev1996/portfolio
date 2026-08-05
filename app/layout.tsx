@@ -8,6 +8,7 @@ import CursorStars from "@/components/CursorStars";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageTransition from "@/components/PageTransition";
+import GameTrigger from "@/components/GameTrigger";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollProgressRail from "@/components/ScrollProgressRail";
 
@@ -133,6 +134,7 @@ export default function RootLayout({
           </main>
           <CursorStars />
           <CustomCursor />
+          <GameTrigger />
           <ScrollToTopButton />
         </SmoothScrollProvider>
       </body>

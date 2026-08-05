@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { FaArrowUp, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { Headset } from "lucide-react";
+import { OPEN_SUPPORT_DESK_GAME_EVENT } from "@/components/GameTrigger";
 
 const footerLinks = [
   { label: "Snapshot", href: "#about" },
@@ -84,7 +88,20 @@ export default function AttractiveFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-[#777184] sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright 2026 Rajiv Bhandari. Designed and built with Next.js and Tailwind CSS.</p>
+          <p className="flex items-center gap-2">
+            Copyright 2026 Rajiv Bhandari. Designed and built with Next.js and Tailwind CSS.
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new Event(OPEN_SUPPORT_DESK_GAME_EVENT))
+              }
+              aria-label="A little something extra"
+              title="A little something extra"
+              className="inline-flex h-5 w-5 items-center justify-center rounded-full text-[#4a4556] opacity-60 transition hover:text-[#c55b9e] hover:opacity-100"
+            >
+              <Headset className="h-3 w-3" />
+            </button>
+          </p>
           <Link
             href="#home"
             className="inline-flex w-fit items-center gap-2 rounded-full text-[#a99fbc] transition hover:text-white"
