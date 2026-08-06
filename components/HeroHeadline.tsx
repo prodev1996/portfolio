@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Line = {
   text: string;
@@ -10,9 +10,22 @@ type Line = {
 const CHAR_MS = 48;
 const LINE_GAP_MS = 220;
 const START_DELAY_MS = 300;
+const CURSOR_BLINK_MS = 900;
+const CURSOR_BLINKS_BEFORE_STOP = 3;
 
 export default function HeroHeadline({ lines }: { lines: Line[] }) {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [cursorDone, setCursorDone] = useState(false);
+
+  const timedLines = useMemo(() => {
+    let cumulativeDelay = START_DELAY_MS;
+    return lines.map((line) => {
+      const duration = line.text.length * CHAR_MS;
+      const delay = cumulativeDelay;
+      cumulativeDelay += duration + LINE_GAP_MS;
+      return { ...line, duration, delay };
+    });
+  }, [lines]);
 
   useEffect(() => {
     setReducedMotion(
@@ -20,15 +33,20 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
     );
   }, []);
 
-  let cumulativeDelay = START_DELAY_MS;
+  useEffect(() => {
+    if (reducedMotion || timedLines.length === 0) return;
+    const last = timedLines[timedLines.length - 1];
+    const typingEnd = last.delay + last.duration;
+    const stopAt = typingEnd + CURSOR_BLINK_MS * CURSOR_BLINKS_BEFORE_STOP;
+    const timeoutId = window.setTimeout(() => setCursorDone(true), stopAt);
+    return () => window.clearTimeout(timeoutId);
+  }, [reducedMotion, timedLines]);
 
   return (
     <h1 className="mt-6 text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl md:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
-      {lines.map((line, lineIndex) => {
-        const duration = line.text.length * CHAR_MS;
-        const delay = cumulativeDelay;
-        cumulativeDelay += duration + LINE_GAP_MS;
-        const isLast = lineIndex === lines.length - 1;
+      {timedLines.map((line, lineIndex) => {
+        const isLast = lineIndex === timedLines.length - 1;
+        const showCursor = isLast && !reducedMotion && !cursorDone;
 
         return (
           <span
@@ -41,7 +59,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
           >
             <span
               className={`inline-block max-w-max overflow-hidden whitespace-nowrap align-bottom ${
-                isLast && !reducedMotion ? "typewriter-cursor" : ""
+                showCursor ? "typewriter-cursor" : ""
               }`}
               style={
                 reducedMotion
@@ -49,9 +67,9 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
                   : {
                       width: 0,
                       animationName: "terminal-type",
-                      animationDuration: `${duration}ms`,
+                      animationDuration: `${line.duration}ms`,
                       animationTimingFunction: `steps(${line.text.length}, end)`,
-                      animationDelay: `${delay}ms`,
+                      animationDelay: `${line.delay}ms`,
                       animationFillMode: "forwards",
                     }
               }
