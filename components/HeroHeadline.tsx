@@ -10,8 +10,6 @@ type Line = {
 const CHAR_MS = 48;
 const LINE_GAP_MS = 220;
 const START_DELAY_MS = 300;
-const CURSOR_BLINK_MS = 900;
-const CURSOR_BLINKS_BEFORE_STOP = 3;
 
 export default function HeroHeadline({ lines }: { lines: Line[] }) {
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -37,8 +35,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
     if (reducedMotion || timedLines.length === 0) return;
     const last = timedLines[timedLines.length - 1];
     const typingEnd = last.delay + last.duration;
-    const stopAt = typingEnd + CURSOR_BLINK_MS * CURSOR_BLINKS_BEFORE_STOP;
-    const timeoutId = window.setTimeout(() => setCursorDone(true), stopAt);
+    const timeoutId = window.setTimeout(() => setCursorDone(true), typingEnd);
     return () => window.clearTimeout(timeoutId);
   }, [reducedMotion, timedLines]);
 
