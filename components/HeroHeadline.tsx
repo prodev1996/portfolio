@@ -1,60 +1,35 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
 
 type Line = {
   text: string;
   gradient?: boolean;
 };
 
-function splitWords(text: string) {
-  return text.split(" ");
-}
+const CHAR_MS = 48;
+const LINE_GAP_MS = 220;
+const START_DELAY_MS = 300;
 
 export default function HeroHeadline({ lines }: { lines: Line[] }) {
-  const containerRef = useRef<HTMLHeadingElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const words = container.querySelectorAll<HTMLElement>("[data-word]");
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (reducedMotion) {
-      gsap.set(words, { yPercent: 0, opacity: 1, clearProps: "transform" });
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        words,
-        { yPercent: 115, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: "power4.out",
-          stagger: 0.045,
-          delay: 0.15,
-          clearProps: "transform",
-        },
-      );
-    }, container);
-
-    return () => ctx.revert();
+    setReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    );
   }, []);
 
+  let cumulativeDelay = START_DELAY_MS;
+
   return (
-    <h1
-      ref={containerRef}
-      className="mt-6 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]"
-    >
+    <h1 className="mt-6 text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl md:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
       {lines.map((line, lineIndex) => {
-        const words = splitWords(line.text);
+        const duration = line.text.length * CHAR_MS;
+        const delay = cumulativeDelay;
+        cumulativeDelay += duration + LINE_GAP_MS;
+        const isLast = lineIndex === lines.length - 1;
+
         return (
           <span
             key={lineIndex}
@@ -64,17 +39,25 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
                 : ""
             }`}
           >
-            {words.map((word, wordIndex) => (
-              <span
-                key={wordIndex}
-                className="inline-block overflow-hidden align-top"
-              >
-                <span data-word className="inline-block">
-                  {word}
-                  {wordIndex < words.length - 1 ? " " : ""}
-                </span>
-              </span>
-            ))}
+            <span
+              className={`inline-block max-w-full overflow-hidden whitespace-nowrap align-bottom ${
+                isLast && !reducedMotion ? "typewriter-cursor" : ""
+              }`}
+              style={
+                reducedMotion
+                  ? { width: "auto" }
+                  : {
+                      width: 0,
+                      animationName: "terminal-type",
+                      animationDuration: `${duration}ms`,
+                      animationTimingFunction: `steps(${line.text.length}, end)`,
+                      animationDelay: `${delay}ms`,
+                      animationFillMode: "forwards",
+                    }
+              }
+            >
+              {line.text}
+            </span>
           </span>
         );
       })}
