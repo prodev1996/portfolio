@@ -595,7 +595,7 @@ export default function CosmicPortfolio() {
               lines={[
                 { text: "Hello, welcome" },
                 { text: "to my profile." },
-                { text: "I'm Rajiv.", gradient: true },
+                { text: "I am Rajiv.", gradient: true },
               ]}
             />
 

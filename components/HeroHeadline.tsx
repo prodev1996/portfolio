@@ -40,7 +40,7 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
             }`}
           >
             <span
-              className={`inline-block max-w-full overflow-hidden whitespace-nowrap align-bottom ${
+              className={`inline-block max-w-max overflow-hidden whitespace-nowrap align-bottom ${
                 isLast && !reducedMotion ? "typewriter-cursor" : ""
               }`}
               style={
