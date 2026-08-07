@@ -1,50 +1,60 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useRef } from "react";
+import gsap from "gsap";
 
 type Line = {
   text: string;
   gradient?: boolean;
 };
 
-const CHAR_MS = 48;
-const LINE_GAP_MS = 220;
-const START_DELAY_MS = 300;
+function splitWords(text: string) {
+  return text.split(" ");
+}
 
 export default function HeroHeadline({ lines }: { lines: Line[] }) {
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [cursorDone, setCursorDone] = useState(false);
-
-  const timedLines = useMemo(() => {
-    let cumulativeDelay = START_DELAY_MS;
-    return lines.map((line) => {
-      const duration = line.text.length * CHAR_MS;
-      const delay = cumulativeDelay;
-      cumulativeDelay += duration + LINE_GAP_MS;
-      return { ...line, duration, delay };
-    });
-  }, [lines]);
+  const containerRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    setReducedMotion(
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    );
+    const container = containerRef.current;
+    if (!container) return;
+
+    const words = container.querySelectorAll<HTMLElement>("[data-word]");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      gsap.set(words, { yPercent: 0, opacity: 1, clearProps: "transform" });
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        words,
+        { yPercent: 115, opacity: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power4.out",
+          stagger: 0.045,
+          delay: 0.15,
+          clearProps: "transform",
+        },
+      );
+    }, container);
+
+    return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (reducedMotion || timedLines.length === 0) return;
-    const last = timedLines[timedLines.length - 1];
-    const typingEnd = last.delay + last.duration;
-    const timeoutId = window.setTimeout(() => setCursorDone(true), typingEnd);
-    return () => window.clearTimeout(timeoutId);
-  }, [reducedMotion, timedLines]);
-
   return (
-    <h1 className="mt-6 text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl md:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]">
-      {timedLines.map((line, lineIndex) => {
-        const isLast = lineIndex === timedLines.length - 1;
-        const showCursor = isLast && !reducedMotion && !cursorDone;
-
+    <h1
+      ref={containerRef}
+      className="mt-6 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]"
+    >
+      {lines.map((line, lineIndex) => {
+        const words = splitWords(line.text);
         return (
           <span
             key={lineIndex}
@@ -54,25 +64,16 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
                 : ""
             }`}
           >
-            <span
-              className={`inline-block max-w-max overflow-hidden whitespace-nowrap align-bottom ${
-                showCursor ? "typewriter-cursor" : ""
-              }`}
-              style={
-                reducedMotion
-                  ? { width: "auto" }
-                  : {
-                      width: 0,
-                      animationName: "terminal-type",
-                      animationDuration: `${line.duration}ms`,
-                      animationTimingFunction: `steps(${line.text.length}, end)`,
-                      animationDelay: `${line.delay}ms`,
-                      animationFillMode: "forwards",
-                    }
-              }
-            >
-              {line.text}
-            </span>
+            {words.map((word, wordIndex) => (
+              <Fragment key={wordIndex}>
+                <span className="inline-block overflow-hidden align-top">
+                  <span data-word className="inline-block">
+                    {word}
+                  </span>
+                </span>
+                {wordIndex < words.length - 1 ? " " : null}
+              </Fragment>
+            ))}
           </span>
         );
       })}
