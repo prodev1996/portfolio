@@ -630,25 +630,6 @@ body::after {
   }
 }
 
-.typewriter-cursor {
-  border-right: 3px solid #d7d0ff;
-  animation-name: typewriter-blink;
-  animation-duration: 900ms;
-  animation-timing-function: step-end;
-  animation-iteration-count: infinite;
-}
-
-@keyframes typewriter-blink {
-  0%,
-  100% {
-    border-right-color: #d7d0ff;
-  }
-
-  50% {
-    border-right-color: transparent;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .data-orbit-spin,
   .terminal-type,
@@ -656,8 +637,7 @@ body::after {
   .skill-signal-dot,
   .skill-icon-bob,
   .overview-card-scan,
-  .overview-spark-dot,
-  .typewriter-cursor {
+  .overview-spark-dot {
     animation: none;
   }
 
