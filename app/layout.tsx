@@ -12,6 +12,7 @@ import PageTransition from "@/components/PageTransition";
 import GameTrigger from "@/components/GameTrigger";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollProgressRail from "@/components/ScrollProgressRail";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
