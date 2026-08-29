@@ -70,31 +70,31 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45 }}
-      className="section-glow glass-card spotlight-ring rounded-[34px] p-5 sm:p-6"
+      className="rounded-xl border border-border p-6 sm:p-8"
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#d8a7e7]">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
         Direct Message
       </p>
-      <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-white">
+      <h3 className="mt-2 text-2xl font-black tracking-[-0.03em] text-text">
         Send a message
       </h3>
-      <p className="mt-1.5 text-sm leading-6 text-[#c9c1d8]">
+      <p className="mt-1.5 text-sm leading-6 text-text-muted">
         Reach out for roles, projects, or introductions.
       </p>
-      <p className="mt-1.5 text-xs leading-5 text-[#8f87a0]">
+      <p className="mt-1.5 text-xs leading-5 text-text-faint">
         If the form ever fails, you can always email me directly at{" "}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="font-medium text-[#d8a7e7] underline-offset-4 hover:underline"
+          className="font-medium text-accent underline-offset-4 hover:underline"
         >
           {CONTACT_EMAIL}
         </a>
         .
       </p>
 
-      <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-name" className="mb-1.5 block text-sm text-[#d8d1e6]">Name</label>
+          <label htmlFor="contact-name" className="mb-1.5 block text-sm text-text-muted">Name</label>
           <input
             id="contact-name"
             name="name"
@@ -102,13 +102,13 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="name"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
+            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
             placeholder="Your name"
           />
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="mb-1.5 block text-sm text-[#d8d1e6]">Email</label>
+          <label htmlFor="contact-email" className="mb-1.5 block text-sm text-text-muted">Email</label>
           <input
             id="contact-email"
             name="email"
@@ -117,13 +117,13 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="email"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
+            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
             placeholder="your@email.com"
           />
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="contact-message" className="mb-1.5 block text-sm text-[#d8d1e6]">Message</label>
+          <label htmlFor="contact-message" className="mb-1.5 block text-sm text-text-muted">Message</label>
           <textarea
             id="contact-message"
             name="message"
@@ -132,13 +132,13 @@ export default function ContactForm() {
             required
             rows={4}
             autoComplete="off"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.075] px-4 py-3 text-sm text-white outline-none transition placeholder:text-[#777184] focus:border-[#6f67df]/48 focus:bg-white/[0.11]"
+            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
             placeholder="Tell me about the role, project, or opportunity"
           />
         </div>
       </div>
 
-      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <button
           type="submit"
           disabled={loading}
@@ -148,7 +148,7 @@ export default function ContactForm() {
         </button>
 
         {feedback ? (
-          <p role="status" aria-live="polite" className="text-sm text-[#d8d1e6]">{feedback}</p>
+          <p role="status" aria-live="polite" className="text-sm text-text-muted">{feedback}</p>
         ) : null}
       </div>
     </motion.form>

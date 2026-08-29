@@ -120,8 +120,8 @@ export default function Navbar() {
         transition={{ duration: 0.4 }}
         className={`mx-auto flex max-w-7xl items-center justify-between rounded-[20px] border px-3 py-2.5 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
           scrolled
-            ? "border-white/10 bg-[#050505]/85 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
-            : "border-white/[0.06] bg-[#050505]/35 shadow-[0_12px_44px_rgba(0,0,0,0.2)]"
+            ? "border-border bg-bg/85 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
+            : "border-white/[0.06] bg-bg/35 shadow-[0_12px_44px_rgba(0,0,0,0.2)]"
         }`}
       >
         <Link
@@ -132,19 +132,19 @@ export default function Navbar() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="group flex min-w-0 items-center gap-2.5 text-white"
+          className="group flex min-w-0 items-center gap-2.5 text-text"
         >
-          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6f67df] via-[#c55b9e] to-[#d48d37] p-[1.5px] shadow-[0_10px_28px_rgba(111,103,223,0.28)]">
-            <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0a0910] text-[11px] font-black tracking-[0.06em] text-white">
+          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-bg-raised">
+            <span className="text-[11px] font-black tracking-[0.06em] text-text">
               RB
             </span>
-            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#0a0910] bg-[#1e9b73] shadow-[0_0_8px_rgba(30,155,115,0.7)]" />
+            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border-2 border-bg bg-accent" />
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
-            <span className="text-sm font-black tracking-[0.02em] text-white">
+            <span className="text-sm font-black tracking-[0.02em] text-text">
               Rajiv Bhandari
             </span>
-            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8f87a0] xl:inline">
+            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-text-faint xl:inline">
               Application Support · Data · Software
             </span>
           </span>
@@ -163,21 +163,21 @@ export default function Navbar() {
                 >
                   <span
                     className={`font-mono text-[9px] transition ${
-                      isActive ? "text-[#c55b9e]" : "text-[#5c5666] group-hover:text-[#8f87a0]"
+                      isActive ? "text-accent" : "text-text-faint group-hover:text-text-muted"
                     }`}
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span
                     className={`relative transition ${
-                      isActive ? "text-white" : "text-[#9a94a8] group-hover:text-white"
+                      isActive ? "text-text" : "text-text-muted group-hover:text-text"
                     }`}
                   >
                     {link.name}
                     {isActive ? (
                       <motion.span
                         layoutId="nav-active-underline"
-                        className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e]"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-accent"
                         transition={{ type: "spring", stiffness: 320, damping: 28 }}
                       />
                     ) : null}
@@ -189,7 +189,7 @@ export default function Navbar() {
             <motion.div whileHover={{ y: -2 }}>
               <Link
                 href="/resume"
-                className="ml-3 hidden items-center gap-2 rounded-[12px] bg-gradient-to-br from-[#6f67df] to-[#c55b9e] px-4 py-2 text-[12px] font-black text-white shadow-[0_10px_26px_rgba(111,103,223,0.28)] transition hover:brightness-110 xl:inline-flex"
+                className="ml-3 hidden items-center gap-2 rounded-[10px] bg-accent px-4 py-2 text-[12px] font-black text-bg transition hover:bg-accent-hover xl:inline-flex"
               >
                 <FileText className="h-3.5 w-3.5" />
                 Resume
@@ -216,7 +216,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.06] p-2 text-white transition hover:border-[#6f67df]/45 hover:text-[#d9d2ff] lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-border-strong bg-white/[0.06] p-2 text-text transition hover:border-accent-border hover:text-accent lg:hidden"
           aria-label="Toggle menu"
         >
           {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
@@ -227,7 +227,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/10 bg-[#050505]/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
+          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-border bg-bg/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
         >
           {usesSectionNav ? (
             <nav className="flex flex-col gap-2">
@@ -244,8 +244,8 @@ export default function Navbar() {
                     whileTap={{ scale: 0.99 }}
                     className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
                       isActive
-                        ? "bg-white/10 text-white"
-                        : "text-[#a1a1aa] hover:bg-white/[0.06] hover:text-white"
+                        ? "bg-white/10 text-text"
+                        : "text-text-muted hover:bg-white/[0.06] hover:text-text"
                     }`}
                   >
                     {link.name}
