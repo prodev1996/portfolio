@@ -308,25 +308,25 @@ export default function SupportDeskGame({
           exit={{ opacity: 0, y: 16, scale: 0.97 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-lg overflow-hidden rounded-[28px] border border-white/10 bg-[#0a0910] shadow-[0_40px_140px_rgba(0,0,0,0.6)]"
+          className="relative w-full max-w-lg overflow-hidden rounded-xl border border-border bg-bg-raised"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-white/5">
             <div
-              className="h-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e] transition-[width] duration-300"
+              className="h-full bg-accent transition-[width] duration-300"
               style={{ width: `${Math.min(100, progress * 100)}%` }}
             />
           </div>
 
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-border px-5 py-4">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#6f67df] to-[#c55b9e] text-white">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-accent">
                 <Headset className="h-4 w-4" />
               </span>
               <div>
-                <p className="text-sm font-black text-white">
+                <p className="text-sm font-black text-text">
                   Support Desk Simulator
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#8f87a0]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-text-faint">
                   You found the easter egg
                 </p>
               </div>
@@ -335,7 +335,7 @@ export default function SupportDeskGame({
               type="button"
               onClick={onClose}
               aria-label="Close game"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-[#8f87a0] transition hover:border-white/20 hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-text-faint transition hover:border-border-strong hover:text-text"
             >
               <X className="h-4 w-4" />
             </button>
@@ -351,21 +351,21 @@ export default function SupportDeskGame({
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#c55b9e]">
+                  <div className="rounded-lg border border-border p-4">
+                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-accent">
                       <TicketIcon className="h-3.5 w-3.5" />
                       {ticket.ticketNumber} · Ticket {ticketIndex + 1} of{" "}
                       {TICKETS.length}
                     </div>
-                    <p className="mt-2 text-sm font-black text-white">
+                    <p className="mt-2 text-sm font-black text-text">
                       {ticket.subject}
                     </p>
-                    <p className="mt-1 text-xs text-[#8f87a0]">
+                    <p className="mt-1 text-xs text-text-faint">
                       From: {ticket.requester}
                     </p>
                   </div>
 
-                  <p className="mt-5 text-sm leading-7 text-[#d8d1e6]">
+                  <p className="mt-5 text-sm leading-7 text-text-muted">
                     {step.prompt}
                   </p>
 
@@ -378,12 +378,12 @@ export default function SupportDeskGame({
                           type="button"
                           disabled={Boolean(selected)}
                           onClick={() => handleChoice(choice)}
-                          className={`block w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
+                          className={`block w-full rounded-lg border px-4 py-3 text-left text-sm font-semibold transition ${
                             isSelected
-                              ? "border-[#c55b9e]/50 bg-[#c55b9e]/10 text-white"
+                              ? "border-accent-border bg-accent-soft text-text"
                               : selected
-                                ? "border-white/5 bg-white/[0.015] text-[#6c6678]"
-                                : "border-white/10 bg-white/[0.03] text-[#d8d1e6] hover:border-[#6f67df]/40 hover:bg-[#6f67df]/10 hover:text-white"
+                                ? "border-border text-text-faint"
+                                : "border-border text-text-muted hover:border-accent-border hover:bg-accent-soft hover:text-text"
                           }`}
                         >
                           {choice.text}
@@ -399,11 +399,11 @@ export default function SupportDeskGame({
                       transition={{ duration: 0.25 }}
                       className="mt-4 overflow-hidden"
                     >
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#1e9b73]">
+                      <div className="rounded-lg border border-border p-4">
+                        <p className="text-xs font-black uppercase tracking-[0.16em] text-accent">
                           +{selected.points} point{selected.points === 1 ? "" : "s"}
                         </p>
-                        <p className="mt-1.5 text-sm leading-6 text-[#d8d1e6]">
+                        <p className="mt-1.5 text-sm leading-6 text-text-muted">
                           {selected.feedback}
                         </p>
                       </div>
@@ -430,31 +430,31 @@ export default function SupportDeskGame({
                   className="text-center"
                 >
                   <span className="text-5xl">{verdict?.emoji}</span>
-                  <h3 className="mt-3 text-2xl font-black tracking-[-0.03em] text-white">
+                  <h3 className="mt-3 text-2xl font-black tracking-[-0.03em] text-text">
                     {verdict?.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#a8a5b3]">{verdict?.blurb}</p>
+                  <p className="mt-2 text-sm text-text-muted">{verdict?.blurb}</p>
 
                   <div className="mt-6 flex items-center justify-center gap-6">
                     <div>
-                      <p className="text-3xl font-black text-white">
+                      <p className="text-3xl font-black text-text">
                         {score}
-                        <span className="text-base font-bold text-[#8f87a0]">
+                        <span className="text-base font-bold text-text-faint">
                           {" "}
                           / {MAX_SCORE}
                         </span>
                       </p>
-                      <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#8f87a0]">
+                      <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-text-faint">
                         Score
                       </p>
                     </div>
-                    <div className="h-10 w-px bg-white/10" />
+                    <div className="h-10 w-px bg-border" />
                     <div>
-                      <p className="flex items-center justify-center gap-1.5 text-3xl font-black text-white">
-                        <Trophy className="h-5 w-5 text-[#d48d37]" />
+                      <p className="flex items-center justify-center gap-1.5 text-3xl font-black text-text">
+                        <Trophy className="h-5 w-5 text-accent" />
                         {highScore}
                       </p>
-                      <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#8f87a0]">
+                      <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-text-faint">
                         Best
                       </p>
                     </div>
