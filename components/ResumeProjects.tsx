@@ -39,43 +39,35 @@ export default function ResumeProjects() {
   ];
 
   return (
-    <section className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#120f1d]/82 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:p-8">
-      <div className="absolute right-10 bottom-0 h-64 w-64 rounded-full bg-[#e49a2f]/8 blur-[100px] pointer-events-none" />
-
-      <div className="flex items-center gap-4 mb-8">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-[#e49a2f]">
-          <FolderGit2 size={22} />
-        </div>
-        <h2 className="text-lg font-black tracking-[-0.04em] text-white">
+    <section>
+      <div className="flex items-center gap-3 mb-8">
+        <FolderGit2 className="h-5 w-5 text-accent" />
+        <h2 className="text-lg font-black tracking-[-0.03em] text-text">
           Key Projects
         </h2>
       </div>
 
-      <div className="grid gap-6">
+      <div className="divide-y divide-border">
         {projects.map((project, index) => {
           const content = (
             <>
-              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#e49a2f] to-[#d9468f] opacity-0 blur-xl transition duration-500 group-hover:opacity-8" />
-
-              <div className="relative z-10 mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
+              <div className="mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                 <div>
-                  <h3 className="flex items-center gap-2 text-lg font-bold text-white transition group-hover:text-[#e49a2f]">
+                  <h3 className="flex items-center gap-2 text-lg font-bold text-text">
                     {project.title}
                     {project.link && (
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/50 transition group-hover:border-[#e49a2f]/35 group-hover:text-white">
-                        <ArrowUpRight size={13} />
-                      </span>
+                      <ArrowUpRight className="h-3.5 w-3.5 text-text-faint" />
                     )}
                   </h3>
-                  <p className="mt-1 text-sm font-semibold text-[#f0abfc]">{project.subtitle}</p>
-                  <p className="mt-1 text-xs font-medium text-[#8f87a0]">{project.meta}</p>
+                  <p className="mt-1 text-sm font-semibold text-accent">{project.subtitle}</p>
+                  <p className="mt-1 text-xs font-medium text-text-faint">{project.meta}</p>
                 </div>
               </div>
 
-              <ul className="relative z-10 space-y-2 text-sm leading-relaxed text-[#c9c1d8]">
+              <ul className="space-y-2 text-sm leading-relaxed text-text-muted">
                 {project.bullets.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-[8px] flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#e49a2f] shadow-[0_0_8px_rgba(228,154,47,0.55)]" />
+                    <span className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -83,8 +75,7 @@ export default function ResumeProjects() {
             </>
           );
 
-          const cardClassName =
-            "group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition duration-300 hover:border-white/10 hover:bg-white/[0.04]";
+          const cardClassName = "py-6 first:pt-0 last:pb-0";
 
           if (project.link) {
             return (
@@ -98,7 +89,7 @@ export default function ResumeProjects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`${cardClassName} block outline-none hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#d9468f]`}
+                className={`${cardClassName} block outline-none focus-visible:ring-2 focus-visible:ring-accent`}
               >
                 {content}
               </motion.a>
