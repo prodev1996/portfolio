@@ -134,11 +134,10 @@ export default function Navbar() {
           }}
           className="group flex min-w-0 items-center gap-2.5 text-text"
         >
-          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-bg-raised">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-bg-raised">
             <span className="text-[11px] font-black tracking-[0.06em] text-text">
               RB
             </span>
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border-2 border-bg bg-accent" />
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
             <span className="text-sm font-black tracking-[0.02em] text-text">
