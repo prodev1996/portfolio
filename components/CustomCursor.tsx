@@ -51,11 +51,11 @@ export default function CustomCursor() {
       hovering = Boolean(target?.closest?.(INTERACTIVE_SELECTOR));
       ringRef.current?.style.setProperty(
         "background-color",
-        hovering ? "rgba(197, 91, 158, 0.12)" : "transparent",
+        hovering ? "rgba(240, 180, 41, 0.12)" : "transparent",
       );
       ringRef.current?.style.setProperty(
         "border-color",
-        hovering ? "rgba(197, 91, 158, 0.75)" : "rgba(216, 209, 230, 0.55)",
+        hovering ? "rgba(240, 180, 41, 0.75)" : "rgba(163, 163, 163, 0.55)",
       );
     };
 

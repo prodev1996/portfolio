@@ -3,12 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  type Variants,
-} from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -34,7 +29,6 @@ import AnimatedGradientCanvas from "@/components/AnimatedGradientCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
 import ParallaxLayer from "@/components/ParallaxLayer";
 import { useTilt } from "@/components/useTilt";
-import SkillSnake from "@/components/SkillSnake";
 import { projects, type PortfolioProject } from "@/data/projects";
 
 const fadeUp: Variants = {
@@ -124,7 +118,6 @@ const overviewCards = [
     title: "Business application administration and configuration.",
     copy:
       "Workflow configuration, system access, role management, form setup, release testing, and defect lifecycle management.",
-    accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
     icon: ServerCog,
@@ -132,7 +125,6 @@ const overviewCards = [
     title: "Comfortable across Microsoft 365, SharePoint, and Teams.",
     copy:
       "User access, permissions, SharePoint administration, Outlook, Teams, and day-to-day business application support.",
-    accent: "from-[#2ca2ba] to-[#6f67df]",
   },
   {
     icon: Database,
@@ -140,7 +132,6 @@ const overviewCards = [
     title: "SQL validation, data accuracy, and reporting support.",
     copy:
       "SQL/MySQL queries for record validation, data issue investigation, and troubleshooting reporting inconsistencies in database-backed applications.",
-    accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
     icon: Code2,
@@ -148,7 +139,6 @@ const overviewCards = [
     title: "UAT coordination, release management, and documentation.",
     copy:
       "Release notes review, pre-production validation, regression testing, change documentation, and user guides for technical and non-technical audiences.",
-    accent: "from-[#d48d37] to-[#c55b9e]",
   },
 ];
 
@@ -179,7 +169,6 @@ const skillDomains: {
   title: string;
   blurb: string;
   items: string[];
-  accent: string;
 }[] = [
   {
     icon: ShieldCheck,
@@ -193,7 +182,6 @@ const skillDomains: {
       "Change support",
       "User assistance",
     ],
-    accent: "from-[#6f67df] to-[#c55b9e]",
   },
   {
     icon: Database,
@@ -207,7 +195,6 @@ const skillDomains: {
       "Node.js",
       "REST APIs",
     ],
-    accent: "from-[#6f67df] to-[#2ca2ba]",
   },
   {
     icon: Workflow,
@@ -221,7 +208,6 @@ const skillDomains: {
       "User guides",
       "Requirements gathering",
     ],
-    accent: "from-[#1e9b73] to-[#2ca2ba]",
   },
   {
     icon: ServerCog,
@@ -235,7 +221,6 @@ const skillDomains: {
       "Active Directory",
       "Azure AD",
     ],
-    accent: "from-[#d48d37] to-[#c55b9e]",
   },
 ];
 
@@ -341,13 +326,13 @@ function SectionIntro({
       <p data-reveal className="section-label">{label}</p>
       <h2
         data-reveal
-        className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl"
+        className="font-heading mt-3 text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl lg:text-6xl"
       >
         {title}
       </h2>
       <p
         data-reveal
-        className="mt-3 text-sm leading-7 text-[#a8a5b3] sm:text-[15px]"
+        className="mt-4 text-sm leading-7 text-text-muted sm:text-[15px]"
       >
         {description}
       </p>
@@ -355,67 +340,23 @@ function SectionIntro({
   );
 }
 
-function BentoCard({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      onMouseMove={handleMouseMove}
-      className={`group relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0a0910]/92 shadow-[0_26px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl ${className}`}
-    >
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-[30px] opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`radial-gradient(520px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 75%)`,
-        }}
-      />
-      {children}
-    </motion.div>
-  );
-}
-
 function TerminalBadge() {
   return (
     <motion.div
       variants={fadeUp}
-      className="mt-6 w-full max-w-xl overflow-hidden rounded-[24px] border border-white/10 bg-black/35 shadow-[0_20px_60px_rgba(0,0,0,0.3)] backdrop-blur-2xl"
+      className="mt-6 w-full max-w-xl overflow-hidden rounded-xl border border-border bg-bg-sunken"
     >
-      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#c55b9e]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#d48d37]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#1e9b73]" />
-        <span className="ml-2 text-[10px] font-black uppercase tracking-[0.24em] text-[#8f87a0]">
+      <div className="flex items-center gap-2 border-b border-border px-4 py-2">
+        <span className="h-2 w-2 rounded-full bg-accent" />
+        <span className="ml-1 text-[10px] font-black uppercase tracking-[0.24em] text-text-faint">
           positioning.log
         </span>
       </div>
-      <div className="space-y-1 px-4 py-3 font-mono text-[11px] text-[#d8d1e6] sm:text-xs">
+      <div className="space-y-1 px-4 py-3 font-mono text-[11px] text-text-muted sm:text-xs">
         <p>
-          <span className="text-[#1e9b73]">&gt;</span> focus.current
+          <span className="text-accent">&gt;</span> focus.current
         </p>
-        <p className="terminal-type bg-gradient-to-r from-[#6f67df] via-[#c55b9e] to-[#d48d37] bg-clip-text text-transparent">
+        <p className="terminal-type text-text">
           application systems -&gt; SQL support -&gt; data engineering path
         </p>
       </div>
@@ -438,10 +379,8 @@ function MarqueeRow({
         {track.map((item, index) => (
           <span
             key={`${item}-${index}`}
-            data-skill-chip
-            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-[13px] font-bold text-[#d8d1e6] shadow-[0_10px_28px_rgba(0,0,0,0.2)] backdrop-blur-xl"
+            className="inline-flex shrink-0 items-center rounded-md border border-border px-4 py-2 text-[13px] font-bold text-text-muted"
           >
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#6f67df] to-[#c55b9e]" />
             {item}
           </span>
         ))}
@@ -457,7 +396,7 @@ function ProjectCard({
   project: PortfolioProject;
   index: number;
 }) {
-  const tiltRef = useTilt<HTMLElement>(5);
+  const tiltRef = useTilt<HTMLElement>(2);
 
   return (
     <motion.article
@@ -466,11 +405,11 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
-      className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 shadow-[0_24px_70px_rgba(0,0,0,0.3)] transition-[transform,border-color] duration-200 ease-out will-change-transform hover:border-white/20 [transform-style:preserve-3d]"
+      className="group overflow-hidden rounded-xl border border-border bg-bg-raised transition-colors duration-200 ease-out will-change-transform hover:border-accent-border [transform-style:preserve-3d]"
     >
       <Link
         href={`/projects/${project.slug}`}
-        className="relative block aspect-[4/3] overflow-hidden border-b border-white/10"
+        className="relative block aspect-[4/3] overflow-hidden border-b border-border"
       >
         <Image
           src={project.image}
@@ -479,8 +418,8 @@ function ProjectCard({
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover object-top transition duration-700 group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090810] via-[#090810]/25 to-transparent" />
-        <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-raised via-bg-raised/25 to-transparent" />
+        <div className="absolute left-4 top-4 text-[9px] font-black uppercase tracking-[0.18em] text-text">
           {project.liveUrl
             ? "Live delivery"
             : project.githubUrl
@@ -488,13 +427,13 @@ function ProjectCard({
               : "Confidential"}
         </div>
         <div className="absolute bottom-4 left-4 right-4">
-          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#f1dcc1]">
+          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-accent">
             {project.liveLabel}
           </p>
-          <h3 className="mt-1.5 text-lg font-black leading-tight tracking-[-0.03em] text-white">
+          <h3 className="mt-1.5 text-lg font-black leading-tight tracking-[-0.03em] text-text">
             {project.title}
           </h3>
-          <p className="mt-1 text-xs leading-5 text-[#d8d1e6]">
+          <p className="mt-1 text-xs leading-5 text-text-muted">
             {project.subtitle}
           </p>
         </div>
@@ -505,7 +444,7 @@ function ProjectCard({
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[10px] font-semibold text-[#d8d1e6]"
+              className="rounded-md border border-border px-2.5 py-1 text-[10px] font-semibold text-text-muted"
             >
               {tech}
             </span>
@@ -514,7 +453,7 @@ function ProjectCard({
 
         <Link
           href={`/projects/${project.slug}`}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-[#c55b9e] transition group-hover:text-[#d8a7e7]"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.12em] text-accent transition group-hover:text-accent-hover"
         >
           View Case Study
           <ArrowUpRight className="h-3.5 w-3.5" />
@@ -608,7 +547,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="about"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           label="Snapshot"
@@ -616,120 +555,90 @@ export default function CosmicPortfolio() {
           description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia, with data engineering as the longer-term goal."
         />
 
-        <div className="mt-8 grid gap-3 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 border-t border-border pt-6 sm:grid-cols-3">
           {recruiterSignals.map((signal) => (
-            <div
-              key={signal.title}
-              className="rounded-[24px] border border-white/10 bg-white/[0.035] p-4 shadow-[0_18px_48px_rgba(0,0,0,0.22)] backdrop-blur-xl"
-            >
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#8f87a0]">
+            <div key={signal.title}>
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-text-faint">
                 {signal.title}
               </p>
-              <p className="mt-2 text-sm font-black leading-5 text-white">
+              <p className="mt-2 text-sm font-black leading-5 text-text">
                 {signal.value}
               </p>
-              <p className="mt-2 text-[12px] leading-5 text-[#a8a5b3]">
+              <p className="mt-2 text-[12px] leading-5 text-text-muted">
                 {signal.note}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 grid gap-4 lg:grid-cols-12">
-          <BentoCard className="lg:col-span-6 p-6 sm:p-7" delay={0.05}>
-            <div className="relative z-10 flex h-full flex-col">
-              <p className="section-label">What I do now</p>
-              <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-white">
-                Application systems support backed by practical delivery context.
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-[#b4b0bf]">
-                I support business applications, user workflows, Microsoft 365,
-                Windows environments, and web-based systems. I also bring
-                hands-on context from websites, APIs, hosting, deployment,
-                troubleshooting, and data-aware issue investigation.
-              </p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Business applications support",
-                  "Microsoft 365 and identity",
-                  "SQL/MySQL checks and validation",
-                  "Documentation and change support",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[20px] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-[#d8d1e6]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <TerminalBadge />
-            </div>
-          </BentoCard>
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
+          <div>
+            <p className="section-label">What I do now</p>
+            <h3 className="mt-3 font-heading text-2xl font-bold tracking-[-0.02em] text-text sm:text-3xl">
+              Application systems support backed by practical delivery context.
+            </h3>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-text-muted">
+              I support business applications, user workflows, Microsoft 365,
+              Windows environments, and web-based systems. I also bring
+              hands-on context from websites, APIs, hosting, deployment,
+              troubleshooting, and data-aware issue investigation.
+            </p>
+            <TerminalBadge />
 
-          <BentoCard className="lg:col-span-3 p-6" delay={0.12}>
-            <div className="relative z-10">
+            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              {overviewCards.map((card) => (
+                <div key={card.label} className="border-t border-border pt-4">
+                  <card.icon className="h-5 w-5 text-accent" />
+                  <p className="mt-3 text-[10px] font-black uppercase tracking-[0.24em] text-text-faint">
+                    {card.label}
+                  </p>
+                  <h4 className="mt-2 text-base font-bold text-text">
+                    {card.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-text-muted">
+                    {card.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-10 lg:border-l lg:border-border lg:pl-10">
+            <div>
               <p className="section-label">Best-fit roles</p>
-              <div className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-3">
                 {[
                   "IT Application Support Specialist",
                   "Support Technician / Service Desk",
                   "Data Analyst",
                   "Software Developer (Junior)",
                 ].map((item) => (
-                  <div
+                  <li
                     key={item}
-                    className="rounded-[18px] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white"
+                    className="border-b border-border pb-3 text-sm font-semibold text-text"
                   >
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-          </BentoCard>
 
-          <BentoCard className="lg:col-span-3 p-6" delay={0.18}>
-            <div className="relative z-10">
+            <div>
               <p className="section-label">What teams get</p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-[#b4b0bf]">
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-text-muted">
                 {[
                   "A Master of IT graduate with hands-on application support, SQL-based data analysis, and practical software delivery experience.",
                   "Someone who troubleshoots systems and data issues methodically, and verifies outcomes before calling something done.",
                   "Clear communication with everyone from end users to project stakeholders, backed by thorough documentation at every step.",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9b73]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </BentoCard>
-
-          {overviewCards.map((card, index) => (
-            <BentoCard
-              key={card.label}
-              className="lg:col-span-3 p-5"
-              delay={0.24 + index * 0.06}
-            >
-              <div className="relative z-10">
-                <span
-                  className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br ${card.accent} text-white shadow-[0_14px_34px_rgba(0,0,0,0.24)]`}
-                >
-                  <card.icon className="h-5 w-5" />
-                </span>
-                <p className="mt-4 text-[10px] font-black uppercase tracking-[0.24em] text-[#8f87a0]">
-                  {card.label}
-                </p>
-                <h3 className="mt-2 text-lg font-black leading-6 text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[#a8a5b3]">
-                  {card.copy}
-                </p>
-              </div>
-            </BentoCard>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -746,47 +655,34 @@ export default function CosmicPortfolio() {
         <div className="relative mt-7 space-y-2">
           <MarqueeRow items={topSkillsRowOne} />
           <MarqueeRow items={topSkillsRowTwo} reverse />
-          <SkillSnake containerSelector="#skills" />
         </div>
 
-        <div className="mt-8 rounded-[34px] border border-white/10 bg-[#090810]/90 p-4 shadow-[0_30px_100px_rgba(0,0,0,0.36)] backdrop-blur-2xl sm:p-5">
-          <div className="grid gap-3 md:grid-cols-2">
-            {skillDomains.map((domain, index) => (
-              <motion.article
-                key={domain.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
-                className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] p-5 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
-              >
-                <div
-                  className={`absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br ${domain.accent} opacity-14 blur-2xl transition duration-300 group-hover:opacity-22`}
-                />
-                <div className="relative z-10">
+        <div className="mt-12 grid gap-8 border-t border-border pt-8 md:grid-cols-2">
+          {skillDomains.map((domain, index) => (
+            <motion.article
+              key={domain.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
+            >
+              <domain.icon className="h-5 w-5 text-accent" />
+              <h3 className="mt-3 text-lg font-bold text-text">
+                {domain.title}
+              </h3>
+              <p className="mt-1 text-sm text-text-muted">{domain.blurb}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {domain.items.map((item) => (
                   <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br ${domain.accent} text-white shadow-[0_12px_24px_rgba(0,0,0,0.2)]`}
+                    key={item}
+                    className="rounded-md border border-border px-3 py-1.5 text-[11px] font-semibold text-text-muted"
                   >
-                    <domain.icon className="h-4 w-4" />
+                    {item}
                   </span>
-                  <h3 className="mt-4 text-lg font-black text-white">
-                    {domain.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-[#a8a5b3]">{domain.blurb}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {domain.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-semibold text-[#d8d1e6]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+                ))}
+              </div>
+            </motion.article>
+          ))}
         </div>
       </section>
 
@@ -800,38 +696,33 @@ export default function CosmicPortfolio() {
           description="This section gives hiring managers a fast check on education, certifications, and technical foundations without interrupting the main portfolio story."
         />
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[32px] border border-white/10 bg-[#090810]/92 p-6 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+        <div className="mt-10 grid gap-10 border-t border-border pt-8 lg:grid-cols-2 lg:divide-x lg:divide-border">
+          <div className="lg:pr-10">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1e9b73] to-[#2ca2ba] text-white">
-                <GraduationCap className="h-5 w-5" />
-              </span>
+              <GraduationCap className="h-5 w-5 text-accent" />
               <div>
                 <p className="section-label">Education</p>
-                <h3 className="mt-2 text-2xl font-black text-white">
+                <h3 className="mt-1 text-xl font-bold text-text">
                   IT qualifications
                 </h3>
               </div>
             </div>
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-5">
               {education.map((item) => (
-                <div
-                  key={item.school}
-                  className={`rounded-[22px] border p-4 ${item.current ? "border-[#1e9b73]/30 bg-[#1e9b73]/[0.06]" : "border-white/10 bg-white/[0.035]"}`}
-                >
+                <div key={item.school} className="border-b border-border pb-4">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="text-base font-black text-white">{item.school}</p>
+                    <p className="text-base font-black text-text">{item.school}</p>
                     {item.current && (
-                      <span className="shrink-0 rounded-full border border-[#1e9b73]/40 bg-[#1e9b73]/15 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#1e9b73]">
+                      <span className="shrink-0 text-[10px] font-black uppercase tracking-[0.18em] text-accent">
                         Current
                       </span>
                     )}
                   </div>
-                  <p className="mt-1 text-sm leading-6 text-[#d8d1e6]">
+                  <p className="mt-1 text-sm leading-6 text-text-muted">
                     {item.credential}
                   </p>
-                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8f87a0]">
+                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-text-faint">
                     {item.period}
                   </p>
                 </div>
@@ -839,38 +730,33 @@ export default function CosmicPortfolio() {
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-white/10 bg-[#090810]/92 p-6 shadow-[0_28px_90px_rgba(0,0,0,0.34)]">
+          <div className="lg:pl-10">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6f67df] to-[#c55b9e] text-white">
-                <Award className="h-5 w-5" />
-              </span>
+              <Award className="h-5 w-5 text-accent" />
               <div>
                 <p className="section-label">Certifications</p>
-                <h3 className="mt-2 text-2xl font-black text-white">
+                <h3 className="mt-1 text-xl font-bold text-text">
                   Support and technical readiness
                 </h3>
               </div>
             </div>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {certifications.map((item) => (
-                <div
-                  key={item.name}
-                  className="rounded-[22px] border border-white/10 bg-white/[0.035] p-4"
-                >
-                  <p className="text-sm font-black leading-5 text-white">
+                <div key={item.name}>
+                  <p className="text-sm font-black leading-5 text-text">
                     {item.name}
                   </p>
-                  <p className="mt-2 text-xs font-semibold text-[#d8d1e6]">
+                  <p className="mt-2 text-xs font-semibold text-text-muted">
                     {item.issuer} | {item.issued}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-5 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
+            <div className="mt-6 border-t border-border pt-4">
               <p className="section-label">Current emphasis</p>
-              <p className="mt-2 text-sm leading-7 text-[#b4b0bf]">
+              <p className="mt-2 text-sm leading-7 text-text-muted">
                 I am intentionally shaping my profile around application
                 support, SQL and data analysis, and practical software
                 delivery. Those are the foundations for a longer-term move
@@ -883,7 +769,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="experience"
-        className="relative z-10 border-y border-white/5 bg-[#05040a] py-14 sm:py-16 scroll-mt-28"
+        className="relative z-10 border-y border-border bg-bg-sunken py-14 sm:py-16 scroll-mt-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
@@ -896,8 +782,8 @@ export default function CosmicPortfolio() {
             </div>
 
             <div className="lg:col-span-8">
-              <div className="relative space-y-5 pl-0 sm:pl-8">
-                <div className="absolute left-[0.95rem] top-3 hidden h-[calc(100%-1.5rem)] w-px bg-gradient-to-b from-white/20 via-white/8 to-transparent sm:block" />
+              <div className="relative space-y-10 pl-6 sm:pl-8">
+                <div className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px bg-border" />
                 {timeline.map((item, index) => (
                   <motion.article
                     key={`${item.role}-${item.year}`}
@@ -905,42 +791,39 @@ export default function CosmicPortfolio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-90px" }}
                     transition={{ duration: 0.55, delay: index * 0.05, ease: "easeOut" }}
-                    className="relative rounded-[30px] border border-white/10 bg-[#0a0910]/92 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.3)]"
+                    className="relative"
                   >
-                    <div className="absolute left-4 top-8 hidden h-3 w-3 rounded-full border border-[#04030a] bg-[#2ca2ba] shadow-[0_0_18px_rgba(44,162,186,0.55)] sm:block" />
-                    <div className="sm:pl-8">
-                      <span className="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#c55b9e]">
-                        {item.year}
-                      </span>
-                      <h3 className="mt-4 text-2xl font-black tracking-[-0.04em] text-white">
-                        {item.role}
-                      </h3>
-                      <p className="mt-2 text-sm font-semibold text-[#9c98a8]">
-                        {item.place}
-                      </p>
-                      <p className="mt-4 text-sm leading-7 text-[#d8d1e6]">
-                        {item.summary}
-                      </p>
-                      <ul className="mt-5 space-y-3">
-                        {item.points.map((point) => (
-                          <li
-                            key={point}
-                            className="flex items-start gap-3 text-sm leading-6 text-[#a8a5b3]"
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d48d37]" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <span className="font-heading block text-lg font-bold text-accent">
+                      {item.year}
+                    </span>
+                    <h3 className="mt-2 text-2xl font-black tracking-[-0.03em] text-text">
+                      {item.role}
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold text-text-faint">
+                      {item.place}
+                    </p>
+                    <p className="mt-4 text-sm leading-7 text-text-muted">
+                      {item.summary}
+                    </p>
+                    <ul className="mt-5 space-y-3">
+                      {item.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-3 text-sm leading-6 text-text-muted"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </motion.article>
                 ))}
               </div>
 
-              <div className="mt-6 sm:pl-8">
+              <div className="mt-8 pl-6 sm:pl-8">
                 <Link
                   href="/resume"
-                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-[#c55b9e] transition hover:text-[#d8a7e7]"
+                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-accent transition hover:text-accent-hover"
                 >
                   See full experience & resume
                   <ArrowRight className="h-4 w-4" />
@@ -971,67 +854,60 @@ export default function CosmicPortfolio() {
 
       <section
         id="contact"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
       >
-        <div className="overflow-hidden rounded-[40px] border border-white/10 bg-[#090810]/92 shadow-[0_34px_120px_rgba(0,0,0,0.4)] backdrop-blur-3xl">
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.92fr_1.08fr] lg:p-10">
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6">
-              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#6f67df]/18 blur-[90px]" />
-              <div className="relative z-10">
-                <p className="section-label">Contact</p>
-                <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
-                  Ready to support, analyse, and build. Data engineering is next.
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-8 text-[#b4b0bf]">
-                  Open to IT application support, support technician, data
-                  analyst, and junior software developer roles. I am happy to
-                  discuss positions that value practical ownership, clear
-                  communication, and strong learning momentum.
-                </p>
+        <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+          <div>
+            <p className="section-label">Contact</p>
+            <h2 className="mt-3 font-heading text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl">
+              Ready to support, analyse, and build. Data engineering is next.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-text-muted">
+              Open to IT application support, support technician, data
+              analyst, and junior software developer roles. I am happy to
+              discuss positions that value practical ownership, clear
+              communication, and strong learning momentum.
+            </p>
 
-                <div className="mt-6 flex flex-wrap gap-2.5">
-                  <span className="cosmic-chip">
-                    <MapPin className="mr-2 h-3.5 w-3.5" />
-                    Available across Australia
-                  </span>
-                  <span className="cosmic-chip">On-site, hybrid, or remote depending on role</span>
-                  <span className="cosmic-chip">Junior and growth-track opportunities</span>
-                </div>
-
-                <div className="mt-8 space-y-3">
-                  <a
-                    href="mailto:bhandarirajiv25@gmail.com"
-                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
-                  >
-                    <Mail className="h-4 w-4 text-[#c55b9e]" />
-                    bhandarirajiv25@gmail.com
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/rajiv-bhandari25/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
-                  >
-                    <FaLinkedin className="h-4 w-4 text-[#2ca2ba]" />
-                    linkedin.com/in/rajiv-bhandari25
-                  </a>
-                  <a
-                    href="https://github.com/prodev1996"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
-                  >
-                    <FaGithub className="h-4 w-4 text-[#d8d1e6]" />
-                    github.com/prodev1996
-                  </a>
-                </div>
-              </div>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <span className="cosmic-chip">
+                <MapPin className="mr-2 h-3.5 w-3.5" />
+                Available across Australia
+              </span>
+              <span className="cosmic-chip">On-site, hybrid, or remote depending on role</span>
+              <span className="cosmic-chip">Junior and growth-track opportunities</span>
             </div>
 
-            <div className="rounded-[32px] border border-white/10 bg-black/18 p-1">
-              <ContactForm />
+            <div className="mt-8 space-y-3">
+              <a
+                href="mailto:bhandarirajiv25@gmail.com"
+                className="flex items-center gap-3 rounded-lg border border-border px-4 py-3 text-sm font-semibold text-text transition hover:border-accent-border"
+              >
+                <Mail className="h-4 w-4 text-accent" />
+                bhandarirajiv25@gmail.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rajiv-bhandari25/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-lg border border-border px-4 py-3 text-sm font-semibold text-text transition hover:border-accent-border"
+              >
+                <FaLinkedin className="h-4 w-4 text-accent" />
+                linkedin.com/in/rajiv-bhandari25
+              </a>
+              <a
+                href="https://github.com/prodev1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-lg border border-border px-4 py-3 text-sm font-semibold text-text transition hover:border-accent-border"
+              >
+                <FaGithub className="h-4 w-4 text-accent" />
+                github.com/prodev1996
+              </a>
             </div>
           </div>
+
+          <ContactForm />
         </div>
       </section>
     </div>

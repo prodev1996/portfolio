@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
-import CursorStars from "@/components/CursorStars";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageTransition from "@/components/PageTransition";
@@ -138,7 +137,6 @@ export default function RootLayout({
           <main className="flex min-h-screen flex-col pb-16">
             <PageTransition>{children}</PageTransition>
           </main>
-          <CursorStars />
           <CustomCursor />
           <GameTrigger />
           <ScrollToTopButton />
