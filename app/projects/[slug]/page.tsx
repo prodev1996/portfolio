@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 
 import ProjectBackButton from "@/components/ProjectBackButton";
+import ProjectCtaLink from "@/components/ProjectCtaLink";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectPageProps = {
@@ -51,25 +52,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <ProjectBackButton />
 
           {project.liveUrl ? (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Open Website
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
+            <ProjectCtaLink href={project.liveUrl} label="Open Website" />
           ) : project.githubUrl ? (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              View on GitHub
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
+            <ProjectCtaLink href={project.githubUrl} label="View on GitHub" />
           ) : (
             <span className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-text-faint">
               Confidential · Internal System
@@ -77,7 +62,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
-        <div className="mt-10 grid gap-8 border-t border-border pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+        <div className="relative mt-10 grid gap-8 border-t border-border pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <span
+            aria-hidden="true"
+            className="font-heading pointer-events-none absolute -top-8 right-0 text-7xl font-bold text-accent/[0.14] sm:-top-10 sm:text-8xl"
+          >
+            {"{ }"}
+          </span>
           <div>
             <p className="text-xs font-black uppercase tracking-[0.28em] text-accent">
               Project
@@ -124,6 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ? `Open live website for ${project.title}`
                 : `View source for ${project.title} on GitHub`
             }
+            data-cursor-label={project.liveUrl ? "Open" : "GitHub"}
             className="group mt-8 block overflow-hidden rounded-xl border border-border outline-none transition duration-300 hover:border-accent-border focus-visible:ring-2 focus-visible:ring-accent"
           >
             <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden bg-bg-raised">
@@ -133,7 +125,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 1200px, 100vw"
-                className="object-cover object-top transition duration-700 group-hover:scale-[1.02] group-hover:opacity-85"
+                className="object-cover object-top transition duration-700 group-hover:scale-105 group-hover:opacity-85"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-bg/0 opacity-0 transition duration-300 group-hover:bg-bg/40 group-hover:opacity-100">
                 <span className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-black text-bg">

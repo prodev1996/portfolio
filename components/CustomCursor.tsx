@@ -9,6 +9,7 @@ export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const pointerFine = window.matchMedia("(pointer: fine)").matches;
@@ -34,6 +35,7 @@ export default function CustomCursor() {
     let ringX = mouseX;
     let ringY = mouseY;
     let hovering = false;
+    let labelText = "";
     let rafId = 0;
 
     const handleMove = (event: PointerEvent) => {
@@ -48,15 +50,24 @@ export default function CustomCursor() {
 
     const handleOver = (event: PointerEvent) => {
       const target = event.target as HTMLElement | null;
+      const labelTarget = target?.closest?.("[data-cursor-label]") as HTMLElement | null;
       hovering = Boolean(target?.closest?.(INTERACTIVE_SELECTOR));
+      labelText = labelTarget?.getAttribute("data-cursor-label") ?? "";
+
       ringRef.current?.style.setProperty(
         "background-color",
-        hovering ? "rgba(240, 180, 41, 0.12)" : "transparent",
+        hovering && !labelText ? "rgba(240, 180, 41, 0.12)" : "transparent",
       );
       ringRef.current?.style.setProperty(
         "border-color",
         hovering ? "rgba(240, 180, 41, 0.75)" : "rgba(163, 163, 163, 0.55)",
       );
+      ringRef.current?.style.setProperty("opacity", labelText ? "0" : "1");
+
+      if (labelRef.current) {
+        labelRef.current.textContent = labelText;
+        labelRef.current.style.setProperty("opacity", labelText ? "1" : "0");
+      }
     };
 
     const tick = () => {
@@ -66,6 +77,10 @@ export default function CustomCursor() {
       ringRef.current?.style.setProperty(
         "transform",
         `translate(${ringX}px, ${ringY}px) scale(${scale})`,
+      );
+      labelRef.current?.style.setProperty(
+        "transform",
+        `translate(${ringX}px, ${ringY}px)`,
       );
       rafId = requestAnimationFrame(tick);
     };
@@ -87,6 +102,7 @@ export default function CustomCursor() {
     <>
       <div ref={dotRef} className="custom-cursor-dot" aria-hidden="true" />
       <div ref={ringRef} className="custom-cursor-ring" aria-hidden="true" />
+      <div ref={labelRef} className="custom-cursor-label" aria-hidden="true" />
     </>
   );
 }

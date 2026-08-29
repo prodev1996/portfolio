@@ -95,9 +95,34 @@ html.custom-cursor-active select {
   transition: border-color 200ms ease, background-color 200ms ease;
 }
 
+.custom-cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 91;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 200ms ease;
+}
+
 @media (max-width: 1023px) {
   .custom-cursor-dot,
-  .custom-cursor-ring {
+  .custom-cursor-ring,
+  .custom-cursor-label {
     display: none;
   }
 }
@@ -116,7 +141,8 @@ html.custom-cursor-active select {
 }
 
 body.native-cursor-active .custom-cursor-dot,
-body.native-cursor-active .custom-cursor-ring {
+body.native-cursor-active .custom-cursor-ring,
+body.native-cursor-active .custom-cursor-label {
   opacity: 0;
 }
 
