@@ -45,11 +45,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <section className="relative isolate min-h-svh overflow-hidden px-5 pb-14 pt-24 sm:px-8 lg:px-10">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_28%_8%,rgba(139,92,246,0.22),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(236,72,153,0.12),transparent_26%),linear-gradient(180deg,#090713_0%,#120f1d_48%,#080711_100%)]" />
-      <div className="pointer-events-none absolute left-[-80px] top-40 h-72 w-72 rounded-full bg-[#8b5cf6]/18 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-28 right-[-80px] h-80 w-80 rounded-full bg-[#ec4899]/12 blur-3xl" />
-
+    <section className="relative isolate min-h-svh overflow-hidden bg-bg px-5 pb-14 pt-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <ProjectBackButton />
@@ -75,21 +71,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <ArrowUpRight className="h-4 w-4" />
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f87a0]">
+            <span className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-text-faint">
               Confidential · Internal System
             </span>
           )}
         </div>
 
-        <div className="mt-7 grid gap-5 rounded-[36px] border border-white/10 bg-[#120f1d]/72 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.34)] backdrop-blur-2xl lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:p-7">
+        <div className="mt-10 grid gap-8 border-t border-border pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#d8a7e7]">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-accent">
               Project
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-[0.95] tracking-[-0.07em] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading mt-4 text-4xl font-bold leading-[0.95] tracking-[-0.03em] text-text sm:text-5xl lg:text-6xl">
               {project.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-[#c9c1d8]">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted">
               {project.outcome}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -101,11 +97,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-white/[0.045] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-2xl">
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#a78bfa]">
+          <div className="lg:border-l lg:border-border lg:pl-8">
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-accent">
               My role
             </p>
-            <p className="mt-3 text-lg font-black tracking-[-0.04em] text-white">
+            <p className="mt-3 text-lg font-black tracking-[-0.02em] text-text">
               {project.role}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -128,9 +124,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ? `Open live website for ${project.title}`
                 : `View source for ${project.title} on GitHub`
             }
-            className="group mt-6 block overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] outline-none backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-[#c55b9e] sm:p-4"
+            className="group mt-8 block overflow-hidden rounded-xl border border-border outline-none transition duration-300 hover:border-accent-border focus-visible:ring-2 focus-visible:ring-accent"
           >
-            <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
+            <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden bg-bg-raised">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -139,9 +135,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 sizes="(min-width: 1024px) 1200px, 100vw"
                 className="object-cover object-top transition duration-700 group-hover:scale-[1.02] group-hover:opacity-85"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070610]/80 via-transparent to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition duration-300 group-hover:bg-black/20 group-hover:opacity-100 group-hover:backdrop-blur-sm">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-black text-black shadow-2xl">
+              <div className="absolute inset-0 flex items-center justify-center bg-bg/0 opacity-0 transition duration-300 group-hover:bg-bg/40 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-black text-bg">
                   {project.liveUrl ? "Open live website" : "View source on GitHub"}
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
@@ -149,8 +144,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </a>
         ) : (
-          <div className="mt-6 overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.34)] backdrop-blur-2xl sm:p-4">
-            <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
+          <div className="mt-8 overflow-hidden rounded-xl border border-border">
+            <div className="relative aspect-[16/9] min-h-[260px] overflow-hidden bg-bg-raised">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -159,31 +154,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 sizes="(min-width: 1024px) 1200px, 100vw"
                 className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070610]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#d8d1e6] backdrop-blur-xl">
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-md border border-border bg-bg px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-text-muted">
                 Confidential internal system, no public link available
               </div>
             </div>
           </div>
         )}
 
-        <div className="mt-5 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 divide-y divide-border border-t border-border pt-8 sm:divide-y-0 sm:divide-x lg:grid-cols-3">
           {[
             ["Goal", project.businessGoal],
             ["Result", project.measurableOutcome],
             ["Support", project.supportProof[1] ?? project.supportProof[0]],
           ].map(([label, value]) => (
-            <article key={label} className="cosmic-card">
-              <p className="text-xs font-black uppercase tracking-[0.26em] text-[#d8a7e7]">
+            <article key={label} className="pt-8 first:pt-0 sm:pt-0 sm:px-8 sm:first:pl-0">
+              <p className="text-xs font-black uppercase tracking-[0.26em] text-accent">
                 {label}
               </p>
-              <p className="mt-4 text-sm leading-7 text-[#d8d1e6]">{value}</p>
+              <p className="mt-4 text-sm leading-7 text-text-muted">{value}</p>
             </article>
           ))}
         </div>
 
         {project.images.length > 0 && (
-          <div className="mt-5 grid gap-5 lg:grid-cols-2">
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {project.images.map((image) => (
               <a
                 key={image.src}
@@ -191,9 +185,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open live website for ${project.title}`}
-                className="group overflow-hidden rounded-[34px] border border-white/10 bg-[#120f1d]/82 p-3 shadow-[0_30px_100px_rgba(0,0,0,0.34)] outline-none transition duration-300 hover:-translate-y-1 hover:border-white/20 focus-visible:ring-2 focus-visible:ring-[#c55b9e]"
+                className="group overflow-hidden rounded-xl border border-border outline-none transition duration-300 hover:border-accent-border focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[26px] border border-white/10 bg-[#090712]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-bg-raised">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -201,7 +195,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover object-top transition duration-700 group-hover:scale-[1.02] group-hover:opacity-85"
                   />
-                  <div className="absolute right-4 top-4 flex translate-y-1 items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-white opacity-0 shadow-xl backdrop-blur-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute right-4 top-4 flex translate-y-1 items-center gap-1.5 rounded-md border border-border bg-bg px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-text opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     Open
                     <ArrowUpRight className="h-3 w-3" />
                   </div>
