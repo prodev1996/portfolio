@@ -586,11 +586,6 @@ export default function CosmicPortfolio() {
 
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-7 lg:grid-cols-[1.18fr_0.82fr] lg:items-start xl:gap-8">
           <div className="max-w-3xl lg:max-w-[44rem]">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.22em] text-[#d8d1e6] backdrop-blur-xl">
-              <span className="h-2 w-2 rounded-full bg-[#1e9b73] shadow-[0_0_12px_rgba(30,155,115,0.55)]" />
-              Available for full-time work in Adelaide, starting now
-            </div>
-
             <HeroHeadline
               lines={[
                 { text: "Hello, welcome to my profile." },
