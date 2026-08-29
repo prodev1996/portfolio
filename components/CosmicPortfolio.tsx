@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion, useScroll, useSpring, type Variants } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -29,6 +29,7 @@ import AnimatedGradientCanvas from "@/components/AnimatedGradientCanvas";
 import HeroHeadline from "@/components/HeroHeadline";
 import ParallaxLayer from "@/components/ParallaxLayer";
 import { useTilt } from "@/components/useTilt";
+import { useMagnetic } from "@/components/useMagnetic";
 import { projects, type PortfolioProject } from "@/data/projects";
 
 const fadeUp: Variants = {
@@ -273,62 +274,101 @@ function SectionIntro({
   title,
   description,
   align = "left",
+  number,
 }: {
   label: string;
   title: string;
   description: string;
   align?: "left" | "center";
+  number?: string;
 }) {
   const alignment =
     align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl";
   const containerRef = useRef<HTMLDivElement>(null);
+  const words = title.split(" ");
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const targets = el.querySelectorAll<HTMLElement>("[data-reveal]");
+    const words = el.querySelectorAll<HTMLElement>("[data-word]");
+    const rest = el.querySelectorAll<HTMLElement>("[data-reveal]");
+    const numeral = el.querySelectorAll<HTMLElement>("[data-numeral]");
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (reducedMotion) {
-      gsap.set(targets, { opacity: 1, y: 0 });
+      gsap.set(words, { yPercent: 0, opacity: 1, clearProps: "transform" });
+      gsap.set(rest, { opacity: 1, y: 0 });
+      gsap.set(numeral, { opacity: 1, clearProps: "transform" });
       return;
     }
 
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        targets,
-        { opacity: 0, y: 26 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none",
         },
-      );
+      });
+
+      tl.fromTo(
+        numeral,
+        { opacity: 0, x: 30 },
+        { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" },
+        0,
+      )
+        .fromTo(
+          words,
+          { yPercent: 115, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power4.out",
+            stagger: 0.035,
+            clearProps: "transform",
+          },
+          0.1,
+        )
+        .fromTo(
+          rest,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.08 },
+          "-=0.45",
+        );
     }, el);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={containerRef} className={alignment}>
+    <div ref={containerRef} className={`relative ${alignment}`}>
+      {number && (
+        <span
+          data-numeral
+          aria-hidden="true"
+          className="font-heading pointer-events-none absolute -top-6 right-0 text-7xl font-bold text-accent/[0.14] sm:-top-10 sm:text-8xl lg:-top-14 lg:text-9xl"
+        >
+          {number}
+        </span>
+      )}
       <p data-reveal className="section-label">{label}</p>
-      <h2
-        data-reveal
-        className="font-heading mt-3 text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl lg:text-6xl"
-      >
-        {title}
+      <h2 className="font-heading mt-3 text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl lg:text-6xl">
+        {words.map((word, wordIndex) => (
+          <Fragment key={wordIndex}>
+            <span className="inline-block overflow-hidden pb-1 align-top">
+              <span data-word className="inline-block">
+                {word}
+              </span>
+            </span>
+            {wordIndex < words.length - 1 ? " " : null}
+          </Fragment>
+        ))}
       </h2>
       <p
         data-reveal
@@ -389,6 +429,30 @@ function MarqueeRow({
   );
 }
 
+function TimelineProgressLine({
+  containerRef,
+}: {
+  containerRef: React.RefObject<HTMLDivElement | null>;
+}) {
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.8", "end 0.55"],
+  });
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <motion.div
+      style={{ scaleY }}
+      aria-hidden="true"
+      className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px origin-top bg-accent"
+    />
+  );
+}
+
 function ProjectCard({
   project,
   index,
@@ -396,7 +460,7 @@ function ProjectCard({
   project: PortfolioProject;
   index: number;
 }) {
-  const tiltRef = useTilt<HTMLElement>(2);
+  const tiltRef = useTilt<HTMLElement>(5);
 
   return (
     <motion.article
@@ -405,10 +469,13 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
-      className="group overflow-hidden rounded-xl border border-border bg-bg-raised transition-colors duration-200 ease-out will-change-transform hover:border-accent-border [transform-style:preserve-3d]"
+      className="group relative overflow-hidden rounded-xl border border-border bg-bg-raised transition-colors duration-200 ease-out will-change-transform hover:border-accent [transform-style:preserve-3d]"
     >
+      <div className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
+
       <Link
         href={`/projects/${project.slug}`}
+        data-cursor-label="View"
         className="relative block aspect-[4/3] overflow-hidden border-b border-border"
       >
         <Image
@@ -416,7 +483,7 @@ function ProjectCard({
           alt={project.title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover object-top transition duration-700 group-hover:scale-[1.04]"
+          className="object-cover object-top transition duration-700 ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-bg-raised via-bg-raised/25 to-transparent" />
         <div className="absolute left-4 top-4 text-[9px] font-black uppercase tracking-[0.18em] text-text">
@@ -426,6 +493,9 @@ function ProjectCard({
               ? "Open source"
               : "Confidential"}
         </div>
+        <span className="absolute right-4 top-4 flex h-9 w-9 -translate-y-2 items-center justify-center rounded-full bg-accent text-bg opacity-0 shadow-[0_10px_28px_rgba(240,180,41,0.4)] transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+          <ArrowUpRight className="h-4 w-4" />
+        </span>
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-[9px] font-black uppercase tracking-[0.18em] text-accent">
             {project.liveLabel}
@@ -464,6 +534,10 @@ function ProjectCard({
 }
 
 export default function CosmicPortfolio() {
+  const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
+  const outlineCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
+  const timelineRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="relative overflow-hidden bg-bg">
       <div className="premium-grid pointer-events-none absolute inset-0 opacity-45" />
@@ -507,11 +581,11 @@ export default function CosmicPortfolio() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="#projects" className="btn-primary group">
+              <Link ref={primaryCtaRef} href="#projects" className="btn-primary group">
                 Explore Case Studies
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/resume" className="btn-outline group">
+              <Link ref={outlineCtaRef} href="/resume" className="btn-outline group">
                 <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 View Resume
               </Link>
@@ -519,16 +593,22 @@ export default function CosmicPortfolio() {
 
           </div>
 
-          <ParallaxLayer speed={-0.08} className="relative lg:pt-2">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl border border-border sm:max-w-sm lg:max-w-none">
-              <Image
-                src="/profile-hero.png"
-                alt="Rajiv Bhandari"
-                fill
-                sizes="(min-width: 1024px) 32vw, 70vw"
-                priority
-                className="object-cover object-[center_14%]"
-              />
+          <ParallaxLayer speed={-0.1} className="relative lg:pt-2">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs sm:max-w-sm lg:max-w-none">
+              <div className="absolute -inset-3 -z-10 rounded-2xl border-2 border-accent/50" />
+              <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border">
+                <Image
+                  src="/profile-hero.png"
+                  alt="Rajiv Bhandari"
+                  fill
+                  sizes="(min-width: 1024px) 32vw, 70vw"
+                  priority
+                  className="object-cover object-[center_14%]"
+                />
+              </div>
+              <span className="absolute -bottom-4 -left-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent font-heading text-lg font-bold text-bg shadow-[0_16px_40px_rgba(240,180,41,0.35)] sm:-bottom-5 sm:-left-5 sm:h-20 sm:w-20 sm:text-xl">
+                MIT
+              </span>
             </div>
           </ParallaxLayer>
         </div>
@@ -550,6 +630,7 @@ export default function CosmicPortfolio() {
         className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
+          number="01"
           label="Snapshot"
           title="A recruiter-friendly read of where I fit best."
           description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia, with data engineering as the longer-term goal."
@@ -647,6 +728,7 @@ export default function CosmicPortfolio() {
         className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
+          number="02"
           label="Skills"
           title="The skills each role actually put to work."
           description="Pulled straight from the experience below. Instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
@@ -691,6 +773,7 @@ export default function CosmicPortfolio() {
         className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
+          number="03"
           label="Credentials"
           title="Formal study plus support-focused foundations."
           description="This section gives hiring managers a fast check on education, certifications, and technical foundations without interrupting the main portfolio story."
@@ -775,6 +858,7 @@ export default function CosmicPortfolio() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:sticky lg:top-32 lg:col-span-4">
               <SectionIntro
+                number="04"
                 label="Experience"
                 title="A practical track record across support, systems, delivery, and data accuracy."
                 description="The experience is intentionally framed to show junior but credible progression: user support, systems support, technical delivery, and data discipline."
@@ -782,8 +866,9 @@ export default function CosmicPortfolio() {
             </div>
 
             <div className="lg:col-span-8">
-              <div className="relative space-y-10 pl-6 sm:pl-8">
+              <div ref={timelineRef} className="relative space-y-10 pl-6 sm:pl-8">
                 <div className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px bg-border" />
+                <TimelineProgressLine containerRef={timelineRef} />
                 {timeline.map((item, index) => (
                   <motion.article
                     key={`${item.role}-${item.year}`}
@@ -857,9 +942,15 @@ export default function CosmicPortfolio() {
         className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
       >
         <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
-          <div>
+          <div className="relative">
+            <span
+              aria-hidden="true"
+              className="font-heading pointer-events-none absolute -top-10 right-0 text-7xl font-bold text-accent/[0.14] sm:text-8xl"
+            >
+              05
+            </span>
             <p className="section-label">Contact</p>
-            <h2 className="mt-3 font-heading text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl">
+            <h2 className="mt-3 font-heading text-4xl font-bold tracking-[-0.02em] text-text sm:text-5xl lg:text-6xl">
               Ready to support, analyse, and build. Data engineering is next.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-text-muted">
