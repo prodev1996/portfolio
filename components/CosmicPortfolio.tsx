@@ -283,15 +283,6 @@ const certifications = [
   },
 ];
 
-const orbitNodes = [
-  { label: "Support", angle: 12, tilt: -18, tone: "from-[#1e9b73] to-[#d48d37]" },
-  { label: "M365", angle: 74, tilt: 18, tone: "from-[#d48d37] to-[#c55b9e]" },
-  { label: "Apps", angle: 140, tilt: -14, tone: "from-[#6f67df] to-[#2ca2ba]" },
-  { label: "SQL", angle: 214, tilt: 18, tone: "from-[#2ca2ba] to-[#1e9b73]" },
-  { label: "QA", angle: 282, tilt: -18, tone: "from-[#c55b9e] to-[#6f67df]" },
-  { label: "Python", angle: 338, tilt: 14, tone: "from-[#2ca2ba] to-[#6f67df]" },
-];
-
 function SectionIntro({
   label,
   title,
@@ -432,39 +423,6 @@ function TerminalBadge() {
   );
 }
 
-function DataOrbit() {
-  return (
-    <div
-      className="data-orbit pointer-events-none absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 [--orbit-radius:6rem] sm:h-64 sm:w-64 sm:[--orbit-radius:7.8rem]"
-      aria-hidden="true"
-    >
-      <div className="absolute inset-2 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(111,103,223,0.08),transparent_60%)]" />
-      <div className="absolute inset-7 rounded-full border border-dashed border-white/10" />
-      <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#6f67df]/16 via-[#c55b9e]/10 to-[#1e9b73]/14 blur-2xl sm:h-36 sm:w-36" />
-      <div className="data-orbit-spin absolute inset-0">
-        {orbitNodes.map((node) => (
-          <div
-            key={node.label}
-            className="absolute left-1/2 top-1/2"
-            style={{
-              transform: `rotate(${node.angle}deg) translateX(var(--orbit-radius)) rotate(-${node.angle}deg)`,
-            }}
-          >
-            <span
-              className={`inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r ${node.tone} px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_28px_rgba(0,0,0,0.32)] ring-1 ring-white/15 sm:text-[10px]`}
-              style={{
-                transform: `rotate(${node.tilt}deg)`,
-              }}
-            >
-              {node.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function MarqueeRow({
   items,
   reverse = false,
@@ -568,23 +526,16 @@ function ProjectCard({
 
 export default function CosmicPortfolio() {
   return (
-    <div className="relative overflow-hidden bg-[#04030a] selection:bg-[#c55b9e]/25 selection:text-white">
+    <div className="relative overflow-hidden bg-bg">
       <div className="premium-grid pointer-events-none absolute inset-0 opacity-45" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[52rem] bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.18),transparent_42%),radial-gradient(circle_at_72%_18%,rgba(197,91,158,0.14),transparent_24%),radial-gradient(circle_at_24%_32%,rgba(30,155,115,0.08),transparent_24%)]" />
 
       <section
         id="home"
         className="relative flex min-h-[100svh] items-center px-4 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:items-start lg:px-8 lg:pb-6 lg:pt-20"
       >
-        <AnimatedGradientCanvas className="opacity-90 blur-[60px]" />
+        <AnimatedGradientCanvas className="opacity-70 blur-[70px]" />
 
-        <div className="pointer-events-none absolute inset-x-0 top-[18%] hidden text-center lg:block">
-          <p className="text-[12vw] font-black uppercase tracking-[-0.08em] text-white/[0.035]">
-            SYSTEMS
-          </p>
-        </div>
-
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-7 lg:grid-cols-[1.18fr_0.82fr] lg:items-start xl:gap-8">
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start xl:gap-14">
           <div className="max-w-3xl lg:max-w-[44rem]">
             <HeroHeadline
               lines={[
@@ -593,7 +544,7 @@ export default function CosmicPortfolio() {
               ]}
             />
 
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[#b4b0bf] sm:text-[17px]">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-text-muted sm:text-[17px]">
               Master of IT graduate based in Adelaide. Over the last few years
               I&apos;ve supported business applications, written a fair amount
               of SQL to track down data issues, and built small pieces of
@@ -629,43 +580,27 @@ export default function CosmicPortfolio() {
 
           </div>
 
-          <ParallaxLayer speed={-0.08} className="relative lg:pt-1">
-            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#090810]/92 p-5 shadow-[0_34px_120px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:p-6">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,103,223,0.14),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(197,91,158,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_40%)]" />
-              <div className="relative z-10">
-                <div className="relative flex h-[18rem] items-center justify-center sm:h-[20rem] lg:h-[18.5rem] xl:h-[19.5rem]">
-                  <DataOrbit />
-                  <div className="relative z-10 rounded-[32px] border border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-1.5 shadow-[0_22px_60px_rgba(0,0,0,0.4)]">
-                    <div className="relative overflow-hidden rounded-[26px] bg-[#06060c]">
-                      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-black/12" />
-                      <div className="relative h-36 w-36 sm:h-44 sm:w-44">
-                        <Image
-                          src="/profile-hero.png"
-                          alt="Rajiv Bhandari"
-                          fill
-                          sizes="(min-width: 640px) 176px, 144px"
-                          priority
-                          className="object-cover object-[center_16%]"
-                        />
-                      </div>
-                      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/50" />
-                      <div className="pointer-events-none absolute inset-x-4 bottom-0 h-px bg-white/18" />
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+          <ParallaxLayer speed={-0.08} className="relative lg:pt-2">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl border border-border sm:max-w-sm lg:max-w-none">
+              <Image
+                src="/profile-hero.png"
+                alt="Rajiv Bhandari"
+                fill
+                sizes="(min-width: 1024px) 32vw, 70vw"
+                priority
+                className="object-cover object-[center_14%]"
+              />
             </div>
           </ParallaxLayer>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-4 hidden justify-center lg:flex">
-          <div className="flex flex-col items-center gap-2 text-[#5c5666]">
+          <div className="flex flex-col items-center gap-2 text-text-faint">
             <span className="text-[9px] font-black uppercase tracking-[0.3em]">Scroll</span>
             <motion.span
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="h-6 w-px bg-gradient-to-b from-[#8f87a0] to-transparent"
+              className="h-6 w-px bg-gradient-to-b from-text-faint to-transparent"
             />
           </div>
         </div>
