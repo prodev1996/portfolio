@@ -51,18 +51,14 @@ export default function HeroHeadline({ lines }: { lines: Line[] }) {
   return (
     <h1
       ref={containerRef}
-      className="mt-6 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-[4rem] lg:leading-[0.9] xl:text-[4.35rem]"
+      className="mt-6 font-heading text-6xl font-bold tracking-[-0.03em] text-text leading-[0.92] sm:text-7xl lg:text-[5.5rem] lg:leading-[0.88] xl:text-[6.5rem]"
     >
       {lines.map((line, lineIndex) => {
         const words = splitWords(line.text);
         return (
           <span
             key={lineIndex}
-            className={`block pb-1 ${
-              line.gradient
-                ? "bg-gradient-to-r from-[#f4f1ff] via-[#d7d0ff] to-[#bde7dc] bg-clip-text text-transparent"
-                : ""
-            }`}
+            className={`block pb-1 ${line.gradient ? "text-accent" : ""}`}
           >
             {words.map((word, wordIndex) => (
               <Fragment key={wordIndex}>

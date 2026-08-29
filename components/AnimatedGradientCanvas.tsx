@@ -9,13 +9,12 @@ type Blob = {
   dx: number;
   dy: number;
   color: [number, number, number];
+  opacity: number;
 };
 
-const COLORS: [number, number, number][] = [
-  [111, 103, 223], // #6f67df
-  [197, 91, 158], // #c55b9e
-  [212, 141, 55], // #d48d37
-  [30, 155, 115], // #1e9b73
+const BLOB_CONFIG: { color: [number, number, number]; opacity: number }[] = [
+  { color: [240, 180, 41], opacity: 0.09 }, // amber accent
+  { color: [255, 255, 255], opacity: 0.04 }, // faint neutral depth
 ];
 
 export default function AnimatedGradientCanvas({
@@ -38,13 +37,14 @@ export default function AnimatedGradientCanvas({
     let height = 0;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const blobs: Blob[] = COLORS.map((color, i) => ({
-      x: 0.2 + (i % 2) * 0.6 + (Math.random() - 0.5) * 0.15,
-      y: 0.25 + Math.floor(i / 2) * 0.5 + (Math.random() - 0.5) * 0.15,
-      r: 0.32 + Math.random() * 0.1,
-      dx: (Math.random() - 0.5) * 0.00014,
-      dy: (Math.random() - 0.5) * 0.00014,
+    const blobs: Blob[] = BLOB_CONFIG.map(({ color, opacity }, i) => ({
+      x: 0.25 + i * 0.5 + (Math.random() - 0.5) * 0.15,
+      y: 0.3 + i * 0.25 + (Math.random() - 0.5) * 0.15,
+      r: 0.34 + Math.random() * 0.1,
+      dx: (Math.random() - 0.5) * 0.00009,
+      dy: (Math.random() - 0.5) * 0.00009,
       color,
+      opacity,
     }));
 
     function resize() {
@@ -78,7 +78,7 @@ export default function AnimatedGradientCanvas({
         const [r, g, b] = blob.color;
 
         const gradient = ctx!.createRadialGradient(cx, cy, 0, cx, cy, radius);
-        gradient.addColorStop(0, `rgba(${r},${g},${b},0.16)`);
+        gradient.addColorStop(0, `rgba(${r},${g},${b},${blob.opacity})`);
         gradient.addColorStop(1, `rgba(${r},${g},${b},0)`);
 
         ctx!.fillStyle = gradient;

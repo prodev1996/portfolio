@@ -447,18 +447,6 @@ body::after {
   animation: terminal-type 3.2s steps(39, end) 900ms forwards;
 }
 
-.data-orbit {
-  filter: drop-shadow(0 0 18px rgba(240, 180, 41, 0.14));
-}
-
-.data-orbit-spin {
-  animation: data-orbit-spin 28s linear infinite;
-}
-
-.data-orbit-spin:hover {
-  animation-play-state: paused;
-}
-
 .skill-card-scan {
   background: linear-gradient(
     90deg,
@@ -521,16 +509,6 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .marquee-row {
     animation: none;
-  }
-}
-
-@keyframes data-orbit-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
 
@@ -604,7 +582,6 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .data-orbit-spin,
   .terminal-type,
   .skill-card-scan,
   .skill-signal-dot,
