@@ -174,7 +174,7 @@ export const projects: PortfolioProject[] = [
       "Clean visual execution for a local service brand",
     ],
     supportProof: [
-      "Included support after launch, not just the initial delivery.",
+      "Kept supporting the site well after it shipped, instead of walking away once it launched.",
       "Covered content changes, hosting, and live updates.",
       "Required practical problem solving in production-facing work.",
     ],
@@ -197,7 +197,7 @@ export const projects: PortfolioProject[] = [
     title: "SQL Retail Analytics",
     subtitle: "SQL-first retail analysis: cohorts, churn risk, and window functions",
     overview:
-      "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, built to demonstrate real analyst SQL (CTEs, window functions, cohort analysis) rather than just pandas.groupby.",
+      "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, using CTEs, window functions, and cohort analysis.",
     image: "/projects/sql-retail-analytics-cover.svg",
     accentImage: "/projects/sql-retail-analytics-cover.svg",
     images: [],
@@ -206,7 +206,7 @@ export const projects: PortfolioProject[] = [
     liveLabel: "github.com/prodev1996/sql-retail-analytics",
     stack: ["SQL", "Python", "Jupyter Notebook", "pytest"],
     businessGoal:
-      "Prove out real analyst SQL, not just simple SELECTs, on a dataset realistic enough to have something genuine to say about customer behaviour.",
+      "Prove out real analyst SQL on a dataset realistic enough to have something genuine to say about customer behaviour.",
     role: "Solo build: schema design, synthetic data generation, SQL analysis, and testing",
     measurableOutcome:
       "Five standalone SQL queries answering specific business questions, each backed by an executed, documented notebook and a data-integrity pytest suite.",
@@ -232,7 +232,7 @@ export const projects: PortfolioProject[] = [
       "Documented setup, data generation, and how to reproduce every result from scratch.",
     ],
     takeaway:
-      "This project is the clearest evidence of where I'm heading: real SQL analysis, not just querying a table, on the way to data engineering.",
+      "This project is the clearest evidence of where I'm heading: real SQL analysis on the way to data engineering.",
     challenge:
       "It's easy to demonstrate basic SQL with a SELECT and a GROUP BY. It's harder to show the kind of analysis an actual analyst does, ranking, cohorts, and behaviour-based risk models, on data realistic enough for the findings to mean something.",
     solution:
@@ -241,7 +241,7 @@ export const projects: PortfolioProject[] = [
       "A working, tested analysis with documented findings: revenue seasonality, a long-tail customer value distribution, category-leading products, and a personalised churn-risk model, all runnable and readable directly on GitHub.",
     supportValue: [
       "Directly demonstrates the SQL depth that data analyst and data engineering roles look for.",
-      "Shows testing discipline applied to a data project, not just application code.",
+      "Shows testing discipline carried over into data work, on top of application code.",
       "The strongest single piece of evidence for the data engineering trajectory.",
     ],
   },
@@ -259,7 +259,7 @@ export const projects: PortfolioProject[] = [
     liveLabel: "github.com/prodev1996/sales-dashboard",
     stack: ["Python", "Streamlit", "Pandas", "Plotly"],
     businessGoal:
-      "Practice turning raw sales data into a dashboard someone could actually use to make decisions, not just a chart for its own sake.",
+      "Practice turning raw sales data into a dashboard someone could actually use to make decisions.",
     role: "Solo build: data generation, analysis logic, and dashboard UI",
     measurableOutcome:
       "A working interactive dashboard with KPI cards for revenue, orders, profit, and average order value, filterable by date range, region, segment, and channel.",

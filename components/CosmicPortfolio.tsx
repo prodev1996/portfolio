@@ -925,7 +925,7 @@ export default function CosmicPortfolio() {
       >
         <SectionIntro
           label="Projects"
-          title="Real delivery work, not visual mockups."
+          title="A few things I've built."
           description="A quick look at each build. Click through for the full case study: business context, delivery decisions, and post-launch ownership."
           align="center"
         />
