@@ -18,7 +18,7 @@ export default function ResumeHeader() {
     <section className="relative border-b border-border pb-10">
       <span
         aria-hidden="true"
-        className="font-heading pointer-events-none absolute -top-8 right-0 text-7xl font-bold text-accent/[0.14] sm:-top-10 sm:text-8xl"
+        className="font-heading pointer-events-none absolute -top-10 right-0 hidden text-6xl font-bold text-accent/[0.14] sm:block sm:text-7xl"
       >
         CV
       </span>
