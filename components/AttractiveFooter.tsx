@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { FaArrowUp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
-import { Headset } from "lucide-react";
+import { Check, Copy, Headset } from "lucide-react";
 import { OPEN_SUPPORT_DESK_GAME_EVENT } from "@/components/GameTrigger";
 
 const footerLinks = [
@@ -13,7 +14,21 @@ const footerLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const EMAIL = "bhandarirajiv25@gmail.com";
+
 export default function AttractiveFooter() {
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopyEmail() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable; the mailto link still works.
+    }
+  }
+
   return (
     <footer className="relative mt-8 border-t border-border bg-bg-sunken">
       <div className="relative mx-auto max-w-7xl px-4 py-12 text-text-muted sm:px-6 lg:px-8">
@@ -64,11 +79,27 @@ export default function AttractiveFooter() {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <a
-                  href="mailto:bhandarirajiv25@gmail.com"
+                  href={`mailto:${EMAIL}`}
                   className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-semibold text-text-muted transition hover:border-accent-border hover:text-accent"
                 >
                   <FaEnvelope /> Email
                 </a>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email address"
+                  className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-semibold text-text-muted transition hover:border-accent-border hover:text-accent"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="h-3.5 w-3.5 text-accent" /> Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-3.5 w-3.5" /> Copy Email
+                    </>
+                  )}
+                </button>
                 <a
                   href="https://www.linkedin.com/in/rajiv-bhandari25/"
                   target="_blank"
@@ -90,7 +121,9 @@ export default function AttractiveFooter() {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 text-xs text-text-faint sm:flex-row sm:items-center sm:justify-between">
+        <p className="mt-6 text-xs text-text-faint">References available upon request.</p>
+
+        <div className="mt-3 flex flex-col gap-3 text-xs text-text-faint sm:flex-row sm:items-center sm:justify-between">
           <p className="flex items-center gap-2">
             Copyright 2026 Rajiv Bhandari. Designed and built with Next.js and Tailwind CSS.
             <button
