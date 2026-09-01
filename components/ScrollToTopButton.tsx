@@ -25,7 +25,7 @@ export default function ScrollToTopButton() {
         })
       }
       aria-label="Back to top"
-      className="fixed bottom-4 right-[4.25rem] z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-bg-raised text-text-muted shadow-[0_16px_34px_rgba(0,0,0,0.4)] transition hover:border-accent-border hover:text-accent sm:bottom-6 sm:right-[5.5rem] sm:h-12 sm:w-12"
+      className="fixed bottom-4 right-[4.25rem] z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-bg-raised text-text-muted shadow-[0_16px_34px_rgba(0,0,0,0.4)] transition hover:border-accent-border hover:text-accent print:hidden sm:bottom-6 sm:right-[5.5rem] sm:h-12 sm:w-12"
     >
       <FaChevronUp size={14} />
     </button>

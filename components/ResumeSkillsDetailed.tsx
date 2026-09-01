@@ -25,6 +25,7 @@ const skillBlocks = [
       "SQL / MySQL",
       "T-SQL fundamentals",
       "Data validation",
+      "Query optimization",
       "ETL & staging concepts",
       "Source-to-target reconciliation",
       "Reporting support",
@@ -37,7 +38,7 @@ const skillBlocks = [
     items: [
       "React / Next.js",
       "Node.js",
-      "REST APIs",
+      "REST APIs & integration testing",
       "MySQL",
       "HTML/CSS",
       "DNS/SSL/hosting",
