@@ -162,6 +162,7 @@ const skillDomains: {
       "SQL / MySQL / PostgreSQL",
       "T-SQL & ETL concepts",
       "Data validation & analysis",
+      "Query optimization",
       "Reporting accuracy checks",
       "Requirements gathering",
       "Data-driven troubleshooting",
@@ -174,7 +175,7 @@ const skillDomains: {
     items: [
       "React / Next.js",
       "Node.js",
-      "REST APIs",
+      "REST APIs & integration testing",
       "Git / GitHub",
       "UAT & release support",
       "Documentation & QA",
