@@ -518,7 +518,7 @@ export default function CosmicPortfolio() {
                   className="object-cover"
                 />
               </div>
-              <span className="absolute -bottom-2 -right-2 flex h-14 w-14 items-center justify-center rounded-full bg-accent font-heading text-sm font-bold text-bg shadow-[0_16px_40px_rgba(240,180,41,0.35)] sm:h-16 sm:w-16 sm:text-base">
+              <span className="absolute -bottom-3 -right-3 flex h-12 w-12 items-center justify-center rounded-full bg-accent font-heading text-xs font-bold text-bg shadow-[0_16px_40px_rgba(240,180,41,0.35)] sm:-bottom-2 sm:-right-2 sm:h-16 sm:w-16 sm:text-base">
                 MIT
               </span>
             </div>
