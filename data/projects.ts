@@ -7,6 +7,7 @@ export type PortfolioProject = {
   slug: string;
   title: string;
   subtitle: string;
+  impact: string;
   overview: string;
   image: string;
   accentImage: string;
@@ -34,6 +35,7 @@ export const projects: PortfolioProject[] = [
     slug: "enterprise-compliance-platform",
     title: "Enterprise Compliance Assessment Platform",
     subtitle: "Multi-role compliance assessment and QMS support",
+    impact: "Cut release risk by owning the full defect lifecycle and coordinating UAT before every production deployment.",
     overview:
       "Administration, testing, and release management of a role-based enterprise compliance platform, configuring workflows, managing access controls, coordinating UAT, and managing the full defect lifecycle.",
     image: "/projects/compliance-platform-cover.svg",
@@ -86,6 +88,7 @@ export const projects: PortfolioProject[] = [
     slug: "glide-education",
     title: "Glide Education",
     subtitle: "Consultancy and visa services platform",
+    impact: "Shipped a live client site end-to-end and kept it running with ongoing production support.",
     overview:
       "A consultancy website built to make services easier to understand and enquiries easier to start.",
     image: "/projects/glide.png",
@@ -141,6 +144,7 @@ export const projects: PortfolioProject[] = [
     slug: "prime-roof-care",
     title: "Prime Roof Care",
     subtitle: "Service business website for enquiries and trust",
+    impact: "Gave a local business a clearer enquiry path, launched and supported past go-live.",
     overview:
       "A service-business website built around clear services, local trust, and simple enquiry paths.",
     image: "/projects/primeroof.png",
@@ -196,6 +200,7 @@ export const projects: PortfolioProject[] = [
     slug: "sql-retail-analytics",
     title: "SQL Retail Analytics",
     subtitle: "SQL-first retail analysis: cohorts, churn risk, and window functions",
+    impact: "Automated churn-risk and cohort queries, each verified by a data-integrity test suite.",
     overview:
       "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, using CTEs, window functions, and cohort analysis.",
     image: "/projects/sql-retail-analytics-cover.svg",
@@ -249,6 +254,7 @@ export const projects: PortfolioProject[] = [
     slug: "sales-dashboard",
     title: "Northstar Sales Dashboard",
     subtitle: "Interactive sales analytics dashboard, Streamlit + Plotly",
+    impact: "Turned raw sales data into a filterable, decision-ready dashboard with live KPI tracking.",
     overview:
       "A Streamlit sales dashboard with generated sample data, interactive filters, KPI cards, and revenue, regional, product, and channel breakdowns.",
     image: "/projects/sales-dashboard-cover.svg",
@@ -301,6 +307,7 @@ export const projects: PortfolioProject[] = [
     slug: "fixorahub",
     title: "FixoraHub",
     subtitle: "AI-assisted tech-help platform, full-stack build",
+    impact: "Built a content platform that degrades gracefully and stays online even when the AI or API is down.",
     overview:
       "A tech-help platform for practical troubleshooting guides, built end-to-end: Next.js frontend, Django REST backend, and an AI-assisted fix path for common tech problems.",
     image: "/projects/fixorahub-cover.svg",

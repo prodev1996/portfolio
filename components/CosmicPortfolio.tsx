@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useSpring, type Variants } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -19,7 +19,6 @@ import {
   MapPin,
   ServerCog,
   ShieldCheck,
-  Workflow,
   type LucideIcon,
 } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -32,15 +31,6 @@ import { useTilt } from "@/components/useTilt";
 import { useMagnetic } from "@/components/useMagnetic";
 import { projects, type PortfolioProject } from "@/data/projects";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 36 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.72, ease: "easeOut" },
-  },
-};
-
 const timeline = [
   {
     year: "May 2026 – Present",
@@ -49,7 +39,9 @@ const timeline = [
     summary:
       "Support the administration and testing of a multi-role enterprise compliance platform, translating business requirements into functional system configurations and managing the full defect lifecycle.",
     points: [
-      "Configure workflows, system access, and evidence-handling processes across multiple user roles; coordinate release testing with key users prior to production deployment.",
+      "Configured multi-role access workflows and system permissions for an enterprise compliance platform.",
+      "Managed full defect lifecycles and coordinated pre-release UAT regression testing with key stakeholders.",
+      "Authored change documentation, release notes, and procedural user guides for non-technical teams.",
     ],
   },
   {
@@ -79,7 +71,7 @@ const timeline = [
     summary:
       "Maintained and supported production web applications built with React, Django, Node.js, MySQL, and REST APIs, handling bug investigation, defect resolution, and post-change stability checks.",
     points: [
-      "Supported database-backed application features including data validation, query troubleshooting, and API integration testing, building foundational SQL and data analysis skills.",
+      "Maintained production React/Node web applications, resolving API bottlenecks and database query issues to maximize platform uptime.",
     ],
   },
   {
@@ -143,28 +135,6 @@ const overviewCards = [
   },
 ];
 
-const topSkillsRowOne = [
-  "SQL",
-  "MySQL",
-  "PostgreSQL",
-  "Data Validation & Analysis",
-  "Application Support",
-  "Microsoft 365",
-  "SharePoint",
-  "Requirements Gathering",
-];
-
-const topSkillsRowTwo = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "REST APIs",
-  "Git / GitHub",
-  "Troubleshooting",
-  "Documentation",
-  "Quality Assurance",
-];
-
 const skillDomains: {
   icon: LucideIcon;
   title: string;
@@ -173,54 +143,41 @@ const skillDomains: {
 }[] = [
   {
     icon: ShieldCheck,
-    title: "Application & Business Systems Support",
-    blurb: "Core strength across business application support and troubleshooting.",
+    title: "Application & Business Support",
+    blurb: "Core strength across enterprise systems, access, and troubleshooting.",
     items: [
       "Workflow configuration",
       "System access & role management",
       "Incident & defect resolution",
       "Root-cause troubleshooting",
-      "Change support",
-      "User assistance",
+      "Microsoft 365, SharePoint & Teams",
+      "Active Directory & Azure AD",
     ],
   },
   {
     icon: Database,
-    title: "SQL, Data & Web Development",
-    blurb: "SQL and data analysis, plus the technical delivery context behind it.",
+    title: "SQL & Data Analysis",
+    blurb: "Query-first problem solving, validation, and reporting accuracy.",
     items: [
-      "SQL / MySQL",
+      "SQL / MySQL / PostgreSQL",
       "T-SQL & ETL concepts",
       "Data validation & analysis",
+      "Reporting accuracy checks",
+      "Requirements gathering",
+      "Data-driven troubleshooting",
+    ],
+  },
+  {
+    icon: Code2,
+    title: "Software & Web Development",
+    blurb: "The technical delivery context behind the support and data work.",
+    items: [
       "React / Next.js",
       "Node.js",
       "REST APIs",
-    ],
-  },
-  {
-    icon: Workflow,
-    title: "Release, Testing & Documentation",
-    blurb: "End-to-end release, change, and stakeholder communication.",
-    items: [
-      "UAT coordination",
-      "Release notes review",
-      "Regression testing",
-      "Change documentation",
-      "User guides",
-      "Requirements gathering",
-    ],
-  },
-  {
-    icon: ServerCog,
-    title: "Microsoft 365 & Identity",
-    blurb: "Business application and identity administration.",
-    items: [
-      "Exchange Online",
-      "SharePoint",
-      "Teams",
-      "Outlook",
-      "Active Directory",
-      "Azure AD",
+      "Git / GitHub",
+      "UAT & release support",
+      "Documentation & QA",
     ],
   },
 ];
@@ -380,55 +337,6 @@ function SectionIntro({
   );
 }
 
-function TerminalBadge() {
-  return (
-    <motion.div
-      variants={fadeUp}
-      className="mt-6 w-full max-w-xl overflow-hidden rounded-xl border border-border bg-bg-sunken"
-    >
-      <div className="flex items-center gap-2 border-b border-border px-4 py-2">
-        <span className="h-2 w-2 rounded-full bg-accent" />
-        <span className="ml-1 text-[10px] font-black uppercase tracking-[0.24em] text-text-faint">
-          positioning.log
-        </span>
-      </div>
-      <div className="space-y-1 px-4 py-3 font-mono text-[11px] text-text-muted sm:text-xs">
-        <p>
-          <span className="text-accent">&gt;</span> focus.current
-        </p>
-        <p className="terminal-type text-text">
-          application systems -&gt; SQL support -&gt; data engineering path
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
-function MarqueeRow({
-  items,
-  reverse = false,
-}: {
-  items: string[];
-  reverse?: boolean;
-}) {
-  const track = [...items, ...items];
-
-  return (
-    <div className="marquee-mask overflow-hidden">
-      <div className={`marquee-row gap-3 py-1 ${reverse ? "marquee-row-reverse" : ""}`}>
-        {track.map((item, index) => (
-          <span
-            key={`${item}-${index}`}
-            className="inline-flex shrink-0 items-center rounded-md border border-border px-4 py-2 text-[13px] font-bold text-text-muted"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function TimelineProgressLine({
   containerRef,
 }: {
@@ -469,7 +377,7 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-xl border border-border bg-bg-raised transition-colors duration-200 ease-out will-change-transform hover:border-accent [transform-style:preserve-3d]"
+      className="group relative overflow-hidden rounded-xl border border-border bg-bg-raised transition-all duration-300 ease-out will-change-transform hover:-translate-y-1 hover:border-accent hover:shadow-[0_24px_50px_-20px_rgba(240,180,41,0.35)] [transform-style:preserve-3d]"
     >
       <div className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
 
@@ -510,7 +418,10 @@ function ProjectCard({
       </Link>
 
       <div className="p-5">
-        <div className="flex flex-wrap gap-1.5">
+        <p className="text-sm font-bold leading-6 text-text">
+          {project.impact}
+        </p>
+        <div className="mt-3 flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
@@ -552,61 +463,61 @@ export default function CosmicPortfolio() {
           <div className="max-w-3xl lg:max-w-[44rem]">
             <HeroHeadline
               lines={[
-                { text: "Hello, welcome to my profile." },
-                { text: "I am Rajiv.", gradient: true },
+                { text: "Hi, I'm" },
+                { text: "Rajiv Bhandari.", gradient: true },
               ]}
             />
 
-            <p className="mt-4 max-w-2xl text-base leading-7 text-text-muted sm:text-[17px]">
-              Master of IT graduate based in Adelaide. Over the last few years
-              I&apos;ve supported business applications, written a fair amount
-              of SQL to track down data issues, and built small pieces of
-              software along the way. Right now I&apos;m leaning further into
-              data analysis, with data engineering as the longer-term goal.
+            <p className="mt-5 text-lg font-bold text-text sm:text-xl">
+              Application Support Specialist &amp; Data Analyst
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {[
-                "Application Support",
-                "Support & Troubleshooting",
-                "Data Analysis",
-                "SQL / MySQL",
-                "Software Development",
-                "Professional Year 2025–26",
-              ].map((item) => (
-                <span key={item} className="cosmic-chip">
-                  {item}
-                </span>
-              ))}
-            </div>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-text-muted sm:text-[17px]">
+              Master of IT graduate based in Adelaide. I bridge the gap
+              between enterprise software, SQL databases, and custom web
+              applications to keep business systems running seamlessly.
+            </p>
+
+            <p className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-text-faint">
+              <MapPin className="h-3.5 w-3.5 text-accent" />
+              Adelaide, SA &middot; Open across Australia
+            </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link ref={primaryCtaRef} href="#projects" className="btn-primary group">
-                Explore Case Studies
+                View Work
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link ref={outlineCtaRef} href="/resume" className="btn-outline group">
-                <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-                View Resume
+              <Link ref={outlineCtaRef} href="#contact" className="btn-outline group">
+                <Mail className="h-4 w-4" />
+                Get in Touch
               </Link>
             </div>
+
+            <Link
+              href="/resume"
+              className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-text-faint transition hover:text-accent"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Prefer a PDF? View résumé
+            </Link>
 
           </div>
 
           <ParallaxLayer speed={-0.1} className="relative lg:pt-2">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs sm:max-w-sm lg:max-w-none">
-              <div className="absolute -inset-3 -z-10 rounded-2xl border-2 border-accent/50" />
-              <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border">
+            <div className="relative mx-auto aspect-square w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
+              <div className="absolute inset-0 -z-10 rounded-full bg-accent/20 blur-2xl" />
+              <div className="relative h-full w-full overflow-hidden rounded-full border-[6px] border-bg-raised shadow-[0_20px_60px_rgba(0,0,0,0.45)] ring-2 ring-accent/40">
                 <Image
-                  src="/profile-hero.png"
+                  src="/profile-headshot.png"
                   alt="Rajiv Bhandari"
                   fill
-                  sizes="(min-width: 1024px) 32vw, 70vw"
+                  sizes="(min-width: 1024px) 28vw, 60vw"
                   priority
-                  className="object-cover object-[center_14%]"
+                  className="object-cover"
                 />
               </div>
-              <span className="absolute -bottom-4 -left-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent font-heading text-lg font-bold text-bg shadow-[0_16px_40px_rgba(240,180,41,0.35)] sm:-bottom-5 sm:-left-5 sm:h-20 sm:w-20 sm:text-xl">
+              <span className="absolute -bottom-2 -right-2 flex h-14 w-14 items-center justify-center rounded-full bg-accent font-heading text-sm font-bold text-bg shadow-[0_16px_40px_rgba(240,180,41,0.35)] sm:h-16 sm:w-16 sm:text-base">
                 MIT
               </span>
             </div>
@@ -627,13 +538,13 @@ export default function CosmicPortfolio() {
 
       <section
         id="about"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           number="01"
           label="Snapshot"
-          title="A recruiter-friendly read of where I fit best."
-          description="Master of IT graduate with hands-on experience across application support, SQL-backed data analysis, and software delivery. Currently completing a Professional Year Program and actively seeking IT support, data analyst, or junior software developer roles across Australia, with data engineering as the longer-term goal."
+          title="How I actually approach the work."
+          description="I approach technical problems systematically, whether tracing a broken data pipeline using SQL or guiding end-users through Microsoft 365 permissions. My focus is ensuring system uptime, data accuracy, and smooth user workflows."
         />
 
         <div className="mt-10 grid gap-6 border-t border-border pt-6 sm:grid-cols-3">
@@ -664,7 +575,6 @@ export default function CosmicPortfolio() {
               hands-on context from websites, APIs, hosting, deployment,
               troubleshooting, and data-aware issue investigation.
             </p>
-            <TerminalBadge />
 
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               {overviewCards.map((card) => (
@@ -725,21 +635,16 @@ export default function CosmicPortfolio() {
 
       <section
         id="skills"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           number="02"
           label="Skills"
           title="The skills each role actually put to work."
-          description="Pulled straight from the experience below. Instead of one long skill wall, this section is grouped into four employer-searchable domains: application support, SQL/data & web development, release & documentation, and Microsoft 365."
+          description="Pulled straight from the experience below and grouped into three employer-searchable domains: application & business support, SQL & data analysis, and software & web development."
         />
 
-        <div className="relative mt-7 space-y-2">
-          <MarqueeRow items={topSkillsRowOne} />
-          <MarqueeRow items={topSkillsRowTwo} reverse />
-        </div>
-
-        <div className="mt-12 grid gap-8 border-t border-border pt-8 md:grid-cols-2">
+        <div className="mt-10 grid gap-8 border-t border-border pt-8 md:grid-cols-3">
           {skillDomains.map((domain, index) => (
             <motion.article
               key={domain.title}
@@ -770,7 +675,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="credentials"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           number="03"
@@ -852,7 +757,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="experience"
-        className="relative z-10 border-y border-border bg-bg-sunken py-14 sm:py-16 scroll-mt-28"
+        className="relative z-10 border-y border-border bg-bg-sunken py-20 sm:py-24 scroll-mt-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
@@ -921,7 +826,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="projects"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 scroll-mt-28"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-28"
       >
         <SectionIntro
           label="Projects"
@@ -939,7 +844,7 @@ export default function CosmicPortfolio() {
 
       <section
         id="contact"
-        className="relative z-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="relative z-20 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
           <div className="relative">
