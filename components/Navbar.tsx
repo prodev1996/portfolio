@@ -5,9 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { FileText } from "lucide-react";
+import { FileText, MessageCircle } from "lucide-react";
 
-const homeLinks = [
+// Full set used for scroll-spy math; "Home" has no visible nav link (the
+// logo already goes home) but its bounds are still needed to know when the
+// hero is in view so nothing else falsely highlights while still up top.
+const navSections = [
   { name: "Home", href: "#home" },
   { name: "Snapshot", href: "#about" },
   { name: "Skills", href: "#skills" },
@@ -16,6 +19,8 @@ const homeLinks = [
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
+
+const navLinks = navSections.filter((section) => section.name !== "Home");
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -30,7 +35,7 @@ export default function Navbar() {
   useEffect(() => {
     if (!usesSectionNav) return;
 
-    const sections = homeLinks
+    const sections = navSections
       .map((link) => {
         const element = document.querySelector(link.href);
         if (!element) return null;
@@ -51,7 +56,7 @@ export default function Navbar() {
         Math.min(window.innerHeight * 0.28, headerHeight + 110),
       );
       const currentHash = window.location.hash;
-      const hashMatch = homeLinks.find((link) => link.href === currentHash);
+      const hashMatch = navSections.find((link) => link.href === currentHash);
 
       if (hashMatch) {
         const target = document.querySelector(hashMatch.href);
@@ -67,7 +72,7 @@ export default function Navbar() {
         }
       }
 
-      let currentSection = homeLinks[0]?.name ?? "Home";
+      let currentSection = navSections[0]?.name ?? "Home";
       let closestSection = currentSection;
       let closestDistance = Number.POSITIVE_INFINITY;
       let markerMatched = false;
@@ -113,17 +118,22 @@ export default function Navbar() {
   }, [usesSectionNav]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-[20px] border px-3 py-2.5 backdrop-blur-2xl transition-all duration-300 sm:px-4 ${
+        className={`relative mx-auto flex max-w-5xl items-center justify-between overflow-hidden rounded-full border px-4 py-2.5 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 sm:px-5 ${
           scrolled
-            ? "border-border bg-bg/85 shadow-[0_18px_70px_rgba(0,0,0,0.5)]"
-            : "border-white/[0.06] bg-bg/35 shadow-[0_12px_44px_rgba(0,0,0,0.2)]"
+            ? "border-border bg-bg/80 shadow-xl shadow-black/40"
+            : "border-white/[0.08] bg-bg/70"
         }`}
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent"
+        />
+
         <Link
           href="/"
           onClick={(event) => {
@@ -134,42 +144,33 @@ export default function Navbar() {
           }}
           className="group flex min-w-0 items-center gap-2.5 text-text"
         >
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-bg-raised">
-            <span className="text-[11px] font-black tracking-[0.06em] text-text">
-              RB
-            </span>
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-heading text-[11px] font-black tracking-[0.06em] text-bg">
+            RB
           </span>
           <span className="hidden min-w-0 flex-col sm:flex">
             <span className="text-sm font-black tracking-[0.02em] text-text">
               Rajiv Bhandari
             </span>
             <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-text-faint xl:inline">
-              Application Support · Data · Software
+              Support &bull; Data &bull; Software
             </span>
           </span>
         </Link>
 
         {usesSectionNav ? (
           <nav className="hidden items-center gap-0.5 lg:flex">
-            {homeLinks.map((link, index) => {
+            {navLinks.map((link) => {
               const isActive = active === link.name;
               return (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setActive(link.name)}
-                  className="group relative flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-[12px] font-bold xl:px-3"
+                  className="group relative rounded-full px-3 py-2 text-[12px] font-bold transition-colors"
                 >
                   <span
-                    className={`font-mono text-[9px] transition ${
-                      isActive ? "text-accent" : "text-text-faint group-hover:text-text-muted"
-                    }`}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span
-                    className={`relative transition ${
-                      isActive ? "text-text" : "text-text-muted group-hover:text-text"
+                    className={`relative transition-colors ${
+                      isActive ? "text-accent" : "text-text-muted group-hover:text-accent"
                     }`}
                   >
                     {link.name}
@@ -185,13 +186,21 @@ export default function Navbar() {
               );
             })}
 
+            <Link
+              href="/resume"
+              className="ml-2 hidden items-center gap-1.5 rounded-full px-3 py-2 text-[12px] font-bold text-text-muted transition-colors hover:text-accent xl:inline-flex"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              R&eacute;sum&eacute;
+            </Link>
+
             <motion.div whileHover={{ y: -2 }}>
               <Link
-                href="/resume"
-                className="ml-3 hidden items-center gap-2 rounded-[10px] bg-accent px-4 py-2 text-[12px] font-black text-bg transition hover:bg-accent-hover xl:inline-flex"
+                href="#contact"
+                className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[12px] font-black text-bg transition hover:bg-accent-hover"
               >
-                <FileText className="h-3.5 w-3.5" />
-                Resume
+                <MessageCircle className="h-3.5 w-3.5" />
+                Let&apos;s Talk
               </Link>
             </motion.div>
           </nav>
@@ -226,11 +235,11 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-border bg-bg/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
+          className="mx-auto mt-3 max-w-5xl rounded-[28px] border border-border bg-bg/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
         >
           {usesSectionNav ? (
             <nav className="flex flex-col gap-2">
-              {homeLinks.map((link) => {
+              {navLinks.map((link) => {
                 const isActive = active === link.name;
                 return (
                   <motion.a
@@ -243,7 +252,7 @@ export default function Navbar() {
                     whileTap={{ scale: 0.99 }}
                     className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
                       isActive
-                        ? "bg-white/10 text-text"
+                        ? "bg-white/10 text-accent"
                         : "text-text-muted hover:bg-white/[0.06] hover:text-text"
                     }`}
                   >
@@ -257,7 +266,17 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="btn-outline mt-2 text-center"
               >
-                View Resume
+                R&eacute;sum&eacute;
+              </Link>
+              <Link
+                href="#contact"
+                onClick={() => {
+                  setActive("Contact");
+                  setMenuOpen(false);
+                }}
+                className="btn-primary text-center"
+              >
+                Let&apos;s Talk
               </Link>
             </nav>
           ) : (
