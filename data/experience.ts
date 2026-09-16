@@ -16,12 +16,12 @@ export const experience: ExperienceEntry[] = [
     company: "SpaceTel IT",
     role: "Software Developer Intern",
     location: "Adelaide, SA",
-    period: "May 2026 – Present",
+    period: "May 2026 – Aug 2026",
     domains: ["dev", "support"],
     bullets: [
-      "Support the administration and testing of a multi-role enterprise compliance platform, translating business requirements into system configurations.",
-      "Configure workflows, system access roles, and permission hierarchies across end-user categories.",
-      "Manage full defect lifecycles and coordinate pre-release UAT regression testing prior to production deployment.",
+      "Supported the administration and testing of a multi-role enterprise compliance platform, translating business requirements into system configurations.",
+      "Configured workflows, system access roles, and permission hierarchies across end-user categories.",
+      "Managed full defect lifecycles and coordinated pre-release UAT regression testing prior to production deployment.",
     ],
   },
   {

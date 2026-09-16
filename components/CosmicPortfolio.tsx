@@ -28,11 +28,11 @@ import { projects, type PortfolioProject } from "@/data/projects";
 
 const timeline = [
   {
-    year: "May 2026 – Present",
+    year: "May 2026 – Aug 2026",
     role: "Software Developer Intern",
     place: "SpaceTel IT | Adelaide, SA | On-site",
     summary:
-      "Support the administration and testing of a multi-role enterprise compliance platform, translating business requirements into functional system configurations and managing the full defect lifecycle.",
+      "Supported the administration and testing of a multi-role enterprise compliance platform, translating business requirements into functional system configurations and managing the full defect lifecycle.",
     points: [
       "Configured multi-role access workflows and system permissions for an enterprise compliance platform.",
       "Managed full defect lifecycles and coordinated pre-release UAT regression testing with key stakeholders.",
