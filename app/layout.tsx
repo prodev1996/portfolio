@@ -4,7 +4,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar";
+import ThemeProvider from "@/components/layout/ThemeProvider";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageTransition from "@/components/PageTransition";
@@ -130,18 +131,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className={`min-h-screen bg-[#0a0a0b] text-[#f3f1ea] antialiased font-sans`}>
-        <SmoothScrollProvider>
-          <ScrollProgressRail />
-          <Navbar />
-          <main className="flex min-h-screen flex-col pb-16">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <CustomCursor />
-          <GameTrigger />
-          <ScrollToTopButton />
-        </SmoothScrollProvider>
-        <Analytics />
+      <body className="min-h-screen bg-bg text-text antialiased font-sans">
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            <ScrollProgressRail />
+            <Navbar />
+            <main className="flex min-h-screen flex-col pb-16">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <CustomCursor />
+            <GameTrigger />
+            <ScrollToTopButton />
+          </SmoothScrollProvider>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

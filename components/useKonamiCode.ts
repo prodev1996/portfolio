@@ -18,7 +18,10 @@ const KONAMI_SEQUENCE = [
 export function useKonamiCode(onUnlock: () => void) {
   const progressRef = useRef(0);
   const callbackRef = useRef(onUnlock);
-  callbackRef.current = onUnlock;
+
+  useEffect(() => {
+    callbackRef.current = onUnlock;
+  });
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

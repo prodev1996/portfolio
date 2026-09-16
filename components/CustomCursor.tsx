@@ -1,31 +1,49 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
 const INTERACTIVE_SELECTOR =
   "a, button, [role='button'], input, textarea, select, .cosmic-chip";
 
+function subscribeToCursorCapability(callback: () => void) {
+  const pointerQuery = window.matchMedia("(pointer: fine)");
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  pointerQuery.addEventListener("change", callback);
+  motionQuery.addEventListener("change", callback);
+  return () => {
+    pointerQuery.removeEventListener("change", callback);
+    motionQuery.removeEventListener("change", callback);
+  };
+}
+
+function getCursorCapabilitySnapshot() {
+  return (
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
+function getCursorCapabilityServerSnapshot() {
+  return false;
+}
+
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useSyncExternalStore(
+    subscribeToCursorCapability,
+    getCursorCapabilitySnapshot,
+    getCursorCapabilityServerSnapshot,
+  );
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const pointerFine = window.matchMedia("(pointer: fine)").matches;
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (pointerFine && !reducedMotion) {
-      setEnabled(true);
-      document.documentElement.classList.add("custom-cursor-active");
-    }
-
+    if (!enabled) return;
+    document.documentElement.classList.add("custom-cursor-active");
     return () => {
       document.documentElement.classList.remove("custom-cursor-active");
     };
-  }, []);
+  }, [enabled]);
 
   useEffect(() => {
     if (!enabled) return;
@@ -56,11 +74,13 @@ export default function CustomCursor() {
 
       ringRef.current?.style.setProperty(
         "background-color",
-        hovering && !labelText ? "rgba(240, 180, 41, 0.12)" : "transparent",
+        hovering && !labelText ? "var(--color-accent-soft)" : "transparent",
       );
       ringRef.current?.style.setProperty(
         "border-color",
-        hovering ? "rgba(240, 180, 41, 0.75)" : "rgba(163, 163, 163, 0.55)",
+        hovering
+          ? "color-mix(in srgb, var(--color-accent) 75%, transparent)"
+          : "color-mix(in srgb, var(--color-text-muted) 55%, transparent)",
       );
       ringRef.current?.style.setProperty("opacity", labelText ? "0" : "1");
 

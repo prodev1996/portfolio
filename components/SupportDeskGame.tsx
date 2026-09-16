@@ -229,17 +229,20 @@ export default function SupportDeskGame({
   const [selected, setSelected] = useState<Choice | null>(null);
   const [finished, setFinished] = useState(false);
   const [highScore, setHighScore] = useState(0);
+  const [wasOpen, setWasOpen] = useState(open);
 
-  useEffect(() => {
-    if (!open) return;
-    setTicketIndex(0);
-    setStepIndex(0);
-    setScore(0);
-    setSelected(null);
-    setFinished(false);
-    const stored = Number(localStorage.getItem(HIGH_SCORE_KEY) ?? 0);
-    setHighScore(Number.isFinite(stored) ? stored : 0);
-  }, [open]);
+  if (open !== wasOpen) {
+    setWasOpen(open);
+    if (open) {
+      setTicketIndex(0);
+      setStepIndex(0);
+      setScore(0);
+      setSelected(null);
+      setFinished(false);
+      const stored = Number(localStorage.getItem(HIGH_SCORE_KEY) ?? 0);
+      setHighScore(Number.isFinite(stored) ? stored : 0);
+    }
+  }
 
   useEffect(() => {
     if (!open) return;
