@@ -155,7 +155,7 @@ export const projects: PortfolioProject[] = [
     ],
     liveUrl: "https://www.primeroofcare.com.au/",
     liveLabel: "primeroofcare.com.au",
-    stack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design"],
+    stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
     businessGoal:
       "Give a local service business a clearer online presence that explains services quickly, builds trust, and supports customer enquiries.",
     role: "Website build, launch support, and ongoing updates",
@@ -252,11 +252,11 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "sales-dashboard",
-    title: "Northstar Sales Dashboard",
-    subtitle: "Interactive sales analytics dashboard, Streamlit + Plotly",
-    impact: "Turned raw sales data into a filterable, decision-ready dashboard with live KPI tracking.",
+    title: "Northstar Retail & B2B Sales Dashboard",
+    subtitle: "Dual-channel sales analytics for a hybrid AU retail & B2B distributor",
+    impact: "Turned raw dual-channel transaction data into a filterable, decision-ready dashboard with live revenue, margin, and channel-mix tracking.",
     overview:
-      "A Streamlit sales dashboard with generated sample data, interactive filters, KPI cards, and revenue, regional, product, and channel breakdowns.",
+      "A Streamlit dashboard modeling Northstar Retail & B2B Solutions, a hybrid Australian retail and B2B distributor selling through Direct B2B, Online Store, Wholesale, and Partner Network channels across SA, NSW, VIC, QLD, and WA, with cached data loading and interactive filters.",
     image: "/projects/sales-dashboard-cover.png",
     accentImage: "/projects/sales-dashboard-cover.png",
     images: [],
@@ -265,38 +265,38 @@ export const projects: PortfolioProject[] = [
     liveLabel: "github.com/prodev1996/sales-dashboard",
     stack: ["Python", "Streamlit", "Pandas", "Plotly"],
     businessGoal:
-      "Practice turning raw sales data into a dashboard someone could actually use to make decisions.",
+      "Model a realistic dual-channel business, consumer retail plus B2B wholesale, and turn its raw transaction data into a dashboard someone could actually use to make decisions.",
     role: "Solo build: data generation, analysis logic, and dashboard UI",
     measurableOutcome:
-      "A working interactive dashboard with KPI cards for revenue, orders, profit, and average order value, filterable by date range, region, segment, and channel.",
+      "A cached, filterable dashboard with 4 KPI cards (revenue, net profit and margin, orders, AOV) and 4 charts covering trend, region, channel mix, and top products, across roughly 1,000 transactions.",
     trustSignals: [
-      "Interactive Streamlit app",
-      "Filterable by date, region, segment, channel",
-      "Pandas + Plotly analysis",
+      "Dynamic multi-filter sidebar",
+      "Dual-axis revenue & profit trend",
+      "Handles empty filter results gracefully",
     ],
     proofPoints: [
-      "Built a deterministic sample sales dataset generator so the dashboard has realistic data to work with out of the box.",
-      "Implemented KPI cards for revenue, orders, profit, and average order value, alongside revenue trend, regional performance, top products, and channel mix visuals.",
-      "Added a performance summary table for quickly slicing results by region and customer segment.",
+      "Built a deterministic transaction generator modeling a dual-channel business: 5 AU regions, 3 customer segments, 4 sales channels, and 4 product categories, with segment-aware channel weighting so the data reflects a coherent business model rather than pure noise.",
+      "Implemented KPI cards for revenue, net profit and margin, order count, and average order value, plus a dual-axis revenue/profit trend, regional performance, channel mix, and a top-10-products chart colored by category.",
+      "Added a guardrail: filter combinations with zero matching rows show a clean alert banner instead of an unhandled exception.",
     ],
     skillsShown: [
-      "Data visualization (Plotly)",
+      "Data visualization (Plotly, dual-axis charts)",
       "Interactive filtering & state",
       "Pandas data manipulation",
-      "Dashboard/UI design for analytics",
+      "Defensive UX for edge cases",
     ],
     supportProof: [
-      "Structured the project cleanly: app, sample-data generator, and requirements kept separate for easy setup.",
-      "Documented setup for both standard virtual environments and workspace-local installs, for machines where venv creation is restricted.",
+      "Structured the project cleanly: app, sample-data generator, and config kept separate, with the dataset auto-generated on first run if missing.",
+      "Used @st.cache_data so filtering and re-rendering stay fast without re-reading the CSV on every interaction.",
     ],
     takeaway:
       "This is the kind of dashboard work that sits right at the intersection of my SQL and data background and the reporting support roles I'm aiming at.",
     challenge:
-      "Sales data is only useful if the person looking at it can slice it the way they actually think about the business, by region, channel, and time period, without digging through raw spreadsheets.",
+      "Sales data is only useful if the person looking at it can slice it the way they actually think about the business, by region, channel, segment, and time period, without digging through raw spreadsheets or crashing on an empty filter.",
     solution:
-      "I built interactive filters into the dashboard so revenue, orders, and profit all update live, backed by a generated dataset with realistic seasonality and variance.",
+      "I built a generator that models a coherent dual-channel business, then wired cached, interactive filters into the dashboard so every KPI and chart updates live, with a clean fallback when a filter combination returns nothing.",
     outcome:
-      "A working dashboard covering the KPIs, trends, and breakdowns a sales or ops team would actually want to check regularly.",
+      "A working dashboard covering the KPIs, trends, and breakdowns a sales or ops team would actually want to check regularly, for a business with both consumer and B2B sides.",
     supportValue: [
       "Demonstrates practical data analysis and visualization skill.",
       "Shows comfort translating raw data into decision-ready views.",

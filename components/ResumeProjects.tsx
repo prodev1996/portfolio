@@ -29,7 +29,7 @@ export default function ResumeProjects() {
     {
       title: "Prime Roof Care",
       subtitle: "Service business website for enquiries and trust",
-      meta: "HTML · CSS · Tailwind CSS · Responsive Design",
+      meta: "Next.js · React · Tailwind CSS · Framer Motion",
       bullets: [
         "Built a mobile-friendly service website structured around enquiries, trust, and practical business needs.",
         "Managed hosting updates and content changes after deployment to keep the site current and usable.",
