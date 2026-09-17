@@ -198,52 +198,52 @@ export const projects: PortfolioProject[] = [
   },
   {
     slug: "sql-retail-analytics",
-    title: "SQL Retail Analytics",
-    subtitle: "SQL-first retail analysis: cohorts, churn risk, and window functions",
-    impact: "Automated churn-risk and cohort queries, each verified by a data-integrity test suite.",
+    title: "Australian Supermarket Retail Analytics",
+    subtitle: "PostgreSQL window-function analytics for Woolworths & Coles",
+    impact: "Modeled churn risk, cohort retention, and rolling regional revenue on a realistic AU supermarket dataset, each backed by a data-integrity test suite.",
     overview:
-      "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, using CTEs, window functions, and cohort analysis.",
+      "A SQL-first analysis of a synthetic Australian supermarket dataset, 1,500 customers and 45 stores across Woolworths and Coles banners, and 10,000 transactions spanning NSW, VIC, QLD, and SA, using PostgreSQL window functions for churn scoring, cohort retention, and rolling revenue.",
     image: "/projects/sql-retail-analytics-cover.png",
     accentImage: "/projects/sql-retail-analytics-cover.png",
     images: [],
     liveUrl: "",
     githubUrl: "https://github.com/prodev1996/sql-retail-analytics",
     liveLabel: "github.com/prodev1996/sql-retail-analytics",
-    stack: ["SQL", "Python", "Jupyter Notebook", "pytest"],
+    stack: ["SQL", "PostgreSQL", "Python", "Pandas", "Faker", "pytest"],
     businessGoal:
-      "Prove out real analyst SQL on a dataset realistic enough to have something genuine to say about customer behaviour.",
+      "Prove out real analyst SQL on a dataset realistic enough to have something genuine to say about customer behaviour, modeled on Australia's two dominant grocery banners.",
     role: "Solo build: schema design, synthetic data generation, SQL analysis, and testing",
     measurableOutcome:
-      "Five standalone SQL queries answering specific business questions, each backed by an executed, documented notebook and a data-integrity pytest suite.",
+      "Three advanced window-function analyses covering churn risk, cohort retention, and rolling regional revenue, each backed by a normalized PostgreSQL schema and a data-integrity pytest suite.",
     trustSignals: [
-      "Normalized relational schema",
-      "Window functions & cohort analysis",
+      "Normalized PostgreSQL schema",
+      "Advanced window functions",
       "Data-integrity test suite",
     ],
     proofPoints: [
-      "Designed a normalized schema (customers, orders, order_items, products, categories) and a deterministic synthetic data generator with built-in seasonality, loyalty variance, and a churn tail.",
-      "Wrote five independent SQL queries covering revenue trend with month-over-month growth (LAG()), customer lifetime value (DENSE_RANK()), product ranking within category (RANK() PARTITION BY), signup-cohort retention, and a gap-ratio churn-risk model.",
-      "Built a pytest suite checking referential integrity, value ranges, and that every analysis query actually executes and returns rows.",
+      "Designed a normalized schema (customers, stores, products, transactions) modeling Woolworths Group and Coles Group banners across NSW, VIC, QLD, and SA, seeded with ~1,500 customers, 45 stores, and 10,000 transactions via Pandas and Faker.",
+      "Wrote three advanced analyses: customer churn risk scoring (NTILE spend quartiles plus inactivity thresholds), a cohort retention matrix (COUNT() OVER PARTITION BY), and 30-day rolling revenue and basket size per region built on a full calendar spine (generate_series, LATERAL) with rolling SUM() OVER frames and LAG() for day-over-day change.",
+      "Built a pytest suite checking referential integrity, value ranges, and domain sanity across the generated dataset.",
     ],
     skillsShown: [
-      "Advanced SQL (CTEs, window functions)",
+      "Advanced SQL (window functions, LATERAL joins)",
       "Relational schema design",
       "Cohort & churn analysis",
       "Data-integrity testing",
     ],
     supportProof: [
-      "Wrote up findings for each query directly in the notebook, with committed outputs so the analysis is readable on GitHub without running anything.",
-      "Used a gap-ratio churn rule (a customer's current order gap versus their own historical average) instead of a flat days-since-last-order cutoff, for a more personalised at-risk list.",
-      "Documented setup, data generation, and how to reproduce every result from scratch.",
+      "Targeted PostgreSQL as the primary database, with a zero-config SQLite fallback for quick local evaluation.",
+      "Modeled realistic domain detail: real AU state/postcode constraints, loyalty programs (Everyday Rewards / Flybuys), and 13 supermarket categories with real brand-style product names.",
+      "Documented setup, data generation, and how to reproduce every result from scratch, for both PostgreSQL and SQLite.",
     ],
     takeaway:
       "This project is the clearest evidence of where I'm heading: real SQL analysis on the way to data engineering.",
     challenge:
-      "It's easy to demonstrate basic SQL with a SELECT and a GROUP BY. It's harder to show the kind of analysis an actual analyst does, ranking, cohorts, and behaviour-based risk models, on data realistic enough for the findings to mean something.",
+      "It's easy to demonstrate basic SQL with a SELECT and a GROUP BY. It's harder to show the kind of analysis an actual analyst does, churn scoring, cohort retention, and rolling regional metrics, on data realistic enough for the findings to mean something.",
     solution:
-      "I built a normalized schema and a synthetic data generator with real seasonality and churn patterns, then wrote five independent SQL queries using CTEs and window functions, each validated by a pytest data-integrity suite.",
+      "I built a normalized schema and a synthetic data generator modeling Australia's two dominant grocery banners, then wrote three advanced window-function analyses in PostgreSQL, each validated by a pytest data-integrity suite.",
     outcome:
-      "A working, tested analysis with documented findings: revenue seasonality, a long-tail customer value distribution, category-leading products, and a personalised churn-risk model, all runnable and readable directly on GitHub.",
+      "A working, tested analysis covering high-value customer churn risk, month-by-month cohort retention, and 30-day rolling revenue and basket size by state, all reproducible from a single seeded generator run.",
     supportValue: [
       "Directly demonstrates the SQL depth that data analyst and data engineering roles look for.",
       "Shows testing discipline carried over into data work, on top of application code.",
