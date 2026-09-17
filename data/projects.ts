@@ -203,8 +203,8 @@ export const projects: PortfolioProject[] = [
     impact: "Automated churn-risk and cohort queries, each verified by a data-integrity test suite.",
     overview:
       "A SQL-first analysis of a synthetic retail dataset, 600 customers and roughly 3,200 orders spanning early 2023 to mid-2025, using CTEs, window functions, and cohort analysis.",
-    image: "/projects/sql-retail-analytics-cover.svg",
-    accentImage: "/projects/sql-retail-analytics-cover.svg",
+    image: "/projects/sql-retail-analytics-cover.png",
+    accentImage: "/projects/sql-retail-analytics-cover.png",
     images: [],
     liveUrl: "",
     githubUrl: "https://github.com/prodev1996/sql-retail-analytics",
@@ -257,8 +257,8 @@ export const projects: PortfolioProject[] = [
     impact: "Turned raw sales data into a filterable, decision-ready dashboard with live KPI tracking.",
     overview:
       "A Streamlit sales dashboard with generated sample data, interactive filters, KPI cards, and revenue, regional, product, and channel breakdowns.",
-    image: "/projects/sales-dashboard-cover.svg",
-    accentImage: "/projects/sales-dashboard-cover.svg",
+    image: "/projects/sales-dashboard-cover.png",
+    accentImage: "/projects/sales-dashboard-cover.png",
     images: [],
     liveUrl: "",
     githubUrl: "https://github.com/prodev1996/sales-dashboard",
@@ -310,8 +310,8 @@ export const projects: PortfolioProject[] = [
     impact: "Built a content platform that degrades gracefully and stays online even when the AI or API is down.",
     overview:
       "A tech-help platform for practical troubleshooting guides, built end-to-end: Next.js frontend, Django REST backend, and an AI-assisted fix path for common tech problems.",
-    image: "/projects/fixorahub-cover.svg",
-    accentImage: "/projects/fixorahub-cover.svg",
+    image: "/projects/fixorahub-cover.png",
+    accentImage: "/projects/fixorahub-cover.png",
     images: [],
     liveUrl: "",
     githubUrl: "https://github.com/prodev1996/fixorahub",
