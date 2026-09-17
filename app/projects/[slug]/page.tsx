@@ -169,10 +169,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         <div className="mt-10 border-t border-border pt-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-accent">
-            Proof Points
-          </p>
-          <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {project.proofPoints.map((point) => (
               <li key={point} className="flex gap-3 text-sm leading-7 text-text-muted">
                 <span className="mt-[10px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
@@ -181,25 +178,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ))}
           </ul>
         </div>
-
-        <div className="mt-10 border-t border-border pt-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-accent">
-            Skills Shown
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.skillsShown.map((skill) => (
-              <span key={skill} className="cosmic-chip">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <blockquote className="mt-10 border-t border-border pt-8">
-          <p className="font-heading max-w-3xl text-xl font-bold leading-snug tracking-[-0.01em] text-text sm:text-2xl">
-            &ldquo;{project.takeaway}&rdquo;
-          </p>
-        </blockquote>
 
         {project.images.length > 0 && (
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
