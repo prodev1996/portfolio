@@ -1,156 +1,109 @@
-﻿"use client";
-
-import { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
-
-const CONTACT_EMAIL = "bhandarirajiv25@gmail.com";
-const EMAILJS_PUBLIC_KEY = "OLTsoARhv6m_4OIgP";
-const EMAILJS_SERVICE_ID = "service_4mxxm3l";
-const EMAILJS_TEMPLATE_ID = "template_j7r3aiv";
+"use client";
+import { useState, type FormEvent } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  useEffect(() => {
-    emailjs.init({
-      publicKey: EMAILJS_PUBLIC_KEY,
-    });
-  }, []);
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (loading) return;
+    if (!formData.name.trim() || !formData.message.trim()) {
+      setFeedback("Please include your name and a message.");
+      return;
+    }
     setLoading(true);
     setFeedback("");
-
     try {
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        "service_4mxxm3l",
+        "template_j7r3aiv",
         {
-          name: formData.name,
-          email: formData.email,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
           time: new Date().toLocaleString(),
-          message: formData.message,
+          message: formData.message.trim(),
         },
-        {
-          publicKey: EMAILJS_PUBLIC_KEY,
-        }
+        { publicKey: "OLTsoARhv6m_4OIgP" },
       );
-
-      setFeedback("Your message has been sent successfully.");
+      setFeedback("Message sent. Thanks for getting in touch.");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("EmailJS send failed:", error);
+    } catch {
       setFeedback(
-        `The form could not send right now. Please email me directly at ${CONTACT_EMAIL}.`
+        "Your message could not be sent. Please email " +
+          siteConfig.email +
+          " instead.",
       );
     } finally {
       setLoading(false);
     }
   }
-
   return (
-    <motion.form
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45 }}
-      className="rounded-xl border border-border p-6 sm:p-8"
-    >
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-        Direct Message
-      </p>
-      <h3 className="mt-2 text-2xl font-black tracking-[-0.03em] text-text">
-        Send a message
-      </h3>
-      <p className="mt-1.5 text-sm leading-6 text-text-muted">
-        Reach out for roles, projects, or introductions.
-      </p>
-      <p className="mt-1.5 text-xs leading-5 text-text-faint">
-        If the form ever fails, you can always email me directly at{" "}
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="font-medium text-accent underline-offset-4 hover:underline"
-        >
-          {CONTACT_EMAIL}
-        </a>
-        .
-      </p>
-
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+    <form className="contact-form" onSubmit={handleSubmit} aria-busy={loading}>
+      <div className="form-fields">
         <div>
-          <label htmlFor="contact-name" className="mb-1.5 block text-sm text-text-muted">Name</label>
+          <label htmlFor="contact-name">Name</label>
           <input
             id="contact-name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
             autoComplete="name"
-            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
+            required
+            maxLength={120}
+            value={formData.name}
+            onChange={(event) =>
+              setFormData({ ...formData, name: event.target.value })
+            }
             placeholder="Your name"
           />
         </div>
-
         <div>
-          <label htmlFor="contact-email" className="mb-1.5 block text-sm text-text-muted">Email</label>
+          <label htmlFor="contact-email">Email</label>
           <input
             id="contact-email"
             name="email"
             type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
             autoComplete="email"
-            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
-            placeholder="your@email.com"
+            required
+            maxLength={254}
+            value={formData.email}
+            onChange={(event) =>
+              setFormData({ ...formData, email: event.target.value })
+            }
+            placeholder="you@example.com"
           />
         </div>
-
-        <div className="sm:col-span-2">
-          <label htmlFor="contact-message" className="mb-1.5 block text-sm text-text-muted">Message</label>
+        <div className="form-message">
+          <label htmlFor="contact-message">Message</label>
           <textarea
             id="contact-message"
             name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
             rows={4}
-            autoComplete="off"
-            className="w-full border-b border-border bg-transparent px-1 py-2 text-sm text-text outline-none transition placeholder:text-text-faint focus:border-accent"
-            placeholder="Tell me about the role, project, or opportunity"
+            required
+            maxLength={5000}
+            value={formData.message}
+            onChange={(event) =>
+              setFormData({ ...formData, message: event.target.value })
+            }
+            placeholder="Tell me about the role, project, or idea."
           />
         </div>
       </div>
-
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <button
-          type="submit"
-          disabled={loading}
-          className="btn-primary"
-        >
-          {loading ? "Sending..." : "Send Message"}
+      <div className="form-actions">
+        <button className="btn-primary" type="submit" disabled={loading}>
+          {loading ? "Sending…" : "Send message"}
+          <ArrowUpRight size={17} aria-hidden="true" />
         </button>
-
-        {feedback ? (
-          <p role="status" aria-live="polite" className="text-sm text-text-muted">{feedback}</p>
-        ) : null}
+        <p role="status" aria-live="polite">
+          {feedback}
+        </p>
       </div>
-    </motion.form>
+    </form>
   );
 }

@@ -1,25 +1,20 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import ThemeProvider from "@/components/layout/ThemeProvider";
-import CustomCursor from "@/components/CustomCursor";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-import PageTransition from "@/components/PageTransition";
-import GameTrigger from "@/components/GameTrigger";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import ScrollProgressRail from "@/components/ScrollProgressRail";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -45,7 +40,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Rajiv Bhandari portfolio website",
@@ -57,7 +52,7 @@ export const metadata: Metadata = {
     title: "Rajiv Bhandari | Application Support, Data & Software",
     description:
       "Application support, SQL-based data analysis, and software development professional based in Adelaide, building toward data engineering.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   keywords: [
     "Rajiv Bhandari",
@@ -115,12 +110,9 @@ export const metadata: Metadata = {
     },
   ],
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/favicon.svg",
+    icon: [{ url: "/icon", type: "image/png" }],
+    shortcut: "/icon",
+    apple: "/icon",
   },
 };
 
@@ -130,18 +122,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-bg text-text antialiased font-sans">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${manrope.variable} ${bricolage.variable}`}
+    >
+      <body className="bg-bg text-text antialiased font-sans">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <ThemeProvider>
           <SmoothScrollProvider>
-            <ScrollProgressRail />
             <Navbar />
-            <main className="flex min-h-screen flex-col pb-16">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <CustomCursor />
-            <GameTrigger />
-            <ScrollToTopButton />
+            <main id="main-content">{children}</main>
           </SmoothScrollProvider>
           <Analytics />
         </ThemeProvider>

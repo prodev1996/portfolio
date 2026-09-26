@@ -1,305 +1,97 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { FileText, MessageCircle } from "lucide-react";
-
-import ThemeToggle from "@/components/layout/ThemeToggle";
-import { navLinks, navSections } from "@/data/site";
-
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 export default function Navbar() {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
-  const isResumePage = pathname === "/resume";
-  const usesSectionNav = isHomePage;
-
-  const [active, setActive] = useState("Home");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    if (!usesSectionNav) return;
-
-    const sections = navSections
-      .map((link) => {
-        const element = document.querySelector(link.href);
-        if (!element) return null;
-        return {
-          name: link.name,
-          element,
-        };
-      })
-      .filter(Boolean) as { name: string; element: Element }[];
-
-    const updateNavigationState = () => {
-      setScrolled(window.scrollY > 12);
-
-      const headerHeight =
-        document.querySelector("header")?.getBoundingClientRect().height ?? 104;
-      const marker = Math.max(
-        headerHeight + 20,
-        Math.min(window.innerHeight * 0.28, headerHeight + 110),
-      );
-      const currentHash = window.location.hash;
-      const hashMatch = navSections.find((link) => link.href === currentHash);
-
-      if (hashMatch) {
-        const target = document.querySelector(hashMatch.href);
-        if (target) {
-          const rect = target.getBoundingClientRect();
-          const hashSectionInView =
-            rect.top <= marker + 110 && rect.bottom > marker - 40;
-
-          if (hashSectionInView) {
-            setActive(hashMatch.name);
-            return;
-          }
-        }
+    if (pathname !== "/") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries)
+          if (entry.isIntersecting) setActive(entry.target.id);
+      },
+      { rootMargin: "-15% 0px -60% 0px" },
+    );
+    for (const id of ["home", "projects", "about", "contact"]) {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    }
+    return () => observer.disconnect();
+  }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    function escape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
       }
-
-      let currentSection = navSections[0]?.name ?? "Home";
-      let closestSection = currentSection;
-      let closestDistance = Number.POSITIVE_INFINITY;
-      let markerMatched = false;
-
-      sections.forEach(({ name, element }) => {
-        // The hero ("Home") is nearly a full viewport tall, so it would
-        // otherwise dominate the marker match for 600-900px of scroll
-        // before anything else could activate. Once scrolled even a
-        // little past the very top, let the other sections compete.
-        if (name === "Home" && window.scrollY > 120) return;
-
-        const rect = element.getBoundingClientRect();
-
-        if (rect.top <= marker && rect.bottom > marker) {
-          currentSection = name;
-          markerMatched = true;
-        }
-
-        const distance = Math.abs(rect.top - marker);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestSection = name;
-        }
-      });
-
-      setActive(markerMatched ? currentSection : closestSection);
-    };
-
-    updateNavigationState();
-    const rafId = window.requestAnimationFrame(updateNavigationState);
-    const timeoutId = window.setTimeout(updateNavigationState, 140);
-    window.addEventListener("scroll", updateNavigationState);
-    window.addEventListener("resize", updateNavigationState);
-    window.addEventListener("hashchange", updateNavigationState);
-
-    return () => {
-      window.cancelAnimationFrame(rafId);
-      window.clearTimeout(timeoutId);
-      window.removeEventListener("scroll", updateNavigationState);
-      window.removeEventListener("resize", updateNavigationState);
-      window.removeEventListener("hashchange", updateNavigationState);
-    };
-  }, [usesSectionNav]);
-
+    }
+    document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [open]);
   return (
-    <Tooltip.Provider delayDuration={200}>
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className={`relative mx-auto flex max-w-5xl items-center justify-between overflow-hidden rounded-full border px-4 py-2.5 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 sm:px-5 ${
-            scrolled
-              ? "border-border bg-bg/80 shadow-xl shadow-black/40"
-              : "border-white/[0.08] bg-bg/70"
-          }`}
+    <header className="site-header">
+      <div className="nav-inner">
+        <Link
+          href="/#home"
+          className="brand"
+          aria-label="Rajiv Bhandari home"
+          onClick={() => setOpen(false)}
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.08] via-white/0 to-transparent"
-          />
-
-          <Link
-            href="/"
-            onClick={(event) => {
-              if (isHomePage) {
-                event.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
+          <span className="brand-monogram">
+            rb<span>.</span>
+          </span>
+          <span className="brand-fullname">Rajiv Bhandari</span>
+        </Link>
+        <button
+          ref={toggle}
+          className="menu-toggle"
+          type="button"
+          aria-expanded={open}
+          aria-controls="main-navigation"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        <nav
+          id="main-navigation"
+          aria-label="Main navigation"
+          className={open ? "navigation is-open" : "navigation"}
+        >
+          {[
+            { label: "Work", id: "projects" },
+            { label: "About", id: "about" },
+            { label: "Contact", id: "contact" },
+          ].map((item) => (
+            <Link
+              href={"/#" + item.id}
+              key={item.id}
+              aria-current={
+                pathname === "/" && active === item.id ? "location" : undefined
               }
-            }}
-            className="group flex min-w-0 items-center gap-2.5 text-text"
-          >
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-heading text-[11px] font-black tracking-[0.06em] text-bg">
-              RB
-            </span>
-            <span className="hidden min-w-0 flex-col sm:flex">
-              <span className="text-sm font-black tracking-[0.02em] text-text">
-                Rajiv Bhandari
-              </span>
-              <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-text-faint xl:inline">
-                Support &bull; Data &bull; Software
-              </span>
-            </span>
-          </Link>
-
-          {usesSectionNav ? (
-            <nav className="hidden items-center gap-0.5 lg:flex">
-              {navLinks.map((link) => {
-                const isActive = active === link.name;
-                return (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setActive(link.name)}
-                    className="group relative rounded-full px-3 py-2 text-[12px] font-bold transition-colors"
-                  >
-                    <span
-                      className={`relative transition-colors ${
-                        isActive ? "text-accent" : "text-text-muted group-hover:text-accent"
-                      }`}
-                    >
-                      {link.name}
-                      {isActive ? (
-                        <motion.span
-                          layoutId="nav-active-underline"
-                          className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-accent"
-                          transition={{ type: "spring", stiffness: 320, damping: 28 }}
-                        />
-                      ) : null}
-                    </span>
-                  </motion.a>
-                );
-              })}
-
-              <Link
-                href="/resume"
-                className="ml-2 hidden items-center gap-1.5 rounded-full px-3 py-2 text-[12px] font-bold text-text-muted transition-colors hover:text-accent xl:inline-flex"
-              >
-                <FileText className="h-3.5 w-3.5" />
-                R&eacute;sum&eacute;
-              </Link>
-
-              <div className="ml-2 flex items-center gap-2">
-                <ThemeToggle />
-
-                <motion.div whileHover={{ y: -2 }}>
-                  <Link
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[12px] font-black text-bg transition hover:bg-accent-hover"
-                  >
-                    <MessageCircle className="h-3.5 w-3.5" />
-                    Let&apos;s Talk
-                  </Link>
-                </motion.div>
-              </div>
-            </nav>
-          ) : (
-            <nav className="hidden items-center gap-3 lg:flex">
-              <ThemeToggle />
-              <motion.div whileHover={{ y: -2 }}>
-                <Link href="/" className="btn-outline">
-                  Back Home
-                </Link>
-              </motion.div>
-              {!isResumePage ? (
-                <motion.div whileHover={{ y: -2 }}>
-                  <Link href="/resume" className="btn-primary">
-                    View Resume
-                  </Link>
-                </motion.div>
-              ) : null}
-            </nav>
-          )}
-
-          <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
-            <button
-              type="button"
-              onClick={() => setMenuOpen((prev) => !prev)}
-              className="inline-flex items-center justify-center rounded-full border border-border-strong bg-white/[0.06] p-2 text-text transition hover:border-accent-border hover:text-accent"
-              aria-label="Toggle menu"
+              onClick={() => setOpen(false)}
             >
-              {menuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
-            </button>
-          </div>
-        </motion.div>
-
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mx-auto mt-3 max-w-5xl rounded-[28px] border border-border bg-bg/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:hidden"
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/resume"
+            aria-current={pathname === "/resume" ? "page" : undefined}
+            className="nav-resume"
+            onClick={() => setOpen(false)}
           >
-            {usesSectionNav ? (
-              <nav className="flex flex-col gap-2">
-                {navLinks.map((link) => {
-                  const isActive = active === link.name;
-                  return (
-                    <motion.a
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => {
-                        setActive(link.name);
-                        setMenuOpen(false);
-                      }}
-                      whileTap={{ scale: 0.99 }}
-                      className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                        isActive
-                          ? "bg-white/10 text-accent"
-                          : "text-text-muted hover:bg-white/[0.06] hover:text-text"
-                      }`}
-                    >
-                      {link.name}
-                    </motion.a>
-                  );
-                })}
-
-                <Link
-                  href="/resume"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-outline mt-2 text-center"
-                >
-                  R&eacute;sum&eacute;
-                </Link>
-                <Link
-                  href="#contact"
-                  onClick={() => {
-                    setActive("Contact");
-                    setMenuOpen(false);
-                  }}
-                  className="btn-primary text-center"
-                >
-                  Let&apos;s Talk
-                </Link>
-              </nav>
-            ) : (
-              <nav className="flex flex-col gap-2">
-                <Link
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-outline text-center"
-                >
-                  Back Home
-                </Link>
-                {!isResumePage ? (
-                  <Link
-                    href="/resume"
-                    onClick={() => setMenuOpen(false)}
-                    className="btn-primary text-center"
-                  >
-                    View Resume
-                  </Link>
-                ) : null}
-              </nav>
-            )}
-          </motion.div>
-        )}
-      </header>
-    </Tooltip.Provider>
+            Résumé <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+          <ThemeToggle />
+        </nav>
+      </div>
+    </header>
   );
 }
