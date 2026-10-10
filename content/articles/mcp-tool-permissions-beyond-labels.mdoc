@@ -1,0 +1,49 @@
+---
+title: 'An AI tool labelled read-only still needs a permission boundary'
+description: 'MCP makes tools easier to connect. A reliable integration also needs enforced access, a clear action scope, and a record of what happened.'
+category: technology
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'MCP: Tool annotations as risk vocabulary'
+    url: https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/
+  - title: 'MCP: Security best practices'
+    url: https://modelcontextprotocol.io/docs/2025-11-25/tutorials/security/security_best_practices
+  - title: 'MCP: Security policy and scope'
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/SECURITY.md
+---
+An assistant that can search support tickets is useful. Add access to customer records and a tool that sends messages, and the integration now has a much larger consequence surface. The individual tools may be familiar; their combination deserves its own review.
+
+That is the question I would ask when adding Model Context Protocol tools to a business workflow: what can this session do with the information it can read?
+
+## A description helps the interface make a decision
+
+MCP tool annotations describe properties such as whether a tool is read-only, destructive, idempotent, or open to external entities. The maintainers' [March 2026 explanation](https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/) is explicit that these are hints. An untrusted server can misdescribe its behaviour, and an annotation does not enforce a permission.
+
+A label can help a client display an appropriate confirmation. The actual server credentials and access controls determine whether an operation is possible. I would want those two layers to agree, while testing them independently.
+
+For example, a reporting tool advertised as read-only should use an account with enforced read permissions. Describing a write-capable account as read-only in a tool description would leave the important restriction unenforced.
+
+## Define the smallest useful action
+
+For a ticket-triage assistant, I would start with a deliberately narrow workflow: read a permitted ticket, classify it, and propose a response. Sending that response would be a separate capability with a visible recipient and message.
+
+The server should verify the user's access to the specific ticket on each request. A ticket identifier supplied by the model should never become proof that the caller may read or update it. Similarly, a tool that updates one field should not silently accept arbitrary changes to the whole record.
+
+These are application design recommendations. MCP supplies a connection pattern; the product still needs an authorisation model that matches its data and users.
+
+## Treat retrieved instructions as content
+
+Tickets, documents, and websites may contain text that looks like an instruction to the assistant. That content can be useful evidence while remaining untrusted as an instruction source. A request written inside a ticket to export records does not establish the user's permission to export them.
+
+I would test this boundary with harmless fixtures: a ticket that asks for an unrelated action, a document that names an unauthorised destination, and a tool result that claims an approval already happened. The expected behaviour should be defined before running the evaluation.
+
+The [MCP security guidance](https://modelcontextprotocol.io/docs/2025-11-25/tutorials/security/security_best_practices) also addresses concrete implementation issues, including token handling and validating the intended audience. Those checks belong in the service implementation, where they can be enforced consistently.
+
+## Make failures and retries understandable
+
+Suppose a tool call times out after creating a ticket. Retrying blindly can create a duplicate. I would require a stable request identifier for actions where duplication matters, and a way to inspect the operation's outcome.
+
+For each consequential action, the audit record should answer who initiated it, which resource was affected, whether approval was required, and what the service returned. Avoid recording entire sensitive documents just to make an audit trail look detailed.
+
+My starting point would be one constrained workflow, a small set of adversarial test cases, and an explicit rollback or recovery path. That gives the integration a foundation for earning broader access through evidence.

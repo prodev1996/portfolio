@@ -1,0 +1,54 @@
+---
+title: 'A passkey rollout is also an account-recovery project'
+description: 'The sign-in button is only one part of the experience. Device changes, fallback methods, and support procedures need equal attention.'
+category: practical-guides
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'FIDO Alliance: Passkeys'
+    url: https://fidoalliance.org/passkeys/
+  - title: 'MDN: Web Authentication API'
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
+  - title: 'FIDO Alliance: The journey to prevent phishing'
+    url: https://fidoalliance.org/wp-content/uploads/2025/03/Passkeys-The-Journey-to-Prevent-Phishing-Pt1.pdf
+---
+The easy demonstration of passkeys is signing in on a familiar device. The more revealing test begins after the user replaces that device, changes an account provider, or contacts support because access has stopped working.
+
+I would design those journeys alongside registration. A strong primary sign-in method is only one part of the account's overall security and usability.
+
+## Understand what the credential changes
+
+Passkeys use public-key cryptography. The service stores a public key, while an authenticator uses the corresponding private key to complete authentication. They are bound to the relying party, providing phishing resistance against the lookalike-site attacks that passwords can enable. [FIDO's overview](https://fidoalliance.org/passkeys/) explains the model and the distinction between synced and device-bound credentials.
+
+That property does not make an account immune to every form of compromise. The rest of the application, its active sessions, and its recovery processes still matter. I would describe the benefit precisely in product copy, without promising that a user can never lose access or be attacked.
+
+## Use the platform, and verify on the server
+
+On the web, WebAuthn exposes the browser side of registration and authentication. The [MDN guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API) describes the challenge-response flows and server verification responsibilities.
+
+An implementation must verify the returned data against the expected challenge, origin, relying-party identity, and applicable user-verification requirements. The browser completing an operation is not enough to establish a valid application session.
+
+I would use a maintained authentication implementation appropriate to the application's platform. I would also verify how it handles challenge lifetime, session creation, and errors. A polished button cannot compensate for incomplete server verification.
+
+## Draw the recovery journey before launch
+
+My design review would include several concrete scenarios:
+
+- The user has a second device with access to a synced passkey.
+- The user has another registered authenticator but has lost the first.
+- The user has no usable authenticator and needs the recovery process.
+- A person claiming to be the account owner asks support to remove authentication requirements.
+
+Each scenario needs a documented outcome. The support route deserves special attention because it can become an alternative way into an account.
+
+FIDO's [phishing-resistance white paper](https://fidoalliance.org/wp-content/uploads/2025/03/Passkeys-The-Journey-to-Prevent-Phishing-Pt1.pdf) discusses staged adoption and the relationship between authentication and recovery methods. I would use that framework to evaluate fallback choices rather than assuming every fallback preserves the primary method's protection.
+
+## Test confusion as carefully as success
+
+A user might cancel an operating-system prompt, select the wrong account, or misunderstand which device holds a credential. I would test those situations with people who did not build the feature.
+
+Useful interface details include clear account identification, an explanation when no usable credential is available, and a recovery link that remains easy to find. Error text should help the user choose a next step without revealing private information about other accounts.
+
+For rollout measurement, I would look at successful registration, repeat sign-in, abandonment, and recovery requests. A drop in password use alone would tell only part of the story.
+
+The version I would be comfortable shipping is one where the normal path feels easy and the difficult path has been rehearsed. That combination makes the security improvement usable in everyday life.

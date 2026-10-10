@@ -1,0 +1,58 @@
+---
+title: 'Python 3.14 concurrency: choose the workload before the executor'
+description: 'Free-threaded Python and isolated interpreters create more options. The first decision is still about what your program spends its time doing.'
+category: technology
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'Python 3.14 release features'
+    url: https://www.python.org/downloads/release/python-3140/
+  - title: 'Python 3.14: Support for free threading'
+    url: https://docs.python.org/3.14/howto/free-threading-python.html
+  - title: 'Python 3.14: concurrent.futures'
+    url: https://docs.python.org/3.14/library/concurrent.futures.html
+---
+Consider two scripts. One waits for responses from an API. The other spends most of its time transforming records in Python. Giving both scripts more workers does not answer the same problem.
+
+Python 3.14 made free-threaded Python officially supported and added multiple-interpreter capabilities to the standard library. These are useful additions to the concurrency toolbox. They do not remove the need to understand the workload. [The 3.14 release page](https://www.python.org/downloads/release/python-3140/) lists the relevant changes.
+
+## Separate waiting from computing
+
+I would first measure elapsed time and CPU use during a representative run. If the program mostly waits for external services, the bottleneck may be request concurrency, rate limits, connection reuse, or slow responses. If it keeps a CPU core busy with Python work, parallel computation becomes a more relevant experiment.
+
+The distinction is not always clean. A data pipeline might download a file, decompress it, parse it, validate rows, and write results. Measure those stages separately. Improving a small validation step will have limited effect if the remote download dominates the total.
+
+My initial benchmark would include a plain sequential version. It provides a correctness reference and makes worker overhead visible.
+
+## Check which interpreter is actually running
+
+Free-threading support does not mean every Python 3.14 installation runs without the GIL. There are distinct builds, and runtime configuration matters. The [free-threading guide](https://docs.python.org/3.14/howto/free-threading-python.html) documents how to identify them. It also notes that importing an extension without declared support can enable the GIL.
+
+This small diagnostic is for CPython 3.14:
+
+```python
+import sys
+import sysconfig
+
+print(sys.version)
+print('Free-threaded build:', sysconfig.get_config_var('Py_GIL_DISABLED') == 1)
+print('GIL enabled:', sys._is_gil_enabled())
+```
+
+Run the check in the environment that executes the real task, with its actual imports. A clean interpreter and an application with native extensions can behave differently.
+
+## Shared state still needs a design
+
+The free-threading guide recommends explicit synchronisation rather than relying on internal locks in built-in containers. I would go one step further where practical: minimise the state workers share.
+
+A useful structure is to give each worker independent input, return a result, and combine results in one place. This does not fit every application, but it makes both reasoning and testing easier. When shared mutable state is necessary, document which lock protects it and test the multi-step operations that must remain consistent.
+
+Also measure memory and single-worker performance. The free-threaded build has its own overheads; the documentation describes these trade-offs.
+
+## Isolated interpreters offer another boundary
+
+Python 3.14's `InterpreterPoolExecutor` runs tasks in separate interpreters. Each has its own GIL and isolated state. Calls and results cross a serialisation boundary, so the shape and size of transferred data matter. The [executor documentation](https://docs.python.org/3.14/library/concurrent.futures.html) explains the constraints.
+
+I would compare that option with processes and, where appropriate, free-threaded workers using the same inputs. Record total runtime, peak memory, output correctness, and how failures reach the caller.
+
+For a small support script, the clearest implementation may still win. For a sustained processing job, careful partitioning may justify more machinery. The useful result is an explicit choice supported by measurements, with enough detail that the next person can repeat the experiment.

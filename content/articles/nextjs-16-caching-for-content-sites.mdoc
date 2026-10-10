@@ -1,0 +1,65 @@
+---
+title: 'Caching a content site in Next.js 16: decide what can go stale'
+description: 'A practical way to separate published content, personal data, and the moment an edit needs to become visible.'
+category: build-notes
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'Next.js 16 release announcement'
+    url: https://nextjs.org/blog/next-16
+  - title: 'Next.js: Cache Components'
+    url: https://nextjs.org/docs/app/getting-started/cache-components
+  - title: 'Next.js: revalidateTag'
+    url: https://nextjs.org/docs/app/api-reference/functions/revalidateTag
+  - title: 'Next.js: updateTag'
+    url: https://nextjs.org/docs/app/api-reference/functions/updateTag
+---
+Imagine correcting an article title. The editor shows the new wording, the article page shows the old wording, and the homepage still links to a third version. The interesting caching question is how those views become consistent.
+
+For a content site, I would write down the publishing contract before choosing an API: when does a saved edit become public, how long can an old version remain visible, and what confirms that publication succeeded?
+
+## Start with the publishing model
+
+This portfolio keeps articles in the repository. A local editor saves content files; committing and deploying those files publishes the site. That makes deployment a clear boundary between an edit and its public version.
+
+For that workflow, static generation is a sensible starting point. Adding a live CMS later would change the requirements: a publish event might need to invalidate cached content without rebuilding everything.
+
+My preference is to make that change when there is a real publishing need. An article archive does not automatically need the same freshness model as a shopping cart or an account dashboard.
+
+## Cache Components make the choice explicit
+
+Next.js 16 introduced Cache Components as an opt-in model combining static, cached, and request-time content. The [release announcement](https://nextjs.org/blog/next-16) and [current guide](https://nextjs.org/docs/app/getting-started/cache-components) explain how the pieces fit together.
+
+With that model enabled, a public article listing is a candidate for shared caching. A visitor's private reading history has different requirements. Request-specific values need deliberate boundaries; they should not accidentally become part of content shared with other visitors.
+
+Before implementing a cache, I would give each data source an entry in a small decision table:
+
+| Data | Who can see it? | What makes it change? |
+| --- | --- | --- |
+| Published article | Everyone | An editorial publish action |
+| Article category list | Everyone | Content taxonomy changes |
+| Draft content | Authorised editors | Every saved edit |
+| Account preferences | One account | That account's settings change |
+
+That exercise often reveals the necessary boundaries more clearly than a list of caching functions.
+
+## Background refresh and immediate feedback differ
+
+The documented `revalidateTag` pattern with the `max` profile allows stale content to be served while fresh content is fetched in the background. A verified CMS webhook can use that behaviour for public content. The call itself is small:
+
+```typescript
+import { revalidateTag } from 'next/cache';
+
+// After verifying the publishing webhook and its payload:
+revalidateTag('articles', 'max');
+```
+
+The [API documentation](https://nextjs.org/docs/app/api-reference/functions/revalidateTag) describes the stale-while-revalidate behaviour and where the function can run.
+
+An editor saving a change may need to see that exact change immediately. Next.js documents `updateTag` for read-your-own-writes behaviour in Server Actions. It expires tagged data immediately, making the next read wait for fresh data. That is a different contract from background refresh. [The updateTag reference](https://nextjs.org/docs/app/api-reference/functions/updateTag) explains the scope.
+
+## Test one edit through every surface
+
+I would test publication with a visible, reversible change: amend a title, publish it, and check the article, listing, homepage preview, and feed. Then unpublish the article and verify that the same surfaces agree.
+
+For repository-backed publishing, those checks happen after deployment. For a live CMS, they test invalidation too. Either way, the success criterion is concrete: readers and editors see the version the publishing workflow promises.

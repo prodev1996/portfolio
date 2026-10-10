@@ -1,0 +1,66 @@
+---
+title: 'Three PostgreSQL 18 changes worth testing on your own data'
+description: 'Skip scans, virtual generated columns, and UUIDv7 each solve a different problem. Here is how I would evaluate them without guessing at performance.'
+category: practical-guides
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'PostgreSQL 18 release announcement'
+    url: https://www.postgresql.org/about/news/postgresql-18-released-3142/
+  - title: 'PostgreSQL 18: Multicolumn indexes'
+    url: https://www.postgresql.org/docs/18/indexes-multicolumn.html
+  - title: 'PostgreSQL 18: Generated columns'
+    url: https://www.postgresql.org/docs/18/ddl-generated-columns.html
+  - title: 'PostgreSQL 18: UUID functions'
+    url: https://www.postgresql.org/docs/18/functions-uuid.html
+---
+A database release becomes interesting when a feature maps to a query or schema decision you already have. PostgreSQL 18 offers several such changes. Three I would put on a small evaluation list are B-tree skip scans, virtual generated columns, and built-in UUIDv7 generation.
+
+The [release announcement](https://www.postgresql.org/about/news/postgresql-18-released-3142/) describes a much wider set of improvements. This article focuses on a few application-level decisions; it makes no claim that an upgrade will automatically speed up a particular workload.
+
+## An index can help beyond its first column
+
+Suppose a sample orders table has an index on state and creation time:
+
+```sql
+CREATE INDEX orders_state_created_idx
+ON orders (state, created_at);
+
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT id, created_at
+FROM orders
+WHERE created_at >= TIMESTAMPTZ '2026-09-01 00:00:00+00';
+```
+
+This is an illustrative query for a test database containing those columns. `EXPLAIN ANALYZE` executes the query, so evaluate expensive statements on representative staging data first.
+
+The query omits the index's leading state column. PostgreSQL 18's skip-scan optimisation can make repeated index searches useful when the planner expects relatively few distinct leading values. With many distinct values, another plan may be cheaper. [The multicolumn-index documentation](https://www.postgresql.org/docs/18/indexes-multicolumn.html) explains those conditions.
+
+I would compare plans on the same dataset before removing any existing index. Check estimated versus actual rows, buffers accessed, and timing across repeated runs. Data distribution matters: a tiny demonstration table tells little about a production reporting query.
+
+## Choose when a derived value is calculated
+
+PostgreSQL 18 supports virtual generated columns, whose values are computed when read. Stored generated columns keep the computed value in storage. The [generated-column documentation](https://www.postgresql.org/docs/18/ddl-generated-columns.html) also specifies restrictions on allowed expressions.
+
+For a simple test schema:
+
+```sql
+CREATE TABLE example_order_lines (
+  quantity integer NOT NULL CHECK (quantity > 0),
+  unit_price numeric(12, 2) NOT NULL CHECK (unit_price >= 0),
+  line_total numeric GENERATED ALWAYS AS
+    (quantity * unit_price) VIRTUAL
+);
+```
+
+The choice I would examine is repeated calculation versus storage and write-time maintenance. A cheap expression read occasionally is a different case from a costly value used in every report.
+
+For financial records, there is another design question: should a field represent the current calculation or a historical amount agreed at purchase? That is a business rule to settle before choosing a generated column. This example demonstrates syntax, not a complete invoicing model.
+
+## UUIDv7 deserves a measured comparison
+
+PostgreSQL 18 provides `uuidv7()` alongside existing UUID functions. Version 7 incorporates a time component, which gives it a different ordering profile from randomly distributed identifiers. See the [UUID reference](https://www.postgresql.org/docs/18/functions-uuid.html) for the function's behaviour.
+
+I would assess identifier changes using insert throughput, index growth, and the application's existing contracts. Replacing IDs in a running system involves references, integrations, and migrations. It should not begin with changing a default expression and hoping downstream consumers adapt.
+
+My first experiment would be a separate test table populated with representative data. A useful result includes both the measurements and the migration cost. That makes it possible to decide whether a new feature actually earns its place in the application.

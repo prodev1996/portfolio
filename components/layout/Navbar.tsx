@@ -82,6 +82,13 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
+            href="/writing"
+            aria-current={pathname.startsWith("/writing") ? "page" : undefined}
+            onClick={() => setOpen(false)}
+          >
+            Writing
+          </Link>
+          <Link
             href="/resume"
             aria-current={pathname === "/resume" ? "page" : undefined}
             className="nav-resume"

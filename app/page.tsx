@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import SelectedWork from "@/components/SelectedWork";
 import { Reveal } from "@/components/PortfolioMotion";
 import ContactSection from "@/components/ContactSection";
+import WritingPreview from "@/components/writing/WritingPreview";
 import { projects } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 export default function Home() {
@@ -76,6 +77,7 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+      <WritingPreview />
       <ContactSection />
       <footer className="site-footer section-shell">
         <Link href="/#home" className="footer-name">

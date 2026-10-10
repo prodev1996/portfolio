@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import "./writing.css";
 
-import Navbar from "@/components/layout/Navbar";
+import SiteFrame from "@/components/layout/SiteFrame";
 import ThemeProvider from "@/components/layout/ThemeProvider";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -128,14 +128,8 @@ export default function RootLayout({
       className={`${manrope.variable} ${bricolage.variable}`}
     >
       <body className="bg-bg text-text antialiased font-sans">
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
         <ThemeProvider>
-          <SmoothScrollProvider>
-            <Navbar />
-            <main id="main-content">{children}</main>
-          </SmoothScrollProvider>
+          <SiteFrame>{children}</SiteFrame>
           <Analytics />
         </ThemeProvider>
       </body>

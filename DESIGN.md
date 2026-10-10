@@ -25,3 +25,11 @@ Reading this as a developer portfolio for hiring teams and clients, with a playf
 
 Original site: Inter + Space Grotesk, black and amber surfaces, glowing network illustration, round portrait with degree badge, six nav anchors plus resume and duplicate contact action, long repeated content, custom cursor and background game.
 Existing project facts, contact integration, PDF, analytics, metadata and route inventory are preserved.
+
+## Writing section
+
+The homepage moves from selected work to background, a two-article Writing preview, and contact. The archive uses typographic rows with small category/date labels, concise summaries, and restrained arrow feedback. It continues the paper-and-ink palette without adding large colored panels or decorative article thumbnails.
+
+Reading pages use a 700px text column, 17px body text, a sticky contents list on larger screens, and horizontal scrolling within code examples and tables. Mobile layouts collapse to one column. Native links, semantic headings, visible focus, live search-result counts, and reduced-motion styles preserve navigation and accessibility. Seven source-linked technology articles form the initial collection.
+
+The Keystatic editor is isolated from public navigation and smooth scrolling. Local drafts have a separate preview route and never enter public listings or the feed; production editing requires explicit GitHub authentication configuration.

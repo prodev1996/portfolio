@@ -1,0 +1,61 @@
+---
+title: 'Start observability by following one request'
+description: 'Before adding another dashboard, connect a useful user journey to its traces, metrics, and logs. OpenTelemetry gives that work a common foundation.'
+category: practical-guides
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'OpenTelemetry: Observability primer'
+    url: https://opentelemetry.io/docs/concepts/observability-primer/
+  - title: 'OpenTelemetry: Signals'
+    url: https://opentelemetry.io/docs/concepts/signals/
+  - title: 'OpenTelemetry: Context propagation'
+    url: https://opentelemetry.io/docs/concepts/context-propagation/
+  - title: 'OpenTelemetry Collector'
+    url: https://opentelemetry.io/docs/collector/
+---
+A user reports that submitting a form sometimes takes too long. The application has logs, a server CPU chart, and an error counter. None of those immediately answers which dependency delayed that particular submission.
+
+That is where I would start an observability project: with a question someone actually needs to answer. Instrument one important journey well enough to explain its behaviour, then expand from what the investigation reveals.
+
+## Give each signal a job
+
+OpenTelemetry provides a common approach to producing and exporting telemetry. Its [signals documentation](https://opentelemetry.io/docs/concepts/signals/) distinguishes traces, metrics, and logs, among other signals.
+
+For the slow-form example, I would assign them complementary questions:
+
+- **Metrics:** How often are submissions slow, and when did that change?
+- **Traces:** Which steps consumed time in a particular submission?
+- **Logs:** Which relevant events or errors occurred during those steps?
+
+The [observability primer](https://opentelemetry.io/docs/concepts/observability-primer/) explains the broader goal of understanding a system through its outputs. My practical starting point would be a single route with a clear success condition, rather than collecting every possible measurement at once.
+
+## Preserve the connection between steps
+
+A request might pass through a web handler, a database query, and an external service. If those operations produce unrelated telemetry, the person investigating has to reconstruct the sequence manually.
+
+Context propagation carries the information used to associate work across boundaries. OpenTelemetry's [context-propagation guide](https://opentelemetry.io/docs/concepts/context-propagation/) explains how trace context connects spans and can support correlation with logs.
+
+I would first check the existing framework and library instrumentation. Then I would add application spans only where they express a meaningful operation, such as validating an import or generating a report. A span for every tiny helper function can make a trace harder to read.
+
+For work that moves into a queue, verify the producer-to-consumer boundary explicitly. A useful trace should remain understandable when processing continues after the original HTTP response.
+
+## Keep the data useful and bounded
+
+The temptation during debugging is to record entire inputs. That can make telemetry expensive and expose information that was never needed to diagnose the problem.
+
+I would begin with a small field set: service name, environment, operation, outcome, duration, and a correlation identifier where appropriate. Avoid placing secrets or full message bodies in logs by default. Also review metric labels: unconstrained values such as individual request identifiers can produce far more distinct series than a dashboard needs.
+
+These are proposed design constraints, not measurements from this portfolio. The right retention and sampling settings depend on the service's traffic, risk, and investigation requirements.
+
+## Make collection part of the deployment
+
+The OpenTelemetry Collector can receive, process, and export telemetry. Its [documentation](https://opentelemetry.io/docs/collector/) describes a vendor-neutral component that can sit between applications and backends.
+
+I would treat its configuration as deployable code: review changes, test connectivity, and understand what happens when the destination is unavailable. Telemetry should help operate the application without quietly becoming an unbounded source of memory use or retries.
+
+## Rehearse a small incident
+
+Introduce a controlled delay into a test dependency. Then ask someone to identify the affected route, the delayed step, and the relevant event using the collected signals.
+
+If they cannot connect those pieces, another chart is unlikely to solve the problem. Improve the missing context or naming and repeat the exercise. A successful rehearsal gives the team something concrete: a path from a user's symptom to an explanation they can act on.

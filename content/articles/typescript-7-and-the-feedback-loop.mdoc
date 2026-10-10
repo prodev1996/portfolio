@@ -1,0 +1,49 @@
+---
+title: 'TypeScript 7: a faster compiler changes the feedback loop'
+description: 'The native compiler is here. The useful question is where it saves time in your project, and which tools still need a compatibility check.'
+category: technology
+status: published
+publishedAt: '2026-10-11'
+sources:
+  - title: 'Microsoft: Announcing TypeScript 7.0'
+    url: https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/
+  - title: 'Microsoft: Announcing TypeScript 6.0'
+    url: https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/
+---
+A slow type check changes the way a team works. Small edits wait in a queue, developers postpone running checks, and feedback arrives after attention has moved elsewhere. That is why TypeScript's native compiler interests me: shorter waits can change everyday habits.
+
+Microsoft released TypeScript 7.0 on 8 July 2026. Its compiler and language service are built in Go, with native execution and parallel work. Microsoft's announcement reports substantial improvements across several large repositories. Those are the team's measurements, rather than a prediction for every application. [The release announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) is the place to inspect the examples and their context.
+
+## Measure the wait that actually matters
+
+I would start an upgrade by writing down where time is currently going. A five-second type check in a ten-minute pipeline deserves a different priority from a type checker that dominates every build.
+
+Three measurements would make the comparison useful:
+
+- A clean type check after dependencies are installed.
+- An incremental check following a small edit in a shared type.
+- The delay before the editor displays a diagnostic after opening the project.
+
+Run both versions on the same commit and machine. Keep the dependency lockfile, worker settings, and build mode consistent. Repeat the measurements so a single warm filesystem cache does not become the whole story. Record memory use as well: a faster process can still be a poor fit for a constrained CI runner.
+
+These are proposed evaluation steps. I have not benchmarked this portfolio with TypeScript 7.
+
+## The compiler has neighbours
+
+Type checking sits alongside lint rules, test runners, framework builds, code generators, and editor integrations. An upgrade can succeed at the command line while leaving a plugin behind.
+
+The 7.0 announcement specifically distinguishes the native compiler from tools that need the older JavaScript compiler API. It describes running compatible versions side by side for that transition. Check the support of the exact releases you use, particularly tools that import TypeScript programmatically. [Microsoft's migration discussion](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) explains the initial compatibility approach.
+
+My migration branch would therefore include the normal production build and lint command, not just a successful type check. I would also open a representative file in the editor and try rename, references, and diagnostics. Those interactions are part of the upgrade's value.
+
+## Use the transition to inspect old configuration
+
+TypeScript 6.0 introduced deprecations and configuration changes intended to prepare projects for the native compiler. The [6.0 announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) documents that migration path.
+
+I would review inherited configuration deliberately. Which settings describe a runtime the project still supports? Which came from an old starter? A compatibility workaround should have an explanation and an owner; otherwise it tends to become permanent.
+
+## Spend the saved time on earlier checks
+
+The outcome I would look for is a team comfortable running checks more often. That could mean type checking before a small commit, getting useful diagnostics while exploring an unfamiliar module, or reducing the queue before a review begins.
+
+A release benchmark can justify trying the upgrade. The daily feedback loop is where I would decide whether it delivered.
