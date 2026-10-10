@@ -11,7 +11,7 @@ import ArticleIndex from "@/components/writing/ArticleIndex";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Notes by Rajiv Bhandari on software, data, and the technology behind the work. Practical guides, technology explained, and build notes.",
+    "Rajiv Bhandari writes about new chips, AI developments and risks, phones, laptops, software, and the evolution of technology.",
   alternates: {
     canonical: "/writing",
     types: { "application/rss+xml": "/writing/feed.xml" },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Writing / Rajiv Bhandari",
     url: "/writing",
-    description: "Software, data, and the technology behind the work.",
+    description: "New technology, examined beyond the announcement.",
   },
 };
 
@@ -40,8 +40,8 @@ export default async function WritingPage() {
         </div>
         <div className="writing-intro-note">
           <p>
-            Software, data, and the technology behind the work. A place to
-            explain, explore, and think things through.
+            New chips, AI, devices, and the risks around them. I look past the
+            launch-day claims to understand what is actually changing.
           </p>
           <a href="/writing/feed.xml" className="text-link">
             <Rss size={16} aria-hidden="true" />

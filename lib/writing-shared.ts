@@ -1,5 +1,5 @@
 export const articleCategories = {
-  technology: "Technology",
+  technology: "Technology evolution",
   "build-notes": "Build notes",
   "practical-guides": "Practical guides",
 } as const;

@@ -30,7 +30,7 @@ export default config({
         category: fields.select({
           label: "Category",
           options: [
-            { label: "Technology", value: "technology" },
+            { label: "Technology evolution", value: "technology" },
             { label: "Build notes", value: "build-notes" },
             { label: "Practical guides", value: "practical-guides" },
           ],

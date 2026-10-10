@@ -32,7 +32,7 @@ Bricolage Grotesque and Manrope are self-hosted through next/font. The portrait 
 
 ## Writing and publishing
 
-The Writing section lives at `/writing`, with a two-article preview on the homepage. Seven researched launch articles cover TypeScript, Next.js caching, PostgreSQL, Python concurrency, MCP permissions, passkeys, and OpenTelemetry. Each article includes links to primary sources. They share the actual launch date rather than an invented publishing history.
+The Writing section lives at `/writing`, with a two-article preview on the homepage. Fourteen researched articles cover new AI systems and risks, chips, phones, laptops, software releases, security, data, and observability. Each article links to primary sources and separates vendor claims from the author's analysis.
 
 ### Write an article locally
 
@@ -69,6 +69,6 @@ The contact form preserves the existing EmailJS integration and field names. Del
 
 Production build, TypeScript, and ESLint passed. Browser checks covered 320, 390, 768, and 1440 pixel widths; light and dark appearances; filters; portrait interaction; mobile navigation and Escape focus return; email copying; and required-field validation. All six case studies, résumé, PDF, social image, and favicon returned HTTP 200; an unknown route returned the custom HTTP 404.
 
-Writing verification covered a saved local draft and its preview, exclusion of that draft from every public surface, all seven published article routes, canonical metadata and structured data, the RSS feed, sitemap, search and empty results, category filters, code copying, and responsive light/dark reading layouts. The production editor page and read/write endpoints returned 404 without hosted credentials. The temporary draft was removed after verification.
+Writing verification covered a saved local draft and its preview, exclusion of that draft from every public surface, all published article routes, canonical metadata and structured data, the RSS feed, sitemap, search and empty results, category filters, code copying, and responsive light/dark reading layouts. The production editor page and read/write endpoints returned 404 without hosted credentials. The temporary draft was removed after verification.
 
 Dependency maintenance updated Next.js to 16.3.8 and applied available compatible security fixes. As of 11 October 2026, `npm audit` still reports seven high-severity entries from the same unresolved `braces` stack-exhaustion advisory, propagated through Keystatic's development file watcher and ESLint's glob tooling. No compatible patched dependency resolution was available; the suggested force fix downgrades unrelated packages. Avoid using untrusted glob patterns in those tools and revisit the advisory when an upstream fix ships.
