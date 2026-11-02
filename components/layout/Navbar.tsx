@@ -66,6 +66,7 @@ export default function Navbar() {
           className={open ? "navigation is-open" : "navigation"}
         >
           {[
+            { label: "Home", id: "home" },
             { label: "Work", id: "projects" },
             { label: "About", id: "about" },
             { label: "Contact", id: "contact" },
