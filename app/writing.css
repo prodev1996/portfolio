@@ -29,6 +29,26 @@
 .writing-intro-note .text-link {
   margin-top: 18px;
 }
+.writing-collection-note {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.45fr) 1fr;
+  gap: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--color-border);
+}
+.writing-collection-note span {
+  color: var(--color-text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.writing-collection-note p {
+  max-width: 68ch;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
 .writing-tools {
   display: flex;
   align-items: center;
@@ -581,6 +601,11 @@
   }
   .writing-intro-note .text-link {
     margin-top: 8px;
+  }
+  .writing-collection-note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-block: 17px;
   }
   .writing-tools {
     gap: 13px;

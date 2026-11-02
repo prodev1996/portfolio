@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Check, Copy, Plus } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Reveal } from "./PortfolioMotion";
 import { siteConfig } from "@/data/site";
 const ContactForm = dynamic(() => import("./ContactForm"), {
@@ -33,9 +34,17 @@ export default function ContactSection() {
       </Reveal>
       <div className="contact-details">
         <p>
-          A role, a project, or a good technical problem.
+          An application support role, a data problem, or a system that needs
+          careful delivery.
           <br />
           I’d love to hear about it.
+          <span className="contact-focus">
+            Currently focused on application support, business systems, and
+            data roles in Adelaide.
+          </span>
+          <Link href="/resume" className="text-link">
+            View my résumé <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
         </p>
         <div className="email-row">
           <a href={"mailto:" + siteConfig.email}>{siteConfig.email}</a>
@@ -59,7 +68,7 @@ export default function ContactSection() {
       <button
         className="form-toggle"
         type="button"
-        onClick={() => setFormOpen(!formOpen)}
+        onClick={() => setFormOpen((current) => !current)}
         aria-expanded={formOpen}
         aria-controls="contact-form-panel"
       >

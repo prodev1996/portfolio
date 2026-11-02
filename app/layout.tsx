@@ -23,18 +23,18 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rajivbhandari.com"),
   title: {
-    default: "Rajiv Bhandari | Application Support, Data & Software",
+    default: "Rajiv Bhandari | Application Support & Business Systems",
     template: "%s | Rajiv Bhandari",
   },
   description:
-    "Portfolio of Rajiv Bhandari, based in Adelaide. Application support, SQL-based data analysis, and software development, building toward data engineering. Real client projects, open-source builds, resume, and contact details.",
+    "Portfolio of Rajiv Bhandari, an Adelaide-based application support and business systems professional with SQL, data analysis, and software delivery experience.",
   alternates: {
     canonical: "https://www.rajivbhandari.com",
   },
   openGraph: {
-    title: "Rajiv Bhandari | Application Support, Data & Software",
+    title: "Rajiv Bhandari | Application Support & Business Systems",
     description:
-      "Application support, SQL-based data analysis, and software development portfolio. Real client projects, open-source data and full-stack builds, and a resume, all in one place.",
+      "Application support and business systems, strengthened by SQL, data analysis, and practical software delivery.",
     url: "https://www.rajivbhandari.com",
     siteName: "Rajiv Bhandari Portfolio",
     type: "profile",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajiv Bhandari | Application Support, Data & Software",
+    title: "Rajiv Bhandari | Application Support & Business Systems",
     description:
-      "Application support, SQL-based data analysis, and software development professional based in Adelaide, building toward data engineering.",
+      "Application support and business systems, strengthened by SQL, data analysis, and practical software delivery.",
     images: ["/opengraph-image"],
   },
   keywords: [
@@ -121,6 +121,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Rajiv Bhandari",
+    url: "https://www.rajivbhandari.com",
+    image: "https://www.rajivbhandari.com/profile-headshot.png",
+    jobTitle: "Application Support and Business Systems Professional",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Adelaide",
+      addressRegion: "SA",
+      addressCountry: "AU",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/rajiv-bhandari25/",
+      "https://github.com/prodev1996",
+    ],
+    knowsAbout: [
+      "Application support",
+      "Business systems",
+      "SQL",
+      "Data analysis",
+      "User acceptance testing",
+      "Software development",
+    ],
+  };
   return (
     <html
       lang="en"
@@ -128,6 +154,12 @@ export default function RootLayout({
       className={`${manrope.variable} ${bricolage.variable}`}
     >
       <body className="bg-bg text-text antialiased font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider>
           <SiteFrame>{children}</SiteFrame>
           <Analytics />

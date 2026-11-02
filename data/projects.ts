@@ -237,7 +237,7 @@ export const projects: PortfolioProject[] = [
       "Documented setup, data generation, and how to reproduce every result from scratch, for both PostgreSQL and SQLite.",
     ],
     takeaway:
-      "This project is the clearest evidence of where I'm heading: real SQL analysis on the way to data engineering.",
+      "This project shows the SQL depth and data-quality discipline I bring to application support, reporting, and business systems work.",
     challenge:
       "It's easy to demonstrate basic SQL with a SELECT and a GROUP BY. It's harder to show the kind of analysis an actual analyst does, churn scoring, cohort retention, and rolling regional metrics, on data realistic enough for the findings to mean something.",
     solution:
@@ -245,9 +245,9 @@ export const projects: PortfolioProject[] = [
     outcome:
       "A working, tested analysis covering high-value customer churn risk, month-by-month cohort retention, and 30-day rolling revenue and basket size by state, all reproducible from a single seeded generator run.",
     supportValue: [
-      "Directly demonstrates the SQL depth that data analyst and data engineering roles look for.",
+      "Directly demonstrates the SQL depth valued in application support, reporting, and data roles.",
       "Shows testing discipline carried over into data work, on top of application code.",
-      "The strongest single piece of evidence for the data engineering trajectory.",
+      "The strongest single piece of evidence for data as a genuine technical differentiator.",
     ],
   },
   {

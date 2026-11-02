@@ -5,10 +5,10 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projectPresentation } from "@/data/project-presentation";
 const featured = [
-  "glide-education",
+  "enterprise-compliance-platform",
   "sql-retail-analytics",
-  "prime-roof-care",
-  "fixorahub",
+  "glide-education",
+  "sales-dashboard",
 ];
 const filters = ["All work", "Websites", "Data", "Software"] as const;
 type ProjectSummary = { slug: string; title: string; image: string };
@@ -40,7 +40,7 @@ export default function SelectedWork({
           <h2>
             Selected work<span className="accent-punctuation">.</span>
           </h2>
-          <p>Websites, software, and a closer look at the data.</p>
+          <p>Production support, tested data work, and practical delivery.</p>
         </div>
         <div className="work-filters" role="group" aria-label="Filter projects">
           {filters.map((name) => (

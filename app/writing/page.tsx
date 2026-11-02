@@ -61,6 +61,13 @@ export default async function WritingPage() {
           ))}
         </div>
       )}
+      <aside className="writing-collection-note" aria-label="About this collection">
+        <span>Launch collection / 11 October 2026</span>
+        <p>
+          These first notes set the direction for this notebook. New pieces
+          follow when I have tested, built, or learned something worth sharing.
+        </p>
+      </aside>
       <ArticleIndex articles={articles.map(articleSummary)} />
       <footer className="writing-footer">
         <span>Have a question or a different perspective?</span>

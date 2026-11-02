@@ -11,11 +11,23 @@ import { projectPresentation } from "@/data/project-presentation";
 export const metadata: Metadata = {
   title: "Résumé",
   description:
-    "Rajiv Bhandari’s experience in application support, data analysis, and software development.",
+    "Rajiv Bhandari’s experience in application support and business systems, with SQL, data analysis, and software delivery.",
   alternates: { canonical: "/resume" },
 };
 const cleanDate = (date: string) => date.replace(/[–—]/g, "-");
+const selectedProjectSlugs = [
+  "enterprise-compliance-platform",
+  "sql-retail-analytics",
+  "sales-dashboard",
+  "glide-education",
+];
 export default function ResumePage() {
+  const additionalExperience = experience.filter((entry) =>
+    entry.role.includes("Disability Support"),
+  );
+  const technicalExperience = experience.filter(
+    (entry) => !entry.role.includes("Disability Support"),
+  );
   return (
     <article className="resume-page section-shell">
       <Link className="back-link" href="/">
@@ -28,9 +40,9 @@ export default function ResumePage() {
             Rajiv Bhandari<span className="accent-punctuation">.</span>
           </h1>
           <p>
-            Application support, data &amp; software
+            Application support &amp; business systems
             <br />
-            Adelaide, South Australia
+            SQL &amp; data / Adelaide, South Australia
           </p>
         </div>
         <a href={siteConfig.resumePdfUrl} className="btn-primary" download>
@@ -41,7 +53,24 @@ export default function ResumePage() {
         <div>
           <section>
             <h2>Experience</h2>
-            {experience.map((entry) => (
+            {technicalExperience.map((entry) => (
+              <article className="resume-entry" key={entry.company}>
+                <p className="resume-meta">
+                  {cleanDate(entry.period)} / {entry.location}
+                </p>
+                <h3>{entry.role}</h3>
+                <p>{entry.company}</p>
+                <ul>
+                  {entry.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </section>
+          <section>
+            <h2>Additional experience</h2>
+            {additionalExperience.map((entry) => (
               <article className="resume-entry" key={entry.company}>
                 <p className="resume-meta">
                   {cleanDate(entry.period)} / {entry.location}
@@ -58,14 +87,9 @@ export default function ResumePage() {
           </section>
           <section>
             <h2>Selected work</h2>
-            {projects
-              .filter((p) =>
-                [
-                  "glide-education",
-                  "sql-retail-analytics",
-                  "fixorahub",
-                ].includes(p.slug),
-              )
+            {selectedProjectSlugs
+              .map((slug) => projects.find((project) => project.slug === slug))
+              .filter((project) => project !== undefined)
               .map((project) => (
                 <article className="resume-entry" key={project.slug}>
                   <Link

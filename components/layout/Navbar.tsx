@@ -56,7 +56,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="main-navigation"
           aria-label={open ? "Close navigation" : "Open navigation"}
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((current) => !current)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>

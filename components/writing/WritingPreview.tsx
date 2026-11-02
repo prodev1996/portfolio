@@ -14,7 +14,8 @@ export default async function WritingPreview() {
         <div>
           <p className="eyebrow">From the notebook</p>
           <h2 id="writing-heading">
-            A little more to share<span className="accent-punctuation">.</span>
+            Technology, tested &amp; questioned
+            <span className="accent-punctuation">.</span>
           </h2>
         </div>
         <Link href="/writing" className="text-link">

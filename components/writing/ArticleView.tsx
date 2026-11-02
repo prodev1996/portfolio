@@ -132,7 +132,7 @@ export default function ArticleView({
               <Link href="/#about">
                 Rajiv Bhandari <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
-              <span>Software, data &amp; a human touch.</span>
+              <span>Application support, business systems &amp; data.</span>
             </div>
             <Link className="text-link" href="/writing">
               More writing <ArrowUpRight size={18} aria-hidden="true" />

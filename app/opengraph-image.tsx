@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
         }}
       >
         <span style={{ fontWeight: 700 }}>Rajiv Bhandari</span>
-        <span>Software, data & a human touch.</span>
+        <span>Application support, business systems & data.</span>
       </div>
       <div
         style={{
@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
           fontSize: 22,
         }}
       >
-        <span>Application support / Data / Development</span>
+        <span>Application support / Business systems / SQL & data</span>
         <span>rajivbhandari.com</span>
       </div>
     </div>,

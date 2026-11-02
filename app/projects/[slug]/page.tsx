@@ -40,8 +40,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       (projects.findIndex((p) => p.slug === slug) + 1) % projects.length
     ];
   const externalUrl = project.liveUrl || project.githubUrl;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.overview,
+    url: `https://www.rajivbhandari.com/projects/${project.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Rajiv Bhandari",
+      url: "https://www.rajivbhandari.com",
+    },
+    keywords: project.stack.join(", "),
+  };
   return (
     <article className="case-page section-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <Link href="/#projects" className="back-link">
         <ArrowLeft size={17} aria-hidden="true" /> All work
       </Link>
@@ -81,6 +100,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </dd>
         </div>
       </dl>
+      <section className="case-impact" aria-labelledby="impact-heading">
+        <p id="impact-heading">Why it matters</p>
+        <h2>{project.impact}</h2>
+        <ul aria-label="Project proof">
+          {project.trustSignals.map((signal) => (
+            <li key={signal}>{signal}</li>
+          ))}
+        </ul>
+      </section>
       <div className="case-image">
         <Image
           src={project.image}
@@ -111,7 +139,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
       <section className="case-story">
         <h2>The result</h2>
-        <p>{project.measurableOutcome}</p>
+        <div>
+          <p>{project.measurableOutcome}</p>
+          <ul>
+            {project.supportProof.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="case-evidence">
+        <div>
+          <p className="eyebrow">What this demonstrates</p>
+          <ul>
+            {project.skillsShown.map((skill) => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </div>
+        <blockquote>{project.takeaway}</blockquote>
       </section>
       {project.images
         .filter((image) => image.src !== project.image)

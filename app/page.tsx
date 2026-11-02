@@ -11,6 +11,23 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <section className="proof-strip section-shell" aria-label="Core strengths">
+        <div>
+          <span>01 / Application support</span>
+          <strong>Own the issue through release.</strong>
+          <p>UAT, access, workflows, defects, and clear documentation.</p>
+        </div>
+        <div>
+          <span>02 / Data confidence</span>
+          <strong>Use SQL to find what is true.</strong>
+          <p>Validation, analysis, reporting, and tested data pipelines.</p>
+        </div>
+        <div>
+          <span>03 / Practical delivery</span>
+          <strong>Build, launch, and stay involved.</strong>
+          <p>Two live client sites plus full-stack and dashboard builds.</p>
+        </div>
+      </section>
       <section id="projects" className="work-section section-shell">
         <SelectedWork
           projects={projects.map(({ slug, image, title }) => ({
@@ -32,13 +49,14 @@ export default function Home() {
           <Reveal className="about-intro">
             <h3>Hi again, I’m Rajiv.</h3>
             <p>
-              I’m a developer and application support professional in Adelaide.
-              I like figuring out how things work, why they break, and how to
-              make them easier for people to use.
+              I’m an application support and business systems professional in
+              Adelaide. I like figuring out how things work, why they break,
+              and how to make them easier for people to use.
             </p>
             <p>
-              My work moves between websites, business applications, and SQL. I
-              stay involved after launch, too.
+              My strongest fit is application support, with SQL and data as a
+              differentiator. Software and web delivery show that I can follow
+              a problem all the way from diagnosis to a working solution.
             </p>
             <Link href="/resume" className="text-link">
               The full résumé <ArrowUpRight size={19} aria-hidden="true" />
@@ -48,16 +66,16 @@ export default function Home() {
             <div id="skills" className="expertise-group">
               <h3>What I bring</h3>
               <div className="expertise-row">
-                <span>Build</span>
-                <p>React, Next.js, TypeScript, Django</p>
+                <span>Support</span>
+                <p>Business systems, Microsoft 365, UAT, releases</p>
               </div>
               <div className="expertise-row">
-                <span>Understand</span>
+                <span>Analyse</span>
                 <p>SQL, PostgreSQL, Python, data validation</p>
               </div>
               <div className="expertise-row">
-                <span>Support</span>
-                <p>Business systems, Microsoft 365, UAT, releases</p>
+                <span>Build</span>
+                <p>React, Next.js, TypeScript, Django</p>
               </div>
             </div>
             <div id="experience" className="background-note">
@@ -71,7 +89,8 @@ export default function Home() {
               <h3>Foundations</h3>
               <p>
                 Master of Information Technology (Advanced), Torrens University
-                Australia. Now building toward data engineering.
+                Australia, backed by production support, QA, and data-quality
+                experience.
               </p>
             </div>
           </Reveal>
@@ -92,6 +111,7 @@ export default function Home() {
           <a href={siteConfig.linkedinUrl} target="_blank" rel="noreferrer">
             LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
           </a>
+          <Link href="/privacy">Privacy</Link>
         </div>
       </footer>
     </>

@@ -1,6 +1,8 @@
 "use client";
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { siteConfig } from "@/data/site";
 
 export default function ContactForm() {
@@ -34,6 +36,7 @@ export default function ContactForm() {
         { publicKey: "OLTsoARhv6m_4OIgP" },
       );
       setFeedback("Message sent. Thanks for getting in touch.");
+      track("contact_form_submitted");
       setFormData({ name: "", email: "", message: "" });
     } catch {
       setFeedback(
@@ -58,7 +61,10 @@ export default function ContactForm() {
             maxLength={120}
             value={formData.name}
             onChange={(event) =>
-              setFormData({ ...formData, name: event.target.value })
+              setFormData((current) => ({
+                ...current,
+                name: event.target.value,
+              }))
             }
             placeholder="Your name"
           />
@@ -74,7 +80,10 @@ export default function ContactForm() {
             maxLength={254}
             value={formData.email}
             onChange={(event) =>
-              setFormData({ ...formData, email: event.target.value })
+              setFormData((current) => ({
+                ...current,
+                email: event.target.value,
+              }))
             }
             placeholder="you@example.com"
           />
@@ -89,7 +98,10 @@ export default function ContactForm() {
             maxLength={5000}
             value={formData.message}
             onChange={(event) =>
-              setFormData({ ...formData, message: event.target.value })
+              setFormData((current) => ({
+                ...current,
+                message: event.target.value,
+              }))
             }
             placeholder="Tell me about the role, project, or idea."
           />
@@ -104,6 +116,10 @@ export default function ContactForm() {
           {feedback}
         </p>
       </div>
+      <p className="form-privacy">
+        Your details are used only to reply to your message. Read the{" "}
+        <Link href="/privacy">privacy note</Link>.
+      </p>
     </form>
   );
 }
