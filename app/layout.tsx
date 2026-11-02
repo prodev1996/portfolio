@@ -2,8 +2,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
-import "./writing.css";
+import "./portfolio.css";
 
 import SiteFrame from "@/components/layout/SiteFrame";
 import ThemeProvider from "@/components/layout/ThemeProvider";
